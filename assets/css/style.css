@@ -1,0 +1,64 @@
+/* :root {
+    definir
+} */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style-type: none;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 6rem;
+}
+.div-logo-nav {
+    display: flex;
+    width: 50%;
+}
+.div-logo {
+    padding-right: 5rem;
+}
+.nav-header ul {
+    display: flex;
+}
+.nav-header li {
+    padding-right: 2rem;
+}
+/* MAIN */
+.div-h1 {
+    text-align: center;
+    margin: 3rem auto;
+}
+.cards {
+    display: flex;
+    justify-content: space-around;
+}
+.cards div {
+    border: solid 1px black;
+}
+
+.div-link-cadastrar{
+    text-align: center;
+    margin: 3rem auto;
+}
+/* FOOTER */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem 1rem;
+}
+.footer ul {
+    display: flex;
+}
+.footer li {
+    padding-right: 1rem;
+}
