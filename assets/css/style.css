@@ -41,14 +41,21 @@ li {
 .cards {
     display: flex;
     justify-content: space-around;
+    text-align: center;
 }
-.cards div {
-    border: solid 1px black;
+.div-cards {
+    box-shadow: 0 8px 16px rgba(46, 52, 88, 0.16);
+    width: 284px;
+    border-radius: 5%;
+    
 }
-
-.cards-img {
-    width: 221px;
-    height: 199px;
+.cards p {
+    margin: 3rem 2rem;
+}
+.img-cards {
+    width: 250px;
+    height: 220px;
+    
 }
 
 .div-link-cadastrar{
