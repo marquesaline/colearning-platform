@@ -1,11 +1,15 @@
-/* :root {
-    definir
-} */
+:root {
+    --background-primary: #F5F6FA;
+    --background-button: #FF7A00;
+    --font-color: #000;
+    --font-color-button: #FFF;
+} 
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family:'Monteserrat', sans-serif;
 }
 a {
     text-decoration: none;
@@ -19,6 +23,7 @@ li {
     display: flex;
     justify-content: space-between;
     padding: 2rem 6rem;
+    background-color: var(--background-primary);
 }
 .div-logo-nav {
     display: flex;
@@ -30,35 +35,85 @@ li {
 .nav-header ul {
     display: flex;
 }
+.nav-header a {
+    color: var(--font-color);
+}
 .nav-header li {
     padding-right: 2rem;
 }
+.div-login a {
+    line-height: 22px;
+    font-weight: 700;
+    padding: 12px 49px;
+    background-color: var(--background-button);
+    border-radius: 5px;
+    color: var(--font-color-button);
+}
 /* MAIN */
+.section-carousel {
+    width: 100%;
+    height: 250px;
+    background-color: var(--background-primary);
+}
 .div-h1 {
     text-align: center;
-    margin: 3rem auto;
+    margin: 5rem auto;
 }
 .cards {
     display: flex;
     justify-content: space-around;
+    text-align: center;
 }
-.cards div {
-    border: solid 1px black;
+.div-cards {
+    box-shadow: 0 8px 16px rgba(46, 52, 88, 0.16);
+    width: 284px;
+    border-radius: 5%;  
+}
+.cards p {
+    margin: 3rem 2rem;
+}
+.img-cards {
+    width: 250px;
+    height: 220px;
+    
 }
 
 .div-link-cadastrar{
     text-align: center;
-    margin: 3rem auto;
+    margin: 5rem auto;
+}
+
+.div-link-cadastrar a {
+    line-height: 22px;
+    font-weight: 700;
+    padding: 12px 49px;
+    background-color: var(--background-button);
+    border-radius: 5px; 
+    color: var(--font-color-button);
 }
 /* FOOTER */
 .footer {
     display: flex;
-    justify-content: space-around;
-    padding: 2rem 1rem;
+    justify-content: space-between;
+    padding: 2rem 6rem;
+    background-color: var(--background-primary);
+    
 }
 .footer ul {
     display: flex;
 }
 .footer li {
     padding-right: 1rem;
+}
+.footer a {
+    color: var(--font-color);
+}
+.div-copy-nav {
+    display: flex;
+    width: 57%;
+    justify-content: space-between;
+}
+.logo-social-media {
+    width: 29px;
+    height: 29px;
 }
