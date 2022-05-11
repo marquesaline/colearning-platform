@@ -35,8 +35,14 @@ li {
 .nav-header ul {
     display: flex;
 }
-.nav-header a {
+.nav-header a, 
+.footer a {
     color: var(--font-color);
+    font-weight: 600;
+}
+.nav-header a:hover, 
+.div-menu-footer a:hover {
+    color: var(--background-button);
 }
 .nav-header li {
     padding-right: 2rem;
@@ -49,6 +55,13 @@ li {
     border-radius: 5px;
     color: var(--font-color-button);
 }
+.div-login a:hover,
+.div-link-cadastrar a:hover {
+    background-color: transparent;
+    color: var(--background-button);
+    border: 1px solid var(--background-button);
+}
+
 /* MAIN */
 .section-carousel {
     width: 100%;
@@ -77,7 +90,6 @@ li {
     height: 220px;
     
 }
-
 .div-link-cadastrar{
     text-align: center;
     margin: 5rem auto;
@@ -91,12 +103,14 @@ li {
     border-radius: 5px; 
     color: var(--font-color-button);
 }
+
 /* FOOTER */
 .footer {
     display: flex;
     justify-content: space-between;
-    padding: 2rem 6rem;
+    padding: 1.8rem 6rem;
     background-color: var(--background-primary);
+    align-items: center;
     
 }
 .footer ul {
@@ -105,14 +119,12 @@ li {
 .footer li {
     padding-right: 1rem;
 }
-.footer a {
-    color: var(--font-color);
-}
 .div-copy-nav {
     display: flex;
     width: 57%;
     justify-content: space-between;
 }
+
 .logo-social-media {
     width: 29px;
     height: 29px;
