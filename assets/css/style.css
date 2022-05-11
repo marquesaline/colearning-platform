@@ -80,10 +80,15 @@ li {
     display: flex;
     justify-content: space-around;
     padding: 2rem 1rem;
+    border: solid 1px black;
 }
 .footer ul {
     display: flex;
 }
 .footer li {
     padding-right: 1rem;
+}
+.logo-social-media {
+    width: 29px;
+    height: 29px;
 }
