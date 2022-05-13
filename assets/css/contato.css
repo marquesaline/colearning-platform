@@ -14,6 +14,15 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow:scroll;
+    scroll-behavior: smooth;
 }
 
 .img-container{
@@ -30,9 +39,12 @@
     text-align: center;
 }
 
-.container-list-mensagem{
-    font-size: 1.3rem;   
-    
+.container-list-mensagem{  
+        font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .container-mensagem{
@@ -57,16 +69,15 @@
 
 .container-imput{
     width: 100%;
-    height:5vh; 
+    height: 25px;
 }
 
 .form-label{
-    text-align: right;
     display: flex;
-    justify-content: start;
-    margin: 15px;
+    margin: 5px;
+    flex-direction: column;
+    align-items: stretch;
 }
-
 #submit{
     width: 100px;
     display: flex;
@@ -89,7 +100,7 @@
     padding: 2rem 1rem;
     width: 100vw;
     background-color: #c9842a;
-    position: absolute;
+    margin-top:5px;
     bottom: 0;
     left: 0;
 }
