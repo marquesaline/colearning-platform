@@ -11,13 +11,15 @@
 </head>
 
 <body>
-    <header>
+    <header class="header">
 
     </header>
     <main>
         <h1 class="titulo-p">Entre Em Contato Conosco</h1>
-        <div>
-            aqui
+        <div class="principal">
+           <div class="img-container">
+               <img class="img" src="https://www.blusaude.com.br/images/img-site/contato-imagem.png" alt="contato">
+        
         </div>
         <div class="container-list-mensagem">
             <ul class="container-list">
@@ -27,23 +29,27 @@
                 <li>+55 (13) 3445-6531</li>
             </ul>
             <p class="container-mensagem">ou nos envie uma mensagem...</p>
+            <div class="forminput">
+                <form class="form-label-imput">
+                <label class="form-label" for="nome">Nome:<input class="container-imput" type="text" name="nome"> </label>
+                
 
-            <form class="form-label-imput">
-                <label class="form-label" for="nome">Nome: </label>
-                <input class="container-imput" type="text" name="nome">
+                <label class="form-label" for="numero">Numero:<input class="container-imput" type="text" name="numero"></label>
+               
 
-                <label class="form-label" for="numero">Numero</label>
-                <input class="container-imput" type="text" name="numero">
-
-                <label class="form-label" for="mensagem">Mensagem</label>
-                <textarea id="mensagem" name="mensagem" rows="5" cols="20" placeholder="Digite sua mensagem"></textarea>
+                <label class="form-label" for="mensagem">Mensagem:<textarea id="mensagem" name="mensagem" rows="5" cols="41" placeholder="Digite sua mensagem"></textarea></label>
+                
 
                 <button id="submit" type="submit" name="submit">Enviar</button>
 
             </form>
+            </div>
+            
+        </div> 
         </div>
+        
     </main>
-    <footer>
+    <footer class="footer">
 
     </footer>
 </body>
