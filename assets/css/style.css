@@ -11,6 +11,7 @@
     padding: 0;
     font-family:'Monteserrat', sans-serif;
     
+    
 }
 a {
     text-decoration: none;
@@ -66,14 +67,70 @@ li {
 /* MAIN */
 .section-carousel {
     width: 100%;
-    height: 300px;
-    background-color: var(--background-primary);
+    height: 500px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+} 
+.carousel {
+    overflow: hidden;
+    height: 500px;
+    width: 100%;
+    position: absolute;
+}
+.carousel input {
+    display: none;
+}
+.slides {
+    display: flex;
+    width: 500%;
+    height: 100%;
+}
+.slide {
+    width: 20%;
+    transition: 0.8s;
+}
+.slide img {
+    width: 100%;
+    height: 100%;
+}
+
+#slide-img1:checked ~ .s-img1 {
+    margin-left: 0;
+}
+#slide-img2:checked ~ .s-img1{
+    margin-left: -20%;
+}
+#slide-img3:checked ~ .s-img1{
+    margin-left: -40%;
+}
+.carousel-nav {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    left: 50%;
+    transform: translate(-50%);
+}
+.bar {
+    width: 70px;
+    height: 17px;
+    border: 2px solid #FFF;
+    margin: 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.bar:hover {
+    background-color: #FFF;
+}
+
+
+
+.section-cards{
+    margin: 5rem auto;
 }
 .div-h1 {
     text-align: center;
     margin: 5rem auto;
-    font-weight: 48px;
+    font-size: 30px;
 }
 .cards {
     display: flex;
@@ -88,10 +145,19 @@ li {
 .cards p {
     margin: 3rem 2rem;
 }
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    
+}
+
 .img-cards {
     width: 250px;
     height: 220px;
     
+}
+.card-description {
+    font-size: 14px;
 }
 .div-link-cadastrar{
     text-align: center;
@@ -124,7 +190,7 @@ li {
 }
 .div-copy-nav {
     display: flex;
-    width: 57%;
+    width: 58rem;
     justify-content: space-between;
 }
 
