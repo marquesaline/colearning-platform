@@ -11,6 +11,7 @@
     padding: 0;
     font-family:'Monteserrat', sans-serif;
     
+    
 }
 a {
     text-decoration: none;
@@ -129,7 +130,7 @@ li {
 .div-h1 {
     text-align: center;
     margin: 5rem auto;
-    font-weight: 48px;
+    font-size: 30px;
 }
 .cards {
     display: flex;
@@ -144,10 +145,19 @@ li {
 .cards p {
     margin: 3rem 2rem;
 }
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    
+}
+
 .img-cards {
     width: 250px;
     height: 220px;
     
+}
+.card-description {
+    font-size: 14px;
 }
 .div-link-cadastrar{
     text-align: center;
@@ -180,7 +190,7 @@ li {
 }
 .div-copy-nav {
     display: flex;
-    width: 57%;
+    width: 58rem;
     justify-content: space-between;
 }
 
