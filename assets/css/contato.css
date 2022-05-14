@@ -1,13 +1,21 @@
+@import url(header-footer.css);
+:root {
+    --background-primary: #F5F6FA;
+    --background-button: #FF7A00;
+    --font-color: #000;
+    --font-color-button: #FFF;
+} 
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.header {
-    background-color: #c9842a;
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem 6rem;
+a {
+    text-decoration: none;
+}
+li {
+    list-style-type: none;
 }
 
 .principal{
@@ -87,20 +95,11 @@
     border-radius: 5px;
     border: 1px solid rgb(70, 69, 69);
     cursor: pointer;
-    background-color: #ECA03C;
+    background-color: var(--background-button);
+    color: var(--font-color-button);
     
 }
 #submit:active{
     width: 110px ;
     background-color: #c9842a;
-}
-.footer {
-    display: flex;
-    justify-content: space-around;
-    padding: 2rem 1rem;
-    width: 100vw;
-    background-color: #c9842a;
-    margin-top:5px;
-    bottom: 0;
-    left: 0;
 }
