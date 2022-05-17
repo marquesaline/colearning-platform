@@ -28,11 +28,16 @@ li {
     scroll-behavior: smooth;
    
 }
-.img-container{
+.principal{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 2rem auto; 
+}
+.img-container{
+
     width: 40vw;
+    margin-right: 5rem;
 }
 .img{
     width: 100%;
@@ -41,25 +46,26 @@ li {
     margin: 4rem auto;
     text-align: center;
 }
-.principal{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 2rem auto; 
-
-}
 .container-list-mensagem{  
     font-size: 1.3rem;
     display: flex;
     flex-direction: column;
+    
 }
 .container-list li {
     padding-bottom: 1rem;
+    font-size: 16px;
+    
+}
+.img-icons {
+    width: 25px;
+    height: 25px;
 }
 
 .container-mensagem{
     text-align: center;
     margin: 10px 0 10px 60px; 
+    font-size: 16px;
 }
 
 .forminput{
