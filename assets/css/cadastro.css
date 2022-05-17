@@ -29,6 +29,8 @@ main {
     align-items: center;
     padding: 2rem;
     background-color: var(--background-primary);
+    box-shadow: 0 8px 16px rgba(46, 52, 88, 0.16);
+    border-radius: 10px;
 }
 
 .form-title {
@@ -50,8 +52,8 @@ main {
 }
 .form input {
     margin-bottom: 0.7rem;
-    height: 30px;
-    border-radius: 4px;
+    height: 35px;
+    border-radius: 6px;
     border: #979797 1px solid;
     padding: 0 5px;
 }
@@ -74,4 +76,14 @@ main {
     background-color: transparent;
     color: var(--background-button);
     border: 1px solid var(--background-button);
+}
+.registered {
+    text-align: center;
+    margin-top: 2rem;
+}
+.registered p{
+    font-size: 14px;
+}
+.registered a {
+    color: var(--background-button);
 }
