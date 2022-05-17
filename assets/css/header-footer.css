@@ -53,10 +53,10 @@
     justify-content: space-between;
     margin-top: 3rem;
     margin-bottom: 0;
-    padding: 1.8rem 6rem;
+    padding: 1.7rem 6rem;
     background-color: var(--background-primary);
     align-items: center;
-    height: 100%;
+    height: 100%; 
     
 }
 .footer ul {
@@ -67,7 +67,7 @@
 }
 .div-copy-nav {
     display: flex;
-    width: 58rem;
+    width: 58%;
     justify-content: space-between;
 }
 

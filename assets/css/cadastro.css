@@ -25,7 +25,7 @@ main {
 
 .container {
     max-width: 440px;
-    margin: 17rem auto;
+    margin: 10rem auto;
     align-items: center;
     padding: 2rem;
     background-color: var(--background-primary);
