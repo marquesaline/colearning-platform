@@ -1,0 +1,50 @@
+<%- include('partials/header.ejs') %>
+    <main class="main">
+        <h1 class="titulo-p">Entre em Contato Conosco</h1>
+        <div>
+        <div class="principal">
+           <div class="img-container">
+               <img class="img" src="/images/map.png" alt="contato">
+        
+            </div>
+            <div class="container-list-mensagem">
+                <ul class="container-list">
+                    <li>
+                        <img class="img-icons" src="/images/icon-site.png" alt="ícone de site">
+                        www.exemplo.ip
+                    </li>
+                    <li> <img class="img-icons" src="/images/icon-email.png" alt="ícone de email">
+                        exemplo@.exemplo.ip
+                    </li>
+                    <li>
+                        <img class="img-icons" src="/images/icon-tel.png" alt="ícone do telefone">
+                        +55 (99) 99999-9999
+                    </li>
+                    <li>
+                        <img class="img-icons" src="/images/icon-whatsapp.png" alt="ícone do whatsapp">
+                        +55 (99) 99999-9999
+                    </li>
+                </ul>
+                <p class="container-mensagem">ou nos envie uma mensagem</p>
+                <div class="forminput">
+                    <form action="contato.html" method="post" class="form-label-input">
+                        <label class="form-label" for="nome">Nome</label>
+                        <input class="container-input" type="text" name="nome"> 
+
+                        <label class="form-label" for="email">Email</label>
+                        <input class="container-input" type="email" name="email" placeholder="exemplo@exemplo.com">
+
+                        <label class="form-label" for="numero">Telefone</label>
+                        <input class="container-input" type="tel" name="telefone" placeholder="(99)99999-9999">
+
+                        <label class="form-label" for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" cols="41" placeholder="Digite sua mensagem"></textarea>
+                        
+                        <button id="submit" type="submit" name="submit">Enviar</button>
+
+                </form>
+            </div>
+            
+        </div>         
+    </main>
+    <%- include('partials/footer.ejs') %>

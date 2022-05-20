@@ -1,0 +1,100 @@
+:root {
+    --background-primary: #F5F6FA;
+    --background-button: #FF7A00;
+    --font-color: #000;
+    --font-color-button: #FFF;
+    --font-size-btn: 16px;
+} 
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 6rem;
+    background-color: var(--background-primary);
+}
+.div-logo-nav {
+    display: flex;
+    width: 50%;
+}
+.div-logo {
+    padding-right: 5rem;
+}
+.nav-header ul {
+    display: flex;
+}
+.nav-header a, 
+.footer a {
+    color: var(--font-color);
+    font-weight: 600;
+    
+}
+.nav-header a:hover, 
+.div-menu-footer a:hover {
+    color: var(--background-button);
+}
+.nav-header li {
+    padding-right: 2rem;
+}
+.div-login a {
+    line-height: 22px;
+    font-weight: 700;
+    padding: 12px 49px;
+    background-color: var(--background-button);
+    border-radius: 5px;
+    color: var(--font-color-button);
+    font-size: var(--font-size-btn);
+}
+.div-login a:hover,
+.div-link-cadastrar a:hover {
+    background-color: transparent;
+    color: var(--background-button);
+    border: 1px solid var(--background-button);
+}
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    margin-bottom: 0;
+    padding: 1.7rem 6rem;
+    background-color: var(--background-primary);
+    align-items: center;
+    height: 100%; 
+    
+}
+.footer ul {
+    display: flex;
+}
+.footer li {
+    padding-right: 2rem;
+}
+.div-copy-nav {
+    display: flex;
+    width: 58%;
+    justify-content: space-between;
+}
+
+.logo-social-media {
+    width: 29px;
+    height: 29px;
+}
+
+@media screen and (max-width: 480px) {
+    /* FOOOTER */
+    .footer {
+        display: block;
+        text-align: center;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+    .div-copy-nav {
+        display: block;
+    }
+    .div-menu-footer ul{
+        display: block;
+        text-align: center;
+
+    }
+}

@@ -1,0 +1,68 @@
+<%- include('partials/header.ejs') %>
+  <main>
+      <section class="section-carousel">
+          <div class="carousel">
+              <div class="slides">
+                  <input type="radio" name="slide" id="slide-img1">
+                  <input type="radio" name="slide" id="slide-img2">
+                  <input type="radio" name="slide" id="slide-img3">
+                  
+                  <div class="slide s-img1">
+                    <img src="/images/banner-exemplo.jpg" alt="">
+                  </div>
+
+                  <div class="slide">
+                      <img src="/images/banner2.jpg" alt="">
+                  </div>
+
+                  <div class="slide">
+                      <img src="/images/banner-exemplo.jpg" alt="">
+                  </div>
+
+                  <div class="carousel-nav">
+                      <label class="bar" for="slide-img1"></label>
+                      <label class="bar" for="slide-img2"></label>
+                      <label class="bar" for="slide-img3"></label>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section class="section-cards">
+          <div class="div-h1">
+              <h1>CoLearning</h1>
+          </div>
+          <div class="cards">
+              <div class="div-cards">
+                  <p class="card-title">Crie sua agenda</p>
+                  <img class="img-cards" src="/images/card-img1.png" alt="">
+                  <div>
+                      <p class="card-description">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      </p>
+                  </div>
+              </div>
+              <div class="div-cards">
+                  <p class="card-title">Compartilhe seus horários</p>
+                  <img class="img-cards" src="/images/card-img22.jpg" alt="">
+                  <div>
+                      <p class="card-description">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      </p>
+                  </div>
+              </div>
+              <div class="div-cards">
+                  <p class="card-title">Acesse de onde quiser</p>
+                  <img class="img-cards" src="/images/card-img3.jpg" alt="">
+                  <div>
+                      <p class="card-description">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="div-link-cadastrar">
+              <a href="/cadastro">Quero me cadastrar</a>
+          </div>
+      </section>
+  </main>
+<%- include('partials/footer.ejs') %>

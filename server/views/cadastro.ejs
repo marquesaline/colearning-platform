@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs') %>
+
+    <main> 
+        <div class="container">
+            <div class="form-title">
+                <p>Cadastrar uma conta</p>
+            </div>
+            <form class="form" action="" method="post">
+                <label for="name">Nome</label>
+                <input type="text" name="name" id="name" placeholder="Exemplo">
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="exemplo@exemplo.com">
+
+                <label for="password">Senha</label>
+                <input type="password" name="password" id="password" placeholder="*******">
+
+                <div class="form-button">
+                    <button type="submit">Cadastrar</button>
+                </div>
+            </form>
+            <div class="registered">
+                <p>Já tem cadastro? <a href="">Clique aqui</a></p>
+            </div>
+        </div>
+    </main>
+    <%- include('partials/footer.ejs') %>
