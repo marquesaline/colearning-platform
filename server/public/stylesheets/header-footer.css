@@ -76,7 +76,7 @@
 .footer li {
     padding-right: 2rem;
 }
-.div-copy-nav {
+.footer-logo-nav {
     display: flex;
     width: 58%;
     justify-content: space-between;
@@ -97,10 +97,10 @@
         margin-right: auto;
 
     }
-    .div-copy-nav {
+    .footer-logo-nav {
         display: block;
     }
-    .div-menu-footer ul{
+    .footer-menu ul{
         display: block;
         text-align: center;
 
