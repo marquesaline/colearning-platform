@@ -4,6 +4,7 @@
     --font-color: #000;
     --font-color-button: #FFF;
     --font-size-btn: 16px;
+    --font-color-logo: #FF7A00;
 } 
 
 
@@ -19,6 +20,13 @@
 }
 .div-logo {
     padding-right: 5rem;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--font-color-logo);
+    line-height: 22px;
 }
 .nav-header ul {
     display: flex;
