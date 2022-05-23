@@ -91,18 +91,34 @@
     /* FOOOTER */
     .footer {
         display: block;
-        text-align: center;
         width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-
+        padding-right: 30px;
+        padding-left: 30px;
+        text-align: center;
     }
     .footer-logo-nav {
         display: block;
+        text-align: center;
+        width: 100%;
     }
-    .footer-menu ul{
+    .footer-logo {
+        padding-bottom: 30px;
+    }
+    .footer-logo p {
+        text-align: center;
+    }
+    .footer-menu ul {
         display: block;
         text-align: center;
-
+    }
+    .footer-menu li {
+       padding-bottom: 10px;
+    }
+    .social-medias  {
+        margin-top: 10px;
+    }
+    .social-medias ul {
+        width: 100%;
+        justify-content: center;
     }
 }
