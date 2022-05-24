@@ -7,7 +7,6 @@
     --font-color-logo: #FF7A00;
 } 
 
-
 .header {
     display: flex;
     justify-content: space-between;
@@ -88,21 +87,110 @@
 }
 
 @media screen and (max-width: 480px) {
-    /* FOOOTER */
+
+    /* FOOTER */
     .footer {
         display: block;
-        text-align: center;
         width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-
+        padding-right: 30px;
+        padding-left: 30px;
+        text-align: center;
     }
     .footer-logo-nav {
         display: block;
+        text-align: center;
+        width: 100%;
     }
-    .footer-menu ul{
+    .footer-logo {
+        padding-bottom: 30px;
+    }
+    .footer-logo p {
+        text-align: center;
+    }
+    .footer-menu ul {
         display: block;
         text-align: center;
-
+    }
+    .footer-menu li {
+       padding-bottom: 10px;
+    }
+    .social-medias  {
+        margin-top: 10px;
+    }
+    .social-medias ul {
+        width: 100%;
+        justify-content: center;
     }
 }
+
+@media screen and (max-width: 768px) {
+    /* HEADER */
+    .header {
+        padding: 30px 18px;
+    }
+    .div-logo-nav {
+        justify-content:space-around;
+        width: auto;
+    }
+    
+    /* FOOTER */
+    .footer {
+        display: flex;
+        width: 100%;
+        padding-right: 18px;
+        padding-left: 18px;
+        justify-content: space-around;
+    }
+
+    .footer-menu li {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .social-medias li {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    
+   
+}
+
+@media screen and (max-width: 1024px) {
+    .header, .footer {
+        padding: 30px;
+    }
+    .div-logo {
+        padding-right: 30px;
+    }
+
+    .footer-menu {
+        text-align: center;
+        width: auto;
+    }
+    .footer-menu li {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+
+}
+@media screen and (min-width: 1200px) {
+    .header, .footer {
+        padding: 30px;
+    }
+    .div-logo {
+        padding-right: 30px;
+    }
+
+    .footer-menu {
+        text-align: center;
+        width: auto;
+    }
+    .footer-menu li {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+
+}
+
