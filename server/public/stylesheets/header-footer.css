@@ -156,3 +156,22 @@
    
 }
 
+@media screen and (max-width: 1024px) {
+    .header, .footer {
+        padding: 30px;
+    }
+    .div-logo {
+        padding-right: 30px;
+    }
+
+    .footer-menu {
+        text-align: center;
+        width: auto;
+    }
+    .footer-menu li {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+
+}
