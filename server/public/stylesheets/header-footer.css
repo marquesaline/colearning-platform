@@ -88,7 +88,9 @@
 }
 
 @media screen and (max-width: 480px) {
-    /* FOOOTER */
+    /* HEADER */
+    
+    /* FOOTER */
     .footer {
         display: block;
         width: 100%;
@@ -121,4 +123,39 @@
         width: 100%;
         justify-content: center;
     }
+}
+
+@media screen and (max-width: 768px) {
+    /* FOOTER */
+    .footer {
+        display: flex;
+        width: 100%;
+        padding-right: 30px;
+        padding-left: 30px;
+        text-align: center;
+    }
+   
+}
+
+@media screen and (max-width: 1024px) {
+    /* FOOTER */
+    .footer {
+        display: flex;
+        width: 100%;
+        padding-right: 30px;
+        padding-left: 30px;
+        text-align: center;
+    }
+   
+}
+@media screen and (min-width: 1200px) {
+    /* FOOTER */
+    .footer {
+        display: flex;
+        width: 100%;
+        padding-right: 30px;
+        padding-left: 30px;
+        text-align: center;
+    }
+   
 }
