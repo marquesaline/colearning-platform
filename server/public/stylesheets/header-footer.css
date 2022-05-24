@@ -7,7 +7,6 @@
     --font-color-logo: #FF7A00;
 } 
 
-
 .header {
     display: flex;
     justify-content: space-between;
@@ -175,3 +174,23 @@
 
 
 }
+@media screen and (min-width: 1200px) {
+    .header, .footer {
+        padding: 30px;
+    }
+    .div-logo {
+        padding-right: 30px;
+    }
+
+    .footer-menu {
+        text-align: center;
+        width: auto;
+    }
+    .footer-menu li {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+
+}
+
