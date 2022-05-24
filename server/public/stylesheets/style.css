@@ -156,7 +156,23 @@ li {
         margin: 0;
     }
 
-    
+}
 
+@media screen and (max-width: 768px) {
+    .cards {
+        display: block;
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto; 
+    }
+    .card-title {
+        padding-top: 3rem;
+        margin: 0;
+    }
+    .card-description {
+        padding-bottom: 2rem;
+        padding-top: 0;
+        margin: 0;
+    }
 
 }
