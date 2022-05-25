@@ -85,7 +85,57 @@
     width: 29px;
     height: 29px;
 }
+@media screen and (min-width: 1024px) {
+    .header, .footer {
+        padding: 30px;
+    }
+    .div-logo {
+        padding-right: 30px;
+    }
 
+    .footer-menu {
+        text-align: center;
+        width: auto;
+    }
+    .footer-menu li {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+
+}
+
+@media screen and (max-width: 768px) {
+    /* HEADER */
+    .header {
+        padding: 30px 18px;
+    }
+    .div-logo-nav {
+        justify-content:space-around;
+        width: auto;
+    }
+    
+    /* FOOTER */
+    .footer {
+        display: flex;
+        width: 100%;
+        padding-right: 18px;
+        padding-left: 18px;
+        justify-content: space-around;
+    }
+
+    .footer-menu li {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .social-medias li {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    
+   
+}
 @media screen and (max-width: 480px) {
 
     /* FOOTER */
@@ -123,74 +173,4 @@
     }
 }
 
-@media screen and (max-width: 768px) {
-    /* HEADER */
-    .header {
-        padding: 30px 18px;
-    }
-    .div-logo-nav {
-        justify-content:space-around;
-        width: auto;
-    }
-    
-    /* FOOTER */
-    .footer {
-        display: flex;
-        width: 100%;
-        padding-right: 18px;
-        padding-left: 18px;
-        justify-content: space-around;
-    }
-
-    .footer-menu li {
-        padding-right: 5px;
-        padding-left: 5px;
-    }
-
-    .social-medias li {
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-    
-   
-}
-
-@media screen and (max-width: 1024px) {
-    .header, .footer {
-        padding: 30px;
-    }
-    .div-logo {
-        padding-right: 30px;
-    }
-
-    .footer-menu {
-        text-align: center;
-        width: auto;
-    }
-    .footer-menu li {
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-
-
-}
-@media screen and (min-width: 1200px) {
-    .header, .footer {
-        padding: 30px;
-    }
-    .div-logo {
-        padding-right: 30px;
-    }
-
-    .footer-menu {
-        text-align: center;
-        width: auto;
-    }
-    .footer-menu li {
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-
-
-}
 
