@@ -18,3 +18,7 @@ a {
 li {
     list-style-type: none;
 }
+
+#div-res-adress {
+    display: none;
+}

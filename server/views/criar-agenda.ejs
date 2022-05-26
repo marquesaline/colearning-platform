@@ -70,16 +70,15 @@
                     <div>
                         <label for="res-local">Local da Reserva</label>
                         <div>
-                            
-                            <input type="radio" name="res-local" value="online" id="res-online">
+                            <input type="radio" name="res-local" value="online" id="res-online" onclick="showElement('div-res-adress')">
                             <label for="res-online">Videoconferência</label>
 
-                            <input type="radio" name="res-local" value="person" id="res-person" onclick="">
+                            <input type="radio" name="res-local" value="person" id="res-person" onclick="showElement('div-res-adress')">
                             <label for="res-person">Presencial</label>
 
-                            
-                            <input hidden type="text" name="res-adress" id="res-adress" placeholder="Adicione o local">
-                            
+                            <div id="div-res-adress">
+                                <input type="text" name="res-adress" id="res-adress" placeholder="Adicione o local">
+                            </div>
                         </div>
                     </div>
                     <div>
@@ -89,6 +88,6 @@
             </div>
         </section>
     </main>
-
+    <script type="text/javascript" src="/javascripts/criar-agenda.js"></script>
 </body>
 </html>
