@@ -15,7 +15,7 @@
 
 .header {
     display: flex;
-    padding: 2rem 6rem;
+    padding: 2rem 8rem;
     background-color: var(--background-primary);
     width: 100%;
     align-items: center;
@@ -48,8 +48,8 @@
     padding-right: 5px;
 }
 .user-photo {
-    width: 40px;
-    height: 40px;
+    width: 37px;
+    height: 27px;
     border-radius: 50%;
 }
 .user-name {
@@ -57,11 +57,11 @@
 }
 @media screen and (min-width: 1024px) {
     .header{
-        padding: 20px 25px;
+        padding: 20px 40px;
         justify-content: space-between;
     }
     .div-logo {
-        padding-right: 40px;
+        padding-right: 80px;
     }
    
     .month-year {

@@ -3,19 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
-.header {
-    background-color: #c9842a;
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem 6rem;
-}
+
 
 main{
     display: flex;
     flex-wrap: wrap;
     text-align: center;
 }
-
 
 .container{
     border: solid 1px black;

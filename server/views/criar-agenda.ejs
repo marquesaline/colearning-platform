@@ -1,1 +1,53 @@
-<%- include('partials/logged-header.ejs') %>
+<%- include('partials/account-header.ejs') %>
+
+    <main class="main">
+        <section class="container-side">
+            <div>
+                <a href="/calendario">Calendário</a>
+            </div>
+            <div class="agendas">
+                <p>Minhas Agendas</p>
+                <div class="agendas-list">
+                    <ul> 
+                        <li>Agenda 1</li>
+                        <li>Agenda 2</li>
+                        <li>Agenda 3</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="container-created">
+            <div class="initial-settings">
+                <p>Configurações Iniciais</p>
+                <hr>
+                <div class="form-initial">
+                    <form>
+                        <div>
+                            <label for="agenda-name">Nome da agenda</label>
+                            <input type="text" name="name" id="agenda-name" required>
+                        </div>
+                        <div>
+                            <label for="agenda-description">Descrição</label>
+                            <textarea name="description" id="agenda-description" cols="30" rows="10"></textarea>
+                        </div>
+                        <div>
+                            <label for="agenda-duration">Duração das reuniões</label>
+                            <ul class="dropdown"id="agenda-duration">
+                                <li>00:15</li>
+                                <li>00:30</li>
+                                <li>01:00</li>
+                                <li>01:30</li>
+                                <li>02:00</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <label for="agenda-period">Período de agendamento</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
