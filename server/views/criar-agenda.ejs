@@ -24,27 +24,68 @@
                     <form>
                         <div>
                             <label for="agenda-name">Nome da agenda</label>
-                            <input type="text" name="name" id="agenda-name" required>
+                            <input type="text" name="agenda-name" id="agenda-name" required>
                         </div>
-                        <div>
-                            <label for="agenda-description">Descrição</label>
-                            <textarea name="description" id="agenda-description" cols="30" rows="10"></textarea>
-                        </div>
+                        
                         <div>
                             <label for="agenda-duration">Duração das reuniões</label>
-                            <ul class="dropdown"id="agenda-duration">
-                                <li>00:15</li>
-                                <li>00:30</li>
-                                <li>01:00</li>
-                                <li>01:30</li>
-                                <li>02:00</li>
-                            </ul>
+                            <select class="dropdown"id="agenda-duration">
+                                <option>00:15</option>
+                                <option>00:30</option>
+                                <option>01:00</option>
+                                <option>01:30</option>
+                                <option>02:00</option>
+                            </select>
                         </div>
                         <div>
                             <label for="agenda-period">Período de agendamento</label>
+                            <input type="date" name="initial-date" id="initial-date">
+                            <p>até</p>
+                            <input type="date" name="final-date" id="final-date">
+                        </div>
+                        <div>
+                            <label for="agenda-availability">Disponibilidade</label>
+                            <ul>
+                                <li>
+                                    <p>Domingo</p>
+
+                                </li>
+                            </ul>
                         </div>
                     </form>
                 </div>
+            </div>
+            <div class="">
+                <p>Configurações da Reserva</p>
+                <hr>
+                <form>
+                    <div class="">
+                        <label for="res-name">Nome da página de agendamento</label>
+                        <input type="text" name="res-name" id="res-name">
+                    </div>
+                    <div>
+                        <label for="res-description">Descrição</label>
+                        <textarea name="description" id="res-description" cols="30" rows="3"></textarea>
+                    </div>
+                    <div>
+                        <label for="res-local">Local da Reserva</label>
+                        <div>
+                            
+                            <input type="radio" name="res-local" value="online" id="res-online">
+                            <label for="res-online">Videoconferência</label>
+
+                            <input type="radio" name="res-local" value="person" id="res-person" onclick="">
+                            <label for="res-person">Presencial</label>
+
+                            
+                            <input hidden type="text" name="res-adress" id="res-adress" placeholder="Adicione o local">
+                            
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit">Salvar</button>
+                    </div>
+                </form>
             </div>
         </section>
     </main>
