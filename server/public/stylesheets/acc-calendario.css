@@ -1,3 +1,12 @@
+:root {
+    --background-primary: #F5F6FA;
+    --background-button: #FF7A00;
+    --font-color: #000;
+    --font-color-button: #FFF;
+    --font-size-btn: 16px;
+    --border-color-light: #c2c9d6;
+} 
+
 *{
     margin: 0;
     padding: 0;
@@ -12,13 +21,14 @@ main{
 }
 
 .container{
-    border: solid 1px black;
-    background-color: rgb(206, 206, 206);
+    border-right: solid 1px var(--border-color-light);
+    background-color: var(--background-primary);
     display: flex;
     flex-direction: column;
     width: 305px;
     height: 100vh;
     align-items: center;
+
 }
 
 
@@ -26,11 +36,11 @@ table{
    
     width: 300px;
     text-align: center;
-    background-color: #fff;
+    background-color: var(--background-primary);
    
 }
 td:hover{
-    background-color: blue;
+    background-color: var(--background-button);
     cursor: pointer;
 }
 
@@ -40,14 +50,23 @@ td:hover{
     align-items: center;
     width: 48%;
 }
+.container-button {
+    text-align: center;
+    padding: 40px;
+}
 #agenda-submit{
-    margin:5px;
-    background-color: #c9842a;
-    border:none;
-    padding: 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    color:#fff;
+    line-height: 22px;
+    font-weight: 700;
+    padding: 12px 35px;
+    background-color: var(--background-button);
+    border-radius: 5px;
+    color: var(--font-color-button);
+    font-size: var(--font-size-btn);
+    box-shadow: 0px 1px 2px 0px rgba(60,64,67,.30),0px 1px 3px 1px rgba(60,64,67,.15);
+}
+#agenda-submit:hover {
+    transition: border 280ms cubic-bezier(.4,0,.2,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    box-shadow: 0px 4px 4px 0px rgba(60,64,67,.30),0px 8px 12px 6px rgba(60,64,67,.15);
 }
 
 

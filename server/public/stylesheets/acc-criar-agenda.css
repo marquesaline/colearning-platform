@@ -4,6 +4,7 @@
     --font-color: #000;
     --font-color-button: #FFF;
     --font-size-btn: 16px;
+    --border-color-light: #c2c9d6;;
 } 
 
 * {
@@ -18,7 +19,34 @@ a {
 li {
     list-style-type: none;
 }
-
+.container-side{
+    border-right: solid 1px var(--border-color-light);
+    background-color: var(--background-primary);
+    text-align: left;
+    flex-direction: column;
+    width: 305px;
+    height: 100vh;
+    align-items: center;
+    justify-items: flex-start;
+}
+.container-button {
+    text-align: center;
+    padding: 40px;
+}
+.container-button a {
+    line-height: 22px;
+    font-weight: 700;
+    padding: 12px 35px;
+    background-color: var(--background-button);
+    border-radius: 5px;
+    color: var(--font-color-button);
+    font-size: var(--font-size-btn);
+    box-shadow: 0px 1px 2px 0px rgba(60,64,67,.30),0px 1px 3px 1px rgba(60,64,67,.15);
+}
+.container-button a:hover {
+    transition: border 280ms cubic-bezier(.4,0,.2,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    box-shadow: 0px 4px 4px 0px rgba(60,64,67,.30),0px 8px 12px 6px rgba(60,64,67,.15);
+}
 #div-res-adress {
     display: none;
 }

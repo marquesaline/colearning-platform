@@ -5,6 +5,7 @@
     --font-color-button: #FFF;
     --font-size-btn: 16px;
     --font-color-logo: #FF7A00;
+    --border-color-light: #c2c9d6;
 } 
 * {
     box-sizing: border-box;
@@ -19,6 +20,7 @@
     background-color: var(--background-primary);
     width: 100%;
     align-items: center;
+    border: solid 1px var(--border-color-light);
 }
 .div-logo-month {
     display: flex;
