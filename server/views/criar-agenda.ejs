@@ -1,9 +1,10 @@
 <%- include('partials/account-header.ejs') %>
 
     <main class="main">
+        <!-- menu lateral -->
         <section class="container-side">
             <div class="container-button">
-                <a href="/conta/calendario">Calendário</a>
+                <a href="/conta/calendario" type="button" title="Acessar calendário">Calendário</a>
             </div>
             <div class="container-agendas">
                 <p>Minhas Agendas</p>
@@ -22,18 +23,19 @@
                 </div>
             </div>
         </section>
+        <!-- parte central -->
         <section class="container-created">
-            <div class="initial-settings">
-                <p>Configurações Iniciais</p>
+            <div class="settings-initial">
+                <p class="settings-title">Configurações Iniciais</p>
                 <hr>
-                <div class="form-initial">
+                <div class="container-form">
                     <form>
-                        <div>
+                        <div class="conteiners-form">
                             <label for="agenda-name">Nome da agenda</label>
                             <input type="text" name="agenda-name" id="agenda-name" required>
                         </div>
                         
-                        <div>
+                        <div class="conteiners-form">
                             <label for="agenda-duration">Duração das reuniões</label>
                             <select class="dropdown"id="agenda-duration">
                                 <option>00:15</option>
@@ -43,54 +45,129 @@
                                 <option>02:00</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="conteiners-form">
                             <label for="agenda-period">Período de agendamento</label>
                             <input type="date" name="initial-date" id="initial-date">
                             <p>até</p>
                             <input type="date" name="final-date" id="final-date">
                         </div>
-                        <div>
+                        <div class="container-availability">
                             <label for="agenda-availability">Disponibilidade</label>
-                            <ul>
-                                <li>
-                                    <p>Domingo</p>
-
-                                </li>
-                            </ul>
+                            <table class="table-availability">
+                                <tr>
+                                    <td class="week-days">Domingo</td>
+                                    <td class="input-time">
+                                        <input type="time" placeholder="09:00" class="initial-time">
+                                        <input type="time" placeholder="18:00" class="final-time">
+                                    </td>
+                                    <td class="button-time">
+                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
+                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="week-days">Segunda</td>
+                                    <td class="input-time">
+                                        <input type="time" placeholder="09:00" class="initial-time">
+                                        <input type="time" placeholder="18:00" class="final-time">
+                                    </td>
+                                    <td class="button-time">
+                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
+                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="week-days">Terça</td>
+                                    <td class="input-time">
+                                        <input type="time" placeholder="09:00" class="initial-time">
+                                        <input type="time" placeholder="18:00" class="final-time">
+                                    </td>
+                                    <td class="button-time">
+                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
+                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="week-days">Quarta</td>
+                                    <td class="input-time">
+                                        <input type="time" placeholder="09:00" class="initial-time">
+                                        <input type="time" placeholder="18:00" class="final-time">
+                                    </td>
+                                    <td class="button-time">
+                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
+                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="week-days">Quinta</td>
+                                    <td class="input-time">
+                                        <input type="time" placeholder="09:00" class="initial-time">
+                                        <input type="time" placeholder="18:00" class="final-time">
+                                    </td>
+                                    <td class="button-time">
+                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
+                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="week-days">Sexta</td>
+                                    <td class="input-time">
+                                        <input type="time" placeholder="09:00" class="initial-time">
+                                        <input type="time" placeholder="18:00" class="final-time">
+                                    </td>
+                                    <td class="button-time">
+                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
+                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="week-days">Sábado</td>
+                                    <td class="input-time">
+                                        <input type="time" placeholder="09:00" class="initial-time">
+                                        <input type="time" placeholder="18:00" class="final-time">
+                                    </td>
+                                    <td class="button-time">
+                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
+                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </form>
                 </div>
             </div>
-            <div class="">
-                <p>Configurações da Reserva</p>
+            <div class="settings-form">
+                <p class="settings-title">Configurações da Reserva</p>
                 <hr>
-                <form>
-                    <div class="">
-                        <label for="res-name">Nome da página de agendamento</label>
-                        <input type="text" name="res-name" id="res-name">
-                    </div>
-                    <div>
-                        <label for="res-description">Descrição</label>
-                        <textarea name="description" id="res-description" cols="30" rows="3"></textarea>
-                    </div>
-                    <div>
-                        <label for="res-local">Local da Reserva</label>
-                        <div>
-                            <input type="radio" name="res-local" value="online" id="res-online" onclick="showElement('div-res-adress')">
-                            <label for="res-online">Videoconferência</label>
+                <div class="container-form">
+                    <form>
+                        <div class="conteiners-form">
+                            <label for="res-name">Nome da página de agendamento</label>
+                            <input type="text" name="res-name" id="res-name">
+                        </div>
+                        <div class="conteiners-form">
+                            <label for="res-description">Descrição</label>
+                            <textarea name="description" id="res-description" cols="30" rows="3"></textarea>
+                        </div>
+                        <div class="conteiners-form">
+                            <label for="res-local">Local da Reserva</label>
+                            <div>
+                                <input type="radio" name="res-local" value="online" id="res-online" checked onclick="showElement('div-res-adress')">
+                                <label for="res-online">Videoconferência</label>
 
-                            <input type="radio" name="res-local" value="person" id="res-person" onclick="showElement('div-res-adress')">
-                            <label for="res-person">Presencial</label>
+                                <input type="radio" name="res-local" value="person" id="res-person" onclick="showElement('div-res-adress')">
+                                <label for="res-person">Presencial</label>
 
-                            <div id="div-res-adress">
-                                <input type="text" name="res-adress" id="res-adress" placeholder="Adicione o local">
+                                <div id="div-res-adress">
+                                    <input type="text" name="res-adress" id="res-adress" placeholder="Adicione o local">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <button type="submit">Salvar</button>
-                    </div>
-                </form>
+                        <div>
+                            <button type="submit">Salvar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
