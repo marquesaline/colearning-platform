@@ -29,7 +29,7 @@
                 <p class="settings-title">Configurações Iniciais</p>
                 <hr>
                 <div class="container-form">
-                    <form>
+                    <form method="POST" action="" enctype="multipart/form-data">
                         <div class="conteiners-form">
                             <label for="agenda-name">Nome da agenda</label>
                             <input type="text" name="agenda-name" id="agenda-name" required>
@@ -140,7 +140,7 @@
                 <p class="settings-title">Configurações da Reserva</p>
                 <hr>
                 <div class="container-form">
-                    <form>
+                    <form method="POST" action="" enctype="multipart/form-data">
                         <div class="conteiners-form">
                             <label for="res-name">Nome da página de agendamento</label>
                             <input type="text" name="res-name" id="res-name">
@@ -164,7 +164,7 @@
                             </div>
                         </div>
                         <div>
-                            <button type="submit">Salvar</button>
+                            <button type="submit" id="btn-save">Salvar</button>
                         </div>
                     </form>
                 </div>
