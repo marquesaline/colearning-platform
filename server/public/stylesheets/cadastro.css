@@ -4,7 +4,7 @@
     --background-button: #FF7A00;
     --font-color: #000;
     --font-color-button: #FFF;
-    --font-size-btn: 16px;
+    --font-size-btn: 18px;
     --border-color-light: #c2c9d6;
 } 
 
@@ -26,20 +26,23 @@ main {
 }
 
 .container {
-    max-width: 440px;
+    max-width: 592px;
     margin: 10rem auto;
     align-items: center;
+    justify-content: center;
     padding: 2rem;
     background-color: var(--background-primary);
     box-shadow: 0 8px 16px rgba(46, 52, 88, 0.16);
     border-radius: 10px;
+    min-height: calc(-64px + 60vh);
+    
 }
 
 .form-title {
     text-align: center;
     font-size: 30px;
     line-height: 36px;
-    margin: 1rem auto;
+    margin: 2rem auto;
 }
 .form {
     display: block;
@@ -50,14 +53,18 @@ main {
     width: 100%;
 }
 .form label {
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 600;
+  
 }
 .form input {
-    margin-bottom: 0.7rem;
+    margin-top: 0.2rem;;
+    margin-bottom: 0.9rem;
     height: 35px;
     border-radius: 6px;
     border: var(--border-color-light) 1px solid;
     padding: 0 5px;
+    font-size: 16px;
 }
 .form-button {
     text-align: center;
@@ -66,13 +73,13 @@ main {
 }
 .form-button button {
     font-weight:600;
-    padding: 10px 25px;
+    padding: 15px 50px;
     background-color: var(--background-button);
     border-radius: 5px; 
     margin: 1rem auto;
     border: #979797 1px;
     color: var(--font-color-button);
-    font-size: 14px;
+    
     font-size: var(--font-size-btn);
 }
 .form-button button:hover {
