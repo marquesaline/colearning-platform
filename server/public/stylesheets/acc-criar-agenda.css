@@ -15,6 +15,7 @@
     box-sizing: border-box;
     font-family:'Monteserrat', sans-serif;
 }
+
 a {
     text-decoration: none;
 }
@@ -30,12 +31,15 @@ button {
 
 input, select, textarea {
     border: 1px solid var(--border-color-light);
-    
     border-radius: 6px;
     border: var(--border-color-light) 1px solid;
 }
 input, select {
     height: 30px;
+}
+textarea {
+    padding-left: 7px;
+    padding-top: 5px;
 }
 
 input:focus, textarea:focus {
@@ -106,10 +110,14 @@ hr {
 .container-form {
     margin-top: 20px;
 }
+.container-form div {
+    margin: 25px 0;
+}
 .container-form label {
     font-size: var(--font-size-label);
     font-weight: 600;
     padding-right: 10px;
+
 }
 .container-form input {
     padding: 3px 5px;
@@ -124,7 +132,7 @@ hr {
     align-items: center;
     
 }
-#agenda-name, #res-name {
+#agenda-name, #res-name, #res-adress{
     width: 25rem;
 }
 #agenda-duration {
@@ -161,7 +169,25 @@ hr {
     height: 20px;
 }
 
-#div-res-adress {
-    display: none;
+.local-options {
+    display: block;
 }
+.local-radios {
+    display: flex;
+    align-items: center;
+    
+}
+.local-radios label {
+    font-weight: 400;
+    padding-left: 5px;
+} 
+
+#div-res-adress {
+    display: none block;
+    padding-top: 5px;
+}
+#btn-save {
+    margin-top: 20px;
+}
+
 

@@ -1,11 +1,12 @@
-function showElement(elementId) {
-    let element = document.getElementById(elementId)
+function showElement(elementId, elementToShow) {
+    let element = document.getElementById(elementId).value
+    let elementShow = document.getElementById(elementToShow)
     
-    if(element.style.display == "block"){
-        element.style.display = "none"
+    if(element == "person"){
+        elementShow.style.display = "block"
     }
     else {
-        element.style.display = "block"
+        elementShow.style.display = "none"
     }
 }
 
