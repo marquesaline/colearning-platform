@@ -5,6 +5,7 @@ const controller = require('../controllers/AccountController')
 
 router.get('/', controller.calendar)
 router.get('/criar-agenda', controller.create)
+router.get('/minha-conta', controller.account)
 
 
 
