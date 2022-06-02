@@ -7,11 +7,13 @@
     --border-color-light: #c2c9d6;
 } 
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:'Monteserrat', sans-serif;
 }
+
 
 
 main{
