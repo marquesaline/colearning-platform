@@ -1,0 +1,62 @@
+<%- include('partials/account-header.ejs') %>
+
+<main>
+    <section class="container-side">
+        <div class="container-button">
+            <a href="/conta" type="button" title="Acessar calendário">Calendário</a>
+        </div>
+        <div class="container-nav">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/conta/minha-conta">
+                            <img src="/images/icon-personal.png">
+                            Informarções Pessoais
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/conta/minha-conta/assinatura">
+                            <img src="/images/icon-signature.png">
+                            Assinatura
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <section class="sec-info">
+        <h1>Informações da sua conta</h1>
+        <div class="basic-info">
+            <h2>Dados Gerais</h2>
+            <div>
+                <img src="/images/avatar-exemple2.jpg">
+            </div>
+            <div> 
+                <p>Nome</p>
+                <p>[usuario.nome]</p>
+            </div>
+            <div> 
+                <p>Email</p>
+                <p>[usuario.email]</p>
+            </div>
+        </div>
+        <div>
+            <h2>Senha</h2>
+            <div>
+                <p>******</p>
+            </div>
+        </div>
+        <div>
+            <h2>Excluir conta</h2>
+            <div>
+                <p>
+                    Exclua esta conta. Esta ação não poderá ser desfeita e todos os dados relacionados 
+                    ao seu usuário serão excluídos.
+                </p>
+                <a href="">
+                    Excluir conta
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
