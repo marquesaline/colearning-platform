@@ -1,0 +1,66 @@
+:root {
+    --background-primary: #F5F6FA;
+    --background-button: #FF7A00;
+    --border-color-light: #c2c9d6;
+    --font-color: #000;
+    --font-color-button: #FFF;
+    --font-size-btn: 16px;
+    --font-size-label: 16px;
+    --background-nav-active: #ffd1a6;
+
+} 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Monteserrat', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+li {
+    list-style-type: none;
+}
+
+
+/* aplica as duas telas (minha conta e assinatura) */
+.container-nav {
+    padding-top: 15px;
+}
+.container-nav li {
+    display: flex;
+}
+.container-nav a {
+    display: flex;
+    align-items: center;   
+    color: var(--font-color);
+    cursor: pointer;
+    width: 100%;
+   
+}
+
+.inputs-menu {
+    display: none;
+}
+.inputs-menu:checked ~ label {
+    background-color: var(--background-nav-active);
+    border-right: 5px solid var(--background-button);
+}
+.label-menu {
+    display: flex;
+    align-items: center; 
+    width: 100%;
+    cursor: pointer;
+    padding: 20px 10px;
+    
+}
+
+
+
+.nav-text-link {
+    padding-left: 15px;
+}

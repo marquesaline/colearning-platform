@@ -8,23 +8,30 @@
         <div class="container-nav">
             <nav>
                 <ul>
-                    <li id="li-personal-info">
-                        <a href="/conta/minha-conta">
-                            <img src="/images/icon-personal.png">
-                            <p class="nav-text-link">Informações Pessoais</p>
-                        </a>
+                    <li>
+                        <input type="radio" name="tabs" id="radio-personal-info" class="inputs-menu" checked>
+                        <label for="radio-personal-info" class="label-menu">
+                            <a href="/conta/minha-conta">
+                            <img class="li-img" src="/images/icon-personal.png">
+                            <p class="nav-text-link ">Informações Pessoais</p>
+                            
+                            </a>
+                        </label>
                     </li>
-                    <li id="li-signature">
-                        <a href="/conta/minha-conta/assinatura">
-                            <img src="/images/icon-signature.png">
-                            <p class="nav-text-link">Assinatura</p>
-                        </a>
+                    <li>
+                        <input type="radio" name="tabs" id="radio-signature" class="inputs-menu">
+                        <label for="radio-signature" class="label-menu">
+                            <a id="link-signature" href="/conta/minha-conta/assinatura">
+                            <img class="li-img" src="/images/icon-signature.png">
+                                <p class="nav-text-link ">Assinatura</p>
+                            </a>
+                        </label>
                     </li>
                 </ul>
             </nav>
         </div>
     </section>
-    <section class="sec-info">
+    <section class="section-main sec-info">
         <h1>Informações da sua conta</h1>
         <div class="basic-info">
             <h2>Dados Gerais</h2>
@@ -53,10 +60,12 @@
                     Exclua esta conta. Esta ação não poderá ser desfeita e todos os dados relacionados 
                     ao seu usuário serão excluídos.
                 </p>
-                <a href="">
+                <a class="btn-delete" href="">
                     Excluir conta
                 </a>
             </div>
         </div>
     </section>
 </main>
+</body>
+</html>
