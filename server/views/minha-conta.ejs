@@ -32,37 +32,44 @@
         </div>
     </section>
     <section class="section-main sec-info">
-        <h1>Informações da sua conta</h1>
-        <div class="basic-info">
-            <h2>Dados Gerais</h2>
+        <h1 id="info-title">Informações da sua conta</h1>
+        <div class="container-info">
             <div>
-                <img src="/images/avatar-exemple2.jpg">
-            </div>
-            <div> 
-                <p>Nome</p>
-                <p>[usuario.nome]</p>
-            </div>
-            <div> 
-                <p>Email</p>
-                <p>[usuario.email]</p>
-            </div>
-        </div>
-        <div>
-            <h2>Senha</h2>
-            <div>
-                <p>******</p>
-            </div>
-        </div>
-        <div>
-            <h2>Excluir conta</h2>
-            <div>
-                <p>
-                    Exclua esta conta. Esta ação não poderá ser desfeita e todos os dados relacionados 
-                    ao seu usuário serão excluídos.
-                </p>
-                <a class="btn-delete" href="">
-                    Excluir conta
-                </a>
+                <h2>Dados Gerais</h2>
+                <div>
+                    <img id="img-avatar" src="/images/avatar-exemple2.jpg">
+                </div>
+                <div class="info-data"> 
+                    <p>Nome</p>
+                    <p>[usuario.nome]</p>
+                </div>
+                <div class="info-data"> 
+                    <p>Email</p>
+                    <p>[usuario.email]</p>
+                </div>
+                <div class="info-data">
+                    <p>Senha</p>
+                    <p>******</p>
+                </div>
+                <div class="container-btn">
+                    <a class="btn-account" id="btn-edit" href="">
+                        Editar
+                    </a>
+                </div>
+                
+            <div class="container-delete">
+                <h2>Excluir conta</h2>
+                <div class="container-del-text">
+                    <p>
+                        Esta ação não poderá ser desfeita e todos os dados relacionados 
+                        ao seu usuário serão excluídos.
+                    </p>
+                </div>
+                <div class="container-btn">
+                    <a class="btn-account" id="btn-delete" href="">
+                        Excluir conta
+                    </a>
+                </div>
             </div>
         </div>
     </section>
