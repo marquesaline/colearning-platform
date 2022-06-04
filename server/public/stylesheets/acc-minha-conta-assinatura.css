@@ -1,34 +1,3 @@
-:root {
-    --background-primary: #F5F6FA;
-    --background-button: #FF7A00;
-    --background-button-hover: #ED7402;
-    --background-btn-delete: #EB5757;
-    --background-btn-delete-hover: #E62929;
-    --border-color-light: #C2C9D6;
-    --font-color: #000;
-    --font-color-button: #FFF;
-    --font-size-btn: 16px;
-    --font-size-label: 16px;
-    --background-nav-active: #FFD1A6;
-    
-
-} 
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family:'Monteserrat', sans-serif;
-}
-
-a {
-    text-decoration: none;
-}
-
-
-li {
-    list-style-type: none;
-}
 
 
 /* aplica as duas telas (minha conta e assinatura) */
