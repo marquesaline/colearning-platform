@@ -72,14 +72,13 @@ li {
     text-align: center;
     
 }
-#info-title {
+.account-title {
     margin: 30px auto;
     font-size: 26px;
     font-weight: 400; 
    
 }
-
-.container-info {
+.container-info, .container-signature {
     margin-right: auto;
     margin-left: auto;
     padding: 30px 0;
@@ -87,17 +86,17 @@ li {
     background-color: var(--background-primary);
     border-radius: 10px;
 }
-.container-info h2 {
+.container-info h2, .container-signature h2 {
     text-align: left;
     font-weight: 400;
     font-size: 20px;
     margin: 0 20px;
     border-bottom: 1px solid #343a40;
 }
+/* Tela de informações pessoais */
 #img-avatar {
     border-radius: 50%;
     margin: 20px auto;
-    
 }
 .info-data {
     display: flex;
@@ -117,7 +116,7 @@ li {
     color: var(--font-color-button);
     font-size: var(--font-size-btn);
 }
-#btn-edit:hover{
+.btn-account:hover{
     background-color: var(--background-button-hover);
 }
 .container-del-text {
@@ -131,4 +130,28 @@ li {
 }
 #btn-delete:hover {
     background-color: var(--background-btn-delete-hover);
+}
+
+/* Tabela de assinatura */
+.container-table-signature {
+    padding: 30px 20px;
+    width: 100%;
+    
+}
+.table-signature {
+    text-align: center;
+    width: 100%;
+    
+}
+.table-signature th {
+    border-top: 1px solid var(--border-color-light);
+    border-bottom: 1px solid var(--border-color-light);
+}
+.table-signature td {
+    border-bottom: 1px solid var(--border-color-light);
+}
+.table-signature th, .table-signature td {
+    width: 33%;
+    padding: 8px 0;
+   
 }
