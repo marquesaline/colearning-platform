@@ -131,7 +131,24 @@ padrão em todas as telas, menos a de calendário */
     padding-bottom: 5px;
 }
 /* padrão de botões */
-.btn-default {
+.btn-default, .btn-delete {
+    line-height: 22px;
+    padding: 8px 15px;
+    background-color: var(--background-button);
+    border-radius: 5px;
+    color: var(--font-color-button);
+    font-size: var(--font-size-btn);
+}
+.btn-default:hover{
+    background-color: var(--background-button-hover);
+}
+.btn-delete {
+    background-color: var(--background-btn-delete);
+}
+.btn-delete:hover {
+    background-color: var(--background-btn-delete-hover);
+}
+.btn-side {
     line-height: 22px;
     font-weight: 700;
     padding: 12px 35px;
@@ -139,8 +156,6 @@ padrão em todas as telas, menos a de calendário */
     border-radius: 5px;
     color: var(--font-color-button);
     font-size: var(--font-size-btn);
-}
-.btn-side {
     box-shadow: 0px 1px 2px 0px rgba(60,64,67,.30),0px 1px 3px 1px rgba(60,64,67,.15);
 }
 .btn-side:hover {

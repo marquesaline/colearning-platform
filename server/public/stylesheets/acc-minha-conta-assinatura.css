@@ -77,29 +77,13 @@
 .container-btn {
     margin: 20px auto;
 }
-.btn-account {
-    line-height: 22px;
-    padding: 8px 15px;
-    background-color: var(--background-button);
-    border-radius: 5px;
-    color: var(--font-color-button);
-    font-size: var(--font-size-btn);
-}
-.btn-account:hover{
-    background-color: var(--background-button-hover);
-}
 .container-del-text {
     text-align: left;
     margin: 15px 20px;
     font-size: 14px;
 }
 
-#btn-delete {
-    background-color: var(--background-btn-delete);
-}
-#btn-delete:hover {
-    background-color: var(--background-btn-delete-hover);
-}
+
 
 /* Tabela de assinatura */
 .container-table-signature {
