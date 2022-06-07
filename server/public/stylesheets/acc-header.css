@@ -1,58 +1,4 @@
-:root {
-    --background-primary: #F5F6FA;
-    --background-nav-active: #FFD1A6;
-    /* Botões */
-    --background-button: #FF7A00;
-    --background-button-hover: #ED7402;
-    --background-btn-delete: #EB5757;
-    --background-btn-delete-hover: #E62929;
-    --font-color-button: #FFF;
-    --font-size-btn: 16px;
 
-    --border-color-light: #C2C9D6;
-    --font-color: #000;
-    --font-color-logo:#FF7A00;
-    --font-size-label: 16px;
-    
-} 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family:'Monteserrat', sans-serif; 
-}
-
-a {
-    text-decoration: none;
-}
-
-
-li {
-    list-style-type: none;
-}
-button {
-    border: none;
-    background-color: var(--font-color-button);
-    cursor: pointer;
-}
-
-input, select, textarea {
-    border: 1px solid var(--border-color-light);
-    border-radius: 6px;
-    border: var(--border-color-light) 1px solid;
-}
-input, select {
-    height: 30px;
-}
-textarea {
-    padding-left: 7px;
-    padding-top: 5px;
-}
-
-input:focus, textarea:focus {
-    border-color: var(--background-button);
-    border: 1px;
-}
 
 
 .header {
@@ -100,68 +46,7 @@ input:focus, textarea:focus {
 .user-name {
     font-size: 16px;
 }
-/* Container lateral 
-padrão em todas as telas, menos a de calendário */
-.container-side{
-    border-right: solid 1px var(--border-color-light);
-    background-color: var(--background-primary);
-    text-align: left;
-    flex-direction: column;
-    width: 16%;
-    max-width: 280px;
-    height: 1116px;
-    align-items: center;
-    justify-items: flex-start;
-    
-}
-.container-button {
-    text-align: center;
-    padding: 40px;
-}
 
-.container-agendas {
-    padding: 15px;
-}
-.container-agendas p {
-    font-size: 16px;
-    font-weight: 600;
-    padding-bottom: 10px;
-}
-.agendas-list li {
-    padding-bottom: 5px;
-}
-/* padrão de botões */
-.btn-default, .btn-delete {
-    line-height: 22px;
-    padding: 8px 15px;
-    background-color: var(--background-button);
-    border-radius: 5px;
-    color: var(--font-color-button);
-    font-size: var(--font-size-btn);
-}
-.btn-default:hover{
-    background-color: var(--background-button-hover);
-}
-.btn-delete {
-    background-color: var(--background-btn-delete);
-}
-.btn-delete:hover {
-    background-color: var(--background-btn-delete-hover);
-}
-.btn-side {
-    line-height: 22px;
-    font-weight: 700;
-    padding: 12px 35px;
-    background-color: var(--background-button);
-    border-radius: 5px;
-    color: var(--font-color-button);
-    font-size: var(--font-size-btn);
-    box-shadow: 0px 1px 2px 0px rgba(60,64,67,.30),0px 1px 3px 1px rgba(60,64,67,.15);
-}
-.btn-side:hover {
-    transition: border 280ms cubic-bezier(.4,0,.2,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
-    box-shadow: 0px 4px 4px 0px rgba(60,64,67,.30),0px 8px 12px 6px rgba(60,64,67,.15);
-}
 @media screen and (min-width: 1024px) {
     .header{
         padding: 20px 40px;

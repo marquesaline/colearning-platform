@@ -1,3 +1,9 @@
+
+
+const toggleMenu = (elementId) => {
+    
+}
+
 function showElement(elementId, elementToShow) {
     let element = document.getElementById(elementId).value
     let elementShow = document.getElementById(elementToShow)
