@@ -46,6 +46,7 @@
   background: var(--background-button);
   padding: 3px 5px;
   margin-bottom: 2px;
+  
 }
 
 .nav-header ul {
@@ -183,32 +184,6 @@
 }
 @media screen and (max-width: 480px) {
     
-    #btn-menu-mobile {
-        display: block;
-    }
-   #ul-menu {
-        display: none;
-        position:absolute;
-        width: 100%;
-        top: 80px;
-        right: 0;
-        background-color: var(--background-primary);
-        display: block;
-        height: calc(100vh - 650px);
-        z-index: 1000;
-    }
-    #nav-header.active #ul-menu {
-        display: block;
-    }
-
-    #ul-menu li {
-        font: 18px;
-        padding: 20px 10px;
-        text-align: center;
-    }
-    #li-login a {
-        width: 100%;
-    }
 
     .footer {
         display: block;

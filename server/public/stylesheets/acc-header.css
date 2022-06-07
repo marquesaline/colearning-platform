@@ -65,13 +65,16 @@
 }
 @media screen and (max-width:768px) {
     .header{
-        padding: 20px 18px;
+        padding: 20px 10px;
         justify-content: space-between;
+        align-items: center;
     }
     .div-logo-month {
-        justify-content: space-between;
+       width: 100%;
+       padding-left: 10px;
     }
     .div-logo {
+        
         padding-right: 20px;
     }
     .logo {

@@ -69,6 +69,27 @@ padrão em todas as telas, menos a de calendário */
     justify-items: flex-start;
     
 }
+/* botão mobile pra o container lateral */
+.container-btn-mobile {
+    display: flex;
+    align-items: center;
+    width: 50px;
+}
+#btn-menu-mobile {
+    display: none;
+    background-color:var(--background-primary);
+    
+}
+.line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: var(--background-button);
+    padding: 3px 13px;
+    margin: 3px 5px;
+}
+  
 .container-button {
     text-align: center;
     padding: 40px;
@@ -122,12 +143,26 @@ padrão em todas as telas, menos a de calendário */
 }
 
 @media screen and (max-width: 768px) {
-    #section-mobile {
-        display:block;
-
-    }
     .container-side {
-        display: none;
+        width:0;
     }
+    
+    #btn-menu-mobile {
+        display: block;
+    }
+    #contents-side  {
+        display: none;
+        position:absolute;
+        width: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--background-primary);
+        height: calc(100vh - 600px);
+        z-index: 1000;
+    }
+    .container-side.active #contents-side {
+        display: block;
+    }
+    
 
 }
