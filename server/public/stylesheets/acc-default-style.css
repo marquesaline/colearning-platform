@@ -71,7 +71,7 @@ padrão em todas as telas, menos a de calendário */
 }
 /* botão mobile pra o container lateral */
 .container-btn-mobile {
-    display: flex;
+    display: none;
     align-items: center;
     width: 50px;
 }
@@ -141,13 +141,24 @@ padrão em todas as telas, menos a de calendário */
     transition: border 280ms cubic-bezier(.4,0,.2,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
     box-shadow: 0px 4px 4px 0px rgba(60,64,67,.30),0px 8px 12px 6px rgba(60,64,67,.15);
 }
-
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 1025px) {
+    .container-side {
+        width: 300px;
+    }
+    
+}
+@media screen and (max-width: 1024px) {
+    .container-side {
+        width: 250px;
+    }
+    
+}
+@media screen and (max-width: 932px) {
     .container-side {
         width:0;
     }
     
-    #btn-menu-mobile {
+    .container-btn-mobile, #btn-menu-mobile {
         display: block;
     }
     #contents-side  {
@@ -160,7 +171,7 @@ padrão em todas as telas, menos a de calendário */
         height: calc(100vh - 600px);
         z-index: 1000;
     }
-    .container-side.active #contents-side {
+    .container-side.active #contents-side{
         display: block;
     }
     
