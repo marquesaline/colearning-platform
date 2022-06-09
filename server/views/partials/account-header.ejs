@@ -10,19 +10,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
     
+    <link rel='stylesheet' href='/stylesheets/acc-default-style.css'/>
     <link rel='stylesheet' href='/stylesheets/acc-header.css'/>
     <link rel='stylesheet' href='/stylesheets/acc-calendario.css'/>
     <link rel='stylesheet' href='/stylesheets/acc-criar-agenda.css'/>
+    <link rel='stylesheet' href='/stylesheets/acc-minha-conta-assinatura.css'/>
     
+    <script type="text/javascript" src="/javascripts/script.js"></script>
+
     <title><%= title %></title>
     
   </head>
 <body>
     <header class="header">
+      <div class="container-btn-mobile">
+        <button id="btn-menu-mobile" onclick="toggleMenu('container-side')">
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
+        </button>
+    </div>
       <div class="div-logo-month">
+        
         <div class="div-logo">
-            <p class="logo">
-                CoLearning
+            <p>
+              <a class="logo" href="/">CoLearning</a>  
             </p>
         </div>
         <div class="month-year">

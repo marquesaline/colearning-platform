@@ -1,99 +1,11 @@
-:root {
-    --background-primary: #F5F6FA;
-    --background-button: #FF7A00;
-    --border-color-light: #c2c9d6;
-    --font-color: #000;
-    --font-color-button: #FFF;
-    --font-size-btn: 16px;
-    --font-size-label: 16px;
-
-} 
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family:'Monteserrat', sans-serif;
+.main-flex {
+    display: flex;
 }
-
-a {
-    text-decoration: none;
-}
-
-li {
-    list-style-type: none;
-}
-button {
-    border: none;
-    background-color: var(--font-color-button);
-    cursor: pointer;
-}
-
-input, select, textarea {
-    border: 1px solid var(--border-color-light);
-    border-radius: 6px;
-    border: var(--border-color-light) 1px solid;
-}
-input, select {
-    height: 30px;
-}
-textarea {
-    padding-left: 7px;
-    padding-top: 5px;
-}
-
-input:focus, textarea:focus {
-    border-color: var(--background-button);
-    border: 1px;
-}
-
-/* menu lateral */
-.container-side{
-    border-right: solid 1px var(--border-color-light);
-    background-color: var(--background-primary);
-    text-align: left;
-    flex-direction: column;
-    width: 16%;
-    height: 100vh;
-    align-items: center;
-    justify-items: flex-start;
-    
-}
-.container-button {
-    text-align: center;
-    padding: 40px;
-}
-.container-button a, #btn-save {
-    line-height: 22px;
-    font-weight: 700;
-    padding: 12px 35px;
-    background-color: var(--background-button);
-    border-radius: 5px;
-    color: var(--font-color-button);
-    font-size: var(--font-size-btn);
-    box-shadow: 0px 1px 2px 0px rgba(60,64,67,.30),0px 1px 3px 1px rgba(60,64,67,.15);
-}
-.container-button a:hover, #btn-save {
-    transition: border 280ms cubic-bezier(.4,0,.2,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
-    box-shadow: 0px 4px 4px 0px rgba(60,64,67,.30),0px 8px 12px 6px rgba(60,64,67,.15);
-}
-.container-agendas {
-    padding: 15px;
-}
-.container-agendas p {
-    font-size: 16px;
-    font-weight: 600;
-    padding-bottom: 10px;
-}
-.agendas-list li {
-    padding-bottom: 5px;
-}
-
 /* parte central */
 .container-created {
     margin: 30px;
     text-align: left;
-    width: 80.5%;
+    width: 80%;
 
 }
 .settings-initial {
@@ -154,15 +66,12 @@ hr {
     border-spacing: 0 10px;
 }
 
-
 .week-days {
     padding-right: 15px;
 }
 .input-time input {
     margin-right: 5px;
-    
 }
-
 .icon-times {
     margin-left: 10px;
     width: 20px;
@@ -175,7 +84,6 @@ hr {
 .local-radios {
     display: flex;
     align-items: center;
-    
 }
 .local-radios label {
     font-weight: 400;
@@ -183,7 +91,7 @@ hr {
 } 
 
 #div-res-adress {
-    display: none block;
+    display: none;
     padding-top: 5px;
 }
 #btn-save {

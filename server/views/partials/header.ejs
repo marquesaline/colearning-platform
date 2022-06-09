@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="/stylesheets/planos.css"> 
     <link rel="stylesheet" href="/stylesheets/contato.css"> 
     <link rel="stylesheet" href="/stylesheets/cadastro.css">
-       
+      
+    <script type="text/javascript" src="/javascripts/script.js"></script>
     
     <title><%= title %></title>
     
@@ -27,15 +28,26 @@
                 CoLearning
              </p>
           </div>
-          <nav class="nav-header">
-              <ul>
-                  <li><a href="/">Início</a></li>
-                  <li><a href="/planos">Planos</a></li>
-                  <li><a href="/contato">Contato</a></li>
-              </ul>
-          </nav>
+          
       </div>
-      <div class="div-login">
-          <a href="/login">Entrar</a>
+      <div>
+        <nav class="nav-header" id="nav-header">
+          <button id="btn-menu-mobile" onclick="toggleMenu('nav-header')">
+              <span class="line line1"></span>
+              <span class="line line2"></span>
+              <span class="line line3"></span>
+          </button>
+            <ul id="ul-menu">
+                <li><a href="/">Início</a></li>
+                <li><a href="/planos">Planos</a></li>
+                <li><a href="/contato">Contato</a></li>
+                <li id="li-login">
+                  <a href="/login">Entrar</a>
+                </li>
+            </ul>
+
+            
+        </nav>
       </div>
+      
   </header>
