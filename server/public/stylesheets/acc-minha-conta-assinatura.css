@@ -98,7 +98,7 @@
 
 
 /* Tabela de assinatura */
-.container-table-signature {
+.container-table-signature, .container-new-plan {
     padding: 30px 20px;
     width: 100%;
     
@@ -119,4 +119,15 @@
     width: 33%;
     padding: 8px 0;
    
+}
+
+/* MEDIA SCREEN */
+@media screen and (max-width: 480px) {
+    .account-title {
+        font-size: 25px;
+    }
+    .container-info, .container-signature {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
