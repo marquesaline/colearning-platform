@@ -20,18 +20,8 @@
     justify-content: center;
 }
 
-.table-month{
-    width: 100%;
-    padding: 15px;
-    text-align: center;
-    background-color: var(--background-primary);
-   
-}
-.table-month td:hover{
-    background-color: var(--background-button);
-    cursor: pointer;
-    color: var(--font-color-button);
-    
+#calendar .fc-today {
+    background: #FFF !important;
 }
 .agenda{
     display:flex;
