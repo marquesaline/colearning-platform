@@ -39,6 +39,7 @@
       var calendar = new FullCalendar.Calendar(calendarEl, {
         locale: 'pt-br',
         initialView: 'dayGridMonth',
+        themeSystem: String, default: 'standard',
         selectable: true,
         headerToolbar: { 
           center: 'dayGridMonth',
@@ -46,6 +47,7 @@
         }, //{ center: 'dayGridMonth,timeGridWeek' }
         buttonText: {
           today: 'Mês atual',
+          month: 'Mês',
           prev: '<',
           next: '>'
         },
