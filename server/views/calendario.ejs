@@ -1,74 +1,81 @@
 <%- include('partials/account-header.ejs') %>
 
-    <main class="main-calendar">
-        <div class="container-side" id="container-side">
-            <div id="contents-side" class="container-calendar">
-                <div class="container-button">
-                    <a href="/conta/criar-agenda" id="agenda-submit">Criar agenda</a>
-                </div>
-                <div class="container-table-month">
-                    <div id='calendar'></div>
-                </div>
-                <div class="container-agendas">
-                    <p>Minhas Agendas</p>
-                    <div class="agendas-list">
-                        <ul> 
-                            <li>
-                                <a href="">Agenda 1</a>
-                            </li>
-                            <li>
-                                <a href="">Agenda 2</a>
-                            </li>
-                            <li>
-                                <a href="">Agenda 3</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+<main class="main-calendar">
+  <div class="container-side" id="container-side">
+    <div id="contents-side" class="container-calendar">
+      <div>
+        <div class="container-button">
+          <a href="/conta/criar-agenda" id="agenda-submit">Criar agenda</a>
         </div>
-    
-        <div class="agenda">
-            <p class="agendamento">calendarios com o agendamento</p>
+        <div class="container-table-month">
+          <div id='calendar'></div>
         </div>
-   </main>
+      </div>
+      <div class="container-agendas">
+        <p>Minhas Agendas</p>
+        <div class="agendas-list">
+          <ul>
+            <li>
+              <a href="">Agenda 1</a>
+            </li>
+            <li>
+              <a href="">Agenda 2</a>
+            </li>
+            <li>
+              <a href="">Agenda 3</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
-   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        locale: 'pt-br',
-        initialView: 'dayGridMonth',
-        showNonCurrentDates: false, //tira os dias do mês anterior do calendário
-        themeSystem: String, default: 'standard',
-        now: function(date){
-              var now = Date.now()
-              var date = new Date(now)
-              return date
-        },
-        selectable: true,
-        headerToolbar: { 
-          center: 'dayGridMonth',
-          end: 'today prev,next' 
-        }, //{ center: 'dayGridMonth,timeGridWeek' }
-        buttonText: {
-          today: 'Mês atual',
-          month: 'Mês',
-          prev: '<',
-          next: '>'
-        },
-       
-        views: {
-          dayGridMonth: { // name of view
-            titleFormat: { year: 'numeric', month: 'long' },
-            
-            // other view-specific options here
-          }
-        },
-      });
-      calendar.render();
-      
-    }); 
-  </script>
+  <div class="agenda">
+    <p class="agendamento">calendarios com o agendamento</p>
+  </div>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      locale: 'pt-br',
+      initialView: 'dayGridMonth',
+      showNonCurrentDates: false, //tira os dias do mês anterior do calendário
+      themeSystem: String,
+      default: 'standard',
+      now: function (date) {
+        var now = Date.now()
+        var date = new Date(now)
+        return date
+      },
+      selectable: true,
+      headerToolbar: {
+        center: 'dayGridMonth',
+        end: 'today prev,next'
+      }, //{ center: 'dayGridMonth,timeGridWeek' }
+      buttonText: {
+        today: 'Hoje',
+        month: 'Mês',
+        prev: '<',
+        next: '>'
+      },
+
+      views: {
+        dayGridMonth: { // name of view
+          titleFormat: {
+            year: 'numeric',
+            month: 'long'
+          },
+
+          // other view-specific options here
+        }
+      },
+    });
+    calendar.render();
+
+  });
+</script>
 </body>
+
 </html>
