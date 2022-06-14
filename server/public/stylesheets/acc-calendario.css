@@ -21,16 +21,16 @@
     margin-top: 20px;
     
 }
-/* classes do FullCalendarJs */
-.fc-toolbar-title {
+/* classes do FullCalendarJs do calendário lateral*/
+#calendar .fc-toolbar-title {
     text-align: center;
     font-size: 18px;
     padding-bottom: 15px;
 }
-.fc-dayGridMonth-button {
+#calendar .fc-dayGridMonth-button {
     display: none;
 }
-.fc-button {
+#calendar .fc-button {
     line-height: 15px;
     padding: 6px 10px;
     background-color: var(--background-button);
@@ -39,26 +39,26 @@
     font-size: var(--font-size-btn);
     margin-bottom: 10px;
 }
-.fc-button:hover {
+#calendar .fc-button:hover {
     background-color: var(--background-button-hover);
 }
-.fc-today-button {
+#calendar .fc-today-button {
     width: 100%;
     margin: 10px auto;
 }
-.fc-today-button:disabled {
+#calendar .fc-today-button:disabled {
     background-color: #d6d6d6;
     color: #3b424d;
 }
-.fc-button-group {
+#calendar .fc-button-group {
     display: flex;
     justify-content: space-between;
 }
-.fc-scrollgrid  {
+#calendar .fc-scrollgrid  {
     font-size: 16px;
 }
 
-.fc-day-today a  {
+#calendar .fc-day-today a  {
     background-color: var(--background-button);
     color: var(--font-color-button);
     border-radius: 5px;

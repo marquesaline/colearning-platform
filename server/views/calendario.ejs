@@ -31,7 +31,7 @@
   </div>
 
   <div class="agenda">
-    <p class="agendamento">calendarios com o agendamento</p>
+    <div id='calendar-main'></div>
   </div>
 </main>
 
@@ -76,6 +76,48 @@
 
   });
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var calendarEl = document.getElementById('calendar-main');
+      var calendarMain = new FullCalendar.Calendar(calendarEl, {
+        locale: 'pt-br',
+        initialView: 'dayGridMonth',
+        showNonCurrentDates: false, //tira os dias do mês anterior do calendário
+        themeSystem: String,
+        default: 'standard',
+        now: function (date) {
+          var now = Date.now()
+          var date = new Date(now)
+          return date
+        },
+        selectable: true,
+        headerToolbar: {
+          center: 'dayGridMonth',
+          end: 'today prev,next'
+        }, //{ center: 'dayGridMonth,timeGridWeek' }
+        buttonText: {
+          today: 'Hoje',
+          month: 'Mês',
+          prev: '<',
+          next: '>'
+        },
+  
+        views: {
+          dayGridMonth: { // name of view
+            titleFormat: {
+              year: 'numeric',
+              month: 'long'
+            },
+  
+            // other view-specific options here
+          }
+        },
+      });
+      calendarMain.render();
+  
+    });
+  </script>
 </body>
 
 </html>
