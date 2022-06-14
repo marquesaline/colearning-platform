@@ -15,60 +15,6 @@
     text-align: left;
     justify-items: flex-start;
 }
-.container-table-month {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    
-}
-/* classes do FullCalendarJs */
-.fc-toolbar-title {
-    text-align: center;
-    font-size: 18px;
-    padding-bottom: 15px;
-}
-.fc-dayGridMonth-button {
-    display: none;
-}
-.fc-button {
-    line-height: 15px;
-    padding: 6px 10px;
-    background-color: var(--background-button);
-    border-radius: 5px;
-    color: var(--font-color-button);
-    font-size: var(--font-size-btn);
-    margin-bottom: 10px;
-}
-.fc-button:hover {
-    background-color: var(--background-button-hover);
-}
-.fc-today-button {
-    width: 100%;
-    margin: 10px auto;
-}
-.fc-today-button:disabled {
-    background-color: #d6d6d6;
-    color: #3b424d;
-}
-.fc-button-group {
-    display: flex;
-    justify-content: space-between;
-}
-.fc-scrollgrid  {
-    font-size: 16px;
-}
-
-.fc-day-today a  {
-    background-color: var(--background-button);
-    color: var(--font-color-button);
-    border-radius: 5px;
-}
-.agenda{
-    display:flex;
-    align-items: center;
-    width: 48%;
-}
-
 #agenda-submit{
     line-height: 22px;
     font-weight: 700;
@@ -88,17 +34,72 @@
 .agendamento{
     margin: 0 auto;
 }
-
-.footer {
+.container-table-month {
     display: flex;
-    justify-content: space-around;
-    padding: 2rem 1rem;
-    width: 98,5vw;
-    background-color: #c9842a;
-    margin-top:5px;
-    bottom: 0;
-    left: 0;
+    justify-content: center;
+    margin-top: 20px;
+    
 }
+/* classes do FullCalendarJs do calendário lateral*/
+#calendar .fc-toolbar-title {
+    text-align: center;
+    font-size: 18px;
+    padding-bottom: 15px;
+}
+#calendar .fc-dayGridMonth-button {
+    display: none;
+}
+.fc-button {
+    line-height: 15px;
+    padding: 6px 10px;
+    background-color: var(--background-button);
+    border-radius: 5px;
+    color: var(--font-color-button);
+    font-size: var(--font-size-btn);
+    margin-bottom: 10px;
+}
+ .fc-button:hover {
+    background-color: var(--background-button-hover);
+}
+#calendar .fc-today-button {
+    width: 100%;
+    margin: 10px auto;
+}
+.fc-today-button:disabled {
+    background-color: #d6d6d6;
+    color: #3b424d;
+}
+.fc-button-group {
+    display: flex;
+    justify-content: space-between;
+}
+#calendar .fc-scrollgrid  {
+    font-size: 16px;
+}
+
+.fc-day-today a  {
+    background-color: var(--background-button);
+    color: var(--font-color-button);
+    border-radius: 5px;
+}
+.section-agenda{
+    margin: 15px auto;
+    width: 80%;
+}
+.agenda-title {
+    padding: 40px 0;
+}
+.container-events {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container-events .fc-dayGridMonth-button,
+.container-events .fc-today-button {
+    padding: 10px 40px;
+    margin: 20px auto;
+}
+
 @media screen and (min-width: 1025px) {
     .container-calendar {
         width: 305px;
