@@ -39,7 +39,13 @@
       var calendar = new FullCalendar.Calendar(calendarEl, {
         locale: 'pt-br',
         initialView: 'dayGridMonth',
+        showNonCurrentDates: false, //tira os dias do mês anterior do calendário
         themeSystem: String, default: 'standard',
+        now: function(date){
+              var now = Date.now()
+              var date = new Date(now)
+              return date
+        },
         selectable: true,
         headerToolbar: { 
           center: 'dayGridMonth',
@@ -54,7 +60,7 @@
        
         views: {
           dayGridMonth: { // name of view
-            titleFormat: { year: 'numeric', month: 'long' }
+            titleFormat: { year: 'numeric', month: 'long' },
             
             // other view-specific options here
           }

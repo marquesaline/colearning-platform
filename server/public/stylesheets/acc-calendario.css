@@ -11,13 +11,14 @@
     display: flex;
     flex-direction: column;
     width: 305px;
-    height: 100vh;
+    height: 100%;
     text-align: left;
     justify-items: flex-start;
 }
 .container-table-month {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
     
 }
 /* classes do FullCalendarJs */
@@ -56,6 +57,12 @@
 .fc-scrollgrid  {
     font-size: 16px;
 }
+
+.fc-day-today a  {
+    background-color: var(--background-button);
+    color: var(--font-color-button);
+    border-radius: 10px;
+}
 .agenda{
     display:flex;
     align-items: center;
@@ -91,6 +98,12 @@
     margin-top:5px;
     bottom: 0;
     left: 0;
+}
+@media screen and (min-width: 1025px) {
+    .container-calendar {
+        width: 305px;
+    }
+
 }
 @media screen and (max-width: 768px) {
     .container-agendas {

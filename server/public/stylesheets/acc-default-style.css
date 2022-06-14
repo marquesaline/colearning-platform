@@ -148,7 +148,7 @@ padrão em todas as telas, menos a de calendário */
 }
 @media screen and (min-width: 1025px) {
     .container-side {
-        width: 300px;
+        width: 305px;
     }
     
 }
