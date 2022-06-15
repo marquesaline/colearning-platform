@@ -50,13 +50,30 @@
         </div>
       </div>
       <div class="div-user">
-          <button>
+          <button id="btn-user" onclick="showDropdown('dropdown-menu')">
+          
             <div class="avatar">
               <img src="/images/avatar-exemple.png" alt="" class="user-photo">
+              
             </div>
             <div class="name">
               <p class="user-name">Exemplo</p>
+              <img src="/images/icon-down.png" alt="" id="img-down"> 
             </div>
+            
+            <ul class="dropdown-menu" id="dropdown-menu">
+              <li>
+                <a href="/conta/minha-conta">Minha conta</a>
+              </li>
+              <li>
+                <a href="/conta/assinatura">Assinatura</a>
+              </li>
+              <li>
+                <a href="/login">Sair</a>
+              </li>
+            </ul>
+            
           </button>
+          
       </div>
   </header>

@@ -3,11 +3,11 @@
 
 .header {
     display: flex;
-    padding: 2rem 8rem;
+    padding: 15px 30px;
     background-color: var(--background-primary);
     width: 100%;
     align-items: center;
-    
+    justify-content: space-between;
     border: solid 1px var(--border-color-light);
 }
 
@@ -39,21 +39,61 @@
 }
 .avatar {
     padding-right: 5px;
+    display: flex;
+    align-items: center;
 }
 .user-photo {
-    width: 37px;
+    width: 40px;
     height: 27px;
     border-radius: 50%;
 }
+.name {
+    display: flex;
+    align-items: center;
+    
+}
 .user-name {
     font-size: 16px;
+    padding-right: 5px;
+}
+#img-down {
+    width: 15px;
+    height: 10px;
+}
+.dropdown-menu {
+    background-color: var(--background-primary);
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 30px;
+    top: 60px;
+    width: 140px;
+}
+.dropdown-menu ul li {
+    display: inline;
+    position: absolute;
+}
+.dropdown-menu a {
+    color: black;
+    padding: 15px 5px;
+    display: block;
+    font-weight: 400;
+    font-size: 16px;
+}
+.dropdown-menu a:hover {
+    background-color: var(--background-button);
+    color: var(--font-color-button);
+}
+#btn-user {
+    height: 100%;
 }
 
-@media screen and (min-width: 1024px) {
-    .header{
-        padding: 20px 40px;
-        justify-content: space-between;
-    }
+/* #btn-user:active ul {
+    display: block;
+} */
+@media screen and (min-width: 1025px) {
+    
     .div-logo {
         padding-right: 80px;
     }
@@ -65,13 +105,7 @@
         justify-self: flex-end;
     }
 }
-@media screen and (min-width: 1025px) {
-    .header{
-        padding: 20px 30px;
-        justify-content: space-between;
-        align-items: center;
-    }
-}
+
 @media screen and (max-width: 1024px) {
     .header{
         padding: 20px;
