@@ -39,25 +39,36 @@
 }
 .avatar {
     padding-right: 5px;
+    display: flex;
+    align-items: center;
 }
 .user-photo {
     width: 40px;
     height: 27px;
     border-radius: 50%;
 }
+.name {
+    display: flex;
+    align-items: center;
+    
+}
 .user-name {
     font-size: 16px;
+    padding-right: 5px;
 }
-
+#img-down {
+    width: 15px;
+    height: 10px;
+}
 .dropdown-menu {
     background-color: var(--background-primary);
 }
 .dropdown-menu {
     display: none;
     position: absolute;
-    right: 40px;
-    top: 64px;
-    width: 125px;
+    right: 30px;
+    top: 60px;
+    width: 140px;
 }
 .dropdown-menu ul li {
     display: inline;
@@ -65,7 +76,7 @@
 }
 .dropdown-menu a {
     color: black;
-    padding: 18px 5px;
+    padding: 15px 5px;
     display: block;
     font-weight: 400;
     font-size: 16px;
