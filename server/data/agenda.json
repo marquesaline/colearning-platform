@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "user_id": 1,
+        "agenda-name": "Agenda 1",
+        "agenda-duration": "00:45",
+        "agenda-initialdate": "01/02/2022",
+        "agenda-finaldate": "31/07/2022", 
+        "agenda-availability": {
+            "sundays": null,
+            "mondays": "08:00 - 12:00",
+            "tuesdays": "08:00 - 17:00",
+            "wednesdays": "08:00 - 17:00",
+            "thursdays": "08:00 - 17:00",
+            "fridays": "08:00 - 17:00",
+            "saturdays": null            
+        },
+        "agenda-namepage": "Agenda de Fulano",
+        "agenda-description": null,
+        "agenda-local": "Videoconferência",
+        "agenda-locaadress": null
+    },
+    {
+        "id": 2,
+        "user_id": 1,
+        "agenda-name": "Agenda 2",
+        "agenda-duration": "01:00",
+        "agenda-initialdate": "05/042022",
+        "agenda-finaldate": "05/06/2022", 
+        "agenda-availability": {
+            "sunday": null,
+            "mondays": null,
+            "tuesday": "08:00 - 17:00",
+            "wednesday": "08:00 - 17:00",
+            "thursday": "08:00 - 17:00",
+            "friday": "08:00 - 17:00",
+            "saturday": null   
+        },
+        "agenda-namepage": "Agenda de Sicrano",
+        "agenda-description": null,
+        "agenda-local": "Videoconferência",
+        "agenda-locaadress": null
+    }
+
+
+]
