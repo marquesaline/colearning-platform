@@ -2,7 +2,7 @@
 .main-calendar{
     display: flex;
     flex-wrap: wrap;
-    text-align: center;
+    
 }
 
 .container-calendar{
@@ -46,7 +46,7 @@
     font-size: 18px;
     padding-bottom: 15px;
 }
-#calendar .fc-dayGridMonth-button {
+.fc-dayGridMonth-button {
     display: none;
 }
 .fc-button {
@@ -69,7 +69,7 @@
     background-color: #d6d6d6;
     color: #3b424d;
 }
-.fc-button-group {
+#calendar .fc-button-group {
     display: flex;
     justify-content: space-between;
 }
@@ -82,17 +82,20 @@
     color: var(--font-color-button);
     border-radius: 5px;
 }
+/* calendário principal */
 .section-agenda{
     margin: 15px auto;
     width: 80%;
 }
 .agenda-title {
     padding:0px 0;
+    text-align: center;
 }
 .container-events {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 80%;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: var(--background-primary);
 }
 .container-events .fc-dayGridMonth-button,
 .container-events .fc-today-button {
@@ -100,6 +103,49 @@
     margin: 20px auto;
 }
 
+#calendar-main .fc-header-toolbar{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0;
+}
+#calendar-main .fc-toolbar-title {
+    font-weight: 400;
+    font-size: 23px;
+}
+#calendar-main .fc-toolbar-chunk {
+    height: 100%;
+}
+#calendar-main .fc-toolbar-ltr > div:nth-child(3) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+#calendar-main .fc-button {
+    margin: 0;
+  
+}
+#calendar-main .fc-today-button {
+    padding: 8px 10px;
+    margin-right: 5px;
+}
+#calendar-main .fc-prev-button .fc-next-button {
+    padding: 6px 10px;
+}
+
+#calendar-main .fc-scrollgrid {
+    width: 100%;
+   
+}
+#calendar-main .fc-col-header-cell {
+    border: 1px solid black;
+    padding: 0;
+    margin: 0;
+}
+
+/* responsividade */
 @media screen and (min-width: 1025px) {
     .container-calendar {
         width: 305px;

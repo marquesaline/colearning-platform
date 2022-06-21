@@ -41,51 +41,6 @@
     </section>
 </main>
 
-<!-- Calendário do container lateral -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      locale: 'pt-br',
-      initialView: 'dayGridMonth',
-      showNonCurrentDates: false, //tira os dias do mês anterior do calendário
-      themeSystem: String,
-      default: 'standard',
-      now: function (date) {
-        var now = Date.now()
-        var date = new Date(now)
-        return date
-      },
-      selectable: true,
-      headerToolbar: {
-        center: 'dayGridMonth',
-        end: 'today prev,next'
-      }, //{ center: 'dayGridMonth,timeGridWeek' }
-      buttonText: {
-        today: 'Hoje',
-        month: 'Mês',
-        prev: '<',
-        next: '>'
-      },
-
-      views: {
-        dayGridMonth: { // name of view
-          titleFormat: {
-            year: 'numeric',
-            month: 'long'
-          },
-
-          // other view-specific options here
-        }
-      },
-    });
-    calendar.render();
-
-  });
-</script>
-
-<!-- Calendário da parte principal -->
-
 <script type="text/javascript" src="/javascripts/calendar.js"></script>
 </body>
 
