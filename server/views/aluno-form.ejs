@@ -1,0 +1,28 @@
+<%- include('partials/header.ejs') %>
+
+<main>
+   <%- include('partials/links-user.ejs') %>
+
+<form action="/users/add" method="POST">
+   <div >
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite o nome do Aluno" required>
+   </div>
+   <div >
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Digite o email" required>
+   </div>
+   <div >
+      <label for="senha">senha</label>
+      <input type="password" id="senha" name="senha" placeholder="Digite a senha" required>
+   </div>
+   <div >
+      <label for="avatar">avatar</label>
+      <input type="file" accept="image/*" id="avatar" name="avatar">
+   </div>
+   <button type="submit" id="button">Adicionar alunos</button>
+</form>
+   
+
+</main>
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,16 @@
+<%- include('partials/header.ejs') %>
+
+<main>
+    <%- include('partials/links-user.ejs') %>
+    <h1><%= title%></h1>
+    <% if(locals.alunos) { %>
+            <div>
+                <p><%= alunos.nome%></p>
+                <p><%= alunos.turma%></p>
+                <p><%= alunos.curso%></p>
+                <p><%= alunos.email%></p>
+            </div>
+   <% } %>
+    
+</main>
+<%- include('partials/footer.ejs') %>

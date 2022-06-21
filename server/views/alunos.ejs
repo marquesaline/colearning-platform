@@ -1,0 +1,75 @@
+<%- include('partials/header.ejs') %>
+
+    <main class="main-users-lista">
+        <%- include('partials/links-user.ejs') %>
+
+            <h1>
+                <%= title %>
+            </h1>
+            <section>
+                <h2>Alunos</h2>
+
+                <div class="card">
+
+                    <% if (locals.alunos) {%>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Avatar </th>
+                                    <th> Id </th>
+                                    <th> Nome </th>
+                                    <th> Email </th>
+                                    <th> Controllers </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(let aluno of alunos) {%>
+                                    <tr>
+                                        <td>
+                                           <img src="<%= aluno.avatar ? `images/avatar/`+aluno.avatar : `https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png`%>"
+                                                alt="Avatar <%= aluno.nome %>" width="60" height="60"
+                                                style="border-radius: 50%; display:block;"> 
+                                        </td>
+                                        <td>
+                                            <%= aluno.id %>
+                                        </td>
+                                        <td>
+                                            <%= aluno.nome %>
+                                        </td>
+                                        <td>
+                                            <%= aluno.email %>
+                                        </td>
+                                        <td>
+                                            <%= aluno.senha %>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <a href="/users/<%= aluno.id %>">ver</a> /
+                                                <a href="/users/<%= aluno.id %>/editar">editar</a> /
+                                                <a href="/users/<%= aluno.id %>/excluir">excluir</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                            </tbody>
+                        </table>
+
+                        <ul class="users-lista-ul">
+<!-- -->
+
+
+
+
+
+                            <%}%>
+                        </ul>
+
+
+
+                        <%}%>
+            </section>
+            </div>
+
+
+
+    </main>
+    <%- include('partials/footer.ejs') %>
