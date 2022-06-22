@@ -1,11 +1,10 @@
-
-.main-calendar{
+.main-calendar {
     display: flex;
     flex-wrap: wrap;
-    
+
 }
 
-.container-calendar{
+.container-calendar {
     border-right: solid 1px var(--border-color-light);
     background-color: var(--background-primary);
     display: flex;
@@ -15,7 +14,8 @@
     text-align: left;
     justify-items: flex-start;
 }
-#agenda-submit{
+
+#agenda-submit {
     line-height: 22px;
     font-weight: 700;
     padding: 12px 35px;
@@ -23,32 +23,37 @@
     border-radius: 5px;
     color: var(--font-color-button);
     font-size: var(--font-size-btn);
-    box-shadow: 0px 1px 2px 0px rgba(60,64,67,.30),0px 1px 3px 1px rgba(60,64,67,.15);
+    box-shadow: 0px 1px 2px 0px rgba(60, 64, 67, .30), 0px 1px 3px 1px rgba(60, 64, 67, .15);
 }
+
 #agenda-submit:hover {
-    transition: border 280ms cubic-bezier(.4,0,.2,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
-    box-shadow: 0px 4px 4px 0px rgba(60,64,67,.30),0px 8px 12px 6px rgba(60,64,67,.15);
+    transition: border 280ms cubic-bezier(.4, 0, .2, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+    box-shadow: 0px 4px 4px 0px rgba(60, 64, 67, .30), 0px 8px 12px 6px rgba(60, 64, 67, .15);
 }
 
 
-.agendamento{
+.agendamento {
     margin: 0 auto;
 }
+
 .container-table-month {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    
+
 }
+
 /* classes do FullCalendarJs do calendário lateral*/
 #calendar .fc-toolbar-title {
     text-align: center;
     font-size: 18px;
     padding-bottom: 15px;
 }
+
 .fc-dayGridMonth-button {
     display: none;
 }
+
 .fc-button {
     line-height: 15px;
     padding: 6px 10px;
@@ -58,91 +63,112 @@
     font-size: var(--font-size-btn);
     margin-bottom: 10px;
 }
- .fc-button:hover {
+
+.fc-button:hover {
     background-color: var(--background-button-hover);
 }
+
 #calendar .fc-today-button {
     width: 100%;
     margin: 10px auto;
 }
+
 .fc-today-button:disabled {
     background-color: #d6d6d6;
     color: #3b424d;
 }
+
 #calendar .fc-button-group {
     display: flex;
     justify-content: space-between;
 }
-#calendar .fc-scrollgrid  {
+
+#calendar .fc-scrollgrid {
     font-size: 16px;
 }
 
-.fc-day-today a  {
+.fc-day-today a {
     background-color: var(--background-button);
     color: var(--font-color-button);
     border-radius: 5px;
 }
+
 /* calendário principal */
-.section-agenda{
+.section-agenda {
     margin: 15px auto;
     width: 80%;
 }
+
 .agenda-title {
-    padding:0px 0;
+    padding: 0px 0;
     text-align: center;
 }
+
 .container-events {
     width: 80%;
     margin: 50px auto;
     padding: 30px;
     background-color: var(--background-primary);
 }
+
 .container-events .fc-dayGridMonth-button,
 .container-events .fc-today-button {
     padding: 10px 40px;
     margin: 20px auto;
 }
 
-#calendar-main .fc-header-toolbar{
+#calendar-main .fc-header-toolbar {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
     margin: 30px 0;
 }
+
 #calendar-main .fc-toolbar-title {
     font-weight: 400;
     font-size: 23px;
 }
+
 #calendar-main .fc-toolbar-chunk {
     height: 100%;
 }
-#calendar-main .fc-toolbar-ltr > div:nth-child(3) {
+
+#calendar-main .fc-toolbar-ltr>div:nth-child(3) {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
 }
+
 #calendar-main .fc-button {
     margin: 0;
-  
+
 }
+
 #calendar-main .fc-today-button {
     padding: 8px 10px;
     margin-right: 5px;
 }
+
 #calendar-main .fc-prev-button .fc-next-button {
     padding: 6px 10px;
 }
 
 #calendar-main .fc-scrollgrid {
     width: 100%;
-   
+
 }
+
 #calendar-main .fc-col-header-cell {
     border: 1px solid black;
     padding: 0;
     margin: 0;
+}
+
+#calendar-main .fc-daygrid-day-events {
+    background-color: var(--background-nav-active);
+    color: var(--font-color-button);
 }
 
 /* responsividade */
@@ -152,19 +178,23 @@
     }
 
 }
+
 @media screen and (max-width: 768px) {
     .container-agendas {
         align-items: center;
     }
 }
-@media screen and (max-width: 480px){
+
+@media screen and (max-width: 480px) {
     .fc-daygrid-body {
         width: 100%;
     }
+
     .container-agendas {
         margin-top: 200px;
     }
-    .agenda{
+
+    .agenda {
         width: 100%;
     }
 }

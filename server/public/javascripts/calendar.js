@@ -72,20 +72,14 @@ document.addEventListener('DOMContentLoaded', function () {
         next: '>'
       },
       
-      events: [
-         
-        {
-          title: 'Mon, Tue',
-          daysOfWeek: [ '1', '2' ], //dias da semana
-          startRecur: '2022-06-01', //data de início da recorrência
-          endRecur:'2022-07-31', //data final da recorrência
-          startTime: '10:45:00', //hora de início
-          endTime: '12:45:00' // hora final
+      eventSources: [
+        'conta/json'
+      ], 
+      eventSourceSuccess: function(content, xhr) {
+        return content.eventArray;
         }
-      ],
-
-     
     });
+    calendarMain.getEventSources()
     calendarMain.render();
-
+    
   });
