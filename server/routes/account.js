@@ -13,6 +13,6 @@ router.get('/minha-conta/editar', controller.editAccount)
 router.get('/assinatura/editar', controller.editSignature)
 
 
-router.get('/json', controller.agenda)
+router.get('/json', controller.events)
 
 module.exports = router;

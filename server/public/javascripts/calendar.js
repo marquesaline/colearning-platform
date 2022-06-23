@@ -45,11 +45,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var calendarMain = new FullCalendar.Calendar(calendarEl, {
       
       locale: 'pt-br',
-      initialView:'dayGridMonth',
+      initialView:'timeGridWeek',
       height: 'auto',
       showNonCurrentDates: false,
       views: {
-        dayGridMonth: { // name of view
+        timeGridWeek: { // name of view
           titleFormat: {
             year: 'numeric',
             month: 'long'

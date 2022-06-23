@@ -1,14 +1,28 @@
 [
     {
-      "id": 1,
+      "id_agenda": 1,
       "user_id": 1,
-      "title": "Event 1",
-      "allDay": false, 
+      "title": "Agenda aulas",
+      "allDay": false,
+      "duration": "01:00",
       "start": "2022-06-01",
       "end": "2022-06-30",
-      "businessHours": {
-          "daysOfWeek": [3, 6],
-          "startTime": "10:45:00"
-      }
+      "businessHours": [ 
+        {
+          "daysOfWeek": [ 2, 3 ], 
+          "startTime": "08:00", 
+          "endTime": "12:00"
+        },
+        {
+          "daysOfWeek": [ 2, 3 ], 
+          "startTime": "13:00", 
+          "endTime": "18:00"
+        },
+        {
+          "daysOfWeek": [ 4, 5 ], 
+          "startTime": "10:00", 
+          "endTime": "16:00"
+        }
+      ]
     }
   ]
