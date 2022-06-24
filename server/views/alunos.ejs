@@ -19,6 +19,7 @@
                                     <th> Id </th>
                                     <th> Nome </th>
                                     <th> Email </th>
+                                    <th> Senha </th>
                                     <th> Controllers </th>
                                 </tr>
                             </thead>
@@ -50,22 +51,14 @@
                                             </div>
                                         </td>
                                     </tr>
+                                <%} %>
                             </tbody>
                         </table>
-
-                        <ul class="users-lista-ul">
-<!-- -->
-
-
-
-
-
-                            <%}%>
-                        </ul>
-
-
-
-                        <%}%>
+                    <%}else { %>
+                                    <div>
+                                      <h3>Ops... parece que não há usuários cadastrados ainda.</h3>
+                                    </div>
+                                    <% }%>
             </section>
             </div>
 

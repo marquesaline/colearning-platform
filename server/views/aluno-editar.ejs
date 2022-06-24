@@ -9,12 +9,8 @@
       <p>Edite os dados do aluno <%= aluno.nome%></p>
    </section>
 
-<form action="/users/<%= aluno.id %>/editar?_method=put" method="POST" enctype="multipart/form-data">
-   <div>
-      <img src="<%= aluno.avatar ? `images/avatar/`+aluno.avatar : `https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png`%>"
-      alt="Avatar <%= aluno.nome %>" width="60" height="60"
-      style="border-radius: 50%; display:block;"> 
-   </div>
+<form action="/users/<%=aluno.id%>/editar?_method=put" method="POST" >
+   
    <div >
       <label for="nome">Nome</label>
       <input type="text" id="nome" value="<%= aluno.nome%>" name="nome" placeholder="Digite o nome do Aluno" required>
@@ -27,12 +23,9 @@
       <label for="senha">senha</label>
       <input type="password" id="senha" value="<%= aluno.senha%>" name="senha" placeholder="Digite a senha" required>
    </div>
-   <div >
-      <label for="avatar">avatar</label>
-      <input type="file" value="<%= aluno.avatar%>" id="avatar" name="avatar"  accept="image/*" capture="user">
-   </div>
+
    <input type="hidden" name="modifed_at" value="<%= new Date() %>">
-   <button>Adicionar alunos</button>
+   <button>Editar aluno</button>
 </form>
    
 
