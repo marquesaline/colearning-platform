@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
     locale: 'pt-br',
     initialView: 'dayGridMonth',
     showNonCurrentDates: false, //tira os dias do mês anterior do calendário
-    themeSystem: String,
     default: 'standard',
     now: function (date) {
       var now = Date.now()
@@ -48,14 +47,20 @@ document.addEventListener('DOMContentLoaded', function () {
       initialView:'timeGridWeek',
       height: 'auto',
       showNonCurrentDates: false,
+     
       views: {
         timeGridWeek: { // name of view
           titleFormat: {
             year: 'numeric',
             month: 'long'
           },
-
-          // other view-specific options here
+          slotLabelFormat: {
+            hour: 'numeric',
+            minute: '2-digit',
+            omitZeroMinute: false,
+            meridiem: 'short'
+         
+          },
         }
       },
       
@@ -72,12 +77,10 @@ document.addEventListener('DOMContentLoaded', function () {
         next: '>'
       },
       
+      
       eventSources: [
         'conta/json'
-      ], 
-      eventSourceSuccess: function(content, xhr) {
-        return content.eventArray;
-        }
+      ]
     });
     calendarMain.getEventSources()
     calendarMain.render();
