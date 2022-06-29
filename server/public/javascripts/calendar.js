@@ -1,4 +1,5 @@
 
+
 //<!-- Calendário do container lateral -->
 document.addEventListener('DOMContentLoaded', function () {
   var calendarEl = document.getElementById('calendar');
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 // <!-- Calendário da parte principal -->
 document.addEventListener('DOMContentLoaded', function () {
+    
     var calendarEl = document.getElementById('calendar-main');
     var calendarMain = new FullCalendar.Calendar(calendarEl, {
       
@@ -78,11 +80,10 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       
       
-      eventSources: [
-        'conta/json'
-      ]
+      events: 'conta/json',
+      
     });
-    calendarMain.getEventSources()
     calendarMain.render();
     
+  
   });

@@ -13,16 +13,20 @@ const getAgendaPorId = (id) =>
     getAgenda().find((agenda) => agenda.id == id)
 
 const getEvents = () => JSON.parse(helper.read("events.json"))
+const getEventsId = async (id) =>
+    await getEvents().find((event) => event.id == id)
+    
 // Controllers
+
 // acesso ao json
 controller.events = async (req, res) => res.json(await getEvents())
+controller.eventsId = async (req, res) =>
+    res.json(await getEventsId(req.params.id))
 
 //acessar as agendas
 controller.calendar = (req, res) => res.render('calendario', {
-    title: 'Calendário' ,
-    agenda: getAgendaPorId(req.params.id)
+    title: 'Calendário'
 }),
-
 
 controller.create = (req, res) => res.render('criar-agenda', { title: 'Criar Agenda' }),
 controller.account = (req, res) => res.render('minha-conta', { title: 'Minha Conta'}),

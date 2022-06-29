@@ -14,5 +14,6 @@ router.get('/assinatura/editar', controller.editSignature)
 
 
 router.get('/json', controller.events)
+router.get('/json/:id', controller.eventsId)
 
 module.exports = router;
