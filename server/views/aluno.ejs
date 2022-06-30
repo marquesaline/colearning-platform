@@ -8,31 +8,30 @@
     <% if(locals.alunos) { %>
        
             <div>
-                <div>
+              
+                <figure>
                     <img
                       src="https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png"
                       alt="avatar"
                       height="60"
                       width="60"
                       style="border-radius: 50%; width: 60px; height: 60px; display: block"
-                    />
-                  </div>
-                  <small><%= alunos.id %></small>
-                <h3><%= alunos.nome%></h3>
-                <p><%= alunos.email%></p>
-                <p><%= alunos.senha%></p>
+                    >
+                </figure>
+                <p><%= aluno.id %></p>
+                <h3><%= aluno.nome%></h3>
+                <p><%= aluno.email%></p>
+                <p><%= aluno.senha%></p>
 
                 <div>
                     <a href="/users/lista">Alunos</a> | <a href="/users/<%= alunos.id %>/editar">editar</a>
-                    | <a href="/users/<%= usuario.id %>/apagar">excluir</a>
-                  </div>
+                    |   <a href="/users/<%= usuario.id %>/apagar">excluir</a>
+                </div>
+                
             </div>
    <% } %>
   
   </section>
-  <div>
-    <a href="/users">Página Inicial</a> | <a href="/users/add">Adicionar Aluno</a>
-  </div>
     
 </main>
 <%- include('partials/footer.ejs') %>

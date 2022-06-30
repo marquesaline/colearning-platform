@@ -19,9 +19,9 @@ var router = express.Router();
     router.put('/:id/editar', controller.update)
     
     router.get('/:id/excluir',controller.exclude)
-    router.get('/:id/excluir', controller.delete)                    /*elton   acessando o id da turma do controller*/  
+    router.delete('/:id/excluir', controller.delete)                    /*elton   acessando o id da turma do controller*/  
     
-    router.get('/:id', controller.id)
+    router.get('/:id', controller.show)
 
 
 

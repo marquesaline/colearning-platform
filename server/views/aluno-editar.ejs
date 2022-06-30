@@ -1,27 +1,24 @@
+<link rel="stylesheet" href="/stylesheets/users/editar-aluno.css">     
 <%- include('partials/header.ejs') %>
 
 <main>
-   <h1><%= title %></h1>
    <%- include('partials/links-user.ejs') %>
 
-   <section>
-      <h2>Editar Aluno <%= aluno.nome%></h2>
-      <p>Edite os dados do aluno <%= aluno.nome%></p>
-   </section>
+   <h1 class="editar-aluno">Editar Aluno <%= aluno.nome%></h1>
 
-<form action="/users/<%=aluno.id%>/editar?_method=put" method="POST" >
+<form class="form-aluno" action="/users/<%=aluno.id%>/editar?_method=put" method="POST">
    
-   <div >
+   <div class="edit-div">
       <label for="nome">Nome</label>
-      <input type="text" id="nome" value="<%= aluno.nome%>" name="nome" placeholder="Digite o nome do Aluno" required>
+      <input class="aluno-edit"type="text" id="nome" value="<%= aluno.nome%>" name="nome" placeholder="Digite o nome do Aluno" required>
    </div>
-   <div >
+   <div class="edit-div">
       <label for="email">Email</label>
-      <input type="email" id="email" value="<%= aluno.email%>" name="email" placeholder="Digite o email" required>
+      <input class="aluno-edit"type="email" id="email" value="<%= aluno.email%>" name="email" placeholder="Digite o email" required>
    </div>
-   <div >
+   <div class="edit-div">
       <label for="senha">senha</label>
-      <input type="password" id="senha" value="<%= aluno.senha%>" name="senha" placeholder="Digite a senha" required>
+      <input class="aluno-edit"type="password" id="senha" value="<%= aluno.senha%>" name="senha" placeholder="Digite a senha" required>
    </div>
 
    <input type="hidden" name="modifed_at" value="<%= new Date() %>">

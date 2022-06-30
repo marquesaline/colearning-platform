@@ -2,11 +2,15 @@
 
 <main>
   <%- include('partials/links-user.ejs') %>
-  <h2>Formulario de Cadastro</h2>
-  <p>Preencha o formulario</p>
+  <h1 class="editar-aluno">Formulario de Cadastro</h1>
+ 
 
-  <form action="/users/add" method="POST">
-    <div>
+  <form  class="form-aluno" action="/users/add" method="POST">
+   <div>
+    <!--
+  <input type="file" accept="image/*" id="avatar" name="avatar" />
+   -->
+    
       <img
         src="https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png"
         alt="avatar"
@@ -14,12 +18,12 @@
         width="60"
         style="border-radius: 50%; width: 60px; height: 60px; display: block"
       />
+    
       <label for="avatar">Avatar</label>
-      <input type="file" accept="image/*" id="avatar" name="avatar" />
     </div>
-    <div>
+    <div class="edit-div">
       <label for="nome">Nome</label>
-      <input
+      <input class="aluno-edit"
         type="text"
         id="nome"
         name="nome"
@@ -27,9 +31,9 @@
         required
       />
     </div>
-    <div>
+    <div class="edit-div">
       <label for="email">Email</label>
-      <input
+      <input class="aluno-edit"
         type="email"
         id="email"
         name="email"
@@ -37,9 +41,9 @@
         required
       />
     </div>
-    <div>
+    <div class="edit-div"> 
       <label for="senha">senha</label>
-      <input
+      <input class="aluno-edit"
         type="password"
         id="senha"
         name="senha"

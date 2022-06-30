@@ -1,23 +1,12 @@
 <%- include('partials/header.ejs') %>
 
 <main>
-  <h1><%= title %></h1>
   <%- include('partials/links-user.ejs') %>
 
+  <h2>Excluir Aluno <%= aluno.nome%></h2>
   <section>
-    <h2>Excluir Aluno <%= aluno.nome%></h2>
-    <p>Confirmar exclusão de dados do aluno <%= aluno.nome%></p>
 
     <form action="/users/<%=aluno.id%>/excluir?_method=delete" method="POST">
-      <div>
-        <img
-          src="https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png"
-          alt="avatar"
-          height="60"
-          width="60"
-          style="border-radius: 50%; width: 60px; height: 60px; display: block"
-        />
-      </div>
       <div>
         <label for="nome">Nome</label>
         <input

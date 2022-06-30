@@ -16,8 +16,8 @@ helper.write = (filename, data) =>
   );
 
 const getAlunos = () => JSON.parse(helper.read("alunos.json"));
-const setAlunos = (alunos) => helper.write("alunos.json", alunos);
-const getAlunoId = (id) => getAlunos().find((aluno) => aluno.id == id);
+const setAlunos = alunos => helper.write("alunos.json", alunos);
+const getAlunoId = id => getAlunos().find(aluno => aluno.id == id);
 const getProximoId = async () => {
   const alunos = await getAlunos();
   const newId = parseInt(alunos[alunos.length - 1].id) + 1;
@@ -93,22 +93,22 @@ const controller = {
   },
 
   exclude: (req, res) => {
-    const alunos = getAlunoId(req.params.id)
     res.render('aluno-excluir', {
-      title: `Excluir Aluno ${alunos.nome}`,
-      alunos,
+      title: `Excluir Aluno ${req.params.id}`,
+      aluno: getAlunoId(req.params.id)
     })
   },
 
+  //arrumar
   delete: async (req, res) => {
-    const alunos = await getAlunos().filter(
-      (aluno) => aluno.id != req.params.id 
-      );
+      const alunos = await getAlunos().filter(
+        (aluno) => aluno.id != req.params.id 
+        );
       setAlunos(alunos)
       res.redirect(`/users/sucesso`)
   },
-  
-  id: async (req, res) => {
+  //arrumar
+  show: async (req, res) => {
     res.render('aluno', {
       title: `Aluno ${req.params.id} `,
       aluno: getAlunoId(req.params.id),
