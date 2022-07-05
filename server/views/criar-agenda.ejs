@@ -34,36 +34,38 @@
                 <p class="settings-title">Configurações Iniciais</p>
                 <hr>
                 <div class="container-form">
-                    <form method="POST" action="" enctype="multipart/form-data">
+                    <form method="post" action="/conta/criar-agenda">
                         <div class="conteiners-form">
-                            <label for="agenda-name">Nome da agenda</label>
-                            <input type="text" name="agenda-name" id="agenda-name" required>
+                            <label for="title">Nome da agenda</label>
+                            <input type="text" name="title" id="title" required>
                         </div>
                         
                         <div class="conteiners-form">
-                            <label for="agenda-duration">Duração das reuniões</label>
-                            <select class="dropdown"id="agenda-duration">
-                                <option>00:15</option>
-                                <option>00:30</option>
-                                <option>01:00</option>
-                                <option>01:30</option>
-                                <option>02:00</option>
-                            </select>
+                            <label for="duration">Duração das reuniões</label>
+                            <input type="time" name="duration" id="duration" required>
+                            <!-- <select class="dropdown"id="agendaDuration">
+                                <option value="00:15">00:15</option>
+                                <option value="00:30">00:30</option>
+                                <option value="01:00">01:00</option>
+                                <option value="01:30">01:30</option>
+                                <option value="02:00">02:00</option>
+                            </select> -->
                         </div>
                         <div class="conteiners-form">
-                            <label for="agenda-period">Período de agendamento</label>
-                            <input type="date" name="initial-date" id="initial-date">
-                            <p>até</p>
-                            <input type="date" name="final-date" id="final-date">
+                            <label for="start">Período de agendamento</label>
+                            <input type="date" name="start" id="start">
+                            <label for="end">até</label>
+                            <input type="date" name="end" id="end">
                         </div>
                         <div class="container-availability">
-                            <label for="agenda-availability">Disponibilidade</label>
+                            <label for="businessHours">Disponibilidade</label>
                             <table class="table-availability">
                                 <tr>
-                                    <td class="week-days">Domingo</td>
+                                    <td class="daysOfWeek">
+                                        <label>Domingo</label></td>
                                     <td class="input-time">
-                                        <input type="time" placeholder="09:00" class="initial-time">
-                                        <input type="time" placeholder="18:00" class="final-time">
+                                        <input type="time" name="startTime" id="startTime" placeholder="09:00" class="initial-time">
+                                        <input type="time" name="endTime" id="endTime" placeholder="18:00" class="final-time">
                                     </td>
                                     <td class="button-time">
                                         <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
@@ -71,10 +73,10 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="week-days">Segunda</td>
+                                    <td class="daysOfWeek">Segunda</td>
                                     <td class="input-time">
-                                        <input type="time" placeholder="09:00" class="initial-time">
-                                        <input type="time" placeholder="18:00" class="final-time">
+                                        <input type="time" name="startTime" id="startTime" placeholder="09:00" class="initial-time">
+                                        <input type="time" name="endTime" id="endTime" placeholder="18:00" class="final-time">
                                     </td>
                                     <td class="button-time">
                                         <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
@@ -82,10 +84,10 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="week-days">Terça</td>
+                                    <td class="daysOfWeek">Terça</td>
                                     <td class="input-time">
-                                        <input type="time" placeholder="09:00" class="initial-time">
-                                        <input type="time" placeholder="18:00" class="final-time">
+                                        <input type="time" name="startTime" id="startTime" placeholder="09:00" class="initial-time">
+                                        <input type="time" name="endTime" id="endTime" placeholder="18:00" class="final-time">
                                     </td>
                                     <td class="button-time">
                                         <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
@@ -93,10 +95,10 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="week-days">Quarta</td>
+                                    <td class="daysOfWeek">Quarta</td>
                                     <td class="input-time">
-                                        <input type="time" placeholder="09:00" class="initial-time">
-                                        <input type="time" placeholder="18:00" class="final-time">
+                                        <input type="time" name="startTime" id="startTime" placeholder="09:00" class="initial-time">
+                                        <input type="time" name="endTime" id="endTime" placeholder="18:00" class="final-time">
                                     </td>
                                     <td class="button-time">
                                         <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
@@ -104,10 +106,10 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="week-days">Quinta</td>
+                                    <td class="daysOfWeek">Quinta</td>
                                     <td class="input-time">
-                                        <input type="time" placeholder="09:00" class="initial-time">
-                                        <input type="time" placeholder="18:00" class="final-time">
+                                        <input type="time" name="startTime" id="startTime" placeholder="09:00" class="initial-time">
+                                        <input type="time" name="endTime" id="endTime" placeholder="18:00" class="final-time">
                                     </td>
                                     <td class="button-time">
                                         <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
@@ -115,10 +117,10 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="week-days">Sexta</td>
+                                    <td class="daysOfWeek">Sexta</td>
                                     <td class="input-time">
-                                        <input type="time" placeholder="09:00" class="initial-time">
-                                        <input type="time" placeholder="18:00" class="final-time">
+                                        <input type="time" name="startTime" id="startTime" placeholder="09:00" class="initial-time">
+                                        <input type="time" name="endTime" id="endTime" placeholder="18:00" class="final-time">
                                     </td>
                                     <td class="button-time">
                                         <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
@@ -126,10 +128,10 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="week-days">Sábado</td>
+                                    <td class="daysOfWeek">Sábado</td>
                                     <td class="input-time">
-                                        <input type="time" placeholder="09:00" class="initial-time">
-                                        <input type="time" placeholder="18:00" class="final-time">
+                                        <input type="time" name="startTime" id="startTime" placeholder="09:00" class="initial-time">
+                                        <input type="time" name="endTime" id="endTime" placeholder="18:00" class="final-time">
                                     </td>
                                     <td class="button-time">
                                         <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
@@ -138,37 +140,40 @@
                                 </tr>
                             </table>
                         </div>
+                        <div>
+                            <button type="submit" class="btn-default" id="btn-save">Salvar</button>
+                        </div>
                     </form>
                 </div>
             </div>
-            <div class="settings-form">
+            <!-- <div class="settings-form">
                 <p class="settings-title">Configurações da Reserva</p>
                 <hr>
                 <div class="container-form">
                     <form method="POST" action="" enctype="multipart/form-data">
                         <div class="conteiners-form">
-                            <label for="res-name">Nome da página de agendamento</label>
-                            <input type="text" name="res-name" id="res-name">
+                            <label for="reservationName">Nome da página de agendamento</label>
+                            <input type="text" name="reservationName" id="reservationName">
                         </div>
                         <div class="conteiners-form">
-                            <label for="res-description">Descrição</label>
-                            <textarea name="description" id="res-description" cols="40" rows="3"></textarea>
+                            <label for="reservationDescription">Descrição</label>
+                            <textarea name="reservationDescription" id="reservationDescription" cols="40" rows="3"></textarea>
                         </div>
                         <div class="conteiners-form local-options">
                             <div>
-                                <label for="res-local">Local da Reserva</label>
+                                <label for="reservationLocal">Local da Reserva</label>
                             </div>
                             <div class="local-radios">
-                                <input type="radio" name="res-local" value="online" id="res-online" checked onclick="showElement('res-online', 'div-res-adress')">
+                                <input type="radio" name="reservationLocal" value="online" id="res-online" checked onclick="showElement('res-online', 'div-res-adress')">
                                 <label for="res-online">Videoconferência</label>
 
-                                <input type="radio" name="res-local" value="person" id="res-person" onclick="showElement('res-person', 'div-res-adress')">
+                                <input type="radio" name="reservationLocal" value="person" id="res-person" onclick="showElement('res-person', 'div-res-adress')">
                                 <label for="res-person">Presencial</label>
 
                             </div>
                             <div id="div-res-adress">
-                                <label for="res-adress">Informe o local</label>
-                                <input type="text" name="res-adress" id="res-adress" placeholder="Adicione o local">
+                                <label for="reservationAdress">Informe o local</label>
+                                <input type="text" name="reservationAdress" id="reservationAdress" placeholder="Adicione o local">
                             </div>
                         </div>
                         <div>
@@ -177,7 +182,7 @@
                     </form>
                 </div>
             </div>
-        </section>
+        </section> -->
     </main>
    
 </body>
