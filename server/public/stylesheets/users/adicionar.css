@@ -1,22 +1,34 @@
-.editar-aluno{
-    text-align: center;
-    margin: 10px;
+.editar-aluno {
+  text-align: center;
+  margin: 10px;
 }
-.form-aluno{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.form-aluno {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.aluno-edit{
-    height: 3rem;
-    width: 90%
+.aluno-edit {
+  height: 3rem;
+  width: 90%;
 }
-.edit-div{
-    width: 55%;
-    margin: 10px;
+.edit-div {
+  width: 55%;
+  margin: 10px;
+}
+.button-add {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ff7a00;
+  color: #fff;
+  cursor: pointer;
+}
+.button-add:hover {
+  padding: 11px;
 }
 @media screen and (max-width: 435px) {
-    .edit-div{
-        width: 95%;
-    }
+  .edit-div {
+    width: 95%;
+  }
 }

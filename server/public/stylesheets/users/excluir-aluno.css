@@ -1,4 +1,4 @@
-.editar-aluno {
+.excluir-aluno {
   text-align: center;
   margin: 10px;
 }
@@ -7,15 +7,15 @@
   flex-direction: column;
   align-items: center;
 }
-.aluno-edit {
+.aluno-exclude {
   height: 3rem;
   width: 90%;
 }
-.edit-div {
+.exclude-div {
   width: 55%;
   margin: 10px;
 }
-.button-edit {
+.button-exclude {
   padding: 10px;
   margin: 10px;
   border-radius: 8px;
@@ -24,11 +24,11 @@
   color: #fff;
   cursor: pointer;
 }
-.button-edit:hover {
+.button-exclude:hover {
   padding: 11px;
 }
 @media screen and (max-width: 435px) {
-  .edit-div {
+  .exclude-div {
     width: 95%;
   }
 }

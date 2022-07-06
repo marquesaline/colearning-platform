@@ -1,30 +1,55 @@
-<link rel="stylesheet" href="/stylesheets/users/editar-aluno.css">     
+<link rel="stylesheet" href="/stylesheets/users/editar-aluno.css" />
 <%- include('partials/header.ejs') %>
 
 <main>
-   <%- include('partials/links-user.ejs') %>
+  <%- include('partials/links-user.ejs') %>
 
-   <h1 class="editar-aluno">Editar Aluno <%= aluno.nome%></h1>
+  <h1 class="editar-aluno">Editar Aluno <%= aluno.nome%></h1>
 
-<form class="form-aluno" action="/users/<%=aluno.id%>/editar?_method=put" method="POST">
-   
-   <div class="edit-div">
+  <form
+    class="form-aluno"
+    action="/users/<%=aluno.id%>/editar?_method=put"
+    method="POST"
+  >
+    <div class="edit-div">
       <label for="nome">Nome</label>
-      <input class="aluno-edit"type="text" id="nome" value="<%= aluno.nome%>" name="nome" placeholder="Digite o nome do Aluno" required>
-   </div>
-   <div class="edit-div">
+      <input
+        class="aluno-edit"
+        type="text"
+        id="nome"
+        value="<%= aluno.nome%>"
+        name="nome"
+        placeholder="Digite o nome do Aluno"
+        required
+      />
+    </div>
+    <div class="edit-div">
       <label for="email">Email</label>
-      <input class="aluno-edit"type="email" id="email" value="<%= aluno.email%>" name="email" placeholder="Digite o email" required>
-   </div>
-   <div class="edit-div">
+      <input
+        class="aluno-edit"
+        type="email"
+        id="email"
+        value="<%= aluno.email%>"
+        name="email"
+        placeholder="Digite o email"
+        required
+      />
+    </div>
+    <div class="edit-div">
       <label for="senha">senha</label>
-      <input class="aluno-edit"type="password" id="senha" value="<%= aluno.senha%>" name="senha" placeholder="Digite a senha" required>
-   </div>
+      <input
+        class="aluno-edit"
+        type="password"
+        id="senha"
+        value="<%= aluno.senha%>"
+        name="senha"
+        placeholder="Digite a senha"
+        required
+      />
+    </div>
 
-   <input type="hidden" name="modifed_at" value="<%= new Date() %>">
-   <button>Editar aluno</button>
-</form>
-   
-
+    <input type="hidden" name="modifed_at" value="<%= new Date() %>" />
+    <button class="button-edit">Editar aluno</button>
+  </form>
 </main>
 <%- include('partials/footer.ejs') %>
