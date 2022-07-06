@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/stylesheets/users/excluir-aluno.css" />
+<%- include('partials/header.ejs') %>
+
+<main>
+  <%- include('partials/links-user.ejs') %>
+
+  <h1 class="excluir-aluno">Excluir Aluno <%= aluno.nome%></h1>
+  <section>
+    <form
+      class="form-aluno"
+      action="/users/<%=aluno.id%>/excluir?_method=delete"
+      method="POST"
+    >
+      <div class="exclude-div">
+        <label for="nome">Nome</label>
+        <input
+          class="aluno-exclude"
+          type="text"
+          id="nome"
+          value="<%= aluno.nome%>"
+          name="nome"
+          placeholder="Digite o nome do Aluno"
+          disabled
+        />
+      </div>
+      <div class="exclude-div">
+        <label for="email">Email</label>
+        <input
+          class="aluno-exclude"
+          type="email"
+          id="email"
+          value="<%= aluno.email%>"
+          name="email"
+          placeholder="Digite o email"
+          disabled
+        />
+      </div>
+      <div class="exclude-div">
+        <label for="senha">senha</label>
+        <input
+          class="aluno-exclude"
+          type="password"
+          id="senha"
+          value="<%= aluno.senha%>"
+          name="senha"
+          placeholder="Digite a senha"
+          disabled
+        />
+      </div>
+
+      <input type="hidden" name="modifed_at" value="<%= new Date() %>" />
+      <button class="button-exclude">Excluir aluno</button>
+    </form>
+  </section>
+</main>
+<%- include('partials/footer.ejs') %>

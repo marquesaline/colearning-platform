@@ -1,0 +1,36 @@
+<%- include('partials/header.ejs') %>
+
+<main>
+  <%- include('partials/links-user.ejs') %>
+  <h1><%= title%></h1>
+  <section>
+    <p>ola</p>
+
+    <% if(locals.alunos) { %>
+    <div>
+      <figure>
+        <img
+          src="https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png"
+          alt="avatar"
+          height="60"
+          width="60"
+          style="border-radius: 50%; width: 60px; height: 60px; display: block"
+        />
+      </figure>
+      <p>aluno</p>
+      <p><%= aluno.id %></p>
+      <h3><%= aluno.nome%></h3>
+      <p><%= aluno.email%></p>
+      <p><%= aluno.senha%></p>
+    </div>
+
+    <% } %>
+
+    <nav class="navizinha">
+      <a class="um-aluno" href="/users/lista">Alunos</a> |
+      <a class="um-aluno" href="/users/<%= aluno.id %>/editar">editar</a> |
+      <a class="um-aluno" href="/users/<%= aluno.id %>/excluir">excluir</a>
+    </nav>
+  </section>
+</main>
+<%- include('partials/footer.ejs') %>

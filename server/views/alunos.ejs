@@ -1,0 +1,39 @@
+<%- include('partials/header.ejs') %>
+
+<main class="main-users-lista">
+  <%- include('partials/links-user.ejs') %>
+
+  <h1 class="lista-alunos"><%= title %></h1>
+
+  <section>
+    <% if (locals.alunos) {%>
+    <div>
+      <ul class="card">
+        <% for (let aluno of alunos) { %>
+
+        <li class="aluno-list">
+          <figure>
+            <img
+              src="<%= aluno.avatar ? `images/avatar/`+aluno.avatar : `https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png`%>"
+              alt="Avatar <%= aluno.nome %>"
+              width="60"
+              height="60"
+              style="border-radius: 50%; display: block"
+            />
+          </figure>
+
+          <p>Nome: <%= aluno.nome %></p>
+
+          <p>Email: <%= aluno.email %></p>
+
+          <p>Password: <%= aluno.senha %></p>
+          <a class="um-aluno" href="/users/<%= aluno.id %>">ver</a>
+        </li>
+
+        <% } %>
+      </ul>
+    </div>
+    <% } %>
+  </section>
+</main>
+<%- include('partials/footer.ejs') %>

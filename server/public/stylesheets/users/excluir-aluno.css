@@ -1,0 +1,34 @@
+.excluir-aluno {
+  text-align: center;
+  margin: 10px;
+}
+.form-aluno {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.aluno-exclude {
+  height: 3rem;
+  width: 90%;
+}
+.exclude-div {
+  width: 55%;
+  margin: 10px;
+}
+.button-exclude {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ff7a00;
+  color: #fff;
+  cursor: pointer;
+}
+.button-exclude:hover {
+  padding: 11px;
+}
+@media screen and (max-width: 435px) {
+  .exclude-div {
+    width: 95%;
+  }
+}

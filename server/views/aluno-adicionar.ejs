@@ -1,0 +1,55 @@
+<%- include('partials/header.ejs') %>
+
+<main>
+  <%- include('partials/links-user.ejs') %>
+  <h1 class="editar-aluno">Formulario de Cadastro</h1>
+
+  <form class="form-aluno" action="/users/add" method="POST">
+    <div>
+      <img
+        src="../public/images/avatar-exemple.png"
+        alt="avatar"
+        height="60"
+        width="60"
+        style="border-radius: 50%; width: 60px; height: 60px; display: block"
+      />
+
+      <label for="avatar">Avatar</label>
+    </div>
+    <div class="edit-div">
+      <label for="nome">Nome</label>
+      <input
+        class="aluno-edit"
+        type="text"
+        id="nome"
+        name="nome"
+        placeholder="Digite o nome do Aluno"
+        required
+      />
+    </div>
+    <div class="edit-div">
+      <label for="email">Email</label>
+      <input
+        class="aluno-edit"
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Digite o email"
+        required
+      />
+    </div>
+    <div class="edit-div">
+      <label for="senha">senha</label>
+      <input
+        class="aluno-edit"
+        type="password"
+        id="senha"
+        name="senha"
+        placeholder="Digite a senha"
+        required
+      />
+    </div>
+    <button class="button-add">Adicionar Alunos</button>
+  </form>
+</main>
+<%- include('partials/footer.ejs') %>
