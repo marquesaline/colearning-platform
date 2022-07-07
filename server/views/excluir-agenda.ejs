@@ -9,7 +9,7 @@
             <p class="settings-title">Excluir <%=agenda.title %></p>
             <hr>
             <div class="container-form">
-                <form method="post" action="/conta/<%= agenda.id %>/editar?_method=put">
+                <form method="post" action="/conta/<%= agenda.id %>/apagar?_method=delete">
                     <div class="conteiners-form">
                         <label for="title">Nome da agenda</label>
                         <input type="text" name="title" id="title" value="<%= agenda.title %>" disabled>
@@ -25,7 +25,7 @@
                         <label for="end">até</label>
                         <input type="date" name="end" id="end" value="<%= agenda.end %>" disabled>
                     </div>
-                    <div class="container-availability">
+                    <!-- <div class="container-availability">
                         <div>
                             <label>Disponibilidade</label>
                         </div>
@@ -115,7 +115,7 @@
                                 </td>
                             </tr>
                         </table>
-                    </div>
+                    </div> -->
                     <div>
                         <button type="submit" class="btn-default" id="btn-save">Excluir</button>
                     </div>

@@ -17,7 +17,7 @@ router.post('/criar-agenda', controllerAccount.createAgenda)
 router.get('/:id/editar', controllerAccount.editAgenda)
 router.put('/:id/editar', controllerAccount.updateAgenda)
 router.get('/:id/apagar', controllerAccount.removeAgenda)
-router.put('/:id/apagar', controllerAccount.deleteAgenda)
+router.delete('/:id/apagar', controllerAccount.deleteAgenda)
 
 router.get('/json', controllerAccount.events)
 router.get('/json/:id', controllerAccount.eventsId)

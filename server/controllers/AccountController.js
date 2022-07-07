@@ -145,12 +145,13 @@ controller.updateAgenda = async (req, res) => {
     setAgendas(agendas)
     res.redirect('/sucesso')
 }
-controller.deleteAgenda = (req, res) => {
-    const agenda = getAgendaId(req.params.id)
-    res.render("agenda-excluir", {
-        title: `Excluir Usuário ${agenda.title}`,
-        agenda,
-    });
+controller.deleteAgenda = async (req, res) => {
+    const agendas = await getAgendas().filter(
+        (agenda) => agenda.id != req.params.id
+    );
+    setAgendas(agendas);
+    res.redirect('/sucesso')
 }
+
 
 module.exports = controller
