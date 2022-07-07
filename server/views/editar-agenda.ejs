@@ -5,113 +5,124 @@
     <%- include('partials/container-side.ejs') %>
     <!-- parte central -->
 
-    <section class="container-created">
+    <section class="section-main">
         <div class="settings-initial">
-            <p class="settings-title">Editar <%=agenda.title %></p>
-            <hr>
+            <p class="account-title">Editar <%=agenda.title %></p>
             <div class="container-form">
                 <form method="post" action="/conta/<%= agenda.id %>/editar?_method=put">
                     <div class="conteiners-form">
-                        <label for="title">Nome da agenda</label>
+                        <label class="form-label" for="title">Nome da agenda</label>
                         <input type="text" name="title" id="title" value="<%= agenda.title %>" required>
                     </div>
                     
                     <div class="conteiners-form">
-                        <label for="duration">Duração das reuniões</label>
+                        <label class="form-label" for="duration">Duração das reuniões</label>
                         <input type="time" name="duration" id="duration" value="<%= agenda.duration %>" required>
                     </div>
                     <div class="conteiners-form">
-                        <label for="start">Período de agendamento</label>
-                        <input type="date" name="start" id="start" value="<%= agenda.start %>">
-                        <label for="end">até</label>
-                        <input type="date" name="end" id="end" value="<%= agenda.end %>">
+                        <label class="form-label" for="start">Período de agendamento</label>
+                        <div class="conteiner-dates">
+                            <label for="start">De</label>
+                            <input type="date" name="start" id="start" value="<%= agenda.start %>" class="input-dates">
+                            <label for="end">até</label>
+                            <input type="date" name="end" id="end" value="<%= agenda.end %>" class="input-dates">
+                        </div>
+                        
                     </div>
                     <div class="container-availability">
                         <div>
-                            <label>Disponibilidade</label>
+                            <label class="form-label">Disponibilidade</label>
                         </div>
-                        <table>
+                        <table class="table-availability">
                             <tr>
                                 <td>
                                     <input type="checkbox" name="daysOfWeek" id="" value="0">
+                                   
+                                </td>
+                                <td class="td-days">
                                     <label for="daysOfWeek">Domingo</label>
                                 </td>
-                                <td>
+                                <td class="td-inputs-times">
                                     <input type="time" name="startTime" id="" value="<%= agenda.startTime %>">
-                                </td>
-                                <td>
                                     <input type="time" name="endTime" id="" value="<%= agenda.endTime %>">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <input type="checkbox" name="daysOfWeek" id="" value="1">
+                                    
+                                </td>
+                                <td class="td-days">
                                     <label for="daysOfWeek">Segunda</label>
                                 </td>
-                                <td>
+                                <td class="td-inputs-times">
                                     <input type="time" name="startTime" id="" value="<%= agenda.startTime %>">
-                                </td>
-                                <td>
                                     <input type="time" name="endTime" id="" value="<%= agenda.endTime %>">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <input type="checkbox" name="daysOfWeek" id="" value="2">
+                                    
+                                </td>
+                                <td class="td-days">
                                     <label for="daysOfWeek">Terça</label>
                                 </td>
-                                <td>
+                                <td class="td-inputs-times">
                                     <input type="time" name="startTime" id="" value="<%= agenda.startTime %>">
-                                </td>
-                                <td>
                                     <input type="time" name="endTime" id="" value="<%= agenda.endTime %>">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <input type="checkbox" name="daysOfWeek" id="" value="3">
+                                </td>
+                                <td class="td-days">
                                     <label for="daysOfWeek">Quarta</label>
                                 </td>
-                                <td>
+                                <td class="td-inputs-times">
                                     <input type="time" name="startTime" id="" value="<%= agenda.startTime %>">
-                                </td>
-                                <td>
+                                
                                     <input type="time" name="endTime" id="" value="<%= agenda.endTime %>">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <input type="checkbox" name="daysOfWeek" id="" value="4">
+                                </td>
+                                <td class="td-days">
                                     <label for="daysOfWeek">Quinta</label>
                                 </td>
-                                <td>
+                                <td class="td-inputs-times">
                                     <input type="time" name="startTime" id="" value="<%= agenda.startTime %>">
-                                </td>
-                                <td>
                                     <input type="time" name="endTime" id="" value="<%= agenda.endTime %>">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <input type="checkbox" name="daysOfWeek" id="" value="5">
+                                </td>
+                                <td class="td-days">
                                     <label for="daysOfWeek">Sexta</label>
+
                                 </td>
-                                <td>
+                                <td class="td-inputs-times">
                                     <input type="time" name="startTime" id="" value="<%= agenda.startTime %>">
-                                </td>
-                                <td>
+                              
                                     <input type="time" name="endTime" id="" value="<%= agenda.endTime %>">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <input type="checkbox" name="daysOfWeek" id="" value="6">
+                                </td>
+                                <td class="td-days">
                                     <label for="daysOfWeek">Sábado</label>
+
                                 </td>
-                                <td>
+                                <td class="td-inputs-times">
                                     <input type="time" name="startTime" id="" value="<%= agenda.startTime %>">
-                                </td>
-                                <td>
+                        
                                     <input type="time" name="endTime" id="" value="<%= agenda.endTime %>">
                                 </td>
                             </tr>

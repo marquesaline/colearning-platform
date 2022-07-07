@@ -20,16 +20,23 @@ hr {
     color: var(--border-color-light)
 }
 .container-form {
-    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 30px 0;
+    max-width: 40rem;
+    background-color: var(--background-primary);
+    border-radius: 10px;
 }
 .container-form div {
-    margin: 25px 0;
+    margin: 0;
 }
-.container-form label {
+.form-label {
     font-size: var(--font-size-label);
-    font-weight: 600;
     padding-right: 10px;
-
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 .container-form input {
     padding: 3px 5px;
@@ -38,61 +45,44 @@ hr {
 .conteiners-form, .container-availability{
     width: 100%;
     margin: 15px 0;
+    padding: 10px 20px 10px 20px;
+    display: block;
+    text-align: left;
 }
-.conteiners-form {
+#title {
+    width: 100%;
+}
+#duration, .input-time {
+    width: 85px;
+}
+.conteiner-dates {
     display: flex;
+    justify-content:left;
     align-items: center;
-    
 }
-#agenda-name, #res-name, #res-adress{
-    width: 25rem;
-}
-#agenda-duration {
-    background-color: #FFF;
-}
-#initial-date {
+.conteiner-dates label {
     margin-right: 10px;
 }
-#final-date {
-    margin-left: 10px;
-}
-.container-availability {
-    display: block;
+.input-dates {
+    width: 130px;
+    margin-right: 10px;
     
 }
-.table-availability {
-    padding-top: 15px;
-    border-collapse: separate; 
-    border-spacing: 0 10px;
-}
-
-.week-days {
-    padding-right: 15px;
-}
-.input-time input {
-    margin-right: 5px;
-}
-.icon-times {
-    margin-left: 10px;
-    width: 20px;
-    height: 20px;
-}
-
-.local-options {
-    display: block;
-}
-.local-radios {
+.table-availability  tr{
     display: flex;
     align-items: center;
+    margin: 8px 0;
 }
-.local-radios label {
-    font-weight: 400;
-    padding-left: 5px;
-} 
-
-#div-res-adress {
+.table-availability td {
+    margin-right: 10px;
+}
+.td-days {
+    display: inline-block;
+    padding-right: 15px;
+    width: 80px;
+}
+.td-inputs-times {
     display: none;
-    padding-top: 5px;
 }
 #btn-save {
     margin-top: 20px;
