@@ -1,0 +1,125 @@
+<%- include('partials/account-header.ejs') %>
+<main class="main-flex">
+    <!-- menu lateral -->
+    <%- include('partials/container-side.ejs') %>
+    <!-- parte central -->
+
+    <section class="container-created">
+        <div class="settings-initial">
+            <p class="settings-title">Excluir <%=agenda.title %></p>
+            <hr>
+            <div class="container-form">
+                <form method="post" action="/conta/<%= agenda.id %>/editar?_method=put">
+                    <div class="conteiners-form">
+                        <label for="title">Nome da agenda</label>
+                        <input type="text" name="title" id="title" value="<%= agenda.title %>" disabled>
+                    </div>
+                    
+                    <div class="conteiners-form">
+                        <label for="duration">Duração das reuniões</label>
+                        <input type="time" name="duration" id="duration" value="<%= agenda.duration %>" disabled>
+                    </div>
+                    <div class="conteiners-form">
+                        <label for="start">Período de agendamento</label>
+                        <input type="date" name="start" id="start" value="<%= agenda.start %>" disabled>
+                        <label for="end">até</label>
+                        <input type="date" name="end" id="end" value="<%= agenda.end %>" disabled>
+                    </div>
+                    <div class="container-availability">
+                        <div>
+                            <label>Disponibilidade</label>
+                        </div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="daysOfWeek" id="" value="0" disabled>
+                                    <label for="daysOfWeek">Domingo</label>
+                                </td>
+                                <td>
+                                    <input type="time" name="startTime" id="" disabled>
+                                </td>
+                                <td>
+                                    <input type="time" name="endTime" id="" disabled>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="daysOfWeek" id="" value="1" disabled>
+                                    <label for="daysOfWeek">Segunda</label>
+                                </td>
+                                <td>
+                                    <input type="time" name="startTime" id="" disabled>
+                                </td>
+                                <td>
+                                    <input type="time" name="endTime" id="" disabled>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="daysOfWeek" id="" value="2" disabled>
+                                    <label for="daysOfWeek">Terça</label>
+                                </td>
+                                <td>
+                                    <input type="time" name="startTime" id="" disabled>
+                                </td>
+                                <td>
+                                    <input type="time" name="endTime" id="" disabled>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="daysOfWeek" id="" value="3" disabled>
+                                    <label for="daysOfWeek">Quarta</label>
+                                </td>
+                                <td>
+                                    <input type="time" name="startTime" id="" disabled>
+                                </td>
+                                <td>
+                                    <input type="time" name="endTime" id="" disabled>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="daysOfWeek" id="" value="4" disabled>
+                                    <label for="daysOfWeek">Quinta</label>
+                                </td>
+                                <td>
+                                    <input type="time" name="startTime" id="" disabled>
+                                </td>
+                                <td>
+                                    <input type="time" name="endTime" id="" disabled>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="daysOfWeek" id="" value="5" disabled>
+                                    <label for="daysOfWeek">Sexta</label>
+                                </td>
+                                <td>
+                                    <input type="time" name="startTime" id="" disabled>
+                                </td>
+                                <td>
+                                    <input type="time" name="endTime" id="" disabled>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="daysOfWeek" id="" value="6" disabled>
+                                    <label for="daysOfWeek">Sábado</label>
+                                </td>
+                                <td>
+                                    <input type="time" name="startTime" id="" disabled>
+                                </td>
+                                <td>
+                                    <input type="time" name="endTime" id="" disabled>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn-default" id="btn-save">Excluir</button>
+                    </div>
+                </form>
+            </div>
+    </section>
+</main>

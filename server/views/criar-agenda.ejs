@@ -2,32 +2,7 @@
 
     <main class="main-flex">
         <!-- menu lateral -->
-        <section id="container-mobile">
-            <button id="btn-menu-mobile"></button>
-        </section>
-        <section class="container-side" id="container-side">
-            <div id="contents-side">
-                <div class="container-button">
-                    <a class="btn-default btn-side" href="/conta" type="button" title="Acessar calendário">Calendário</a>
-                </div>
-                <div class="container-agendas">
-                    <p>Minhas Agendas</p>
-                    <div class="agendas-list">
-                        <ul> 
-                            <li>
-                                <a href="">Agenda 1</a>
-                            </li>
-                            <li>
-                                <a href="">Agenda 2</a>
-                            </li>
-                            <li>
-                                <a href="">Agenda 3</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <%- include('partials/container-side.ejs') %>
         <!-- parte central -->
         <section class="container-created">
             <div class="settings-initial">
@@ -58,84 +33,92 @@
                             <input type="date" name="end" id="end">
                         </div>
                         <div class="container-availability">
-                            <label for="businessHours">Disponibilidade</label>
-                            <table class="table-availability">
+                            <div>
+                                <label>Disponibilidade</label>
+                            </div>
+                            <table>
                                 <tr>
-                                    <td class="daysOfWeek">
-                                        <label>Domingo</label></td>
-                                    <td class="input-time">
-                                        <input type="time" name="startTime" id="startTime" placeholder="09:00" class="initial-time">
-                                        <input type="time" name="endTime" id="endTime" placeholder="18:00" class="final-time">
+                                    <td>
+                                        <input type="checkbox" name="daysOfWeek" id="" value="0">
+                                        <label for="daysOfWeek">Domingo</label>
                                     </td>
-                                    <td class="button-time">
-                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
-                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    <td>
+                                        <input type="time" name="startTime" id="">
+                                    </td>
+                                    <td>
+                                        <input type="time" name="endTime" id="">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="daysOfWeek">Segunda</td>
-                                    <td class="input-time">
-                                        <input type="time" name="startTime" id="startTime" placeholder="09:00" class="initial-time">
-                                        <input type="time" name="endTime" id="endTime" placeholder="18:00" class="final-time">
+                                    <td>
+                                        <input type="checkbox" name="daysOfWeek" id="" value="1">
+                                        <label for="daysOfWeek">Segunda</label>
                                     </td>
-                                    <td class="button-time">
-                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
-                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    <td>
+                                        <input type="time" name="startTime" id="">
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td class="daysOfWeek">Terça</td>
-                                    <td class="input-time">
-                                        <input type="time" name="startTime" id="startTime" placeholder="09:00" class="initial-time">
-                                        <input type="time" name="endTime" id="endTime" placeholder="18:00" class="final-time">
-                                    </td>
-                                    <td class="button-time">
-                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
-                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    <td>
+                                        <input type="time" name="endTime" id="">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="daysOfWeek">Quarta</td>
-                                    <td class="input-time">
-                                        <input type="time" name="startTime" id="startTime" placeholder="09:00" class="initial-time">
-                                        <input type="time" name="endTime" id="endTime" placeholder="18:00" class="final-time">
+                                    <td>
+                                        <input type="checkbox" name="daysOfWeek" id="" value="2">
+                                        <label for="daysOfWeek">Terça</label>
                                     </td>
-                                    <td class="button-time">
-                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
-                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    <td>
+                                        <input type="time" name="startTime" id="">
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td class="daysOfWeek">Quinta</td>
-                                    <td class="input-time">
-                                        <input type="time" name="startTime" id="startTime" placeholder="09:00" class="initial-time">
-                                        <input type="time" name="endTime" id="endTime" placeholder="18:00" class="final-time">
-                                    </td>
-                                    <td class="button-time">
-                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
-                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    <td>
+                                        <input type="time" name="endTime" id="">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="daysOfWeek">Sexta</td>
-                                    <td class="input-time">
-                                        <input type="time" name="startTime" id="startTime" placeholder="09:00" class="initial-time">
-                                        <input type="time" name="endTime" id="endTime" placeholder="18:00" class="final-time">
+                                    <td>
+                                        <input type="checkbox" name="daysOfWeek" id="" value="3">
+                                        <label for="daysOfWeek">Quarta</label>
                                     </td>
-                                    <td class="button-time">
-                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
-                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    <td>
+                                        <input type="time" name="startTime" id="">
+                                    </td>
+                                    <td>
+                                        <input type="time" name="endTime" id="">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="daysOfWeek">Sábado</td>
-                                    <td class="input-time">
-                                        <input type="time" name="startTime" id="startTime" placeholder="09:00" class="initial-time">
-                                        <input type="time" name="endTime" id="endTime" placeholder="18:00" class="final-time">
+                                    <td>
+                                        <input type="checkbox" name="daysOfWeek" id="" value="4">
+                                        <label for="daysOfWeek">Quinta</label>
                                     </td>
-                                    <td class="button-time">
-                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
-                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    <td>
+                                        <input type="time" name="startTime" id="">
+                                    </td>
+                                    <td>
+                                        <input type="time" name="endTime" id="">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="daysOfWeek" id="" value="5">
+                                        <label for="daysOfWeek">Sexta</label>
+                                    </td>
+                                    <td>
+                                        <input type="time" name="startTime" id="">
+                                    </td>
+                                    <td>
+                                        <input type="time" name="endTime" id="">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="daysOfWeek" id="" value="6">
+                                        <label for="daysOfWeek">Sábado</label>
+                                    </td>
+                                    <td>
+                                        <input type="time" name="startTime" id="">
+                                    </td>
+                                    <td>
+                                        <input type="time" name="endTime" id="">
                                     </td>
                                 </tr>
                             </table>
@@ -146,43 +129,7 @@
                     </form>
                 </div>
             </div>
-            <!-- <div class="settings-form">
-                <p class="settings-title">Configurações da Reserva</p>
-                <hr>
-                <div class="container-form">
-                    <form method="POST" action="" enctype="multipart/form-data">
-                        <div class="conteiners-form">
-                            <label for="reservationName">Nome da página de agendamento</label>
-                            <input type="text" name="reservationName" id="reservationName">
-                        </div>
-                        <div class="conteiners-form">
-                            <label for="reservationDescription">Descrição</label>
-                            <textarea name="reservationDescription" id="reservationDescription" cols="40" rows="3"></textarea>
-                        </div>
-                        <div class="conteiners-form local-options">
-                            <div>
-                                <label for="reservationLocal">Local da Reserva</label>
-                            </div>
-                            <div class="local-radios">
-                                <input type="radio" name="reservationLocal" value="online" id="res-online" checked onclick="showElement('res-online', 'div-res-adress')">
-                                <label for="res-online">Videoconferência</label>
-
-                                <input type="radio" name="reservationLocal" value="person" id="res-person" onclick="showElement('res-person', 'div-res-adress')">
-                                <label for="res-person">Presencial</label>
-
-                            </div>
-                            <div id="div-res-adress">
-                                <label for="reservationAdress">Informe o local</label>
-                                <input type="text" name="reservationAdress" id="reservationAdress" placeholder="Adicione o local">
-                            </div>
-                        </div>
-                        <div>
-                            <button type="submit" class="btn-default" id="btn-save">Salvar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section> -->
+        </section>
     </main>
    
 </body>
