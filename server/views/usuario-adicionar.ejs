@@ -1,10 +1,10 @@
-<%- include('partials/header.ejs') %>
+<%- include('partials/account-header.ejs') %>
 
 <main>
   <%- include('partials/links-user.ejs') %>
-  <h1 class="editar-aluno">Formulario de Cadastro</h1>
+  <h1 class="editar-user">Formulario de Cadastro</h1>
 
-  <form class="form-aluno" action="/users/add" method="POST">
+  <form class="form-user" action="/admin/usuarios/add" method="POST">
     <div>
       <img
         src="../public/images/avatar-exemple.png"
@@ -19,18 +19,18 @@
     <div class="edit-div">
       <label for="nome">Nome</label>
       <input
-        class="aluno-edit"
+        class="user-edit"
         type="text"
         id="nome"
         name="nome"
-        placeholder="Digite o nome do Aluno"
+        placeholder="Digite o nome do usuário"
         required
       />
     </div>
     <div class="edit-div">
       <label for="email">Email</label>
       <input
-        class="aluno-edit"
+        class="user-edit"
         type="email"
         id="email"
         name="email"
@@ -41,7 +41,7 @@
     <div class="edit-div">
       <label for="senha">senha</label>
       <input
-        class="aluno-edit"
+        class="user-edit"
         type="password"
         id="senha"
         name="senha"
@@ -49,7 +49,7 @@
         required
       />
     </div>
-    <button class="button-add">Adicionar Alunos</button>
+    <button class="button-add">Adicionar Usuários</button>
   </form>
 </main>
 <%- include('partials/footer.ejs') %>

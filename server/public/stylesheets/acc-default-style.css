@@ -110,6 +110,12 @@ padrão em todas as telas, menos a de calendário */
 .section-mobile {
     display: none;
 }
+.section-main {
+    width: 100%;
+    text-align: center;
+    
+}
+
 /* padrão de botões */
 .btn-default, .btn-delete {
     line-height: 22px;

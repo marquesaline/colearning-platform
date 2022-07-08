@@ -4,32 +4,32 @@
 <main>
   <%- include('partials/links-user.ejs') %>
 
-  <h1 class="excluir-aluno">Excluir Aluno <%= aluno.nome%></h1>
+  <h1 class="excluir-user">Excluir Usuário <%= user.nome%></h1>
   <section>
     <form
-      class="form-aluno"
-      action="/users/<%=aluno.id%>/excluir?_method=delete"
+      class="form-user"
+      action="/admin/usuarios/<%=user.id%>/excluir?_method=delete"
       method="POST"
     >
       <div class="exclude-div">
         <label for="nome">Nome</label>
         <input
-          class="aluno-exclude"
+          class="user-exclude"
           type="text"
           id="nome"
-          value="<%= aluno.nome%>"
+          value="<%= user.nome%>"
           name="nome"
-          placeholder="Digite o nome do Aluno"
+          placeholder="Digite o nome do Usuário"
           disabled
         />
       </div>
       <div class="exclude-div">
         <label for="email">Email</label>
         <input
-          class="aluno-exclude"
+          class="user-exclude"
           type="email"
           id="email"
-          value="<%= aluno.email%>"
+          value="<%= user.email%>"
           name="email"
           placeholder="Digite o email"
           disabled
@@ -38,10 +38,10 @@
       <div class="exclude-div">
         <label for="senha">senha</label>
         <input
-          class="aluno-exclude"
+          class="user-exclude"
           type="password"
           id="senha"
-          value="<%= aluno.senha%>"
+          value="<%= user.senha%>"
           name="senha"
           placeholder="Digite a senha"
           disabled
@@ -49,7 +49,7 @@
       </div>
 
       <input type="hidden" name="modifed_at" value="<%= new Date() %>" />
-      <button class="button-exclude">Excluir aluno</button>
+      <button class="button-exclude">Excluir usuário</button>
     </form>
   </section>
 </main>

@@ -4,32 +4,32 @@
 <main>
   <%- include('partials/links-user.ejs') %>
 
-  <h1 class="editar-aluno">Editar Aluno <%= aluno.nome%></h1>
+  <h1 class="editar-user">Editar <%= user.nome%></h1>
 
   <form
-    class="form-aluno"
-    action="/users/<%=aluno.id%>/editar?_method=put"
+    class="form-user"
+    action="/admin/usuarios/<%=user.id%>/editar?_method=put"
     method="POST"
   >
     <div class="edit-div">
       <label for="nome">Nome</label>
       <input
-        class="aluno-edit"
+        class="user-edit"
         type="text"
         id="nome"
-        value="<%= aluno.nome%>"
+        value="<%= user.nome%>"
         name="nome"
-        placeholder="Digite o nome do Aluno"
+        placeholder="Digite o nome do usuário"
         required
       />
     </div>
     <div class="edit-div">
       <label for="email">Email</label>
       <input
-        class="aluno-edit"
+        class="user-edit"
         type="email"
         id="email"
-        value="<%= aluno.email%>"
+        value="<%= user.email%>"
         name="email"
         placeholder="Digite o email"
         required
@@ -38,10 +38,10 @@
     <div class="edit-div">
       <label for="senha">senha</label>
       <input
-        class="aluno-edit"
+        class="user-edit"
         type="password"
         id="senha"
-        value="<%= aluno.senha%>"
+        value="<%= user.senha%>"
         name="senha"
         placeholder="Digite a senha"
         required
@@ -49,7 +49,7 @@
     </div>
 
     <input type="hidden" name="modifed_at" value="<%= new Date() %>" />
-    <button class="button-edit">Editar aluno</button>
+    <button class="button-edit">Editar usuário</button>
   </form>
 </main>
 <%- include('partials/footer.ejs') %>

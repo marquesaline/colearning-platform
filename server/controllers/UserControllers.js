@@ -15,12 +15,12 @@ helper.write = (filename, data) =>
     "utf-8"
   );
 
-const getAlunos = () => JSON.parse(helper.read("alunos.json"));
-const setAlunos = (alunos) => helper.write("alunos.json", alunos);
-const getAlunoId = (id) => getAlunos().find((aluno) => aluno.id == id);
-const getProximoId = async () => {
-  const alunos = await getAlunos();
-  const newId = parseInt(alunos[alunos.length - 1].id) + 1;
+const getUsers = () => JSON.parse(helper.read("users.json"));
+const setUsers = (users) => helper.write("users.json", users);
+const getUserId = (id) => getUsers().find((user) => user.id == id);
+const getNextId = async () => {
+  const users = await getUsers();
+  const newId = parseInt(users[users.length - 1].id) + 1;
   return newId;
 };
 
@@ -28,92 +28,92 @@ const getProximoId = async () => {
 
 const controller = {
   sucess: async (req, res) => {
-    res.render("aluno-sucesso", {
+    res.render("usuario-sucesso", {
       title: `Parabéns todo o processo foi realizado com SUCESSO`,
     });
   },
 
   index: (req, res) => {
-    res.render("aluno-index", { title: "Dashboard Admin" });
+    res.render("admin-index", { title: "Dashboard Admin" });
   },
 
   lista: async (req, res) => {
-    const alunos = await getAlunos();
-    res.render(`alunos`, {
-      title: "Lista de Alunos",
-      alunos,
+    const users = await getUsers();
+    res.render(`usuarios`, {
+      title: "Lista de Usuários",
+      users,
     });
   },
 
   add: async (req, res) => {
-    const aluno = await getAlunoId(req.params.id);
-    res.render(`aluno-adicionar`, {
-      title: req.path == "/cadastro" ? `Cadastro` : `Adicionar Aluno`,
+    const user = await getUserId(req.params.id);
+    res.render(`usuario-adicionar`, {
+      title: req.path == "/cadastro" ? `Cadastro` : `Adicionar Usuário`,
     });
   },
 
   create: async (req, res) => {
-    const alunos = await getAlunos();
-    const id = await getProximoId();
+    const users = await getUsers();
+    const id = await getNextId();
     const { nome, email, senha, avatar } = req.body;
-    const novoAluno = {
+    const newUser = {
       id,
       nome,
       senha,
       email,
       avatar: avatar || null,
     };
-    alunos.push(novoAluno);
-    setAlunos(alunos);
+    users.push(newUser);
+    setUsers(users);
     res.redirect("/users/sucesso");
   },
 
   edit: async (req, res) => {
-    const aluno = await getAlunoId(req.params.id);
-    res.render(`aluno-editar`, {
-      title: `Editar Aluno ${req.params.nome}`,
-      aluno,
+    const user = await getUserId(req.params.id);
+    res.render(`usuario-editar`, {
+      title: `Editar Usuário ${req.params.nome}`,
+      user,
     });
   },
 
   update: async (req, res) => {
-    let alunos = await getAlunos();
-    alunos = alunos.map((aluno) => {
-      if (aluno.id == req.params.id) {
+    let users = await getUsers();
+    users = users.map((user) => {
+      if (user.id == req.params.id) {
         const { nome, email, senha } = req.body;
         return {
-          id: aluno.id,
+          id: user.id,
           nome: nome,
           email: email,
           senha: senha,
         };
       } else {
-        return aluno;
+        return user;
       }
     });
-    setAlunos(alunos);
+    setUsers(users);
     res.redirect(`/users/sucesso`);
   },
 
   exclude: async (req, res) => {
-    res.render("aluno-excluir", {
-      title: `Excluir Aluno ${req.params.id}`,
-      aluno: getAlunoId(req.params.id),
+    res.render("usuario-excluir", {
+      title: `Excluir Usuário ${req.params.id}`,
+      user: getUserId(req.params.id),
     });
   },
 
   delete: async (req, res) => {
-    const alunos = await getAlunos().filter(
-      (aluno) => aluno.id != req.params.id
+    const users = await getUsers().filter(
+      (user) => user.id != req.params.id
     );
-    setAlunos(alunos);
+    setUsers(users);
     res.redirect(`/users/sucesso`);
   },
   //arrumar
   show: async (req, res) => {
-    res.render("aluno", {
-      title: `Aluno ${req.params.id} `,
-      aluno: getAlunoId(req.params.id),
+    res.render("usuario", {
+      title: `Usuário ${req.params.id} `,
+      user: getUserId(req.params.id),
     });
   },
 };

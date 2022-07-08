@@ -1,0 +1,21 @@
+.section-admin-list {
+    width: 100%;
+    text-align: center;
+}
+.container-list {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 30px 10px;
+    max-width: 40%;
+    background-color: var(--background-primary);
+    border-radius: 10px;
+}
+.table-list {
+    height: 100%;
+}
+.table-list tr {
+    width: 100%;
+}
+.table-list td {
+    width: 50%;
+}

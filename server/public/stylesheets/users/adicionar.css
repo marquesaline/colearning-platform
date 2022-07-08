@@ -1,13 +1,13 @@
-.editar-aluno {
+.editar-user {
   text-align: center;
   margin: 10px;
 }
-.form-aluno {
+.form-user {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.aluno-edit {
+.user-edit {
   height: 3rem;
   width: 90%;
 }

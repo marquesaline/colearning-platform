@@ -1,0 +1,57 @@
+<%- include('partials/account-header.ejs') %>
+
+<main class="main-users-lista">
+  <%- include('partials/links-user.ejs') %>
+
+  <h1 class="lista-users"><%= title %></h1>
+
+  <section class="section-admin-list">
+    <% if (locals.users) {%>
+      <div class="container-list">
+        <table class="table-list">
+          <thead>
+            <tr>
+              <th>Avatar</th>
+              <th>Id</th>
+              <th>Nome</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (let user of users) { %>
+              <tr>
+                <td>
+                  <img
+                  src="<%= user.avatar ? `images/avatar/`+user.avatar : `https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png`%>"
+                  
+                  width="40"
+                  height="40"
+                  style="border-radius: 50%; display: block"
+                  />
+                </td>
+                <td>
+                  <%= user.id %>
+                </td>
+                <td>
+                  <%= user.nome %>
+                </td>
+                <td>
+                  <%= user.email %>
+                </td>
+                <td>
+                  <a class="um-user" href="/admin/usuarios/<%= user.id %>">Visualizar</a>
+                </td>
+              </tr>
+            <% } %>
+          </tbody>
+        
+        
+
+        
+        </table>
+      </div>
+    <% } %>
+  </section>
+</main>
+</body>
+</html>
