@@ -1,0 +1,20 @@
+[{
+    "id": 2,
+    "title": "Agenda aulas2",
+    "duration": "01:00",
+    "start": "2022-06-01",
+    "end": "2022-06-30",
+    "businessHours": [{
+        "daysOfWeek": [2, 3],
+        "startTime": "08:00",
+        "endTime": "12:00"
+    }, {
+        "daysOfWeek": [2, 3],
+        "startTime": "13:00",
+        "endTime": "18:00"
+    }, {
+        "daysOfWeek": [4, 5],
+        "startTime": "10:00",
+        "endTime": "16:00"
+    }]
+}]

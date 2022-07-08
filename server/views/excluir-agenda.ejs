@@ -1,0 +1,137 @@
+<%- include('partials/account-header.ejs') %>
+
+<main class="main-flex">
+    <!-- menu lateral -->
+    <%- include('partials/container-side.ejs') %>
+    <!-- parte central -->
+
+    <section class="section-main">
+        <div class="settings-initial">
+            <p class="account-title">Editar <%=agenda.title %></p>
+            <div class="container-form">
+                <form method="post" action="/conta/<%= agenda.id %>/apagar?_method=delete">
+                    <div class="conteiners-form">
+                        <label class="form-label" for="title">Nome da agenda</label>
+                        <input type="text" name="title" id="title" value="<%= agenda.title %>" required>
+                    </div>
+                    
+                    <div class="conteiners-form">
+                        <label class="form-label" for="duration">Duração das reuniões</label>
+                        <input type="time" name="duration" id="duration" value="<%= agenda.duration %>" required>
+                    </div>
+                    <div class="conteiners-form">
+                        <label class="form-label" for="start">Período de agendamento</label>
+                        <div class="conteiner-dates">
+                            <label for="start">De</label>
+                            <input type="date" name="start" id="start" value="<%= agenda.start %>" class="input-dates">
+                            <label for="end">até</label>
+                            <input type="date" name="end" id="end" value="<%= agenda.end %>" class="input-dates">
+                        </div>
+                        
+                    </div>
+                    <!-- <div class="container-availability">
+                        <div>
+                            <label class="form-label">Disponibilidade</label>
+                        </div>
+                        <table class="table-availability">
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="daysOfWeek" id="" value="0">
+                                   
+                                </td>
+                                <td class="td-days">
+                                    <label for="daysOfWeek">Domingo</label>
+                                </td>
+                                <td class="td-inputs-times">
+                                    <input type="time" name="startTime" id="" value="<%= agenda.startTime %>">
+                                    <input type="time" name="endTime" id="" value="<%= agenda.endTime %>">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="daysOfWeek" id="" value="1">
+                                    
+                                </td>
+                                <td class="td-days">
+                                    <label for="daysOfWeek">Segunda</label>
+                                </td>
+                                <td class="td-inputs-times">
+                                    <input type="time" name="startTime" id="" value="<%= agenda.startTime %>">
+                                    <input type="time" name="endTime" id="" value="<%= agenda.endTime %>">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="daysOfWeek" id="" value="2">
+                                    
+                                </td>
+                                <td class="td-days">
+                                    <label for="daysOfWeek">Terça</label>
+                                </td>
+                                <td class="td-inputs-times">
+                                    <input type="time" name="startTime" id="" value="<%= agenda.startTime %>">
+                                    <input type="time" name="endTime" id="" value="<%= agenda.endTime %>">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="daysOfWeek" id="" value="3">
+                                </td>
+                                <td class="td-days">
+                                    <label for="daysOfWeek">Quarta</label>
+                                </td>
+                                <td class="td-inputs-times">
+                                    <input type="time" name="startTime" id="" value="<%= agenda.startTime %>">
+                                
+                                    <input type="time" name="endTime" id="" value="<%= agenda.endTime %>">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="daysOfWeek" id="" value="4">
+                                </td>
+                                <td class="td-days">
+                                    <label for="daysOfWeek">Quinta</label>
+                                </td>
+                                <td class="td-inputs-times">
+                                    <input type="time" name="startTime" id="" value="<%= agenda.startTime %>">
+                                    <input type="time" name="endTime" id="" value="<%= agenda.endTime %>">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="daysOfWeek" id="" value="5">
+                                </td>
+                                <td class="td-days">
+                                    <label for="daysOfWeek">Sexta</label>
+
+                                </td>
+                                <td class="td-inputs-times">
+                                    <input type="time" name="startTime" id="" value="<%= agenda.startTime %>">
+                              
+                                    <input type="time" name="endTime" id="" value="<%= agenda.endTime %>">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="daysOfWeek" id="" value="6">
+                                </td>
+                                <td class="td-days">
+                                    <label for="daysOfWeek">Sábado</label>
+
+                                </td>
+                                <td class="td-inputs-times">
+                                    <input type="time" name="startTime" id="" value="<%= agenda.startTime %>">
+                        
+                                    <input type="time" name="endTime" id="" value="<%= agenda.endTime %>">
+                                </td>
+                            </tr>
+                        </table>
+                    </div> -->
+                    <div>
+                        <button type="submit" class="btn-default" id="btn-save">Excluir</button>
+                    </div>
+                </form>
+            </div>
+    </section>   
+</main>

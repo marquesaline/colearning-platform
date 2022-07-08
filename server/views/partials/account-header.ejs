@@ -4,28 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
     
+    <!-- css original do FullCalendar - não mexer -->
+    <link href='/stylesheets/main.css' rel="stylesheet"> 
+
     <link rel='stylesheet' href='/stylesheets/acc-default-style.css'/>
     <link rel='stylesheet' href='/stylesheets/acc-header.css'/>
     <link rel='stylesheet' href='/stylesheets/acc-calendario.css'/>
     <link rel='stylesheet' href='/stylesheets/acc-criar-agenda.css'/>
     <link rel='stylesheet' href='/stylesheets/acc-minha-conta-assinatura.css'/>
-
-    <link href='fullcalendar/main.css' rel='stylesheet' />
-
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
-    <script src='fullcalendar/core/main.js'></script>
-    <script src='fullcalendar/core/locales/pt-br.js'></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="moment.js"></script>
     
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="/javascripts/script.js"></script>
-
+    
     <title><%= title %></title>
     
   </head>
@@ -44,9 +42,6 @@
             <p>
               <a class="logo" href="/">CoLearning</a>  
             </p>
-        </div>
-        <div class="month-year">
-          <p>Mês e ano</p>
         </div>
       </div>
       <div class="div-user">

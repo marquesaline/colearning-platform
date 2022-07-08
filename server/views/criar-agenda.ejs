@@ -2,174 +2,135 @@
 
     <main class="main-flex">
         <!-- menu lateral -->
-        <section id="container-mobile">
-            <button id="btn-menu-mobile"></button>
-        </section>
-        <section class="container-side" id="container-side">
-            <div id="contents-side">
-                <div class="container-button">
-                    <a class="btn-default btn-side" href="/conta" type="button" title="Acessar calendário">Calendário</a>
-                </div>
-                <div class="container-agendas">
-                    <p>Minhas Agendas</p>
-                    <div class="agendas-list">
-                        <ul> 
-                            <li>
-                                <a href="">Agenda 1</a>
-                            </li>
-                            <li>
-                                <a href="">Agenda 2</a>
-                            </li>
-                            <li>
-                                <a href="">Agenda 3</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <%- include('partials/container-side.ejs') %>
         <!-- parte central -->
-        <section class="container-created">
+        <section class="section-main">
             <div class="settings-initial">
-                <p class="settings-title">Configurações Iniciais</p>
-                <hr>
+                <p class="account-title">Crie sua agenda</p>
+                
                 <div class="container-form">
-                    <form method="POST" action="" enctype="multipart/form-data">
+                    <form method="post" action="/conta/criar-agenda">
                         <div class="conteiners-form">
-                            <label for="agenda-name">Nome da agenda</label>
-                            <input type="text" name="agenda-name" id="agenda-name" required>
+                            <label class="form-label" for="title">Nome da agenda</label>
+                            <input type="text" name="title" id="title" required>
                         </div>
                         
                         <div class="conteiners-form">
-                            <label for="agenda-duration">Duração das reuniões</label>
-                            <select class="dropdown"id="agenda-duration">
-                                <option>00:15</option>
-                                <option>00:30</option>
-                                <option>01:00</option>
-                                <option>01:30</option>
-                                <option>02:00</option>
-                            </select>
+                            <label class="form-label" for="duration">Duração das reuniões</label>
+                            <input type="time" name="duration" id="duration" required>
+                            <!-- <select class="dropdown"id="agendaDuration">
+                                <option value="00:15">00:15</option>
+                                <option value="00:30">00:30</option>
+                                <option value="01:00">01:00</option>
+                                <option value="01:30">01:30</option>
+                                <option value="02:00">02:00</option>
+                            </select> -->
                         </div>
                         <div class="conteiners-form">
-                            <label for="agenda-period">Período de agendamento</label>
-                            <input type="date" name="initial-date" id="initial-date">
-                            <p>até</p>
-                            <input type="date" name="final-date" id="final-date">
+                            <label class="form-label" for="start">Período de agendamento</label>
+                            <div class="conteiner-dates">
+                                <label for="start">De</label>
+                                <input type="date" name="start" id="start" class="input-dates">
+                                <label for="end">até</label>
+                                <input type="date" name="end" id="end" class="input-dates">
+                            </div>
                         </div>
                         <div class="container-availability">
-                            <label for="agenda-availability">Disponibilidade</label>
+                            <div>
+                                <label class="form-label">Disponibilidade</label>
+                            </div>
                             <table class="table-availability">
                                 <tr>
-                                    <td class="week-days">Domingo</td>
-                                    <td class="input-time">
-                                        <input type="time" placeholder="09:00" class="initial-time">
-                                        <input type="time" placeholder="18:00" class="final-time">
+                                    <td>
+                                        <input type="checkbox" name="daysOfWeek" id="" value="0">
+                                       
                                     </td>
-                                    <td class="button-time">
-                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
-                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    <td class="td-days">
+                                        <label for="daysOfWeek">Domingo</label>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td class="week-days">Segunda</td>
-                                    <td class="input-time">
-                                        <input type="time" placeholder="09:00" class="initial-time">
-                                        <input type="time" placeholder="18:00" class="final-time">
-                                    </td>
-                                    <td class="button-time">
-                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
-                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    <td class="td-inputs-times">
+                                        <input type="time" name="startTime" id="" class="input-time">
+                                        <input type="time" name="endTime" id="" class="input-time">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="week-days">Terça</td>
-                                    <td class="input-time">
-                                        <input type="time" placeholder="09:00" class="initial-time">
-                                        <input type="time" placeholder="18:00" class="final-time">
+                                    <td>
+                                        <input type="checkbox" name="daysOfWeek" id="" value="1">
+                                        
                                     </td>
-                                    <td class="button-time">
-                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
-                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    <td class="td-days">
+                                        <label for="daysOfWeek">Segunda</label>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td class="week-days">Quarta</td>
-                                    <td class="input-time">
-                                        <input type="time" placeholder="09:00" class="initial-time">
-                                        <input type="time" placeholder="18:00" class="final-time">
-                                    </td>
-                                    <td class="button-time">
-                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
-                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    <td class="td-inputs-times">
+                                        <input type="time" name="startTime" id="" class="input-time">
+                                        <input type="time" name="endTime" id="" class="input-time">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="week-days">Quinta</td>
-                                    <td class="input-time">
-                                        <input type="time" placeholder="09:00" class="initial-time">
-                                        <input type="time" placeholder="18:00" class="final-time">
+                                    <td>
+                                        <input type="checkbox" name="daysOfWeek" id="" value="2">
+                                        
                                     </td>
-                                    <td class="button-time">
-                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
-                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    <td class="td-days">
+                                        <label for="daysOfWeek">Terça</label>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td class="week-days">Sexta</td>
-                                    <td class="input-time">
-                                        <input type="time" placeholder="09:00" class="initial-time">
-                                        <input type="time" placeholder="18:00" class="final-time">
-                                    </td>
-                                    <td class="button-time">
-                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
-                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    <td class="td-inputs-times">
+                                        <input type="time" name="startTime" id="" class="input-time">
+                                        <input type="time" name="endTime" id="" class="input-time">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="week-days">Sábado</td>
-                                    <td class="input-time">
-                                        <input type="time" placeholder="09:00" class="initial-time">
-                                        <input type="time" placeholder="18:00" class="final-time">
+                                    <td>
+                                        <input type="checkbox" name="daysOfWeek" id="" value="3">
                                     </td>
-                                    <td class="button-time">
-                                        <button type="button" title="Indisponível"><img class="icon-times"src="/images/icon-forbidden.png" alt="indisponível"></button>
-                                        <button type="button" title="Copiar"><img class="icon-times"src="/images/icon-copy.png" alt="copiar"></button>
+                                    <td class="td-days">
+                                        <label for="daysOfWeek">Quarta</label>
+                                    </td>
+                                    <td class="td-inputs-times">
+                                        <input type="time" name="startTime" id="" class="input-time">
+                                        <input type="time" name="endTime" id="" class="input-time">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="daysOfWeek" id="" value="4">
+                                    </td>
+                                    <td class="td-days">
+                                        <label for="daysOfWeek">Quinta</label>
+                                    </td>
+                                    <td class="td-inputs-times">
+                                        <input type="time" name="startTime" id="" class="input-time">
+                                        <input type="time" name="endTime" id="" class="input-time">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="daysOfWeek" id="" value="5">
+                                    </td>
+                                    <td class="td-days">
+                                        <label for="daysOfWeek">Sexta</label>
+
+                                    </td>
+                                    <td class="td-inputs-times">
+                                        <input type="time" name="startTime" id="" class="input-time">
+                                    
+                                        <input type="time" name="endTime" id="" class="input-time">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="daysOfWeek" id="" value="6">
+                                    </td>
+                                    <td class="td-days">
+                                        <label for="daysOfWeek">Sábado</label>
+
+                                    </td>
+                                    <td class="td-inputs-times">
+                                        <input type="time" name="startTime" id="" class="input-time">
+                                        <input type="time" name="endTime" id="" class="input-time">
                                     </td>
                                 </tr>
                             </table>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="settings-form">
-                <p class="settings-title">Configurações da Reserva</p>
-                <hr>
-                <div class="container-form">
-                    <form method="POST" action="" enctype="multipart/form-data">
-                        <div class="conteiners-form">
-                            <label for="res-name">Nome da página de agendamento</label>
-                            <input type="text" name="res-name" id="res-name">
-                        </div>
-                        <div class="conteiners-form">
-                            <label for="res-description">Descrição</label>
-                            <textarea name="description" id="res-description" cols="40" rows="3"></textarea>
-                        </div>
-                        <div class="conteiners-form local-options">
-                            <div>
-                                <label for="res-local">Local da Reserva</label>
-                            </div>
-                            <div class="local-radios">
-                                <input type="radio" name="res-local" value="online" id="res-online" checked onclick="showElement('res-online', 'div-res-adress')">
-                                <label for="res-online">Videoconferência</label>
-
-                                <input type="radio" name="res-local" value="person" id="res-person" onclick="showElement('res-person', 'div-res-adress')">
-                                <label for="res-person">Presencial</label>
-
-                            </div>
-                            <div id="div-res-adress">
-                                <label for="res-adress">Informe o local</label>
-                                <input type="text" name="res-adress" id="res-adress" placeholder="Adicione o local">
-                            </div>
                         </div>
                         <div>
                             <button type="submit" class="btn-default" id="btn-save">Salvar</button>
