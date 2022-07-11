@@ -1,32 +1,31 @@
-<link rel="stylesheet" href="/stylesheets/users/excluir-aluno.css" />
-<%- include('partials/header.ejs') %>
+<%- include('partials/account-header.ejs') %>
 
 <main>
   <%- include('partials/links-user.ejs') %>
 
-  <h1 class="excluir-user">Excluir Usuário <%= user.nome%></h1>
-  <section>
+  <h1 class="admin-title">Excluir usuário</h1>
+  <section class="container-list ">
     <form
       class="form-user"
       action="/admin/usuarios/<%=user.id%>/excluir?_method=delete"
       method="POST"
     >
-      <div class="exclude-div">
+      <div class="info-edit">
         <label for="nome">Nome</label>
         <input
-          class="user-exclude"
+          class="input-account"
           type="text"
           id="nome"
           value="<%= user.nome%>"
           name="nome"
-          placeholder="Digite o nome do Usuário"
+          placeholder="Digite o nome do usuário"
           disabled
         />
       </div>
-      <div class="exclude-div">
+      <div class="info-edit">
         <label for="email">Email</label>
         <input
-          class="user-exclude"
+          class="input-account"
           type="email"
           id="email"
           value="<%= user.email%>"
@@ -35,10 +34,10 @@
           disabled
         />
       </div>
-      <div class="exclude-div">
+      <div class="info-edit">
         <label for="senha">senha</label>
         <input
-          class="user-exclude"
+          class="input-account"
           type="password"
           id="senha"
           value="<%= user.senha%>"
@@ -47,10 +46,12 @@
           disabled
         />
       </div>
-
-      <input type="hidden" name="modifed_at" value="<%= new Date() %>" />
-      <button class="button-exclude">Excluir usuário</button>
+      <div class="btn-options">
+        <input type="hidden" name="modifed_at" value="<%= new Date() %>" />
+        <button class="button-exclude btn-delete">Excluir usuário</button>
+      </div>
     </form>
   </section>
 </main>
-<%- include('partials/footer.ejs') %>
+</body>
+</html>

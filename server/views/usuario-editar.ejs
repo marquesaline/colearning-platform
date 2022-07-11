@@ -12,6 +12,12 @@
       action="/admin/usuarios/<%=user.id%>/editar?_method=put"
       method="POST"
     >
+      <div>
+        <div class="info-edit">
+          <label for="user-img">Avatar</label for="user-avatar">
+          <input type="file" name="user-avatar" id="user-avatar">
+        </div>
+      </div>
       <div class="info-edit">
         <label for="nome">Nome</label>
         <input
@@ -55,4 +61,6 @@
       </form>
   </section>
 </main>
+</body>
+</html>
 
