@@ -5,17 +5,34 @@
 .container-list {
     margin-right: auto;
     margin-left: auto;
-    padding: 30px 10px;
-    max-width: 40%;
+    padding: 30px 20px;
+    max-width: 45%;
     background-color: var(--background-primary);
     border-radius: 10px;
 }
 .table-list {
     height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.table-list th {
+    height: 30px;
+}
+.table-list th,
+.table-list td {
+    border: 1px solid black;
 }
 .table-list tr {
     width: 100%;
 }
-.table-list td {
-    width: 50%;
+/* essas classes podem servir pra os outros, como as agendas e eventos */
+.td-id {
+  width: 50px;
+}
+.td-name {
+    width: 40%;
+}
+.td-options {
+    width: 15%;
 }

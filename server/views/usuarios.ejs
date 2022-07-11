@@ -15,30 +15,31 @@
               <th>Id</th>
               <th>Nome</th>
               <th>Email</th>
+              <th>Opções</th>
             </tr>
           </thead>
           <tbody>
             <% for (let user of users) { %>
               <tr>
-                <td>
+                <td class="td-avatar">
                   <img
                   src="/images/<%= user.avatar ? `avatar/${user.avatar}` : 'avatar-exemple.png' %>"
-                  
+                  alt="Avatar"
                   width="60"
                   height="40"
                   style="border-radius: 50%; display: block"
                   />
                 </td>
-                <td>
+                <td class="td-id">
                   <%= user.id %>
                 </td>
-                <td>
+                <td class="td-name">
                   <%= user.nome %>
                 </td>
-                <td>
+                <td class="td-email">
                   <%= user.email %>
                 </td>
-                <td>
+                <td class="td-options">
                   <a class="um-user" href="/admin/usuarios/<%= user.id %>">Visualizar</a>
                 </td>
               </tr>

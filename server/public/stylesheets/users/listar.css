@@ -5,27 +5,15 @@
   text-align: center;
   margin: 10px;
 }
+.td-avatar {
+  width: 80px;
+  text-align: center;
 
-.card {
-  
-  justify-content: center;
+}
+.td-email {
+  width: 30%;
 }
 
-.aluno-list {
-  box-shadow: 1px 2px 3px 2px #ff7a00;
-  border-radius: 18px;
-  width: 240px;
-  height: 280px;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: space-between;
-  align-items: flex-start;
-  color: #fff;
-  background-color: #1d232f;
-}
 
 .um-aluno {
   text-align: center;
