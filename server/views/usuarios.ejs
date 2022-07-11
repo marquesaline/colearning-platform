@@ -24,7 +24,7 @@
                 <td class="td-avatar">
                   <img
                   src="/images/<%= user.avatar ? `avatar/${user.avatar}` : 'avatar-exemple.png' %>"
-                  alt="Avatar"
+                  alt="Avatar  <%= user.nome %>"
                   width="60"
                   height="40"
                   style="border-radius: 50%; display: block"
@@ -40,7 +40,7 @@
                   <%= user.email %>
                 </td>
                 <td class="td-options">
-                  <a class="um-user" href="/admin/usuarios/<%= user.id %>">Visualizar</a>
+                  <a class="um-user btn-default" href="/admin/usuarios/<%= user.id %>">Visualizar</a>
                 </td>
               </tr>
             <% } %>

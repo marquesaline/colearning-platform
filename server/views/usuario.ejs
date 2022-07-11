@@ -2,37 +2,46 @@
 <main>
   
   <%- include('partials/links-user.ejs') %>
-  <h1><%= title%></h1>
+ 
   <section class="section-admin-list">
     
     <% if(locals.user) { %>
-    <div class="container-list">
-        <div>
+    <div class="container-list info-user">
+        <div class="div-avatar">
           <img
-            src="https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png"
+            src="/images/<%= user.avatar ? `avatar/${user.avatar}` : 'avatar-exemple.png' %>"
             alt="avatar"
-            height="60"
-            width="60"
-            style="border-radius: 50%; width: 60px; height: 60px; display: block"
+            height="80"
+            width="80"
+            style="border-radius: 50%; width: 80px; height: 60px; "
           />
         </div>
-      <p>user</p>
-      <p><%= user.id %></p>
-      <h3><%= user.nome%></h3>
-      <p><%= user.email%></p>
-      <p><%= user.senha%></p>
-      <div>
-        <a class="um-user" href="/admin/usuarios/<%= user.id %>/editar">editar</a> |
-        <a class="um-user" href="/admin/usuarios/<%= user.id %>/excluir">excluir</a>
+      <div class="div-infos">
+        <h2 class="admin-title">Dados do usuário</h2>
+        <div>
+          <div class="info-data">
+            <p class="info-legend">Id</p>
+            <p><%= user.id %></p>
+          </div>
+          <div class="info-data">
+            <p class="info-legend">Nome</p>
+            <p><%= user.nome %></p>
+          </div>
+          <div class="info-data">
+            <p class="info-legend">Email</p>
+            <p><%= user.email%></p>
+          </div>
+        </div>
+      </div>
+      <div class="btn-options">
+        <a class="um-user btn-default" href="/admin/usuarios/<%= user.id %>/editar">Editar</a> |
+        <a class="um-user btn-delete" href="/admin/usuarios/<%= user.id %>/excluir">Excluir</a>
       </div>
     </div>
 
     <% } %>
 
-    <nav class="navizinha">
-      <a class="um-user" href="/admin/usuarios">Usuários</a> |
-      
-    </nav>
+    
   </section>
 </main>
 

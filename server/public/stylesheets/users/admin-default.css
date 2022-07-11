@@ -1,6 +1,7 @@
 .section-admin-list {
     width: 100%;
     text-align: center;
+    margin-top: 50px;
 }
 .container-list {
     margin-right: auto;
@@ -9,6 +10,7 @@
     max-width: 45%;
     background-color: var(--background-primary);
     border-radius: 10px;
+    
 }
 .table-list {
     height: 100%;
@@ -35,4 +37,23 @@
 }
 .td-options {
     width: 15%;
+}
+.admin-title {
+    margin:20px auto;
+}
+.info-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.div-infos {
+    margin-bottom: 20px;
+}
+.div-infos > div:nth-child(2) {
+    padding-top: 30px;
+}
+
+.btn-options {
+    margin: 20px auto;
 }
