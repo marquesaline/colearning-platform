@@ -22,9 +22,9 @@
               <tr>
                 <td>
                   <img
-                  src="<%= user.avatar ? `images/avatar/`+user.avatar : `https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png`%>"
+                  src="/images/<%= user.avatar ? `avatar/${user.avatar}` : 'avatar-exemple.png' %>"
                   
-                  width="40"
+                  width="60"
                   height="40"
                   style="border-radius: 50%; display: block"
                   />
