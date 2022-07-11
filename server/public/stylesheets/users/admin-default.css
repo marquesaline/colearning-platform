@@ -40,6 +40,7 @@
 }
 .admin-title {
     margin:20px auto;
+    text-align: center;
 }
 .info-user {
     display: flex;
@@ -56,4 +57,9 @@
 
 .btn-options {
     margin: 20px auto;
+    text-align: center;
+}
+/* formuário pra editar e adicionar */
+.form-user {
+    width: 100%;
 }

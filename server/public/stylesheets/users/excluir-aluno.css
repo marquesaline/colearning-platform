@@ -1,12 +1,4 @@
-.excluir-user {
-  text-align: center;
-  margin: 10px;
-}
-.form-user {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 .user-exclude {
   height: 3rem;
   width: 90%;

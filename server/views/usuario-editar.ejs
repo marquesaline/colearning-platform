@@ -1,55 +1,58 @@
-<link rel="stylesheet" href="/stylesheets/users/editar-aluno.css" />
-<%- include('partials/header.ejs') %>
+
+<%- include('partials/account-header.ejs') %>
 
 <main>
   <%- include('partials/links-user.ejs') %>
 
-  <h1 class="editar-user">Editar <%= user.nome%></h1>
-
-  <form
-    class="form-user"
-    action="/admin/usuarios/<%=user.id%>/editar?_method=put"
-    method="POST"
-  >
-    <div class="edit-div">
-      <label for="nome">Nome</label>
-      <input
-        class="user-edit"
-        type="text"
-        id="nome"
-        value="<%= user.nome%>"
-        name="nome"
-        placeholder="Digite o nome do usuário"
-        required
-      />
-    </div>
-    <div class="edit-div">
-      <label for="email">Email</label>
-      <input
-        class="user-edit"
-        type="email"
-        id="email"
-        value="<%= user.email%>"
-        name="email"
-        placeholder="Digite o email"
-        required
-      />
-    </div>
-    <div class="edit-div">
-      <label for="senha">senha</label>
-      <input
-        class="user-edit"
-        type="password"
-        id="senha"
-        value="<%= user.senha%>"
-        name="senha"
-        placeholder="Digite a senha"
-        required
-      />
-    </div>
-
-    <input type="hidden" name="modifed_at" value="<%= new Date() %>" />
-    <button class="button-edit">Editar usuário</button>
-  </form>
+  <h1 class="admin-title">Editar usuário</h1>
+  <section class="container-list ">
+  
+    <form
+      class="form-user"
+      action="/admin/usuarios/<%=user.id%>/editar?_method=put"
+      method="POST"
+    >
+      <div class="info-edit">
+        <label for="nome">Nome</label>
+        <input
+          class="input-account"
+          type="text"
+          id="nome"
+          value="<%= user.nome%>"
+          name="nome"
+          placeholder="Digite o nome do usuário"
+          required
+        />
+      </div>
+      <div class="info-edit">
+        <label for="email">Email</label>
+        <input
+          class="input-account"
+          type="email"
+          id="email"
+          value="<%= user.email%>"
+          name="email"
+          placeholder="Digite o email"
+          required
+        />
+      </div>
+      <div class="info-edit">
+        <label for="senha">senha</label>
+        <input
+          class="input-account"
+          type="password"
+          id="senha"
+          value="<%= user.senha%>"
+          name="senha"
+          placeholder="Digite a senha"
+          required
+        />
+      </div>
+      <div class="btn-options">
+        <input type="hidden" name="modifed_at" value="<%= new Date() %>" />
+        <button class="button-edit btn-default">Salvar</button>
+      </div>
+      </form>
+  </section>
 </main>
-<%- include('partials/footer.ejs') %>
+
