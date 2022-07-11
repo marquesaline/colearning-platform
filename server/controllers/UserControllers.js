@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const { title } = require("process");
+
 
 //helper
 const helper = {};
@@ -92,7 +92,7 @@ const controller = {
       }
     });
     setUsers(users);
-    res.redirect(`/users/sucesso`);
+    res.redirect(`/sucesso`);
   },
 
   exclude: async (req, res) => {
