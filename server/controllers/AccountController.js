@@ -2,17 +2,8 @@ const controller = {}
 const fs = require("fs");
 const path = require("path");
 
-const helper = {};
+const helper = require('../utils/helper')
 
-helper.read = (fileName) =>
-    fs.readFileSync(path.join(__dirname, `../data/${fileName}`), "utf-8");
-
-helper.write = (fileName, data) =>
-    fs.writeFileSync(
-        path.join(__dirname, `../data/${fileName}`),
-        JSON.stringify(data),
-        "utf-8"
-    );
 //Constates de uso do JSON e de criação dos dados para a agenda
 const getAgendas = () => JSON.parse(helper.read("agenda.json"))
 const getAgendaId = (id) =>

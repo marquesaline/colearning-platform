@@ -1,19 +1,7 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require("fs")
+const path = require("path")
+const helper = require('../utils/helper')
 
-
-//helper
-const helper = {};
-
-helper.read = (filename) =>
-  fs.readFileSync(path.join(__dirname, `../data/${filename}`), "utf-8");
-
-helper.write = (filename, data) =>
-  fs.writeFileSync(
-    path.join(__dirname, `../data/${filename}`),
-    JSON.stringify(data, null, 2),
-    "utf-8"
-  );
 
 const getUsers = () => JSON.parse(helper.read("users.json"));
 const setUsers = (users) => helper.write("users.json", users);
@@ -112,7 +100,7 @@ const controller = {
   //arrumar
   show: async (req, res) => {
     res.render("usuario", {
-      title: `Usuário ${req.params.id} `,
+      title: `Usuário`,
       user: getUserId(req.params.id),
     });
   },
