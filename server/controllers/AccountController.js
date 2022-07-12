@@ -1,22 +1,20 @@
 const controller = {}
 const fs = require("fs");
 const path = require("path");
-
-const helper = require('../utils/helper')
+const get = require("../utils/get")
 
 //Constates de uso do JSON e de criação dos dados para a agenda
-const getAgendas = () => JSON.parse(helper.read("agenda.json"))
+const getAgendas = get.agenda
 const getAgendaId = (id) =>
-    getAgendas().find((agenda) => agenda.id == id)
-
+    getAgendas.find((agenda) => agenda.id == id)
 const setAgendas = (agendas) => helper.write("agenda.json", agendas);
 
-const getEvents = () => JSON.parse(helper.read("events.json"))
+const getEvents = get.events
 const getEventsId = async (id) =>
-    await getEvents().find((event) => event.id == id)
+    await getEvents.find((event) => event.id == id)
 
 const getNextId = async () => {
-    const agenda = await getAgendas()
+    const agenda = await getAgendas
     const newId = parseInt(agenda[agenda.length - 1].id) + 1
     return newId
 }
@@ -40,7 +38,7 @@ const getBusinessHours = async (daysOfWeek, startTime, endTime) => {
 //Tela principal com o calendário do usuário
 controller.calendar = async (req, res) => res.render('calendario', {
     title: 'Calendário',
-    agendas: await getAgendas()
+    agendas: await getAgendas
 })
 controller.account = (req, res) => res.render('minha-conta', { title: 'Minha Conta'}),
 controller.editAccount = (req, res) => {
@@ -57,12 +55,12 @@ controller.editSignature = (req, res) => {
 //Controllers Agenda 
 controller.addAgenda = async (req, res) => res.render('criar-agenda', {
     title: 'Criar Agenda',
-    agendas: await getAgendas()
+    agendas: await getAgendas
 }),
 controller.editAgenda = async (req, res) => {
     const agenda = getAgendaId(req.params.id)
     res.render('editar-agenda', {
-        agendas: await getAgendas(),
+        agendas: await getAgendas,
         title: `Editar ${agenda.title}`,
         agenda
     })
@@ -70,19 +68,19 @@ controller.editAgenda = async (req, res) => {
 controller.removeAgenda = async (req, res) => {
     const agenda = getAgendaId(req.params.id)
     res.render('excluir-agenda', {
-        agendas: await getAgendas(),
+        agendas: await getAgendas,
         title: `Excluir Agenda ${agenda.title}`,
         agenda
     })
 }
-controller.events = async (req, res) => res.json(await getEvents())
+controller.events = async (req, res) => res.json(await getEvents)
 controller.eventsId = async (req, res) =>
     res.json(await getEventsId(req.params.id))
 
 
 //Controllers de manipulação do JSON
 controller.createAgenda = async (req, res) => {
-    const agendas = await getAgendas()
+    const agendas = await getAgendas
     const id = await getNextId()
     const {
         title,
@@ -107,7 +105,7 @@ controller.createAgenda = async (req, res) => {
     res.redirect("/sucesso")
 }
 controller.updateAgenda = async (req, res) => {
-    let agendas = await getAgendas()
+    let agendas = await getAgendas
     agendas = agendas.map((agenda) => {
         if (agenda.id == req.params.id) {
             const {
@@ -137,7 +135,7 @@ controller.updateAgenda = async (req, res) => {
     res.redirect('/sucesso')
 }
 controller.deleteAgenda = async (req, res) => {
-    const agendas = await getAgendas().filter(
+    const agendas = await getAgendas.filter(
         (agenda) => agenda.id != req.params.id
     );
     setAgendas(agendas);

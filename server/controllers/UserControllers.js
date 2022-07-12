@@ -1,19 +1,24 @@
 const fs = require("fs")
 const path = require("path")
-const helper = require('../utils/helper')
+const get = require("../utils/get")
+const helper = require("../utils/helper")
 
 
-const getUsers = () => JSON.parse(helper.read("users.json"));
+const getUsers = get.users
 const setUsers = (users) => helper.write("users.json", users);
-const getUserId = (id) => getUsers().find((user) => user.id == id);
+const getUserId = (id) => getUsers.find((user) => user.id == id);
 const getNextId = async () => {
-  const users = await getUsers();
+  const users = await getUsers;
   const newId = parseInt(users[users.length - 1].id) + 1;
   return newId;
 };
+const createSlug = async(name) => {
+  let slug = await name.toLowerCase().replace(/ /g, '-')
+  .replace(/[^\w-]+/g, '');
+  return slug
+}
 
 // controller
-
 const controller = {
   sucess: async (req, res) => {
     res.render("usuario-sucesso", {
@@ -26,7 +31,7 @@ const controller = {
   },
 
   lista: async (req, res) => {
-    const users = await getUsers();
+    const users = await getUsers;
     res.render(`usuarios`, {
       title: "Lista de Usuários",
       users,
@@ -41,19 +46,21 @@ const controller = {
   },
 
   create: async (req, res) => {
-    const users = await getUsers();
+    const users = await getUsers;
     const id = await getNextId();
     const { nome, email, senha, avatar } = req.body;
+    const slug = await createSlug(nome)
     const newUser = {
       id,
       nome,
       senha,
       email,
+      slug,
       avatar: avatar || null,
     };
     users.push(newUser);
     setUsers(users);
-    res.redirect("/users/sucesso");
+    res.redirect("/sucesso");
   },
 
   edit: async (req, res) => {
@@ -65,13 +72,15 @@ const controller = {
   },
 
   update: async (req, res) => {
-    let users = await getUsers();
-    users = users.map((user) => {
+    let users = await getUsers;
+    users = users.map((user) =>  {
       if (user.id == req.params.id) {
-        const { nome, email, senha } = req.body;
+        const { nome, slug, email, senha } = req.body;
+        
         return {
           id: user.id,
           nome: nome,
+          slug: slug,
           email: email,
           senha: senha,
         };
@@ -91,11 +100,11 @@ const controller = {
   },
 
   delete: async (req, res) => {
-    const users = await getUsers().filter(
+    const users = await getUsers.filter(
       (user) => user.id != req.params.id
     );
     setUsers(users);
-    res.redirect(`/users/sucesso`);
+    res.redirect(`/sucesso`);
   },
   //arrumar
   show: async (req, res) => {
