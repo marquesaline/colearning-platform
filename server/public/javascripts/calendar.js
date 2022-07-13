@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     events.map(function (event) {
       if(event.extendedProps.idAgenda == 1) {
-        console.log(event)
+        // console.log(event)
       }
     })
   }

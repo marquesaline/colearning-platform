@@ -3,7 +3,7 @@
 
 .header {
     display: flex;
-    padding: 15px 30px;
+    padding: 20px 30px;
     background-color: var(--background-primary);
     width: 100%;
     align-items: center;

@@ -16,16 +16,18 @@
             <div class="agendas-list">
             <ul>
                 <% for(let agenda of agendas) { %>
-                    <li>
-                        <%= agenda.title %>
-                        <a href="/conta/<%= agenda.id %>/editar">
-                            <img src="/images/icon-edit2.png" height="15px" width="15px">
-                        </a>
-                        <a href="/conta/<%= agenda.id %>/apagar">
-                            <img src="/images/icon-delete2.png" height="15px" width="15px">
-                        </a>
-                    </li>
-                
+                    <% if(agenda.groupId == idUser) { %>
+                        <li>
+                            <%= agenda.title %>
+                            <a href="/conta/<%= agenda.id %>/editar">
+                                <img src="/images/icon-edit2.png" height="15px" width="15px">
+                            </a>
+                            <a href="/conta/<%= agenda.id %>/apagar">
+                                <img src="/images/icon-delete2.png" height="15px" width="15px">
+                            </a>
+                        </li>
+                    
+                    <% } %> 
                 <% } %> 
             </ul>
             </div>

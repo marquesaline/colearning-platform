@@ -3,15 +3,10 @@ const path = require("path")
 const get = require("../utils/get")
 const helper = require("../utils/helper")
 
-
 const getUsers = get.users
 const setUsers = (users) => helper.write("users.json", users);
 const getUserId = (id) => getUsers.find((user) => user.id == id);
-const getNextId = async () => {
-  const users = await getUsers;
-  const newId = parseInt(users[users.length - 1].id) + 1;
-  return newId;
-};
+const getNextId = get.nextById(getUsers)
 const createSlug = async(name) => {
   let slug = await name.toLowerCase().replace(/ /g, '-')
   .replace(/[^\w-]+/g, '');
@@ -47,7 +42,7 @@ const controller = {
 
   create: async (req, res) => {
     const users = await getUsers;
-    const id = await getNextId();
+    const id = await getNextId;
     const { nome, email, senha, avatar } = req.body;
     const slug = await createSlug(nome)
     const newUser = {

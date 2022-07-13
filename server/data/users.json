@@ -12,7 +12,6 @@
     "senha": "123435",
     "email": "pamela@gmail.com",
     "slug": "pamela-martins-ede-brito"
-    
   },
   {
     "id": 4,
@@ -20,7 +19,6 @@
     "senha": "898799",
     "email": "eu@mail.com",
     "slug": "ert"
-    
   },
   {
     "id": 6,
@@ -36,6 +34,14 @@
     "senha": "123456",
     "email": "usuario@email.com",
     "slug": "teste-usurio",
+    "avatar": null
+  },
+  {
+    "id": 8,
+    "nome": "Teste Id",
+    "senha": "123456",
+    "email": "testeid@email.com",
+    "slug": "teste-id",
     "avatar": null
   }
 ]

@@ -11,6 +11,7 @@ router.get('/planos', controller.plans)
 router.get('/sucesso', function(req, res, next) {
     res.render('sucesso', { title: 'Parabéns! Deu bom!' });
 });
-router.get('/agendamento/:id', controller.agendamento)
+router.get('/agendamento/:slug', controller.agendas)
+router.get('/agendamento/:slug/:id', controller.showAgenda)
 
 module.exports = router;

@@ -3,21 +3,21 @@ var router = express.Router();
 const controllerAccount = require('../controllers/AccountController')
 
 
-router.get('/', controllerAccount.calendar)
+router.get('/:userId', controllerAccount.calendar)
 
-router.get('/minha-conta', controllerAccount.account)
-router.get('/assinatura', controllerAccount.signature)
+router.get('/:userId/minha-conta', controllerAccount.account)
+// router.get('/assinatura', controllerAccount.signature)
 
 // Falta inserir o ID 
-router.get('/minha-conta/editar',controllerAccount.editAccount)
-router.get('/assinatura/editar', controllerAccount.editSignature)
+router.get('/:userId/minha-conta/editar',controllerAccount.editAccount)
+// router.get('/assinatura/editar', controllerAccount.editSignature)
 
-router.get('/criar-agenda', controllerAccount.addAgenda)
-router.post('/criar-agenda', controllerAccount.createAgenda)
-router.get('/:id/editar', controllerAccount.editAgenda)
-router.put('/:id/editar', controllerAccount.updateAgenda)
-router.get('/:id/apagar', controllerAccount.removeAgenda)
-router.delete('/:id/apagar', controllerAccount.deleteAgenda)
+router.get('/:userId/criar-agenda', controllerAccount.addAgenda)
+router.post('/:userId/criar-agenda', controllerAccount.createAgenda)
+router.get('/:userId/editar-agenda', controllerAccount.editAgenda)
+router.put('/:userId/editar-agenda', controllerAccount.updateAgenda)
+router.get('/:userId/apagar-agenda', controllerAccount.removeAgenda)
+router.delete('/:userId/apagar-agenda', controllerAccount.deleteAgenda)
 
 router.get('/json', controllerAccount.events)
 router.get('/json/:id', controllerAccount.eventsId)
