@@ -30,12 +30,19 @@ const controller = {
         const user = await getUserSlug(req.params.slug)
         const idUser = user.id
         const agenda = await getAgendaId(req.params.id)
+        const businessHours = JSON.stringify(agenda.businessHours)
+        
         res.render("agenda", {
             title: `${agenda.title} - ${user.nome}`,
             agenda,
             user,
-            idUser
+            idUser,
+            businessHours
+            
         })
+    },
+    jsonAgenda: async (req, res) => {
+        res.json(await getAgendaId(req.params.id))
     }
 }
 

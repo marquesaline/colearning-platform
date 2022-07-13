@@ -13,5 +13,5 @@ router.get('/sucesso', function(req, res, next) {
 });
 router.get('/agendamento/:slug', controller.agendas)
 router.get('/agendamento/:slug/:id', controller.showAgenda)
-
+router.get("/json/:id", controller.jsonAgenda)
 module.exports = router;

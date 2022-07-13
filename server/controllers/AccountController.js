@@ -14,11 +14,7 @@ const getEvents = get.events
 const getEventsId = async (id) =>
     await getEvents.filter((event) => event.extendedProps.idagenda == id)
 
-const getGroupId = async(id) => {
-    await getAgendas.filter((agenda) => agenda.groupId == id)
-    
-}
-    
+   
 
 const getBusinessHours = async (daysOfWeek, startTime, endTime) => {
     let businessHours = []

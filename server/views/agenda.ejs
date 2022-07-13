@@ -4,9 +4,86 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
+    
+    <!-- css original do FullCalendar - não mexer -->
+    <link href='/stylesheets/main.css' rel="stylesheet"> 
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="/javascripts/script.js"></script>
+    
     <title>Document</title>
 </head>
 <body>
-    <%= agenda.title %> 
+    <%= agenda.title %>
+    <input hidden id="agenda-start" value="<%= agenda.start%>">
+    <input hidden id="agenda-end" value="<%= agenda.end%>">
+    <input id="businessHours" value="<%= businessHours %>">
+    <div id='calendar'></div>
+
+    <!-- <script type="text/javascript" src="/javascripts/agenda.js"></script> -->
+    <script>
+        
+        
+ 
+        document.addEventListener('DOMContentLoaded', function () {
+        
+            var start = document.getElementById('agenda-start').value
+            var end = document.getElementById('agenda-end').value
+            var businessHours = document.getElementById('businessHours').value
+            
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+            
+            locale: 'pt-br',
+            initialView: 'dayGridMonth',
+            showNonCurrentDates: false, //tira os dias do mês anterior do calendário
+            
+            
+            selectable: true,
+            headerToolbar: {
+                center: 'dayGridMonth',
+                end: 'today prev,next'
+            }, //{ center: 'dayGridMonth,timeGridWeek' }
+            buttonText: {
+                today: 'Hoje',
+                month: 'Mês',
+                prev: '<',
+                next: '>'
+            },
+        
+        
+            validRange: {
+                start: start,
+                end: end,
+            },
+            businessHours: {businessHours},
+            
+        
+            views: {
+                dayGridMonth: { // name of view
+                titleFormat: {
+                    year: 'numeric',
+                    month: 'long'
+                },
+        
+                // other view-specific options here
+                }
+            },
+            
+            
+            
+            });
+        calendar.render();
+        
+        
+  
+});
+    </script>
+
 </body>
 </html>
