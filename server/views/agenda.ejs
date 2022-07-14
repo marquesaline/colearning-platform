@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
-    
+    <link rel='stylesheet' href='/stylesheets/agendamento/agenda.css'/>
     <!-- css original do FullCalendar - não mexer -->
     <link href='/stylesheets/main.css' rel="stylesheet"> 
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
@@ -19,61 +19,117 @@
     <title>Document</title>
 </head>
 <body>
-    <%= agenda.title %>
-    <input hidden id="agenda-start" value="<%= agenda.start%>">
-    <input hidden id="agenda-end" value="<%= agenda.end%>">
-    <input id="businessHours" value="<%= businessHours %>">
+    <h1><%= agenda.title %> </h1>
+    <div>
+        <input hidden id="agenda-start" value="<%= agenda.start%>">
+        <input hidden id="agenda-end" value="<%= agenda.end%>">
+        <input hidden id="businessHours" value="<%= businessHours %>">
+    </div>
     <div id='calendar'></div>
+
+    <div id="myModal" class="modal" style="display: none;">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Novo agendamento</h2>
+          <form method="post" action="/agendamento/<%=user.slug%>/<%=agenda.id%>">
+            <div>
+                <h3>Dados do agendamento</h3>
+                <div>
+                    <label for="date">Data do agendamento</label>
+                    <input type="date" name="date" id="date" required>
+                </div>
+                <div>
+                    <label for="time">Horário do agendamento</label>
+                    <input type="time" name="time" id="time" required>
+                </div>
+            </div>
+            <div>
+                <h3>Dados pessoais</h3>
+                <div>
+                    <label for="name">Nome completo</label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div>
+                    <label for="tel">Telefone</label>
+                    <input type="tel" name="tel" id="tel">
+                </div>
+                <div>
+                    <button type="submit" class="btn-default">Agendar</button>
+                </div>
+            </div>
+          </form>
+        </div>
+      
+    </div>                  
 
     <!-- <script type="text/javascript" src="/javascripts/agenda.js"></script> -->
     <script>
         
-        
- 
         document.addEventListener('DOMContentLoaded', function () {
-        
+
+            // variáveis pra guardar os valores e usar no calendário
             var start = document.getElementById('agenda-start').value
             var end = document.getElementById('agenda-end').value
             var businessHours = document.getElementById('businessHours').value
-            
+            var modal = document.getElementById("myModal")
+            var span = document.getElementsByClassName("close")[0];
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            span.onclick = function() {
+                modal.style.display = "none";
+            }       
+            //calendário de exibição pra agendamento
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
             
-            locale: 'pt-br',
-            initialView: 'dayGridMonth',
-            showNonCurrentDates: false, //tira os dias do mês anterior do calendário
-            
-            
-            selectable: true,
-            headerToolbar: {
-                center: 'dayGridMonth',
-                end: 'today prev,next'
-            }, //{ center: 'dayGridMonth,timeGridWeek' }
-            buttonText: {
-                today: 'Hoje',
-                month: 'Mês',
-                prev: '<',
-                next: '>'
-            },
-        
-        
-            validRange: {
-                start: start,
-                end: end,
-            },
-            businessHours: {businessHours},
-            
-        
-            views: {
-                dayGridMonth: { // name of view
-                titleFormat: {
-                    year: 'numeric',
-                    month: 'long'
+                locale: 'pt-br',
+                initialView: 'dayGridMonth',
+                showNonCurrentDates: false, //tira os dias do mês anterior do calendário
+                selectable: true,
+                selectMirror: true,
+                headerToolbar: {
+                    center: 'dayGridMonth',
+                    end: 'today prev,next'
+                }, //{ center: 'dayGridMonth,timeGridWeek' }
+                buttonText: {
+                    today: 'Hoje',
+                    month: 'Mês',
+                    prev: '<',
+                    next: '>'
                 },
-        
-                // other view-specific options here
+                height: 650,
+            
+            
+                validRange: {
+                    start: start,
+                    end: end,
+                },
+                businessHours: {businessHours},
+                
+            
+                views: {
+                    dayGridMonth: { // name of view
+                    titleFormat: {
+                        year: 'numeric',
+                        month: 'long'
+                    },
+            
+                    // other view-specific options here
+                    }
+                },
+                dateClick: function(info) {
+                    modal.style.display = "block";
+                    
                 }
-            },
             
             
             
