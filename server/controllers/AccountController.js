@@ -6,6 +6,7 @@ const get = require("../utils/get")
 
 //Constates de uso do JSON e de criação dos dados para a agenda
 const getAgendas = get.agenda
+const getAgendaId = async (id) => await getAgendas.find((agenda) => agenda.id == id)
 const getUsers = get.users
 const getUserId = (id) => getUsers.find((user) => user.id == id);
 const getEvents = get.events
@@ -20,12 +21,14 @@ controller.eventsId = async (req, res) =>
 
 //Tela principal com o calendário do usuário
 controller.calendar = async (req, res) => {
-    const idUser = req.params.userId
-    console.log(idUser)
+    
     res.render('calendario',  {
         title: 'Calendário',
         agendas: await getAgendas,
-        idUser
+        user: await getUserId(req.params.userId),
+        agenda: await getAgendaId(req.params.agendaId),
+        users: await getUsers,
+        agendas: await getAgendas
     })
     
     

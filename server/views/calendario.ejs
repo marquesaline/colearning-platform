@@ -5,7 +5,7 @@
         <div id="contents-side" class="container-calendar">
         <div>
             <div class="container-button">
-            <a href="/conta/criar-agenda" id="agenda-submit">Criar agenda</a>
+            <a href="/conta/<%=user.id%>/criar-agenda" id="agenda-submit">Criar agenda</a>
             </div>
             <div class="container-table-month">
             <div id='calendar'></div>
@@ -15,14 +15,15 @@
             <p>Minhas Agendas</p>
             <div class="agendas-list">
             <ul>
+                
                 <% for(let agenda of agendas) { %>
-                    <% if(agenda.groupId == idUser) { %>
+                    <% if(agenda.groupId == user.id) { %>
                         <li>
                             <%= agenda.title %>
-                            <a href="/conta/<%= agenda.id %>/editar">
+                            <a href="/conta/<%=user.id%>/<%=agenda.id%>/editar-agenda">
                                 <img src="/images/icon-edit2.png" height="15px" width="15px">
                             </a>
-                            <a href="/conta/<%= agenda.id %>/apagar">
+                            <a href="/conta/<%=user.id%>/<%=agenda.id%>/apagar-agenda">
                                 <img src="/images/icon-delete2.png" height="15px" width="15px">
                             </a>
                         </li>

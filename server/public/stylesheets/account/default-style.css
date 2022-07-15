@@ -62,8 +62,8 @@ padrão em todas as telas, menos a de calendário */
     background-color: var(--background-primary);
     text-align: left;
     flex-direction: column;
-    width: 16%;
-    max-width: 280px;
+    width: 18%;
+    min-width: 305px;
     height: 1116px;
     align-items: center;
     justify-items: flex-start;
@@ -113,6 +113,11 @@ padrão em todas as telas, menos a de calendário */
 .section-main {
     width: 100%;
     text-align: center;
+    
+}
+.account-title {
+    margin: 30px auto;
+    font-size: 30px;
     
 }
 

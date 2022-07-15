@@ -1,7 +1,3 @@
-const fs = require("fs");
-const path = require("path");
-
-const get = require("../utils/get")
 
 const controller = {
     index: (req, res) => res.render('index', { title: 'CoLearning' }),

@@ -4,7 +4,7 @@
 <section class="container-side" id="container-side">
     <div id="contents-side">
         <div class="container-button">
-            <a class="btn-default btn-side" href="/conta" type="button" title="Acessar calendário">Calendário</a>
+            <a class="btn-default btn-side" href="/conta/<%=user.id%>" type="button" title="Acessar calendário">Calendário</a>
         </div>
         <div class="container-agendas">
             <p>Minhas Agendas</p>
@@ -12,17 +12,18 @@
                 <ul> 
                     <ul>
                         <% for(let agenda of agendas) { %>
-                            <li>
-                                <%= agenda.title %>
-
-                                <a href="/conta/<%= agenda.id %>/editar">
-                                    <img src="/images/icon-edit2.png" height="15px" width="15px">
-                                </a>
-                                <a href="/conta/<%= agenda.id %>/apagar">
-                                    <img src="/images/icon-delete2.png" height="15px" width="15px">
-                                </a>
-
-                            </li>
+                            <% if(agenda.groupId == user.id) { %>
+                                <li>
+                                    <%= agenda.title %>
+                                    <a href="/conta/<%=user.id%>/<%=agenda.id%>/editar-agenda">
+                                        <img src="/images/icon-edit2.png" height="15px" width="15px">
+                                    </a>
+                                    <a href="/conta/<%=user.id%>/<%=agenda.id%>/apagar-agenda">
+                                        <img src="/images/icon-delete2.png" height="15px" width="15px">
+                                    </a>
+                                </li>
+                            
+                            <% } %> 
                         
                         <% } %> 
                     </ul>
