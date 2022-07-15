@@ -33,18 +33,17 @@ controller.calendar = async (req, res) => {
     
     
 }
-controller.account = (req, res) => res.render('minha-conta', { title: 'Minha Conta'}),
-controller.editAccount = (req, res) => {
+controller.account = async (req, res) => res.render('minha-conta', { 
+    title: 'Minha Conta',
+    user: await getUserId(req.params.userId)
+}),
+controller.editAccount = async (req, res) => {
     res.render('minha-conta-editar', {
-        title: 'Editar - Minha Conta'
+        title: 'Editar - Minha Conta',
+        user: await getUserId(req.params.userId)
     })
 },
-controller.signature = (req, res) => res.render('assinatura', { title: 'Assinatura'})
-controller.editSignature = (req, res) => {
-    res.render('assinatura-editar', {
-        title: 'Editar - Assinatura'
-    })
-}
+
 
 
 

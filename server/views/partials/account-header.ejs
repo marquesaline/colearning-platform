@@ -18,7 +18,7 @@
     <link rel='stylesheet' href='/stylesheets/account/header.css'/>
     <link rel='stylesheet' href='/stylesheets/account/calendario.css'/>
     <link rel='stylesheet' href='/stylesheets/account/criar-agenda.css'/>
-    <link rel='stylesheet' href='/stylesheets/account/minha-conta-assinatura.css'/>
+    <link rel='stylesheet' href='/stylesheets/account/minha-conta.css'/>
 
     <link rel="stylesheet" href="/stylesheets/users/admin-default.css">
     <link rel="stylesheet" href="/stylesheets/users/listar.css">
@@ -63,10 +63,10 @@
             
             <ul class="dropdown-menu" id="dropdown-menu">
               <li>
-                <a href="/conta/minha-conta">Minha conta</a>
+                <a href="/conta/<%=user.id%>/minha-conta">Minha conta</a>
               </li>
               <li>
-                <a href="/conta/assinatura">Assinatura</a>
+                <a href="/conta/assinatura">Admin</a>
               </li>
               <li>
                 <a href="/login">Sair</a>
