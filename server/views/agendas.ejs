@@ -1,39 +1,21 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='/stylesheets/account/default-style.css'/>
-    <link rel='stylesheet' href='/stylesheets/account/header.css'/>
-    <title><%= title%></title>
-</head>
-<body>
-    <header class="header">
-        <div class="div-logo">
-            <p>
-              <a class="logo" href="/">CoLearning</a>  
-            </p>
-        </div>
-        <div class="agendamento">
-            <p>Agendamento - <%= user.nome %></p>
-        </div>
-    </header>
+<%- include('partials/agendamento-header.ejs') %>
     <main>
         <section>
-            <img src="/images/card-img4.jpg" height="600px" width="100%" >
+            <img src="/images/card-img4.jpg" height="500px" width="100%" >
         </section>
         <section class="agendas">
             <div>
-                <h1>Agendas de <%= user.nome %></h1>
-                <div>
+                <h1 class="agendas-title">Agendas de <%= user.nome %></h1>
+                <div class="div-agendas">
                     <% if(locals.agendas) { %>
                         <% for(let agenda of agendas) { %>
                             <% if(agenda.extendedProps.userId == user.id) { %>
-                                <div>
-                                    <h2><%= agenda.title %></h2>
-                                    <div>
-                                        <a href="/agendamento/<%=user.slug%>/<%=agenda.id%>">Agendar</a>
+                                <div class="div-cards">
+                                    <div class="card-header">
+                                        <h2 class="card-title"><%= agenda.title %></h2>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="/agendamento/<%=user.slug%>/<%=agenda.id%>" class="btn-default">Agendar</a>
                                     </div>
                                 </div>
                             <% } %> 
@@ -46,5 +28,4 @@
         </section>
     </main>
     
-</body>
-</html>
+<%- include('partials/agendamento-footer.ejs') %>

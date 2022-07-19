@@ -1,133 +1,117 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href='/stylesheets/agendamento/agenda.css'/>
-    <!-- css original do FullCalendar - não mexer -->
-    <link href='/stylesheets/main.css' rel="stylesheet"> 
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script> 
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.js" integrity="sha256-wz8JpOEjDzB1vo0qlAgRCNUvYtPDC5ojiUH+gHkCZ8Y=" crossorigin="anonymous"></script>    <script type="text/javascript" src="/javascripts/script.js"></script>
-    
-  
-    <title>Document</title>
-</head>
-<body>
-    <h1><%= agenda.title %> </h1>
-    <div>
-        <input hidden id="agenda-start" value="<%= agenda.start%>">
-        <input hidden id="agenda-end" value="<%= agenda.end%>">
-        <input hidden id="businessHours" value="<%= businessHours %>">
-        
-    </div>
-    <div id='calendar'></div>
-
-    <div id="myModal" class="modal" style="display: none;">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Novo agendamento</h2>
-          <form method="post" action="/agendamento/<%=user.slug%>/<%=agenda.id%>">
+<%- include('partials/agendamento-header.ejs') %>
+    <main>
+        <section class="section-agenda">
+            <h1 class="title-h1-agenda"><%= agenda.title %> </h1>
             <div>
-                <h3>Dados do agendamento</h3>
-                <div>
-                    <label for="date">Data do agendamento</label>
-                    
-                    <input type="date" name="start" id="start"  onchange="getDate()" required>
-                </div>
-                <div>
-                    <label for="startTime">Horário do agendamento</label>
-                    
-                    <input type="time" name="startTime" id="startTime" onchange="getTime()" 
-                    min="00:00" max="24:00" 
-                    title="Horário do agendemento. Deve ser posterior ao horário atual">
-                </div>
-            </div>
-            <div>
-                <h3>Dados pessoais</h3>
-                <div>
-                    <label for="title">Nome completo</label>
-                    <input type="text" name="title" id="title"  required>
-                </div>
-                <div>
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" required>
-                </div>
-                <div>
-                    <label for="telefone">Telefone</label>
-                    <input type="tel" name="telefone" id="telefone">
-                </div>
-                <div>
-                    <button type="submit" class="btn-default" id="submit">Agendar</button>
-                </div>
-            </div>
-          </form>
-        </div>
-      
-    </div>      
-    <script>
-        window.addEventListener('DOMContentLoaded', (event) => {
-            var currentDate = new Date()
-            document.getElementById("start").valueAsDate = currentDate
-        });
-
-        //validar inputs
-        function getDate() {
-            var date = new Date(document.getElementById("start").value)
-            var currentDate = new Date()
-            if(date < currentDate) {
-                return [
-                    document.getElementById("start").style.borderColor = "red",
-                    document.getElementById("submit").disabled = true
-                ]
-            }else {
-                document.getElementById("submit").disabled = false
-            }
-            
-        }
-        function getTime() {
-            var date = document.getElementById("start").value
-            var time = document.getElementById("startTime").value
-            var dateTime = moment(`${date}T${time}`)
-            dateTime = new Date(dateTime)
-            
-            var currentDate = new Date()
-            
-            if(dateTime.getFullYear() == currentDate.getFullYear() 
-                && dateTime.getMonth() == currentDate.getMonth()
-                && dateTime.getDay() == currentDate.getDay()) {
+                <input hidden id="agenda-start" value="<%= agenda.start%>">
+                <input hidden id="agenda-end" value="<%= agenda.end%>">
+                <input hidden id="businessHours" value="<%= businessHours %>">
                 
-                    if(dateTime.getHours() <= currentDate.getHours() ) {
-                        console.log("Hora inválida")
-                        return [
-                            document.getElementById("startTime").style.borderColor = "red",
-                            document.getElementById("submit").disabled = true
-                        ]
-                    } else {
-                       return document.getElementById("submit").disabled = false
-                    }
-            } else {
-                return document.getElementById("submit").disabled = false
-            }
-
-        }
-       
-    </script>
+            </div>
+        </section>
+        <section class="section-calendar">
+            <div id='calendar'></div>
     
-               
+        <div id="myModal" class="modal" style="display: none;">
 
-    <script type="text/javascript" src="/javascripts/agenda.js"></script>
-  
-   
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Novo agendamento</h2>
+                <form method="post" action="/agendamento/<%=user.slug%>/<%=agenda.id%>">
+                    <div>
+                        <h3>Dados do agendamento</h3>
+                        <div>
+                            <label for="date">Data do agendamento</label>
+                            
+                            <input type="date" name="start" id="start"  onchange="getDate()" required>
+                        </div>
+                        <div>
+                            <label for="startTime">Horário do agendamento</label>
+                            
+                            <input type="time" name="startTime" id="startTime" onchange="getTime()" 
+                            min="00:00" max="24:00" 
+                            title="Horário do agendemento. Deve ser posterior ao horário atual" required>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Dados pessoais</h3>
+                        <div>
+                            <label for="title">Nome completo</label>
+                            <input type="text" name="title" id="title"  required>
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" required>
+                        </div>
+                        <div>
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" name="telefone" id="telefone">
+                        </div>
+                        <div>
+                            <button type="submit" class="btn-default" id="submit">Agendar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+        </div>     
+        </section>
+       
+         
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                var currentDate = new Date()
+                document.getElementById("start").valueAsDate = currentDate
+            });
 
-</body>
-</html>
+            //validar inputs
+            function getDate() {
+                var date = new Date(document.getElementById("start").value)
+                var currentDate = new Date()
+                if(date < currentDate) {
+                    return [
+                        document.getElementById("start").style.borderColor = "red",
+                        document.getElementById("submit").disabled = true
+                    ]
+                }else {
+                    document.getElementById("submit").disabled = false
+                }
+                
+            }
+            function getTime() {
+                var date = document.getElementById("start").value
+                var time = document.getElementById("startTime").value
+                var dateTime = moment(`${date}T${time}`)
+                dateTime = new Date(dateTime)
+                
+                var currentDate = new Date()
+                
+                if(dateTime.getFullYear() == currentDate.getFullYear() 
+                    && dateTime.getMonth() == currentDate.getMonth()
+                    && dateTime.getDay() == currentDate.getDay()) {
+                    
+                        if(dateTime.getHours() <= currentDate.getHours() ) {
+                            console.log("Hora inválida")
+                            return [
+                                document.getElementById("startTime").style.borderColor = "red",
+                                document.getElementById("submit").disabled = true
+                            ]
+                        } else {
+                        return document.getElementById("submit").disabled = false
+                        }
+                } else {
+                    return document.getElementById("submit").disabled = false
+                }
+
+            }
+        
+        </script>
+        
+                
+
+        <script type="text/javascript" src="/javascripts/agenda.js"></script>
+    
+    </main>
+
+<%- include('partials/agendamento-footer.ejs') %>
