@@ -9,7 +9,7 @@
                 <p class="account-title">Crie sua agenda</p>
                 
                 <div class="container-form">
-                    <form method="post" action="/conta/criar-agenda">
+                    <form method="post" action="/conta/<%=user.id%>/criar-agenda">
                         <div class="conteiners-form">
                             <label class="form-label" for="title">Nome da agenda</label>
                             <input type="text" name="title" id="title" required>

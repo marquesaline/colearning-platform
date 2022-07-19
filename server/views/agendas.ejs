@@ -29,7 +29,7 @@
                 <div>
                     <% if(locals.agendas) { %>
                         <% for(let agenda of agendas) { %>
-                            <% if(agenda.groupId == idUser) { %>
+                            <% if(agenda.extendedProps.userId == user.id) { %>
                                 <div>
                                     <h2><%= agenda.title %></h2>
                                     <div>

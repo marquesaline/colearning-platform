@@ -12,7 +12,7 @@
                 <ul> 
                     <ul>
                         <% for(let agenda of agendas) { %>
-                            <% if(agenda.groupId == user.id) { %>
+                            <% if(agenda.extendedProps.userId  == user.id) { %>
                                 <li>
                                     <%= agenda.title %>
                                     <a href="/conta/<%=user.id%>/<%=agenda.id%>/editar-agenda">

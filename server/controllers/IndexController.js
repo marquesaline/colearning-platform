@@ -6,6 +6,7 @@ const controller = {
     login: (req, res) => res.render('login', { title: 'Login - CoLearning' }),
     plans: (req, res) => res.render('planos', { title: 'Planos - CoLearning' }),
     
+    
 }
 
 module.exports = controller

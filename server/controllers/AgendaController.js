@@ -1,17 +1,24 @@
 const controller = {}
-
+const helper = require('../utils/helper')
 const fs = require("fs");
 const path = require("path");
-const get = require("../utils/get")
+const get = require("../utils/get");
+const { stringify } = require('querystring');
+var moment = require('moment');
+moment.locale('pt-br')
 
 //Constates de uso do JSON e de criação dos dados para a agenda
 const getAgendas = get.agenda
 const getUsers = get.users
+const getEvents = get.events
 const getUserId = (id) => getUsers.find((user) => user.id == id);
 const getUserSlug = async (slug) => await getUsers.find((user) => user.slug == slug);
 const getAgendaId = async(id) => await getAgendas.find((agenda) => agenda.id == id)
-const getNextId = get.nextById(getAgendas)
+const getEventsId = async(id) => await getEvents.find((event) => event.id == id)
+
+
 const setAgendas = (agendas) => helper.write("agenda.json", agendas);
+const setEvents = (events) => helper.write("events.json", events)
 
 const getBusinessHours = async (daysOfWeek, startTime, endTime) => {
     let businessHours = []
@@ -27,7 +34,31 @@ const getBusinessHours = async (daysOfWeek, startTime, endTime) => {
     }
     return businessHours
 }
+const getExtendedAgendas = async(userId) => {
+    let extendedProps = {
+        userId: userId
+    }
+    return extendedProps
+}
+const getExtendedEvents = async(userId, agendaId, email, telefone) => {
+    let extendedProps = {
+        userId: userId,
+        agendaId: agendaId,
+        emailAluno: email, 
+        telefoneAluno: telefone
+        
 
+    }
+    return extendedProps
+    
+}
+const getEnd = async(start, startTime, duration) => {
+    dateTime = moment(`${start}T${startTime}`)
+    time = moment(duration, 'hours').format('HH:mm')
+    endTime = moment(dateTime).add(time).format("HH:mm")
+    
+    return endTime
+}
 //Controllers Agenda 
 controller.addAgenda = async (req, res) => res.render('criar-agenda', {
     title: 'Criar Agenda',
@@ -60,11 +91,11 @@ controller.removeAgenda = async (req, res) => {
 }
 
 
-
-//Controllers de manipulação do JSON
+//Controllers de manipulação do JSON de Agendas
 controller.createAgenda = async (req, res) => {
     const agendas = await getAgendas
-    const id = await getNextId
+    const id = await get.nextById(agendas)
+    const userId = req.params.userId
     const {
         title,
         duration,
@@ -75,15 +106,16 @@ controller.createAgenda = async (req, res) => {
         endTime
     } = req.body;
     const businessHours = await getBusinessHours(daysOfWeek, startTime, endTime)
-    const events = []
+    const extendedProps = await getExtendedAgendas(userId)
     const newAgenda = {
         id,
+        extendedProps,
         title,
         duration,
         start,
         end,
         businessHours, 
-        events
+        
     };
     agendas.push(newAgenda)
     setAgendas(agendas)
@@ -91,6 +123,7 @@ controller.createAgenda = async (req, res) => {
 }
 controller.updateAgenda = async (req, res) => {
     let agendas = await getAgendas
+    const userId = req.params.userId
     agendas = agendas.map((agenda) => {
         if (agenda.id == req.params.id) {
             const {
@@ -129,55 +162,63 @@ controller.deleteAgenda = async (req, res) => {
 //Controllers de agendamentos
 controller.agendas = async (req, res) => {
     const user = await getUserSlug(req.params.slug)
-    const idUser = user.id
+    const userId = user.id
     const agendas = await getAgendas
     res.render("agendas",  {
         title: `Agendas - ${user.nome}`,
         user,
         agendas,
-        idUser
+        userId
     })
 }
 controller.showAgenda = async (req, res) => {
     const user = await getUserSlug(req.params.slug)
-    const idUser = user.id
+    const userId = user.id
     const agenda = await getAgendaId(req.params.id)
     const businessHours = JSON.stringify(agenda.businessHours)
+    const now = moment().format("DD/MM/YYYY")
     
     res.render("agenda", {
         title: `${agenda.title} - ${user.nome}`,
         agenda,
         user,
-        idUser,
-        businessHours
+        userId,
+        businessHours,
+        now
         
     })
-},
+}
+//Controllers de manipulação do JSON de Eventos
 controller.createEvent = async (req, res) => {
-    let agendas = await getAgendas
-    let events = []
-    agendas = agendas.map((agenda) => {
-        if(agenda.id == req.params.id) {
-            const {
-                start,
-                startTime,
-                title
-            } = req.body
-            const newEvent = {
-                start, 
-                startTime,
-                title
-            }
-            events.push(newEvent)
-            return{
-                events
-            }        
-        } else {
-            return agenda
-        }
+    const events = await getEvents
+    const id = await get.nextById(events)
+    const user = await getUserSlug(req.params.slug)
+    const agenda = await getAgendaId(req.params.id)
     
-    })
-    setAgendas(agendas)
+    const {
+        title,
+        start, 
+        startTime,
+        email,
+        telefone
+
+    } = req.body
+    const extendedProps = await getExtendedEvents(user.id, agenda.id, email, telefone)
+    const endTime = await getEnd(start, startTime, agenda.duration)
+    const newEvent = {
+        id,
+        extendedProps,
+        title, 
+        start,
+        end: start,
+        allDay: false, 
+        startTime,
+        endTime
+
+
+    }
+    events.push(newEvent)
+    setEvents(events)
     res.redirect('/sucesso')
         
 }
