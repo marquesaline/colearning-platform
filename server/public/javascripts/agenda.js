@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }, //{ center: 'dayGridMonth,timeGridWeek' }
         buttonText: {
             today: 'Hoje',
-            
             prev: '<',
             next: '>'
         },
