@@ -14,7 +14,7 @@ const getEvents = get.events
 const getUserId = (id) => getUsers.find((user) => user.id == id);
 const getUserSlug = async (slug) => await getUsers.find((user) => user.slug == slug);
 const getAgendaId = async(id) => await getAgendas.find((agenda) => agenda.id == id)
-const getEventsId = async(id) => await getEvents.find((event) => event.id == id)
+const getEventsByAgendaId = async(id) => await getEvents.filter((event) => event.extendedProps.agendaId == id)
 
 
 const setAgendas = (agendas) => helper.write("agenda.json", agendas);
@@ -176,15 +176,15 @@ controller.showAgenda = async (req, res) => {
     const userId = user.id
     const agenda = await getAgendaId(req.params.id)
     const businessHours = JSON.stringify(agenda.businessHours)
-    const now = moment().format("DD/MM/YYYY")
-    
+    let events = await getEventsByAgendaId(req.params.id)
+    events = JSON.stringify(events)
     res.render("agenda", {
         title: `${agenda.title} - ${user.nome}`,
         agenda,
         user,
         userId,
         businessHours,
-        now
+        events
         
     })
 }

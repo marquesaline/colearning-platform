@@ -3,276 +3,114 @@
     "id": 1,
     "extendedProps": {
       "userId": 1,
-      "agendaId": 1
+      "agendaId": 2,
+      "emailAluno": "email@teste.com"
     },
+    "title": "Teste duracao",
     "allDay": false,
-    "title": "Exemplo de Aula",
-    "start": "2022-06-23T10:00:00",
-    "end": "2022-06-23T11:00:00"
+    "start": "2022-07-19",
+    "end": "2022-07-19",
+    "startTime": "11:00",
+    "endTime": "12:00"
+    
   },
   {
     "id": 2,
     "extendedProps": {
-      "userId": 2,
-      "agendaId": 1
+      "userId": 1,
+      "agendaId": 2,
+      "emailAluno": "email@teste.com"
     },
-    "allDay": false,
-    "title": "Exemplo de Aula2",
-    "start": "2022-06-24T10:00:00",
-    "end": "2022-06-24T11:30:00"
+    "title": "Teste moment23",
+    "start": "2022-07-22",
+    "end": "2022-07-22",
+    "startTime": "09:35",
+    "endTime": "10:35",
+    "allDay": false
   },
   {
     "id": 3,
     "extendedProps": {
-      "userId": 2,
-      "agendaId": 1
+      "userId": 1,
+      "agendaId": 2,
+      "emailAluno": "email@teste.com"
     },
+    "title": "Teste moment2",
+    "start": "01:00",
+    "end": "2022-07-23",
     "allDay": false,
-    "title": "Exemplo de Aula3",
-    "start": "2022-06-27T15:00:00",
-    "end": "2022-06-27T16:30:00"
+    "startTime": "16:00",
+    "endTime": "17:00"
   },
   {
     "id": 4,
     "extendedProps": {
       "userId": 1,
-      "agendaId": 2
+      "agendaId": 2,
+      "emailAluno": "email@teste.com"
     },
+    "title": "Teste moment2",
+    "start": "2022-07-23",
+    "end": "2022-07-23",
     "allDay": false,
-    "title": "Exemplo de Aula4",
-    "start": "2022-06-29T10:00:00",
-    "end": "2022-06-29T11:30:00"
+    "startTime": "15:00",
+    "endTime": "16:00"
   },
   {
     "id": 5,
     "extendedProps": {
       "userId": 1,
-      "agendaId": 1
+      "agendaId": 2,
+      "emailAluno": "email@teste.com"
     },
+    "title": "Teste moment2",
+    "start": "2022-07-24",
+    "end": "2022-07-24",
     "allDay": false,
-    "title": "Exemplo de Aula4",
-    "start": "2022-07-01T10:00:00",
-    "end": "2022-07-01T11:30:00"
+    "startTime": "15:00",
+    "endTime": "16:00"
   },
   {
     "id": 6,
     "extendedProps": {
-      "userId": 2,
-      "agendaId": 1
+      "userId": 1,
+      "agendaId": 1,
+      "emailAluno": "email@teste.com"
     },
+    "title": "Teste moment2",
+    "start": "2022-07-25",
+    "end": "2022-07-25",
     "allDay": false,
-    "title": "Exemplo de Aula4",
-    "start": "2022-07-02T10:00:00",
-    "end": "2022-07-02T11:30:00"
+    "startTime": "15:00",
+    "endTime": "16:00"
   },
   {
     "id": 7,
     "extendedProps": {
       "userId": 1,
-      "agendaId": 1
+      "agendaId": 2,
+      "emailAluno": "email@teste.com"
     },
+    "title": "Teste moment2",
+    "start": "2022-07-26",
+    "end": "2022-07-26",
     "allDay": false,
-    "title": "Exemplo de Aula4",
-    "start": "2022-08-02T13:00:00",
-    "end": "2022-08-02T13:30:00"
+    "startTime": "15:00",
+    "endTime": "16:00"
   },
   {
     "id": 8,
     "extendedProps": {
       "userId": 1,
-      "agendaId": 2,
-      "emailAluno": "email@teste.com"
+      "agendaId": 1,
+      "emailAluno": "email@teste.com",
+      "telefoneAluno": ""
     },
-    "title": "Teste duracao",
-    "start": "2022-07-19T11:00:00.000Z"
-  },
-  {
-    "id": 9,
-    "extendedProps": {
-      "userId": 1,
-      "agendaId": 2,
-      "emailAluno": "email@teste.com"
-    },
-    "title": "Teste moment23",
-    "start": "2022-07-22T09:35:00.000Z",
-    "end": "2022-07-22",
-    "allDay": false
-  },
-  {
-    "id": 10,
-    "extendedProps": {
-      "userId": 1,
-      "agendaId": 2,
-      "emailAluno": "email@teste.com"
-    },
-    "title": "Teste moment23",
-    "start": "2022-07-22T09:35:00.000Z",
-    "end": "2022-07-22",
-    "allDay": false
-  },
-  {
-    "id": 11,
-    "extendedProps": {
-      "userId": 1,
-      "agendaId": 2,
-      "emailAluno": "email@teste.com"
-    },
-    "title": "Teste moment23",
-    "start": "2022-07-22T09:35:00.000Z",
-    "end": "2022-07-22",
-    "allDay": false
-  },
-  {
-    "id": 12,
-    "extendedProps": {
-      "userId": 1,
-      "agendaId": 2,
-      "emailAluno": "email@teste.com"
-    },
-    "title": "Teste duracao",
-    "start": "2022-07-21T08:00:00.000Z",
-    "end": "2022-07-21",
-    "allDay": false
-  },
-  {
-    "id": 13,
-    "extendedProps": {
-      "userId": 1,
-      "agendaId": 2,
-      "emailAluno": "email@teste.com"
-    },
-    "title": "Teste duracao",
-    "start": "2022-07-21T09:00:00.000Z",
-    "end": "2022-07-21",
-    "allDay": false
-  },
-  {
-    "id": 14,
-    "extendedProps": {
-      "userId": 1,
-      "agendaId": 2,
-      "emailAluno": "email@teste.com"
-    },
-    "title": "Teste duracao",
-    "start": "2022-07-21T09:00:00.000Z",
-    "end": "2022-07-21",
-    "allDay": false
-  },
-  {
-    "id": 15,
-    "extendedProps": {
-      "userId": 1,
-      "agendaId": 2,
-      "emailAluno": "email@teste.com"
-    },
-    "title": "Teste duracao",
-    "start": "2022-07-21T12:00:00.000Z",
-    "end": "2022-07-21",
-    "allDay": false
-  },
-  {
-    "id": 16,
-    "extendedProps": {
-      "userId": 1,
-      "agendaId": 2,
-      "emailAluno": "email@teste.com"
-    },
-    "title": "Teste moment",
-    "start": "2022-07-23T12:00:00.000Z",
-    "end": "2022-07-23",
-    "allDay": false
-  },
-  {
-    "id": 17,
-    "extendedProps": {
-      "userId": 1,
-      "agendaId": 2,
-      "emailAluno": "email@teste.com"
-    },
-    "title": "Teste moment2",
-    "start": "2022-07-23T19:00:00.000Z",
-    "end": "2022-07-23",
-    "allDay": false
-  },
-  {
-    "id": 18,
-    "extendedProps": {
-      "userId": 1,
-      "agendaId": 2,
-      "emailAluno": "email@teste.com"
-    },
-    "title": "Teste moment2",
-    "start": "01:00",
-    "end": "2022-07-23",
+    "title": "Teste agendamento",
+    "start": "2022-07-20",
+    "end": "2022-07-20",
     "allDay": false,
-    "endTime": "2022-07-23T19:00:00.000Z"
-  },
-  {
-    "id": 19,
-    "extendedProps": {
-      "userId": 1,
-      "agendaId": 2,
-      "emailAluno": "email@teste.com"
-    },
-    "title": "Teste moment2",
-    "start": "01:00",
-    "end": "2022-07-23",
-    "allDay": false,
-    "endTime": "16:00"
-  },
-  {
-    "id": 20,
-    "extendedProps": {
-      "userId": 1,
-      "agendaId": 2,
-      "emailAluno": "email@teste.com"
-    },
-    "title": "Teste moment2",
-    "start": "2022-07-23",
-    "end": "2022-07-23",
-    "allDay": false,
-    "endTime": "16:00"
-  },
-  {
-    "id": 21,
-    "extendedProps": {
-      "userId": 1,
-      "agendaId": 2,
-      "emailAluno": "email@teste.com"
-    },
-    "title": "Teste moment2",
-    "start": "2022-07-23",
-    "end": "2022-07-23",
-    "allDay": false,
-    "startTime": "15:00",
-    "endTime": "16:00"
-  },
-  {
-    "id": 22,
-    "extendedProps": {
-      "userId": 1,
-      "agendaId": 2,
-      "emailAluno": "email@teste.com"
-    },
-    "title": "Teste moment2",
-    "start": "2022-07-23",
-    "end": "2022-07-23",
-    "allDay": false,
-    "startTime": "15:00",
-    "endTime": "16:00"
-  },
-  {
-    "id": 23,
-    "extendedProps": {
-      "userId": 1,
-      "agendaId": 2,
-      "emailAluno": "email@teste.com"
-    },
-    "title": "Teste moment2",
-    "start": "2022-07-23",
-    "end": "2022-07-23",
-    "allDay": false,
-    "startTime": "15:00",
-    "endTime": "16:00"
+    "startTime": "20:00",
+    "endTime": "21:00"
   }
 ]

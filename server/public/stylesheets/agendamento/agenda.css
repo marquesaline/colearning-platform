@@ -39,7 +39,7 @@
     margin: 20px auto;
 }
 .modal-content h3 {
-    text-align: center;
+    
     margin: 10px auto;
 }
 .modal-content label {
@@ -48,7 +48,7 @@
     width: 100%;
     display: block;
     margin-bottom: 10px;
-    font-weight: 600;
+    font-weight: 400;
 }
 /* The Close Button */
 .close {
@@ -63,6 +63,17 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+.alerts {
+    display: none;
+}
+#submit:disabled {
+    background-color: #d6d6d6;
+    color: #3b424d;
+}
+#calendar {
+    margin: 50px auto;
 }
 #calendar .fc-dayGridMonth-button {
     display: none;
@@ -91,5 +102,18 @@
 }
 #calendar .fc-col-header-cell {
     background-color: var(--background-button);
+    color: #FFF;
+}
+.div-instruction {
+    display: flex;
+    justify-content: center;
+}
+.div-instruction p {
+    text-align: center;
+    font-size: 18px;
+    background-color: var(--background-button);
+    padding:  8px 0;
+    width: 20%;
+    border-radius: 8px;
     color: #FFF;
 }

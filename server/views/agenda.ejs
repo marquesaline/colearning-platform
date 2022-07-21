@@ -6,11 +6,15 @@
                 <input hidden id="agenda-start" value="<%= agenda.start%>">
                 <input hidden id="agenda-end" value="<%= agenda.end%>">
                 <input hidden id="businessHours" value="<%= businessHours %>">
-                
+                <input hidden id="events" value="<%= events %>">
             </div>
         </section>
         <section class="section-calendar">
+            
             <div id='calendar'></div>
+            <div class="div-instruction">
+                <p>Para agendar clique em uma data</p>
+            </div>
     
         <div id="myModal" class="modal" style="display: none;">
 
@@ -23,13 +27,16 @@
                         <h3>Dados do agendamento</h3>
                         <div>
                             <label for="date">Data do agendamento</label>
-                            <input type="date" name="start" id="start"  onchange="getDate()" required>
+                            <input type="date" name="start" id="start" disabled>
                         </div>
                         <div>
                             <label for="startTime">Horário do agendamento</label>
                             <input type="time" name="startTime" id="startTime" onchange="getTime()" 
                             min="00:00" max="24:00" 
                             title="Horário do agendemento. Deve ser posterior ao horário atual" required>
+                            <div class="alerts" id="alert">
+                                <p>Não é possível agendar nesse horário. Informe outro horário. </p>
+                            </div>
                         </div>
                     </div>
                     <div>
@@ -58,51 +65,10 @@
        
          
         <script>
-            window.addEventListener('DOMContentLoaded', (event) => {
-                var currentDate = new Date()
-                document.getElementById("start").valueAsDate = currentDate
-            });
 
-            //validar inputs
-            function getDate() {
-                var date = new Date(document.getElementById("start").value)
-                var currentDate = new Date()
-                if(date < currentDate) {
-                    return [
-                        document.getElementById("start").style.borderColor = "red",
-                        document.getElementById("submit").disabled = true
-                    ]
-                }else {
-                    document.getElementById("submit").disabled = false
-                }
-                
-            }
-            function getTime() {
-                var date = document.getElementById("start").value
-                var time = document.getElementById("startTime").value
-                var dateTime = moment(`${date}T${time}`)
-                dateTime = new Date(dateTime)
-                
-                var currentDate = new Date()
-                
-                if(dateTime.getFullYear() == currentDate.getFullYear() 
-                    && dateTime.getMonth() == currentDate.getMonth()
-                    && dateTime.getDay() == currentDate.getDay()) {
-                    
-                        if(dateTime.getHours() <= currentDate.getHours() ) {
-                            console.log("Hora inválida")
-                            return [
-                                document.getElementById("startTime").style.borderColor = "red",
-                                document.getElementById("submit").disabled = true
-                            ]
-                        } else {
-                        return document.getElementById("submit").disabled = false
-                        }
-                } else {
-                    return document.getElementById("submit").disabled = false
-                }
-
-            }
+           
+           
+         
         
         </script>
         
