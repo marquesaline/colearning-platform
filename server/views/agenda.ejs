@@ -33,7 +33,8 @@
                             <label for="startTime">Horário do agendamento</label>
                             <input type="time" name="startTime" id="startTime" onchange="getTime()" 
                             min="00:00" max="24:00" 
-                            title="Horário do agendemento. Deve ser posterior ao horário atual" required>
+                            title="Horário do agendemento. Deve ser posterior ao horário atual"
+                            placeholder="08:00" required>
                             <div class="alerts" id="alert">
                                 <p>Não é possível agendar nesse horário. Informe outro horário. </p>
                             </div>
@@ -43,17 +44,23 @@
                         <h3>Dados pessoais</h3>
                         <div>
                             <label for="title">Nome completo</label>
-                            <input type="text" name="title" id="title"  required>
+                            <input type="text" name="title" id="title" class="inputModel" placeholder="José da Silva"  required>
                         </div>
                         <div>
                             <label for="email">Email</label>
-                            <input type="email" name="email" id="email" required>
+                            <input type="email" name="email" id="email" class="inputModel" placeholder="email@email.com" required>
                         </div>
                         <div>
                             <label for="telefone">Telefone</label>
-                            <input type="tel" name="telefone" id="telefone">
+                            <input type="tel" name="telefone" class="inputModel" id="telefone" placeholder="(99) 99999-9999">
                         </div>
                         <div>
+                            <label for="description">Descrição</label>
+                            <textarea name="description" id="description"
+                            rows="3"  class="inputModel" placeholder="Descreva o assunto que está com dúvidas">
+                            </textarea>
+                        </div>
+                        <div class="div-submit">
                             <button type="submit" class="btn-default" id="submit">Agendar</button>
                         </div>
                     </div>
@@ -61,18 +68,13 @@
             </div>
         
         </div>     
-        </section>
-       
-         
+        </section>      
         <script>
-
-           
-           
-         
-        
-        </script>
-        
+            $(document).ready(function(){
+                $('#telefone').mask('(00) 00000-0000');
                 
+            });
+        </script>
 
         <script type="text/javascript" src="/javascripts/agenda.js"></script>
     

@@ -3,7 +3,7 @@ const helper = require('../utils/helper')
 const fs = require("fs");
 const path = require("path");
 const get = require("../utils/get");
-const { stringify } = require('querystring');
+
 var moment = require('moment');
 moment.locale('pt-br')
 
@@ -15,7 +15,6 @@ const getUserId = (id) => getUsers.find((user) => user.id == id);
 const getUserSlug = async (slug) => await getUsers.find((user) => user.slug == slug);
 const getAgendaId = async(id) => await getAgendas.find((agenda) => agenda.id == id)
 const getEventsByAgendaId = async(id) => await getEvents.filter((event) => event.extendedProps.agendaId == id)
-
 
 const setAgendas = (agendas) => helper.write("agenda.json", agendas);
 const setEvents = (events) => helper.write("events.json", events)
@@ -40,12 +39,13 @@ const getExtendedAgendas = async(userId) => {
     }
     return extendedProps
 }
-const getExtendedEvents = async(userId, agendaId, email, telefone) => {
+const getExtendedEvents = async(userId, agendaId, email, telefone, description) => {
     let extendedProps = {
         userId: userId,
         agendaId: agendaId,
         emailAluno: email, 
-        telefoneAluno: telefone
+        telefoneAluno: telefone,
+        description: description
         
 
     }
@@ -200,10 +200,11 @@ controller.createEvent = async (req, res) => {
         start, 
         startTime,
         email,
-        telefone
+        telefone,
+        description
 
     } = req.body
-    const extendedProps = await getExtendedEvents(user.id, agenda.id, email, telefone)
+    const extendedProps = await getExtendedEvents(user.id, agenda.id, email, telefone, description)
     const endTime = await getEnd(start, startTime, agenda.duration)
     const newEvent = {
         id,

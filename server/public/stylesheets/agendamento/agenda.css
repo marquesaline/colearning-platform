@@ -36,10 +36,9 @@
 }
 .modal-content h2 {
     text-align: center;
-    margin: 20px auto;
+    margin: 30px auto;
 }
 .modal-content h3 {
-    
     margin: 10px auto;
 }
 .modal-content label {
@@ -47,8 +46,15 @@
     padding-right: 10px;
     width: 100%;
     display: block;
-    margin-bottom: 10px;
+    margin: 10px 0;
     font-weight: 400;
+}
+.modal-content input,
+.modal-content textarea {
+    padding: 5px 10px;
+}
+.inputModel {
+    width: 100%;
 }
 /* The Close Button */
 .close {
@@ -67,10 +73,19 @@
 
 .alerts {
     display: none;
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px 0;
+    border: solid 1px red;
+    color: red;
 }
 #submit:disabled {
     background-color: #d6d6d6;
     color: #3b424d;
+}
+.div-submit {
+    text-align: center;
+    margin: 20px auto;
 }
 #calendar {
     margin: 50px auto;

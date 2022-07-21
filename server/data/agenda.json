@@ -28,8 +28,7 @@
       },
       {
         "daysOfWeek": [
-          6,
-          7
+          6
         ],
         "startTime": "10:00",
         "endTime": "16:00"
