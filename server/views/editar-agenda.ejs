@@ -9,7 +9,7 @@
         <div class="settings-initial">
             <p class="account-title">Editar <%=agenda.title %></p>
             <div class="container-form">
-                <form method="post" action="/conta/<%= agenda.id %>/editar?_method=put">
+                <form method="post" action="/conta/<%=user.id%>/<%= agenda.id %>/editar?_method=put">
                     <div class="conteiners-form">
                         <label class="form-label" for="title">Nome da agenda</label>
                         <input type="text" name="title" id="title" value="<%= agenda.title %>" required>

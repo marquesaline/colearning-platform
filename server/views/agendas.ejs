@@ -1,0 +1,31 @@
+<%- include('partials/agendamento-header.ejs') %>
+    <main>
+        <section>
+            <img src="/images/card-img4.jpg" height="500px" width="100%" >
+        </section>
+        <section class="agendas">
+            <div>
+                <h1 class="agendas-title">Agendas de <%= user.nome %></h1>
+                <div class="div-agendas">
+                    <% if(locals.agendas) { %>
+                        <% for(let agenda of agendas) { %>
+                            <% if(agenda.extendedProps.userId == user.id) { %>
+                                <div class="div-cards">
+                                    <div class="card-header">
+                                        <h2 class="card-title"><%= agenda.title %></h2>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="/agendamento/<%=user.slug%>/<%=agenda.id%>" class="btn-default">Agendar</a>
+                                    </div>
+                                </div>
+                            <% } %> 
+                        <% } %> 
+                    <% } else { %> 
+                        <p>Desculpe, não há agendas disponíveis</p>
+                    <% } %> 
+                </div>
+            </div>
+        </section>
+    </main>
+    
+<%- include('partials/agendamento-footer.ejs') %>

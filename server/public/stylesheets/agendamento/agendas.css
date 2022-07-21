@@ -1,0 +1,68 @@
+.agendas {
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+.agendas-title {
+    margin: 70px auto;
+    text-align: center;
+    font-size: 32px;
+}
+.div-agendas {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: 30px auto;
+
+}
+
+.div-cards {
+    box-shadow: 0 8px 16px rgba(46, 52, 88, 0.16);
+    width: 300px;
+    border-radius: 5%;  
+}
+.card-header {
+    padding: 17px 15px;
+    margin-bottom: 10px;
+    background-color: rgba(46, 52, 88, 0.16);
+
+}
+.card-footer {
+    padding: 30px 15px;
+    margin-top: 10px;
+    background-color: #FFF;
+}
+.card-title {
+    font-size: 24px;
+    font-weight: 400;
+    
+}
+
+/* Footer */
+.footer {
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+    background-color: #f8f9fa !important;
+}
+.div-footer {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-around;
+}
+.div-footer h3 {
+    font-size: 1.75rem;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+.div-footer p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.div-footer a {
+    text-decoration: none;
+    color: black;
+}

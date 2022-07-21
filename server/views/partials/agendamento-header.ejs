@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
+    
+    <link rel='stylesheet' href='/stylesheets/account/default-style.css'/>
+    <link rel='stylesheet' href='/stylesheets/account/header.css'/>
+    <link rel='stylesheet' href='/stylesheets/agendamento/agendas.css'/>
+    <link rel='stylesheet' href='/stylesheets/agendamento/agenda.css'/>
+    <!-- css original do FullCalendar - não mexer -->
+    <link href='/stylesheets/main.css' rel="stylesheet"> 
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.js" integrity="sha256-wz8JpOEjDzB1vo0qlAgRCNUvYtPDC5ojiUH+gHkCZ8Y=" crossorigin="anonymous"></script>    <script type="text/javascript" src="/javascripts/script.js"></script>
+    
+    <title>Agendamento - <%=user.nome%></title>
+</head>
+<body>
+    <header class="header">
+        <div class="div-logo">
+            <p>
+              <a class="logo" href="/">CoLearning</a>  
+            </p>
+        </div>
+        <div class="agendamento">
+            <p>Agendamento - <%= user.nome %></p>
+        </div>
+    </header>

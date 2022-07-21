@@ -170,6 +170,18 @@ document.addEventListener('DOMContentLoaded', function () {
               title: "Exemplo de Aula4",
               start: "2022-07-15T10:00:00",
               end: "2022-07-15T11:30:00"
+          }, 
+          {
+            "id": 14,
+            "extendedProps": {
+              "userId": 1,
+              "agendaId": 2,
+              "emailAluno": "email@teste.com"
+            },
+            "title": "Teste duracao",
+            "start": "2022-07-20T09:00:00",
+            "end": "2022-07-20",
+            "allDay": false
           }
         ],
         eventClassNames: function(arg) {
@@ -194,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     events.map(function (event) {
       if(event.extendedProps.idAgenda == 1) {
-        console.log(event)
+        // console.log(event)
       }
     })
   }
