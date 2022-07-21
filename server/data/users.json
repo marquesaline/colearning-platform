@@ -4,21 +4,27 @@
     "nome": "Elton Marcelino",
     "email": "elton@mail.com",
     "senha": "123456",
-    "slug": "elton-marcelino"
+    "slug": "elton-marcelino",
+    "avatar": null,
+    "admin": true
   },
   {
     "id": 2,
     "nome": "pamela martins ede brito",
     "senha": "123435",
     "email": "pamela@gmail.com",
-    "slug": "pamela-martins-ede-brito"
+    "slug": "pamela-martins-ede-brito",
+    "avatar": null,
+    "admin": true
   },
   {
     "id": 4,
     "nome": "ert",
     "senha": "898799",
     "email": "eu@mail.com",
-    "slug": "ert"
+    "slug": "ert",
+    "avatar": null,
+    "admin": false
   },
   {
     "id": 6,
@@ -26,7 +32,8 @@
     "senha": "nhjhn",
     "email": "eu@mail.com",
     "slug": "joaquim",
-    "avatar": null
+    "avatar": null,
+    "admin": false
   },
   {
     "id": 7,
@@ -34,7 +41,8 @@
     "senha": "123456",
     "email": "usuario@email.com",
     "slug": "teste-usurio",
-    "avatar": null
+    "avatar": null,
+    "admin": false
   },
   {
     "id": 8,
@@ -42,6 +50,7 @@
     "senha": "123456",
     "email": "testeid@email.com",
     "slug": "teste-id",
-    "avatar": null
+    "avatar": null,
+    "admin": false
   }
 ]
