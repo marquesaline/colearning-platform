@@ -1,62 +1,81 @@
-<%- include('partials/account-header.ejs') %>
+<%- include('partials/header-admin.ejs') %>
 
-<main class="main-users-lista">
-  <%- include('partials/links-user.ejs') %>
 
-  <h1 class="lista-users"><%= title %></h1>
-
-  <section class="section-admin-list">
+  <div class="app-content">
+    <div class="app-content-header">
+      <h1 class="app-content-headerText">Usuários</h1>
+      
+      <button class="app-content-headerButton btn-default">Adicionar Usuário</button>
+    </div>
+    <div class="app-content-actions">
+      <input class="search-bar" placeholder="Search..." type="text">
+      
+    </div>
     <% if (locals.users) {%>
-      <div class="container-list">
-        <table class="table-list">
-          <thead>
+      <table>
+        <thead class="list-header">
+          <tr>
+            <th class="product-cell image">Avatar</th>
+            <th class="product-cell category">Id</th>
+            <th class="product-cell status-cell">Nome</th>
+            <th class="product-cell sales">Email</th>
+            <th class="product-cell sales">Slug</th>
+            <th class="product-cell stock">Admin</th>
+            <th class="product-cell price">Opções</th>
+          </tr>
+        </thead>
+        <tbody class="list-row">
+          <% for(let user of users) { %>
             <tr>
-              <th>Avatar</th>
-              <th>Id</th>
-              <th>Nome</th>
-              <th>Slug</th>
-              <th>Email</th>
-              <th>Opções</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% for (let user of users) { %>
-              <tr>
-                <td class="td-avatar">
-                  <img
-                  src="/images/<%= user.avatar ? `avatar/${user.avatar}` : 'avatar-exemple.png' %>"
-                  alt="Avatar  <%= user.nome %>"
-                  width="60"
-                  height="40"
-                  style="border-radius: 50%; display: block"
-                  />
-                </td>
-                <td class="td-id">
-                  <%= user.id %>
-                </td>
-                <td class="td-name">
-                  <%= user.nome %>
-                </td>
-                <td class="td-name">
-                  <%= user.slug %>
-                </td>
-                <td class="td-email">
-                  <%= user.email %>
-                </td>
-                <td class="td-options">
-                  <a class="um-user btn-default" href="/admin/usuarios/<%= user.id %>">Visualizar</a>
-                </td>
-              </tr>
-            <% } %>
-          </tbody>
-        
-        
+              <td class="td-avatar">
+                <img
+                src="/images/<%= user.avatar ? `avatar/${user.avatar}` : 'avatar-exemple.png' %>"
+                alt="Avatar  <%= user.nome %>"
+                width="60"
+                height="40"
+                style="border-radius: 50%; display: block"
+                />
+              </td>
+              <td class="td-id">
+                <%= user.id %>
+              </td>
+              <td class="td-name">
+                <%= user.nome %>
+              </td>
+              <td class="td-name">
+                <%= user.email %>
+              </td>
+              <td class="td-email">
+                <%= user.slug %>
+              </td>
+              <td>
+                <% if(user.admin == true) { %>
+                  Sim
+                <% } else { %>
+                  Não
+                <% } %>
 
-        
+              </td>
+              <td class="td-options">
+                <a class="um-user" href="/admin/usuarios/<%= user.id %>">
+                  <img src="/images/icon-look.png" width="20px">
+                </a>
+                <a class="um-user" href="/admin/usuarios/<%= user.id %>/editar">
+                  <img src="/images/icon-edit-admin.jpg" width="25px">
+                </a>
+                <a class="um-user" href="/admin/usuarios/<%= user.id %>/excluir">
+                  <img src="/images/icon-delete-admin.png" width="20px">
+                </a>
+              </td>
+            </tr>
+          <% } %>
         </table>
-      </div>
+      </table>
     <% } %>
-  </section>
+  </div>
+  
+
 </main>
 </body>
+
 </html>

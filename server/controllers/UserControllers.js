@@ -21,14 +21,17 @@ const controller = {
     });
   },
 
-  index: (req, res) => {
-    res.render("admin-index", { title: "Dashboard Admin" });
+  index: async (req, res) => {
+    res.render("admin-index", { 
+      title: "Dashboard Admin"
+     // user: await getUserId()
+   });
   },
 
   lista: async (req, res) => {
     const users = await getUsers;
     res.render(`usuarios`, {
-      title: "Lista de Usuários",
+      title: "Usuários",
       users,
     });
   },

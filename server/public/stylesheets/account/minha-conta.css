@@ -18,12 +18,14 @@
     width: 100%;
     height: 100%;
 }
-.inputs-menu {
-    display: none;
-}
+
 .inputs-menu:checked ~ label {
     background-color: var(--background-nav-active);
     border-right: 5px solid var(--background-button);
+}
+.inputs-menu {
+    position: absolute;
+
 }
 .label-menu {
     display: flex;
