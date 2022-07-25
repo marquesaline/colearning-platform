@@ -60,9 +60,12 @@
               <li>
                 <a href="/conta/<%=user.id%>/minha-conta">Minha conta</a>
               </li>
-              <li>
-                <a href="/conta/assinatura">Admin</a>
-              </li>
+              <% if(user.admin == true) { %>
+                <li>
+                    <a href="/admin">Admin</a>
+                </li>
+              <% } %>
+             
               <li>
                 <a href="/login">Sair</a>
               </li>
