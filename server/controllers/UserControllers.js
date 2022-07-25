@@ -31,7 +31,7 @@ const controller = {
 
   lista: async (req, res) => {
     const users = await getUsers;
-    res.render(`usuarios`, {
+    res.render(`admin/usuarios`, {
       title: "Usuários",
       users,
     });
@@ -39,7 +39,7 @@ const controller = {
 
   add: async (req, res) => {
     const user = await getUserId(req.params.id);
-    res.render(`usuario-adicionar`, {
+    res.render(`admin/usuario-adicionar`, {
       title: req.path == "/cadastro" ? `Cadastro` : `Adicionar Usuário`,
     });
   },
@@ -66,7 +66,7 @@ const controller = {
 
   edit: async (req, res) => {
     const user = await getUserId(req.params.id);
-    res.render(`usuario-editar`, {
+    res.render(`admin/usuario-editar`, {
       title: `Editar Usuário ${req.params.nome}`,
       user,
     });
@@ -96,7 +96,7 @@ const controller = {
   },
 
   exclude: async (req, res) => {
-    res.render("usuario-excluir", {
+    res.render("admin/usuario-excluir", {
       title: `Excluir Usuário ${req.params.id}`,
       user: getUserId(req.params.id),
     });
@@ -111,7 +111,7 @@ const controller = {
   },
   //arrumar
   show: async (req, res) => {
-    res.render("usuario", {
+    res.render("admin/usuario", {
       title: `Usuário`,
       user: getUserId(req.params.id),
     });

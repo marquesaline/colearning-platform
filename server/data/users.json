@@ -2,11 +2,11 @@
   {
     "id": 1,
     "nome": "Elton Marcelino",
+    "slug": "elton-marcelino",
     "email": "elton@mail.com",
     "senha": "123456",
-    "slug": "elton-marcelino",
     "avatar": null,
-    "admin": true
+    "admin": false
   },
   {
     "id": 2,
