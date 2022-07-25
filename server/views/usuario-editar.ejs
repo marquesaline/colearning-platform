@@ -54,7 +54,7 @@
         />
       </div>
       <div class="info-edit">
-        <label for="senha">senha</label>
+        <label for="senha">Senha</label>
         <input
           class="input-account"
           type="password"
@@ -64,6 +64,27 @@
           placeholder="Digite a senha"
           required
         />
+      </div>
+      <div class="info-edit info-admin">
+        <label for="admin">Admin</label>
+        <% if (user.admin == true) { %>
+          <input
+            class="input-account"
+            type="checkbox"
+            id="admin"
+            value="<%= user.admin%>"
+            name="admin"
+            checked
+          />
+        <% } else { %>
+            <input
+            class="input-account"
+            type="checkbox"
+            id="admin"
+            value="<%= user.admin%>"
+            name="admin"   
+            />
+        <% } %>
       </div>
       <div class="btn-options">
         <input type="hidden" name="modifed_at" value="<%= new Date() %>" />

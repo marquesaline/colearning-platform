@@ -1,56 +1,43 @@
-<%- include('partials/header.ejs') %>
+<%- include('partials/header-admin.ejs') %>
 
-<main>
-  <%- include('partials/links-user.ejs') %>
+
+<section class="section-main section-admin">
   <h1 class="admin-title">Formulario de Cadastro</h1>
 
-  <section class="container-list">
+  <div class="container-list">
     <form class="form-user" action="/admin/usuarios/add" method="POST">
-     
+
       <div class="info-edit">
         <label for="user-img">Avatar</label for="user-avatar">
         <input type="file" name="user-avatar" id="user-avatar">
       </div>
-      
+
       <div class="info-edit">
         <label for="nome">Nome</label>
-        <input
-          class="input-account"
-          type="text"
-          id="nome"
-          name="nome"
-          placeholder="Digite o nome do usuário"
-          required
-        />
+        <input class="input-account" type="text" id="nome" name="nome" placeholder="Digite o nome do usuário"
+          required />
       </div>
       <div class="info-edit">
         <label for="email">Email</label>
-        <input
-          class="input-account"
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Digite o email"
-          required
-        />
+        <input class="input-account" type="email" id="email" name="email" placeholder="Digite o email" required />
       </div>
       <div class="info-edit">
         <label for="senha">Senha</label>
-        <input
-          class="input-account"
-          type="password"
-          id="senha"
-          name="senha"
-          placeholder="Digite a senha"
-          required
-        />
+        <input class="input-account" type="password" id="senha" name="senha" placeholder="Digite a senha" required />
       </div>
+      <div class="info-edit info-admin">
+        <label for="admin">Admin</label>
+        <input class="input-account" type="checkbox" id="admin" name="admin" />
+      </div>
+
       <div class="btn-options">
         <button class="button-add btn-default">Adicionar Usuário</button>
       </div>
-      
+
     </form>
-  </section>
+  </div>
+</section>
 </main>
 </body>
+
 </html>

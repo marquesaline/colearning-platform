@@ -171,6 +171,7 @@ main {
     margin: 0;
 }
 
+
 .app-content-actions {
     display: flex;
     justify-content: space-between;
@@ -249,6 +250,8 @@ main {
     border-color: var(--action-color);
 }
 
+
+
 .products-area-wrapper {
     width: 100%;
     max-height: 100%;
@@ -256,7 +259,7 @@ main {
     padding: 0 4px;
 }
 
-.list-header {
+.tableView .list-header {
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -269,22 +272,33 @@ main {
     text-align: left;
 }
 
-.list-row {
+.tableView .list-row {
     display: flex;
     align-items: center;
     border-radius: 4px;
 }
 
-.list-row:hover {
+.tableView .list-row:hover {
     box-shadow: var(--filter-shadow);
     background-color: var(--app-content-secondary-color);
 }
+
 .section-admin {
     margin-top: 60px;
 }
 .btn-options {
     margin-top: 30px;
 }
+#admin {
+    width: 15px;
+    height: 100%;
+    
+}
+
+
+
+
+
 
 @media screen and (max-width: 1024px) {
     .list-row {
@@ -304,6 +318,7 @@ main {
         margin: 8px 0;
     }
 }
+
 
 @media screen and (max-width: 1024px) {
     .sidebar {

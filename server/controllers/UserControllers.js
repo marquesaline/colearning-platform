@@ -13,6 +13,7 @@ const createSlug = async(name) => {
   return slug
 }
 
+
 // controller
 const controller = {
   sucess: async (req, res) => {
@@ -46,8 +47,9 @@ const controller = {
   create: async (req, res) => {
     const users = await getUsers;
     const id = await getNextId;
-    const { nome, email, senha, avatar } = req.body;
+    const { nome, email, senha, avatar, admin } = req.body;
     const slug = await createSlug(nome)
+    
     const newUser = {
       id,
       nome,
@@ -55,6 +57,7 @@ const controller = {
       email,
       slug,
       avatar: avatar || null,
+      admin: !!admin
     };
     users.push(newUser);
     setUsers(users);
@@ -71,9 +74,9 @@ const controller = {
 
   update: async (req, res) => {
     let users = await getUsers;
-    users = users.map((user) =>  {
+    users = users.map((user) =>   {
       if (user.id == req.params.id) {
-        const { nome, slug, email, senha } = req.body;
+        const { nome, slug, email, senha, admin } = req.body;
         
         return {
           id: user.id,
@@ -81,6 +84,8 @@ const controller = {
           slug: slug,
           email: email,
           senha: senha,
+          avatar: null,
+          admin: !!admin
         };
       } else {
         return user;

@@ -52,5 +52,41 @@
     "slug": "teste-id",
     "avatar": null,
     "admin": false
+  },
+  {
+    "id": 9,
+    "nome": "Teste admin",
+    "slug": "teste-admin",
+    "email": "admin@email.com",
+    "senha": "123456",
+    "avatar": null,
+    "admin": false
+  },
+  {
+    "id": 10,
+    "nome": "Teste admin2",
+    "senha": "123456",
+    "email": "admin@email.com",
+    "slug": "teste-admin2",
+    "avatar": null,
+    "admin": true
+  },
+  {
+    "id": 11,
+    "nome": "Teste admin 3",
+    "senha": "123456",
+    "email": "admin@email.com",
+    "slug": "teste-admin-3",
+    "avatar": null,
+    "admin": true
+  },
+  {
+    "id": 12,
+    "nome": "Teste admin 4",
+    "senha": "123456",
+    "email": "admin@email.com",
+    "slug": "teste-admin-4",
+    "avatar": null,
+    "admin": false
   }
 ]

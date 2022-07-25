@@ -33,6 +33,16 @@
             <p class="info-legend">Email</p>
             <p><%= user.email%></p>
           </div>
+          <div class="info-data">
+            <p class="info-legend">Admin</p>
+            <p>
+              <% if(user.admin == true) { %>
+                Sim
+              <% } else { %>
+                Não
+              <% } %>
+            </p>
+          </div>
 
         </div>
       </div>
