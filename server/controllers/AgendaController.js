@@ -1,8 +1,8 @@
 const controller = {}
-const helper = require('../utils/helper')
+const helper = require('../service/helper')
 const fs = require("fs");
 const path = require("path");
-const get = require("../utils/get");
+const get = require("../service/get");
 
 var moment = require('moment');
 moment.locale('pt-br')
@@ -16,8 +16,7 @@ const getUserSlug = async (slug) => await getUsers.find((user) => user.slug == s
 const getAgendaId = async(id) => await getAgendas.find((agenda) => agenda.id == id)
 const getEventsByAgendaId = async(id) => await getEvents.filter((event) => event.extendedProps.agendaId == id)
 
-const setAgendas = (agendas) => helper.write("agenda.json", agendas);
-const setEvents = (events) => helper.write("events.json", events)
+
 
 const getBusinessHours = async (daysOfWeek, startTime, endTime) => {
     let businessHours = []
@@ -46,8 +45,6 @@ const getExtendedEvents = async(userId, agendaId, email, telefone, description) 
         emailAluno: email, 
         telefoneAluno: telefone,
         description: description
-        
-
     }
     return extendedProps
     
@@ -224,7 +221,7 @@ controller.createEvent = async (req, res) => {
         
 }
 
-// Admin
+
 
 
 module.exports = controller

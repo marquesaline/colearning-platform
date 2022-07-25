@@ -1,0 +1,63 @@
+<%- include('../partials/header-admin.ejs') %>
+
+
+<div class="app-content">
+    <div class="app-content-header">
+      <h1 class="app-content-headerText">Agendas</h1>
+      
+      <a href="/admin/agendas/add" class="a-user btn-default"> Adicionar Agenda</a>
+    </div>
+    <div class="app-content-actions">
+      <input class="search-bar" placeholder="Search..." type="text">
+      
+    </div>
+    <% if (locals.agendas) {%>
+      <table>
+        <thead class="list-header">
+          <tr>
+            <th>Id</th>
+            <th>Id Usuário</th>
+            <th>Nome</th>
+            <th>Data de início</th>
+            <th>Data fim</th>
+            <th>Duração das reuniões</th>
+            <th>Opções</th>
+          </tr>
+        </thead>
+        <tbody class="list-row">
+          <% for(let agenda of agendas) { %>
+            <tr>
+              <td class="td-id">
+                <%= agenda.id %>
+              </td>
+              <td class="td-id">
+                <%= agenda.extendedProps.userId %>
+              </td>
+              <td class="td-name">
+                <%= agenda.title %>
+              </td>
+              <td class="td-name">
+                <%= agenda.start %>
+              </td>
+              <td class="td-email">
+                <%= agenda.end %>
+              </td>
+              <td class="td-email">
+                <%= agenda.duration %>
+              </td>
+              
+              <td class="td-options">
+              
+              </td>
+            </tr>
+          <% } %>
+        </table>
+      </table>
+    <% } %>
+  </div>
+  
+
+</main>
+</body>
+
+</html>

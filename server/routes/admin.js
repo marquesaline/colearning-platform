@@ -1,27 +1,28 @@
 var express = require("express");
-const controller = require("../controllers/UserControllers");
+const controllerUsers = require("../controllers/UserControllers");
+const controllerAgendas = require("../controllers/AdminController")
 var router = express.Router();
 
-router.get("/", controller.index); /*elton   peguei o index do controller */
+router.get("/", controllerUsers.index); /*elton   peguei o index do controllerUsers */
 
 // admin dos usuários
-router.get("/usuarios", controller.lista);
-router.get("/sucesso", controller.sucess);
-router.get("/usuarios/add", controller.add);
-router.post("/usuarios/add", controller.create);
+router.get("/usuarios", controllerUsers.users);
+router.get("/sucesso", controllerUsers.sucess);
 
-router.get("/usuarios/:id/editar", controller.edit);
-router.put("/usuarios/:id/editar", controller.update);
+router.get("/usuarios/add", controllerUsers.add);
+router.post("/usuarios/add", controllerUsers.create);
 
-router.get("/usuarios/:id/excluir", controller.exclude);
-router.delete(
-  "/usuarios/:id/excluir",
-  controller.delete
-); /*elton   acessando o id da turma do controller*/
-router.get("/usuarios/:id", controller.show);
+router.get("/usuarios/:id/editar", controllerUsers.edit);
+router.put("/usuarios/:id/editar", controllerUsers.update);
+
+router.get("/usuarios/:id/excluir", controllerUsers.exclude);
+router.delete("/usuarios/:id/excluir", controllerUsers.delete); /*elton   acessando o id da turma do controllerUsers*/
+router.get("/usuarios/:id", controllerUsers.show);
 
 // admin das agendas
-
+router.get("/agendas", controllerAgendas.adminAgendas)
+router.get("/agendas/add", controllerAgendas.adminAddAgenda)
+router.post("/agendas/add", controllerAgendas.createAgenda);
 //admin dos eventos
 
 module.exports = router;

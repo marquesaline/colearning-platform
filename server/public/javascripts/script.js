@@ -21,10 +21,24 @@ function showElement(elementId, elementToShow) {
 // funcão p/ exibir dropdown do usuário no header
 function showDropdown( elementToShow) {
     let elementShow = document.getElementById(elementToShow)
+    
     if(elementShow.style.display == "none") {
         elementShow.style.display = "block"
     }
     else {
         elementShow.style.display = "none"
+    }
+}
+
+function showInput(elementSelect, elementToShow) {
+
+    let elementCliked = document.getElementById(elementSelect)
+    let elementShow = document.getElementById(elementToShow)
+
+    if(elementCliked.checked) {
+        elementShow.style.display = "block"
+    } else {
+        elementShow.style.display = "none"
+        
     }
 }

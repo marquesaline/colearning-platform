@@ -1,7 +1,7 @@
 const fs = require("fs")
 const path = require("path")
-const get = require("../utils/get")
-const helper = require("../utils/helper")
+const get = require("../service/get")
+const helper = require("../service/helper")
 
 const getUsers = get.users
 const setUsers = (users) => helper.write("users.json", users);
@@ -23,14 +23,14 @@ const controller = {
   },
 
   index: async (req, res) => {
-    res.render("admin-index", { 
+    res.render("admin/admin-index", { 
       title: "Dashboard Admin"
      // user: await getUserId()
    });
   },
 
-  lista: async (req, res) => {
-    const users = await getUsers;
+  users: async (req, res) => {
+    const users = await get.users;
     res.render(`admin/usuarios`, {
       title: "Usuários",
       users,

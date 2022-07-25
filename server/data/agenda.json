@@ -98,5 +98,27 @@
         "endTime": ""
       }
     ]
+  },
+  {
+    "id": 5,
+    "extendedProps": {
+      "userId": 2
+    },
+    "title": "Teste agenda admin",
+    "duration": "03:00",
+    "start": "2022-07-01",
+    "end": "2022-12-30",
+    "businessHours": [
+      {
+        "daysOfWeek": "1",
+        "startTime": "",
+        "endTime": ""
+      },
+      {
+        "daysOfWeek": "2",
+        "startTime": "08:00",
+        "endTime": "17:00"
+      }
+    ]
   }
 ]

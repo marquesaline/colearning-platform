@@ -2,7 +2,7 @@ const controller = {}
 const { group } = require("console");
 const fs = require("fs");
 const path = require("path");
-const get = require("../utils/get")
+const get = require("../service/get")
 
 //Constates de uso do JSON e de criação dos dados para a agenda
 const getAgendas = get.agenda
