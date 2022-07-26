@@ -95,6 +95,7 @@ controller.createAgenda = async (req, res) => {
     const userId = req.params.userId
     const {
         title,
+        url,
         duration,
         start,
         end,
@@ -108,6 +109,7 @@ controller.createAgenda = async (req, res) => {
         id,
         extendedProps,
         title,
+        url,
         duration,
         start,
         end,
@@ -125,6 +127,7 @@ controller.updateAgenda = async (req, res) => {
         if (agenda.id == req.params.id) {
             const {
                 title,
+                url,
                 duration,
                 start,
                 end,
@@ -136,6 +139,7 @@ controller.updateAgenda = async (req, res) => {
             return {
                 id: agenda.id,
                 title,
+                url,
                 duration,
                 start,
                 end,

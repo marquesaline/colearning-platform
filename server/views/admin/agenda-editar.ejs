@@ -19,7 +19,10 @@
         <label class="form-label" for="title">Nome da agenda</label>
         <input type="text" name="title" id="title" value="<%= agenda.title %>" required>
     </div>
-    
+    <div class="conteiners-form">
+        <label class="form-label" for="url">URL para reuniões</label>
+        <input type="url" name="url" id="url" >
+    </div>
     <div class="conteiners-form">
         <label class="form-label" for="duration">Duração das reuniões</label>
         <input type="time" name="duration" id="duration" value="<%= agenda.duration %>" required>

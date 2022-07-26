@@ -47,7 +47,7 @@
     display: block;
     text-align: left;
 }
-#title {
+#title, #url {
     width: 100%;
 }
 #duration, .input-time {

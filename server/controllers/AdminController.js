@@ -28,6 +28,7 @@ controller.createAgenda = async (req, res) => {
     const {
         userId,
         title,
+        url,
         duration,
         start,
         end,
@@ -50,6 +51,7 @@ controller.createAgenda = async (req, res) => {
             id,
             extendedProps,
             title,
+            url,
             duration,
             start,
             end,
@@ -93,6 +95,7 @@ controller.updateAgenda = async (req, res) =>{
             const {
                 userId,
                 title,
+                url,
                 duration, 
                 start,
                 end, 
@@ -101,10 +104,12 @@ controller.updateAgenda = async (req, res) =>{
                 endTime
             } =req.body
             const businessHours = get.BusinessHours(daysOfWeek, startTime, endTime)
+            const extendedProps = get.ExtendedAgendas(userId)
             return {
                 id: agenda.id,
-                userId,
+                extendedProps,
                 title,
+                url,
                 duration, 
                 start,
                 end, 
