@@ -165,7 +165,7 @@ controller.agendas = async (req, res) => {
     const user = await getUserSlug(req.params.slug)
     const userId = user.id
     const agendas = await getAgendas
-    res.render("agendas",  {
+    res.render("agendamento/agendas",  {
         title: `Agendas - ${user.nome}`,
         user,
         agendas,
@@ -179,7 +179,7 @@ controller.showAgenda = async (req, res) => {
     const businessHours = JSON.stringify(agenda.businessHours)
     let events = await getEventsByAgendaId(req.params.id)
     events = JSON.stringify(events)
-    res.render("agenda", {
+    res.render("agendamento/agenda", {
         title: `${agenda.title} - ${user.nome}`,
         agenda,
         user,
