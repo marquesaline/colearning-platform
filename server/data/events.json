@@ -4,7 +4,10 @@
     "extendedProps": {
       "userId": 1,
       "agendaId": 2,
-      "emailAluno": "email@teste.com"
+      "emailAluno": "email@teste.com",
+      "description": "Aula sobre JS",
+      "createdAt": "18-07-2022",
+      "modifiedAt": "18-07-2022"
     },
     "title": "Teste duracao",
     "allDay": false,
@@ -19,7 +22,10 @@
     "extendedProps": {
       "userId": 1,
       "agendaId": 2,
-      "emailAluno": "email@teste.com"
+      "description": "Aula sobre CSS",
+      "emailAluno": "email@teste.com",
+      "createdAt": "20-07-2022",
+      "modifiedAt": "20-07-2022"
     },
     "title": "Teste moment23",
     "start": "2022-07-22",
@@ -33,10 +39,12 @@
     "extendedProps": {
       "userId": 1,
       "agendaId": 2,
-      "emailAluno": "email@teste.com"
+      "emailAluno": "email@teste.com",
+      "createdAt": "22-07-2022",
+      "modifiedAt": "22-07-2022"
     },
     "title": "Teste moment2",
-    "start": "01:00",
+    "start": "2022-07-23",
     "end": "2022-07-23",
     "allDay": false,
     "startTime": "16:00",
@@ -47,7 +55,9 @@
     "extendedProps": {
       "userId": 1,
       "agendaId": 2,
-      "emailAluno": "email@teste.com"
+      "emailAluno": "email@teste.com",
+      "createdAt": "22-07-2022",
+      "modifiedAt": "22-07-2022"
     },
     "title": "Teste moment2",
     "start": "2022-07-23",
@@ -61,7 +71,9 @@
     "extendedProps": {
       "userId": 1,
       "agendaId": 2,
-      "emailAluno": "email@teste.com"
+      "emailAluno": "email@teste.com",
+      "createdAt": "22-07-2022",
+      "modifiedAt": "22-07-2022"
     },
     "title": "Teste moment2",
     "start": "2022-07-24",
@@ -75,7 +87,10 @@
     "extendedProps": {
       "userId": 1,
       "agendaId": 1,
-      "emailAluno": "email@teste.com"
+      "emailAluno": "email@teste.com",
+      "telefoneAluno": "",
+      "createdAt": "22-07-2022",
+      "modifiedAt": "22-07-2022"
     },
     "title": "Teste moment2",
     "start": "2022-07-25",
@@ -89,7 +104,10 @@
     "extendedProps": {
       "userId": 1,
       "agendaId": 2,
-      "emailAluno": "email@teste.com"
+      "emailAluno": "email@teste.com",
+      "telefoneAluno": "",
+      "createdAt": "22-07-2022",
+      "modifiedAt": "22-07-2022"
     },
     "title": "Teste moment2",
     "start": "2022-07-26",
@@ -104,7 +122,9 @@
       "userId": 1,
       "agendaId": 1,
       "emailAluno": "email@teste.com",
-      "telefoneAluno": ""
+      "telefoneAluno": "",
+      "createdAt": "22-07-2022",
+      "modifiedAt": "22-07-2022"
     },
     "title": "Teste agendamento",
     "start": "2022-07-20",

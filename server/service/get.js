@@ -17,6 +17,8 @@ get.nextById = async (database) => {
 get.byId = async(database, id) => 
     await database.find((info) => info.id == id)
 
+
+//funções específicas das agendas e agendamentos
 get.extendedCreatAgendas = async(userId, created_at, modified_at) => {
     let created = moment(created_at).format("DD-MM-YYYY")
     let modified = moment(modified_at).format("DD-MM-YYYY")
@@ -27,7 +29,17 @@ get.extendedCreatAgendas = async(userId, created_at, modified_at) => {
     }
     return extendedProps
 }
-
+get.extendedEvents = async(userId, agendaId, email, telefone, description) => {
+    let extendedProps = {
+        userId: userId,
+        agendaId: agendaId,
+        emailAluno: email, 
+        telefoneAluno: telefone,
+        description: description
+    }
+    return extendedProps
+    
+}
 get.BusinessHours = async (daysOfWeek, startTime, endTime) => {
     let businessHours = []
     for (i = 0; i <= 6; i++) {

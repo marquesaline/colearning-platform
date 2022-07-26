@@ -1,0 +1,87 @@
+<%- include('../partials/header-admin.ejs') %>
+
+
+<div class="app-content">
+    <div class="app-content-header">
+      <h1 class="app-content-headerText">Agendamentos</h1>
+      
+      <a href="/admin/agendamentos/add" class="a-user btn-default"> Adicionar Agenda</a>
+    </div>
+    <div class="app-content-actions">
+      <input class="search-bar" placeholder="Search..." type="text">
+      
+    </div>
+    <% if (locals.events) {%>
+      <table>
+        <thead class="list-header">
+          <tr>
+            <th>Id</th>
+            <th>Id Usuário</th>
+            <th>Id da agenda</th>
+            <th>Nome do aluno</th>
+            <th>Email do aluno</th>
+            <th>Telefone do aluno</th>
+            <th>Data</th>
+            <th>Horário de início</th>
+            <th>Horário final</th>
+            <th>Descrição</th>
+            <th>Data da criação</th>
+            <th>Data de modificação</th>
+            <th>Opções</th>
+          </tr>
+        </thead>
+        <tbody class="list-row">
+          <% for(let event of events) { %>
+            <tr>
+              <td class="td-id">
+                <%= event.id %>
+              </td>
+              <td class="td-id">
+                <%= event.extendedProps.userId %>
+              </td>
+              <td class="td-id">
+                <%= event.extendedProps.agendaId%>
+              </td>
+              <td class="td-name">
+                <%= event.title %>
+              </td>
+              <td class="td-email">
+                <%= event.extendedProps.emailAluno %>
+              </td>
+              <td class="td-email">
+                <%= event.extendedProps.telefoneAluno %>
+              </td>
+              <td class="td-start">
+                <%= event.start %>
+              </td>
+              <td class="td-startTime">
+                <%= event.startTime %>
+              </td>
+              <td class="td-endTime">
+                <%= event.endTime %>
+              </td>
+              <td class="td-description">
+                <%= event.extendedProps.description %>
+              </td>
+              <td class="td-created">
+                <%= event.extendedProps.createdAt %>
+              </td>
+              <td class="td-modified">
+                <%= event.extendedProps.modifiedAt %>
+              </td>
+              
+              <td class="td-options">
+                
+              </td>
+            </tr>
+          <% } %>
+        </table>
+      </table>
+    <% } %>
+  </div>
+  
+
+</main>
+</body>
+
+</html>

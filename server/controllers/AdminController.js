@@ -5,6 +5,14 @@ const path = require("path");
 const get = require("../service/get");
 const set = require("../service/set")
 
+controller.index = async (req, res) => {
+    res.render("admin/admin-index", { 
+      title: "Dashboard Admin"
+     // user: await getUserId()
+   });
+},
+
+//Admin agendas
 
 controller.adminAgendas = async (req, res) => {
     const agendas = await get.agenda
@@ -140,6 +148,17 @@ controller.deleteAgenda = async (req, res) => {
     set.agendas(agendas)
     res.redirect("/sucesso")
 }
+
+//Admin agendamentos
+controller.adminEvents = async (req, res) => {
+    const events = await get.events
+    res.render("admin/agendamentos", {
+        title: "Agendamentos",
+        events
+    })
+}
+
+
     
 
 module.exports = controller
