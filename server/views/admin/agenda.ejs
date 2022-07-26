@@ -1,0 +1,59 @@
+<%- include('../partials/header-admin.ejs') %>
+
+   
+  <section class="section-main section-admin">
+    
+    <% if(locals.agenda) { %>
+    <div class="container-list info-user">
+        
+      <div class="div-infos">
+        <h2 class="admin-title">Dados do agenda</h2>
+        <div>
+          <div class="info-data">
+            <p class="info-legend">Id</p>
+            <p><%= agenda.id %></p>
+          </div>
+          <div class="info-data">
+            <p class="info-legend">Id do usuário</p>
+            <p><%= agenda.extendedProps.userId %></p>
+          </div>
+          <div class="info-data">
+            <p class="info-legend">Nome</p>
+            <p><%= agenda.title %></p>
+          </div>
+          <div class="info-data">
+            <p class="info-legend">Duração das reuniões</p>
+            <p><%= agenda.duration%></p>
+          </div>
+          <div class="info-data">
+            <p class="info-legend">Data de início</p>
+            <p><%= agenda.start%></p>
+          </div>
+          <div class="info-data">
+            <p class="info-legend">Data fim</p>
+            <p><%= agenda.end %></p>
+          </div>
+          <div class="info-data">
+            <table>
+                <thead>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </thead>
+            </table>
+     
+            
+          </div>
+
+        </div>
+      </div>
+      <div class="btn-options">
+        
+    </div>
+
+    <% } %>
+
+    
+  </section>
+</main>
+

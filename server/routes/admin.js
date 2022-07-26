@@ -21,8 +21,14 @@ router.get("/usuarios/:id", controllerUsers.show);
 
 // admin das agendas
 router.get("/agendas", controllerAgendas.adminAgendas)
+
 router.get("/agendas/add", controllerAgendas.adminAddAgenda)
-router.post("/agendas/add", controllerAgendas.createAgenda);
+router.post("/agendas/add", controllerAgendas.createAgenda)
+
+router.get("/agendas/:id", controllerAgendas.showAgenda)
+
+router.get("/agendas/:id/editar", controllerAgendas.editAgenda)
+router.put("/agendas/:id/editar", controllerAgendas.updateAgenda)
 //admin dos eventos
 
 module.exports = router;
