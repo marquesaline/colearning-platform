@@ -34,7 +34,9 @@ controller.createAgenda = async (req, res) => {
         end,
         daysOfWeek,
         startTime,
-        endTime
+        endTime,
+        created_at,
+        modified_at
     } = req.body;
     console.log(userId)
     
@@ -45,7 +47,7 @@ controller.createAgenda = async (req, res) => {
         res.redirect("error")
     } else {
         const businessHours =  await get.BusinessHours(daysOfWeek, startTime, endTime)
-        const extendedProps = await get.ExtendedAgendas(user.id)
+        const extendedProps = await get.extendedCreatAgendas(user.id, created_at, modified_at)
     
         const newAgenda = {
             id,
@@ -67,7 +69,6 @@ controller.createAgenda = async (req, res) => {
 
 controller.showAgenda = async (req, res) => {
     const agenda = await get.byId(get.agenda, req.params.id)
-    
     const businessHours = JSON.stringify(agenda.businessHours)
     
     res.render("admin/agenda", {
@@ -101,10 +102,12 @@ controller.updateAgenda = async (req, res) =>{
                 end, 
                 daysOfWeek,
                 startTime,
-                endTime
+                endTime,
+                created_at,
+                modified_at
             } =req.body
             const businessHours = get.BusinessHours(daysOfWeek, startTime, endTime)
-            const extendedProps = get.ExtendedAgendas(userId)
+            const extendedProps = get.extendedCreatAgendas(userId, created_at, modified_at)
             return {
                 id: agenda.id,
                 extendedProps,
@@ -122,7 +125,21 @@ controller.updateAgenda = async (req, res) =>{
     set.agendas(agendas)
     res.redirect('/sucesso')
 }
-    
+
+controller.excludeAgenda = async(req, res) => {
+    const agenda = await get.byId(get.agenda, req.params.id)
+    res.render("admin/agenda-excluir", {
+        title:"Excluir agenda",
+        agenda
+    })
+}
+controller.deleteAgenda = async (req, res) => {
+    const agendas = await get.agenda.filter(
+        (agenda) => agenda.id != req.params.id
+    )
+    set.agendas(agendas)
+    res.redirect("/sucesso")
+}
     
 
 module.exports = controller

@@ -3,7 +3,7 @@
 
 <section class="section-main section-admin">
 
-  <h1 class="admin-title">Editar agenda</h1>
+  <h1 class="account-title">Editar agenda</h1>
   <section class="container-list ">
   
     <form
@@ -133,8 +133,13 @@
                 </td>
             </tr>
         </table>
+        <div>
+            <input type="hidden" name="created_at" value="<%= agenda.extendedProps.createdAt %>">
+            <input type="hidden" name="modified_at" value="<%= new Date() %>">
+        </div>
     </div>
-      </div>
+
+      
       <div class="btn-options">
         <input type="hidden" name="modifed_at" value="<%= new Date() %>" />
         <button class="button-edit btn-default">Salvar</button>

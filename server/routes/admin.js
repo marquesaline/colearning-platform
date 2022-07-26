@@ -29,6 +29,8 @@ router.get("/agendas/:id", controllerAgendas.showAgenda)
 
 router.get("/agendas/:id/editar", controllerAgendas.editAgenda)
 router.put("/agendas/:id/editar", controllerAgendas.updateAgenda)
+router.get("/agendas/:id/excluir", controllerAgendas.excludeAgenda)
+router.delete("/agendas/:id/excluir", controllerAgendas.deleteAgenda)
 //admin dos eventos
 
 module.exports = router;

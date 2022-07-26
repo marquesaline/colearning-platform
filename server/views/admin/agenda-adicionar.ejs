@@ -5,7 +5,7 @@
   <div class="settings-initial">
     <p class="account-title">Crie sua agenda</p>
     
-    <div class="container-form">
+    <div class="form-user">
         <form method="post" action="/admin/agendas/add">
             <div class="conteiners-form">
                 <label class="form-label" for="userId">Id do usuário</label>
@@ -130,6 +130,10 @@
                         </td>
                     </tr>
                 </table>
+                <div>
+                    <input type="hidden" name="created_at" value="<%= new Date() %>">
+                    <input type="hidden" name="modified_at" value="<%= new Date() %>">
+                </div>
             </div>
             <div>
                 <button type="submit" class="btn-default" id="btn-save">Criar agenda</button>

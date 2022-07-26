@@ -48,10 +48,20 @@
      
             
           </div>
-
+          <div class="info-data">
+            <p class="info-legend">Data de criação</p>
+            <p><%= agenda.extendedProps.createdAt %></p>
+          </div>
+          <div class="info-data">
+            <p class="info-legend">Data de modificação</p>
+            <p><%= agenda.extendedProps.modifiedAt %></p>
+          </div>
         </div>
       </div>
       <div class="btn-options">
+        <a class="um-user btn-default" href="/admin/agendas/<%= agenda.id %>/editar">Editar</a> |
+        <a class="um-user btn-delete" href="/admin/agendas/<%= agenda.id %>/excluir">Excluir</a>
+      </div>
         
     </div>
 

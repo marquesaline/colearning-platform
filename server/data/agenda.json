@@ -1,18 +1,10 @@
 [
   {
-    "id": 2,
-    "extendedProps": {
-      "userId": "1"
-    },
-    "title": "Agenda aulas1",
-    "duration": "03:00",
-    "start": "2022-07-01",
-    "end": "2022-07-30"
-  },
-  {
     "id": 3,
     "extendedProps": {
-      "userId": "2"
+      "userId": "2",
+      "createdAt": "15-07-2022",
+      "modifiedAt": "15-07-2022"
     },
     "title": "Agenda aulas2",
     "duration": "01:00",
@@ -49,7 +41,9 @@
   {
     "id": 4,
     "extendedProps": {
-      "userId": "1"
+      "userId": "1",
+      "createdAt": "17-07-2022",
+      "modifiedAt": "17-07-2022"
     },
     "title": "Teste id user",
     "duration": "01:00",
@@ -76,7 +70,9 @@
   {
     "id": 5,
     "extendedProps": {
-      "userId": 2
+      "userId": 2,
+      "createdAt": "17-07-2022",
+      "modifiedAt": "17-07-2022"
     },
     "title": "Teste agenda admin",
     "duration": "03:00",
@@ -98,7 +94,9 @@
   {
     "id": 6,
     "extendedProps": {
-      "userId": 2
+      "userId": 2,
+      "createdAt": "20-07-2022",
+      "modifiedAt": "20-07-2022"
     },
     "title": "agenda admin",
     "duration": "03:00",
@@ -114,6 +112,31 @@
         "daysOfWeek": "2",
         "startTime": "17:00",
         "endTime": "20:00"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "extendedProps": {
+      "userId": 2,
+      "createdAt": "26-07-2022",
+      "modifiedAt": "26-07-2022"
+    },
+    "title": "Reunião com data ",
+    "url": "",
+    "duration": "01:00",
+    "start": "2022-07-01",
+    "end": "2022-12-30",
+    "businessHours": [
+      {
+        "daysOfWeek": "1",
+        "startTime": "",
+        "endTime": ""
+      },
+      {
+        "daysOfWeek": "2",
+        "startTime": "08:00",
+        "endTime": "17:00"
       }
     ]
   }

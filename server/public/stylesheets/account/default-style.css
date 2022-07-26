@@ -35,6 +35,9 @@ button {
     background-color: var(--font-color-button);
     cursor: pointer;
 }
+input {
+    padding-left: 10px;
+}
 
 input, select, textarea {
     border: 1px solid var(--border-color-light);
