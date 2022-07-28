@@ -1,10 +1,49 @@
 
 <%- include('../partials/header-admin.ejs') %>
-      <section class="section-main">
-         <div class="div-title">
-
-            <h1><%= title %></h1>
+      <section class="section-main section-admin">
+         <div>
+            <h1 class="title-dashboard"><%= title %></h1>
          </div>
+         <div class="cards-admin">
+            <a href="/admin/usuarios">
+               <div class="card-admin btn-default">
+                  <div>
+                     <h2>Usuários</h2>
+                  </div>
+                  <div>
+                     <% if (locals.users) {%>
+                        <p><%=users.length%></p>
+                     <% } %>
+                  </div>
+               </div>
+            </a>
+            <a href="/admin/agendas">
+               <div class="card-admin btn-default">
+                  <div>
+                     <h2>Agendas</h2>
+                  </div>
+                  <div>
+                     <% if (locals.agendas) {%>
+                        <p><%=agendas.length%></p>
+                     <% } %>
+                  </div>
+               </div>
+            </a>
+            <a href="/admin/agendamentos">
+               <div class="card-admin btn-default">
+                  <div>
+                     <h2>Agendamentos</h2>
+                  </div>
+                  <div>
+                     <% if (locals.events) {%>
+                        <p><%=events.length%></p>
+                     <% } %>
+                  </div>
+               </div>
+            </a>
+            
+         </div>
+         
       </section>
    </main>
 </body>

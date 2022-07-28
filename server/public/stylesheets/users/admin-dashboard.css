@@ -1,0 +1,30 @@
+.title-dashboard {
+    text-align: left;
+    margin-left: 20px;
+}
+.cards-admin {
+    margin: 80px auto;
+    display: flex;
+    justify-content: space-around;
+    background-color: ();
+}
+.card-admin {
+    width: 400px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-admin h2 {
+    text-align: left;
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+.card-admin p {
+    font-size: 22px;
+    text-align: right;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+

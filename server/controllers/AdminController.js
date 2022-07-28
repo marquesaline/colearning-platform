@@ -6,9 +6,15 @@ const get = require("../service/get");
 const set = require("../service/set");
 
 controller.index = async (req, res) => {
+    const users = await get.users
+    
+    const agendas = await get.agendas
+    const events = await get.events
     res.render("admin/admin-index", { 
-      title: "Dashboard Admin"
-     // user: await getUserId()
+        title: "Dashboard Admin",
+        users,
+        agendas,
+        events
    });
 },
 
