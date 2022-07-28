@@ -3,7 +3,7 @@ const helper = require('../service/helper')
 const fs = require("fs");
 const path = require("path");
 const get = require("../service/get");
-const set = require("../service/set")
+const set = require("../service/set");
 
 controller.index = async (req, res) => {
     res.render("admin/admin-index", { 
@@ -31,7 +31,6 @@ controller.adminAddAgenda = async (req, res) => {
 }
 controller.createAgenda = async (req, res) => {
     const agendas = await get.agenda
-    const users = await get.users
     const id = await get.nextById(agendas)
     const {
         userId,
@@ -114,18 +113,24 @@ controller.updateAgenda = async (req, res) =>{
                 created_at,
                 modified_at
             } =req.body
-            const businessHours = get.BusinessHours(daysOfWeek, startTime, endTime)
-            const extendedProps = get.extendedCreatAgendas(userId, created_at, modified_at)
-            return {
-                id: agenda.id,
-                extendedProps,
-                title,
-                url,
-                duration, 
-                start,
-                end, 
-                
+            const user = get.byId(get.users, userId)
+            if(user == undefined) {
+                res.redirect("error")
+            } else {
+                const businessHours = get.BusinessHours(daysOfWeek, startTime, endTime)
+                const extendedProps = get.extendedCreatAgendas(userId, created_at, modified_at)
+                return {
+                    id: agenda.id,
+                    extendedProps,
+                    title,
+                    url,
+                    duration, 
+                    start,
+                    end, 
+                    
+                }
             }
+            
         } else {
             return agenda
         }
@@ -157,8 +162,137 @@ controller.adminEvents = async (req, res) => {
         events
     })
 }
+controller.adminAddEvent = async(req, res) => {
+    const events = await get.events
+    res.render("admin/agendamento-adicionar", {
+        title: "Adicionar agendamento", 
+        events
+    })
+}
+controller.createEvent = async (req, res) => {
+    const events = await get.events
+    const id = await get.nextById(events)
+    const {
+        userId,
+        agendaId,
+        title,
+        start,
+        startTime,
+        emailAluno,
+        telefoneAluno, 
+        description,               
+        created_at,
+        modified_at
+    } = req.body;    
+    const user = await get.byId(get.users, userId)
+    const agenda = await get.byId(get.agenda, agendaId)
+    //função pra checar se o usuário existe antes de criar a agenda
+    if(user == undefined || agenda == undefined) {
+        //tratar esse erro
+        res.redirect("error")
+    } else {
+        
+        const extendedProps = await get.extendedEvents(
+            user.id, agenda.id, emailAluno, telefoneAluno, 
+            description, created_at, modified_at)
+        const endTime = await get.endTime(start, startTime, agenda.duration)
+        const newEvent = {
+            id,
+            extendedProps,
+            title,
+            start,
+            end: start,
+            startTime,
+            endTime: endTime,
+            allDay: false,
+                
+        };
+        events.push(newEvent)
+        set.events(events)
+        res.redirect("/sucesso")
+        }
+    
+} 
 
+controller.showEvent = async (req, res) => {
 
+    const event = await get.byId(get.events, req.params.id)
+    console.log(event)
+    res.render("admin/agendamento", {
+        title: "Agendamento",
+        event
+
+    })
+}
+controller.editEvent = async (req, res) => {
+    const event = await get.byId(get.events, req.params.id)
+
+    res.render("admin/agendamento-editar", {
+        title: `Editar agendamento`,
+        event
+    })
+}
+
+controller.updateEvent = async (req, res) =>{
+    let events = await get.events
+    events = events.map((event) => {
+        if(event.id == req.params.id) {
+            const {
+                userId,
+                agendaId,
+                title,
+                emailAluno,
+                telefoneAluno,
+                start,
+                startTime,
+                description,
+                created_at,
+                modified_at
+            } =req.body
+            const user = get.byId(get.users, userId)
+            const agenda = get.byId(get.agenda, agendaId)
+            if(user == undefined || agenda == undefined) {
+                //tratar esse erro
+                res.redirect("error")
+            } else {
+                const extendedProps = get.extendedEvents(
+                    user.id, agenda.id, emailAluno, telefoneAluno, 
+                    description, created_at, modified_at)
+                const endTime = get.endTime(start, startTime, agenda.duration)
+                return {
+                    id: event.id,
+                    extendedProps,
+                    title, 
+                    start,
+                    end: start,
+                    startTime,
+                    endTime: endTime,
+
+                    
+                }
+            }
+        } else {
+            return event
+        }
+    })
+    set.events(events)
+    res.redirect('/sucesso')
+}
+
+controller.excludeEvent = async(req, res) => {
+    const event = await get.byId(get.events, req.params.id)
+    res.render("admin/agendamento-excluir", {
+        title:"Excluir agendamento",
+        event
+    })
+}
+controller.deleteEvent = async (req, res) => {
+    const events = await get.events.filter(
+        (event) => event.id != req.params.id
+    )
+    set.events(events)
+    res.redirect("/sucesso")
+}
     
 
 module.exports = controller

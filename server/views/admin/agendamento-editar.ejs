@@ -1,0 +1,68 @@
+
+<%- include('../partials/header-admin.ejs') %>
+
+<section class="section-main section-admin">
+
+  <h1 class="account-title">Editar agendamento</h1>
+  <section class="container-list ">
+  
+    <form
+      class="form-user"
+      action="/admin/agendamentos/<%=event.id%>/editar?_method=put"
+      method="POST"
+    >
+        <div class="conteiners-form">
+            <label class="form-label" for="userId">Id do usuário</label>
+            <input type="number" name="userId" id="userId" value="<%= event.extendedProps.userId %>" required>
+        </div>
+        <div class="conteiners-form">
+            <label class="form-label" for="agendaId">Id da agenda</label>
+            <input type="number" name="agendaId" id="agendaId" value="<%= event.extendedProps.agendaId %>" required>
+        </div>
+        <div class="conteiners-form">
+            <label class="form-label" for="title">Nome do aluno</label>
+            <input type="text" name="title" id="title" value="<%= event.title %>" required>
+        </div>
+        <div class="conteiners-form">
+            <label class="form-label" for="emailAluno">Email do aluno</label>
+            <input type="email" name="emailAluno" id="emailAluno" value="<%= event.extendedProps.emailAluno %>">
+        </div>
+        <div class="conteiners-form">
+            <label class="form-label" for="telefoneAluno">Telefone do aluno</label>
+            <input type="tel" name="telefoneAluno" id="telefoneAluno" value="<%= event.extendedProps.telefoneAluno %>">
+        </div>
+        <div class="conteiners-form">
+            <label class="form-label" for="start">Data</label>
+            <input type="date" name="start" id="start" value="<%= event.start %>" class="input-dates">
+        </div>
+        <div class="conteiners-form">
+            <label class="form-label" for="startTime">Horário</label>
+            <input type="time" name="startTime" id="startTime" value="<%= event.startTime %>">
+        </div>
+        <div class="conteiners-form">
+            <label class="form-label" for="description">Descrição</label>
+            <textarea name="description" id="description" value="<%= event.extendedProps.description %>"></textarea>
+        </div>
+        
+        <div>
+            <input type="hidden" name="created_at" value="<%= event.extendedProps.createdAt %>">
+            <input type="hidden" name="modified_at" value="<%= new Date() %>">
+        </div>
+    
+        <div class="btn-options">
+            <button class="button-edit btn-default">Salvar</button>
+        </div>
+      </form>
+  </section>
+</main>
+<script>
+    $(document).ready(function(){
+        $('#telefoneAluno').mask('(00) 00000-0000');
+        
+    });
+</script>
+
+
+</body>
+</html>
+

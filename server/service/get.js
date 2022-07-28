@@ -7,7 +7,7 @@ moment.locale('pt-br')
 
 get.agenda = JSON.parse(helper.read("agenda.json"))
 get.events = JSON.parse(helper.read("events.json"))
-get.users = JSON.parse(helper.read("users.json"));
+get.users = JSON.parse(helper.read("users.json"))
 
 get.nextById = async (database) => {
     const data = await database
@@ -29,13 +29,18 @@ get.extendedCreatAgendas = async(userId, created_at, modified_at) => {
     }
     return extendedProps
 }
-get.extendedEvents = async(userId, agendaId, email, telefone, description) => {
+get.extendedEvents = async(userId, agendaId, email, telefone, description, created_at, modified_at) => {
+    let created = moment(created_at).format("DD-MM-YYYY")
+    let modified = moment(modified_at).format("DD-MM-YYYY")
+    
     let extendedProps = {
         userId: userId,
         agendaId: agendaId,
         emailAluno: email, 
         telefoneAluno: telefone,
-        description: description
+        description: description,
+        createdAt: created,
+        modifiedAt: modified
     }
     return extendedProps
     
@@ -55,6 +60,12 @@ get.BusinessHours = async (daysOfWeek, startTime, endTime) => {
     return businessHours
 }
 
-
+get.endTime = async(start, startTime, duration) => {
+    dateTime = moment(`${start}T${startTime}`)
+    time = moment(duration, 'hours').format('HH:mm')
+    endTime = moment(dateTime).add(time).format("HH:mm")
+    
+    return endTime
+}
 
 module.exports = get

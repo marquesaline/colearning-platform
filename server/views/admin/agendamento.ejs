@@ -1,0 +1,74 @@
+<%- include('../partials/header-admin.ejs') %>
+
+  <section class="section-main section-admin">
+    
+    <% if(locals.event) { %>
+        <div class="container-list info-user">
+            
+        <div class="div-infos">
+            <h2 class="admin-title">Dados do agendamento</h2>
+            <div>
+                <div class="info-data">
+                    <p class="info-legend">Id</p>
+                    <p><%= event.id %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Id do usuário</p>
+                    <p><%= event.extendedProps.userId%></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Id da agenda</p>
+                    <p><%= event.extendedProps.agendaId%></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Nome do aluno</p>
+                    <p><%= event.title %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Email do aluno</p>
+                    <p><%= event.extendedProps.emailAluno %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Telefone do aluno</p>
+                    <p><%= event.extendedProps.telefoneAluno %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Data</p>
+                    <p><%= event.start %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Horário de início</p>
+                    <p><%= event.startTime%></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Horário final</p>
+                    <p><%= event.endTime%></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Descrição</p>
+                    <p><%= event.extendedProps.description %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Data de criação</p>
+                    <p><%= event.extendedProps.createdAt %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Data de modificação</p>
+                    <p><%= event.extendedProps.modifiedAt %></p>
+                </div>
+            </div>
+            <div class="btn-options">
+                <a class="um-user btn-default" href="/admin/agendamentos/<%= event.id %>/editar">Editar</a> 
+                <a class="um-user btn-delete" href="/admin/agendamentos/<%= event.id %>/excluir">Excluir</a>
+            </div>
+            
+        </div>
+
+    <% }%>
+
+    
+  </section>
+</main>
+</body>
+</html>
+

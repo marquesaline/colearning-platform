@@ -60,6 +60,10 @@
                             rows="3"  class="inputModel" placeholder="Descreva o assunto que está com dúvidas">
                             </textarea>
                         </div>
+                        <div>
+                            <input type="hidden" name="created_at" value="<%= new Date() %>">
+                            <input type="hidden" name="modified_at" value="<%= new Date() %>">
+                        </div>
                         <div class="div-submit">
                             <button type="submit" class="btn-default" id="submit">Agendar</button>
                         </div>
