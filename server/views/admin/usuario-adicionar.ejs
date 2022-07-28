@@ -28,6 +28,10 @@
         <label for="admin">Admin</label>
         <input class="input-account" type="checkbox" id="admin" name="admin" />
       </div>
+      <div>
+        <input type="hidden" name="created_at" value="<%= new Date() %>">
+        <input type="hidden" name="modified_at" value="<%= new Date() %>">
+      </div>
 
       <div class="btn-options">
         <button class="button-add btn-default">Adicionar Usuário</button>

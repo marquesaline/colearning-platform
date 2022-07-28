@@ -21,6 +21,8 @@
             <th>Email</th>
             <th>Slug</th>
             <th>Admin</th>
+            <th>Data de criação</th>
+            <th>Data de modificação</th>
             <th>Opções</th>
           </tr>
         </thead>
@@ -50,11 +52,17 @@
               </td>
               <td>
                 <% if(user.admin == true) { %>
-                  Sim
+                  <img src="/images/icon-true.png" width="20px">
                 <% } else { %>
-                  Não
+                  <img src="/images/icon-false.jpg" width="20px">
                 <% } %>
 
+              </td>
+              <td class="td-date">
+                <%= user.createdAt %>
+              </td>
+              <td class="td-date">
+                <%= user.modifiedAt %>
               </td>
               <td class="td-options">
                 <a class="um-user" href="/admin/usuarios/<%= user.id %>">

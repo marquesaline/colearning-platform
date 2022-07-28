@@ -37,11 +37,19 @@
             <p class="info-legend">Admin</p>
             <p>
               <% if(user.admin == true) { %>
-                Sim
+                <img src="/images/icon-true.png" width="20px">
               <% } else { %>
-                Não
+                <img src="/images/icon-false.jpg" width="20px">
               <% } %>
             </p>
+          </div>
+          <div class="info-data">
+            <p class="info-legend">Data de criação</p>
+            <p><%= user.createdAt %></p>
+          </div>
+          <div class="info-data">
+            <p class="info-legend">Data de modificação</p>
+            <p><%= user.modifiedAt %></p>
           </div>
 
         </div>

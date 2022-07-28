@@ -17,11 +17,14 @@ get.nextById = async (database) => {
 get.byId = async(database, id) => 
     await database.find((info) => info.id == id)
 
-
+get.datesMoment = async(dateTo) => {
+    let date = moment(dateTo).format("DD-MM-YYYY")
+    return date
+}
 //funções específicas das agendas e agendamentos
 get.extendedCreatAgendas = async(userId, created_at, modified_at) => {
-    let created = moment(created_at).format("DD-MM-YYYY")
-    let modified = moment(modified_at).format("DD-MM-YYYY")
+    let created = get.datesMoment(created_at)
+    let modified = get.datesMoment(modified_at)
     let extendedProps = {
         userId: userId,
         createdAt: created,

@@ -6,7 +6,9 @@
     "email": "elton@mail.com",
     "senha": "123456",
     "avatar": null,
-    "admin": false
+    "admin": true,
+    "createdAt": "15-07-2022",
+    "modifiedAt": "16-07-2022"
   },
   {
     "id": 2,
@@ -15,7 +17,9 @@
     "email": "pamela@gmail.com",
     "slug": "pamela-martins-ede-brito",
     "avatar": null,
-    "admin": true
+    "admin": true,
+    "createdAt": "25-07-2022",
+    "modifiedAt": "25-07-2022"
   },
   {
     "id": 4,
@@ -24,7 +28,9 @@
     "email": "eu@mail.com",
     "slug": "ert",
     "avatar": null,
-    "admin": false
+    "admin": false,
+    "createdAt": "15-07-2022",
+    "modifiedAt": "16-07-2022"
   },
   {
     "id": 6,
@@ -33,7 +39,9 @@
     "email": "eu@mail.com",
     "slug": "joaquim",
     "avatar": null,
-    "admin": false
+    "admin": false,
+    "createdAt": "20-07-2022",
+    "modifiedAt": "20-07-2022"
   },
   {
     "id": 7,
@@ -42,7 +50,9 @@
     "email": "usuario@email.com",
     "slug": "teste-usurio",
     "avatar": null,
-    "admin": false
+    "admin": false,
+    "createdAt": "15-07-2022",
+    "modifiedAt": "16-07-2022"
   },
   {
     "id": 8,
@@ -51,7 +61,9 @@
     "email": "testeid@email.com",
     "slug": "teste-id",
     "avatar": null,
-    "admin": false
+    "admin": false,
+    "createdAt": "15-07-2022",
+    "modifiedAt": "16-07-2022"
   },
   {
     "id": 9,
@@ -60,7 +72,9 @@
     "email": "admin@email.com",
     "senha": "123456",
     "avatar": null,
-    "admin": false
+    "admin": false,
+    "createdAt": "15-07-2022",
+    "modifiedAt": "16-07-2022"
   },
   {
     "id": 10,
@@ -69,7 +83,9 @@
     "email": "admin@email.com",
     "slug": "teste-admin2",
     "avatar": null,
-    "admin": true
+    "admin": true,
+    "createdAt": "15-07-2022",
+    "modifiedAt": "16-07-2022"
   },
   {
     "id": 11,
@@ -78,7 +94,9 @@
     "email": "admin@email.com",
     "slug": "teste-admin-3",
     "avatar": null,
-    "admin": true
+    "admin": true,
+    "createdAt": "15-07-2022",
+    "modifiedAt": "16-07-2022"
   },
   {
     "id": 12,
@@ -87,6 +105,19 @@
     "email": "admin@email.com",
     "slug": "teste-admin-4",
     "avatar": null,
-    "admin": false
+    "admin": false,
+    "createdAt": "15-07-2022",
+    "modifiedAt": "16-07-2022"
+  },
+  {
+    "id": 13,
+    "nome": "User com data",
+    "senha": "123456",
+    "email": "data@email.com.br",
+    "slug": "user-com-data",
+    "avatar": null,
+    "admin": true,
+    "createdAt": "27-07-2022",
+    "modifiedAt": "27-07-2022"
   }
 ]
