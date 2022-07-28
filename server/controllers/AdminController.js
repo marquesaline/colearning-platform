@@ -15,7 +15,7 @@ controller.index = async (req, res) => {
 //Admin agendas
 
 controller.adminAgendas = async (req, res) => {
-    const agendas = await get.agenda
+    const agendas = await get.agendas
     res.render("admin/agendas", {
         title: "Agendas",
         agendas
@@ -30,7 +30,7 @@ controller.adminAddAgenda = async (req, res) => {
     })
 }
 controller.createAgenda = async (req, res) => {
-    const agendas = await get.agenda
+    const agendas = await get.agendas
     const id = await get.nextById(agendas)
     const {
         userId,
@@ -53,7 +53,7 @@ controller.createAgenda = async (req, res) => {
         //tratar esse erro
         res.redirect("error")
     } else {
-        const businessHours =  await get.BusinessHours(daysOfWeek, startTime, endTime)
+        const businessHours =  await get.businessHours(daysOfWeek, startTime, endTime)
         const extendedProps = await get.extendedCreatAgendas(user.id, created_at, modified_at)
     
         const newAgenda = {
@@ -75,7 +75,7 @@ controller.createAgenda = async (req, res) => {
 } 
 
 controller.showAgenda = async (req, res) => {
-    const agenda = await get.byId(get.agenda, req.params.id)
+    const agenda = await get.byId(get.agendas, req.params.id)
     const businessHours = JSON.stringify(agenda.businessHours)
     
     res.render("admin/agenda", {
@@ -87,7 +87,7 @@ controller.showAgenda = async (req, res) => {
 }
 
 controller.editAgenda = async (req, res) => {
-    const agenda = await get.byId(get.agenda, req.params.id)
+    const agenda = await get.byId(get.agendas, req.params.id)
     const businessHours = JSON.stringify(agenda.businessHours)
 
     res.render("admin/agenda-editar", {
@@ -97,7 +97,7 @@ controller.editAgenda = async (req, res) => {
     })
 }
 controller.updateAgenda = async (req, res) =>{
-    let agendas = await get.agenda
+    let agendas = await get.agendas
     agendas = agendas.map((agenda) => {
         if(agenda.id == req.params.id) {
             const {
@@ -117,7 +117,7 @@ controller.updateAgenda = async (req, res) =>{
             if(user == undefined) {
                 res.redirect("error")
             } else {
-                const businessHours = get.BusinessHours(daysOfWeek, startTime, endTime)
+                const businessHours = get.businessHours(daysOfWeek, startTime, endTime)
                 const extendedProps = get.extendedCreatAgendas(userId, created_at, modified_at)
                 return {
                     id: agenda.id,
@@ -140,14 +140,14 @@ controller.updateAgenda = async (req, res) =>{
 }
 
 controller.excludeAgenda = async(req, res) => {
-    const agenda = await get.byId(get.agenda, req.params.id)
+    const agenda = await get.byId(get.agendas, req.params.id)
     res.render("admin/agenda-excluir", {
         title:"Excluir agenda",
         agenda
     })
 }
 controller.deleteAgenda = async (req, res) => {
-    const agendas = await get.agenda.filter(
+    const agendas = await get.agendas.filter(
         (agenda) => agenda.id != req.params.id
     )
     set.agendas(agendas)
@@ -185,7 +185,7 @@ controller.createEvent = async (req, res) => {
         modified_at
     } = req.body;    
     const user = await get.byId(get.users, userId)
-    const agenda = await get.byId(get.agenda, agendaId)
+    const agenda = await get.byId(get.agendas, agendaId)
     //função pra checar se o usuário existe antes de criar a agenda
     if(user == undefined || agenda == undefined) {
         //tratar esse erro
@@ -250,7 +250,7 @@ controller.updateEvent = async (req, res) =>{
                 modified_at
             } =req.body
             const user = get.byId(get.users, userId)
-            const agenda = get.byId(get.agenda, agendaId)
+            const agenda = get.byId(get.agendas, agendaId)
             if(user == undefined || agenda == undefined) {
                 //tratar esse erro
                 res.redirect("error")

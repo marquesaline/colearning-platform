@@ -5,7 +5,7 @@ const get = {}
 const moment = require('moment')
 moment.locale('pt-br')
 
-get.agenda = JSON.parse(helper.read("agenda.json"))
+get.agendas = JSON.parse(helper.read("agenda.json"))
 get.events = JSON.parse(helper.read("events.json"))
 get.users = JSON.parse(helper.read("users.json"))
 
@@ -16,6 +16,9 @@ get.nextById = async (database) => {
 }
 get.byId = async(database, id) => 
     await database.find((info) => info.id == id)
+
+get.slug = async(database, slug) => 
+    await database.find((data) => data.slug == slug)
 
 get.datesMoment = async(dateTo) => {
     let date = moment(dateTo).format("DD-MM-YYYY")
@@ -48,7 +51,8 @@ get.extendedEvents = async(userId, agendaId, email, telefone, description, creat
     return extendedProps
     
 }
-get.BusinessHours = async (daysOfWeek, startTime, endTime) => {
+
+get.businessHours = async (daysOfWeek, startTime, endTime) => {
     let businessHours = []
     for (i = 0; i <= 6; i++) {
         if (daysOfWeek[i] == null) {
