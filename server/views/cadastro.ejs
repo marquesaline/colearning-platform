@@ -6,16 +6,22 @@
             <div class="form-title">
                 <p>Cadastrar uma conta</p>
             </div>
-            <form class="form" method="POST" action="" enctype="multipart/form-data">
-                <label for="name">Nome</label>
-                <input type="text" name="name" id="name" placeholder="Exemplo" required>
+            <form class="form" action="/cadastro" method="POST" 
+                
+                >
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" placeholder="Exemplo" required>
 
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="exemplo@exemplo.com" required>
 
-                <label for="password">Senha</label>
-                <input type="password" name="password" id="password" placeholder="*******" required>
-
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha" placeholder="*******" required>
+                
+                <div>
+                    <input type="hidden" name="created_at" value="<%= new Date() %>">
+                    <input type="hidden" name="modified_at" value="<%= new Date() %>">
+                </div>
                 <div class="form-button">
                     <button type="submit">Cadastrar</button>
                 </div>

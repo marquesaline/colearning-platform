@@ -1,0 +1,27 @@
+
+
+.h1-sobre {
+  text-align: center;
+  margin: 80px  auto 50px auto;
+}
+
+.sobre {
+  margin: 50px auto;
+  height: 100%;
+}
+
+.container-main {
+  display: flex;
+  justify-content: space-between;
+  margin: 90px 30px;
+}
+.container-img img {
+  width: 60rem
+}
+.container-about {
+  margin-left: 50px;
+}
+.container-about p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}

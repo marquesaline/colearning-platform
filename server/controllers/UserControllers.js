@@ -46,6 +46,7 @@ const controller = {
       created_at,
       modified_at
      } = req.body;
+    console.log(nome)
     const slug = await createSlug(nome)
     const createdAt = await get.datesMoment(created_at)
     const modifiedAt = await get.datesMoment(modified_at)
