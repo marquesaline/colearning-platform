@@ -41,16 +41,49 @@
             <table>
                 <thead>
                     <tr>
-                        <td></td>
-                    </tr>
+                        <th>Dias da semana</th>
+                        <th>Horários</th>
+                  </tr>
                 </thead>
+                <tbody>
+                  <% for(let business of agenda.businessHours) { %>
+                    <% for(let day of business.daysOfWeek) { %>
+                      <tr>
+                        <td>
+                          <%if (day == 0) { %>
+                              Domingo
+                          <% } %> 
+                          <%if (day == 1) { %>
+                            Segunda-feira
+                          <% } %> 
+                          <%if (day == 2) { %>
+                            Terça-feira
+                          <% } %>
+                          <%if (day == 3) { %>
+                            Quarta-feira
+                          <% } %>
+                          <%if (day == 4) { %>
+                            Quinta-feira
+                          <% } %>
+                          <%if (day == 5) { %>
+                            Sexta-feira
+                          <% } %>
+                          <%if (day == 6) { %>
+                            Sábado
+                          <% } %>
+                        </td>
+                        <td>
+                          <%= business.startTime %> 
+                          - 
+                          <%= business.endTime %> 
+                        </td>
+                      </tr>
+                    <% } %> 
+                    
+                  <% } %> 
+                </tbody>
             </table>
-            <% for(let business of agenda.businessHours) { %>
-              <% for(let day of business.daysOfWeek) { %>
-                <p><%= day %></p>
-              <% } %> 
-              <p><%= business.startTime %> </p>
-            <% } %> 
+           
           </div>
           <div class="info-data">
             <p class="info-legend">Data de criação</p>

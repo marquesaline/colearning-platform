@@ -6,11 +6,11 @@ const path = require("path");
 const helper = {};
 
 helper.read = (filename) =>
-  fs.readFileSync(path.join(__dirname, `../data/${filename}`), "utf-8");
+  fs.readFileSync(path.join(__dirname, `../json/${filename}`), "utf-8");
 
 helper.write = (filename, data) =>
   fs.writeFileSync(
-    path.join(__dirname, `../data/${filename}`),
+    path.join(__dirname, `../json/${filename}`),
     JSON.stringify(data, null, 2),
     "utf-8"
   );

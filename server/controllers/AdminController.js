@@ -244,7 +244,7 @@ controller.editEvent = async (req, res) => {
 
 controller.updateEvent = async (req, res) =>{
     let events = await get.events
-    events = events.map((event) => {
+    events = events.map(async (event) => {
         if(event.id == req.params.id) {
             const {
                 userId,
@@ -258,16 +258,16 @@ controller.updateEvent = async (req, res) =>{
                 created_at,
                 modified_at
             } =req.body
-            const user = get.byId(get.users, userId)
-            const agenda = get.byId(get.agendas, agendaId)
+            const user = await get.byId(get.users, userId)
+            const agenda = await get.byId(get.agendas, agendaId)
             if(user == undefined || agenda == undefined) {
                 //tratar esse erro
                 res.redirect("error")
             } else {
-                const extendedProps = get.extendedEditEvents(
+                const extendedProps = await get.extendedEditEvents(
                     user.id, agenda.id, emailAluno, telefoneAluno, 
                     description, created_at, modified_at)
-                const endTime = get.endTime(start, startTime, agenda.duration)
+                const endTime = await get.endTime(start, startTime, agenda.duration)
                 return {
                     id: event.id,
                     extendedProps,

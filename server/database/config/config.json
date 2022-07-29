@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "minhasenha",
+    "database": "colearning",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "minhasenha",
+    "database": "colearnin",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "minhasenha",
+    "database": "colearning",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

@@ -73,8 +73,8 @@
     "businessHours": [
       {
         "daysOfWeek": "1",
-        "startTime": "",
-        "endTime": ""
+        "startTime": "17:00",
+        "endTime": "20:00"
       },
       {
         "daysOfWeek": "2",

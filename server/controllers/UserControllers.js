@@ -76,7 +76,7 @@ const controller = {
 
   update: async (req, res) => {
     let users = await get.users;
-    users = users.map((user) =>   {
+    users = users.map(async (user) =>   {
       if (user.id == req.params.id) {
         const { 
           nome, 
@@ -97,12 +97,13 @@ const controller = {
           avatar: null,
           admin: !!admin,
           createdAt: created_at,
-          modifiedAt: get.datesMoment(modified_at)
+          modifiedAt: await get.datesMoment(modified_at)
         };
       } else {
         return user;
       }
     });
+    users = await Promise.all(users)
     set.users(users);
     res.redirect(`/sucesso`);
   },
