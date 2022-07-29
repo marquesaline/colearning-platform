@@ -1,8 +1,8 @@
 const controller = {}
 const fs = require("fs");
 const path = require("path");
-const get = require("../service/get")
-const set = require("../service/set")
+const get = require("../utils/get")
+const set = require("../utils/set")
 
 
 const getEventsId = async (id) =>

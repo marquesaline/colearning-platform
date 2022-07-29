@@ -1,8 +1,8 @@
 const fs = require("fs")
 const path = require("path")
-const get = require("../service/get")
-const helper = require("../service/helper")
-const set = require("../service/set")
+const get = require("../utils/get")
+const helper = require("../utils/helper")
+const set = require("../utils/set")
 
 
 const createSlug = async(name) => {
