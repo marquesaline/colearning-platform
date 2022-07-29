@@ -27,8 +27,8 @@ get.datesMoment = async(dateTo) => {
 }
 //funções específicas das agendas e agendamentos
 get.extendedCreatAgendas = async(userId, created_at, modified_at) => {
-    let created = get.datesMoment(created_at)
-    let modified = get.datesMoment(modified_at)
+    let created = moment(created_at).format("DD-MM-YYYY")
+    let modified = moment(modified_at).format("DD-MM-YYYY")
     let extendedProps = {
         userId: userId,
         createdAt: created,
@@ -36,6 +36,20 @@ get.extendedCreatAgendas = async(userId, created_at, modified_at) => {
     }
     return extendedProps
 }
+
+get.extendedEditAgendas = async(userId, created_at, modified_at) => {
+    
+    console.log(created_at)
+    let modified = moment(modified_at).format("DD-MM-YYYY")
+    
+    let extendedProps = {
+        userId: userId,
+        createdAt: created_at,
+        modifiedAt: modified
+    }
+    return extendedProps
+}
+
 get.extendedEvents = async(userId, agendaId, email, telefone, description, created_at, modified_at) => {
     let created = moment(created_at).format("DD-MM-YYYY")
     let modified = moment(modified_at).format("DD-MM-YYYY")
@@ -50,18 +64,47 @@ get.extendedEvents = async(userId, agendaId, email, telefone, description, creat
         modifiedAt: modified
     }
     return extendedProps
-    
 }
+get.extendedEditEvents = async(userId, agendaId, email, telefone, description, created_at, modified_at) => {
+    
+    let modified = moment(modified_at).format("DD-MM-YYYY")
+    
+    let extendedProps = {
+        userId: userId,
+        agendaId: agendaId,
+        emailAluno: email, 
+        telefoneAluno: telefone,
+        description: description,
+        createdAt: created_at,
+        modifiedAt: modified
+    }
+    return extendedProps
+}
+
+
 
 get.businessHours = async (daysOfWeek, startTime, endTime) => {
     let businessHours = []
+    let start = []
+    let end = []
+
+    for(i = 0; i < startTime.length; i++) {
+        if(startTime[i] != '') {
+            start.push(startTime[i])
+        } 
+    }
+    for(i = 0; i < endTime.length; i++) {
+        if(endTime[i] != '') {
+            end.push(endTime[i])
+        } 
+    }
     for (i = 0; i <= 6; i++) {
         if (daysOfWeek[i] == null) {
         } else {
             businessHours.push({
                 daysOfWeek: daysOfWeek[i],
-                startTime: startTime[i],
-                endTime: endTime[i]
+                startTime: start[i],
+                endTime: end[i]
             })
         }
     }

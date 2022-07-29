@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var start = document.getElementById('agenda-start').value
     var end = document.getElementById('agenda-end').value
     var businessHours = document.getElementById('businessHours').value
+    console.log(businessHours)
     var events = document.getElementById('events').value
    
     var modal = document.getElementById("myModal")

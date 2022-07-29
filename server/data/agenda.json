@@ -3,38 +3,29 @@
     "id": 3,
     "extendedProps": {
       "userId": "2",
-      "createdAt": "15-07-2022",
-      "modifiedAt": "15-07-2022"
+      "createdAt": "01-07-2022",
+      "modifiedAt": "29-07-2022"
     },
     "title": "Agenda aulas2",
+    "url": "",
     "duration": "01:00",
     "start": "2022-06-01",
     "end": "2022-06-30",
-    "url": "https://meet.google.com/ywa-widc-fsf",
     "businessHours": [
       {
-        "daysOfWeek": [
-          2,
-          3
-        ],
+        "daysOfWeek": "1",
         "startTime": "08:00",
         "endTime": "12:00"
       },
       {
-        "daysOfWeek": [
-          2,
-          3
-        ],
-        "startTime": "13:00",
-        "endTime": "18:00"
+        "daysOfWeek": "2",
+        "startTime": "15:00",
+        "endTime": "17:00"
       },
       {
-        "daysOfWeek": [
-          4,
-          5
-        ],
-        "startTime": "10:00",
-        "endTime": "16:00"
+        "daysOfWeek": "3",
+        "startTime": "20:00",
+        "endTime": "22:00"
       }
     ]
   },
@@ -42,28 +33,29 @@
     "id": 4,
     "extendedProps": {
       "userId": "1",
-      "createdAt": "17-07-2022",
-      "modifiedAt": "17-07-2022"
+      "createdAt": "01-07-2022",
+      "modifiedAt": "29-07-2022"
     },
     "title": "Teste id user",
+    "url": "",
     "duration": "01:00",
     "start": "2022-07-25",
     "end": "2022-12-25",
     "businessHours": [
       {
         "daysOfWeek": "1",
-        "startTime": "",
-        "endTime": ""
-      },
-      {
-        "daysOfWeek": "2",
-        "startTime": "",
-        "endTime": ""
+        "startTime": "08:00",
+        "endTime": "17:00"
       },
       {
         "daysOfWeek": "3",
-        "startTime": "",
-        "endTime": ""
+        "startTime": "17:00",
+        "endTime": "21:00"
+      },
+      {
+        "daysOfWeek": "5",
+        "startTime": "15:00",
+        "endTime": "20:00"
       }
     ]
   },
@@ -127,6 +119,31 @@
     "duration": "01:00",
     "start": "2022-07-01",
     "end": "2022-12-30",
+    "businessHours": [
+      {
+        "daysOfWeek": "1",
+        "startTime": "",
+        "endTime": ""
+      },
+      {
+        "daysOfWeek": "2",
+        "startTime": "08:00",
+        "endTime": "17:00"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "extendedProps": {
+      "userId": 1,
+      "createdAt": "26-07-2022",
+      "modifiedAt": "26-07-2022"
+    },
+    "title": "Teste agenda",
+    "url": "",
+    "duration": "01:00",
+    "start": "2022-07-28",
+    "end": "2022-08-26",
     "businessHours": [
       {
         "daysOfWeek": "1",

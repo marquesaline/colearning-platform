@@ -104,7 +104,7 @@ controller.editAgenda = async (req, res) => {
 }
 controller.updateAgenda = async (req, res) =>{
     let agendas = await get.agendas
-    agendas = agendas.map((agenda) => {
+    agendas = agendas.map(async (agenda) => {
         if(agenda.id == req.params.id) {
             const {
                 userId,
@@ -119,12 +119,13 @@ controller.updateAgenda = async (req, res) =>{
                 created_at,
                 modified_at
             } =req.body
+            
             const user = get.byId(get.users, userId)
             if(user == undefined) {
                 res.redirect("error")
             } else {
-                const businessHours = get.businessHours(daysOfWeek, startTime, endTime)
-                const extendedProps = get.extendedCreatAgendas(userId, created_at, modified_at)
+                const businessHours = await get.businessHours(daysOfWeek, startTime, endTime)
+                const extendedProps = await get.extendedEditAgendas(userId, created_at, modified_at)
                 return {
                     id: agenda.id,
                     extendedProps,
@@ -133,6 +134,7 @@ controller.updateAgenda = async (req, res) =>{
                     duration, 
                     start,
                     end, 
+                    businessHours
                     
                 }
             }
@@ -141,6 +143,7 @@ controller.updateAgenda = async (req, res) =>{
             return agenda
         }
     })
+    agendas = await Promise.all(agendas)
     set.agendas(agendas)
     res.redirect('/sucesso')
 }
@@ -261,7 +264,7 @@ controller.updateEvent = async (req, res) =>{
                 //tratar esse erro
                 res.redirect("error")
             } else {
-                const extendedProps = get.extendedEvents(
+                const extendedProps = get.extendedEditEvents(
                     user.id, agenda.id, emailAluno, telefoneAluno, 
                     description, created_at, modified_at)
                 const endTime = get.endTime(start, startTime, agenda.duration)
@@ -281,6 +284,7 @@ controller.updateEvent = async (req, res) =>{
             return event
         }
     })
+    events = await Promise.all(events)
     set.events(events)
     res.redirect('/sucesso')
 }

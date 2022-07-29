@@ -45,8 +45,12 @@
                     </tr>
                 </thead>
             </table>
-     
-            
+            <% for(let business of agenda.businessHours) { %>
+              <% for(let day of business.daysOfWeek) { %>
+                <p><%= day %></p>
+              <% } %> 
+              <p><%= business.startTime %> </p>
+            <% } %> 
           </div>
           <div class="info-data">
             <p class="info-legend">Data de criação</p>
