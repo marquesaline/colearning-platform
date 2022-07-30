@@ -147,8 +147,8 @@
     "businessHours": [
       {
         "daysOfWeek": "1",
-        "startTime": "",
-        "endTime": ""
+        "startTime": "14:00",
+        "endTime": "17:00"
       },
       {
         "daysOfWeek": "2",
