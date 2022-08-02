@@ -1,7 +1,4 @@
 const controller = {}
-const helper = require('../utils/helper')
-const fs = require("fs");
-const path = require("path");
 const get = require("../utils/get");
 const set = require("../utils/set");
 

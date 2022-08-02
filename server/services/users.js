@@ -3,7 +3,13 @@ const { User } = require("../database/models")
 const usersServices = {}
 
 usersServices.getAllUsers = async () => {
-    const user = await User.findAll()
+    const user = await User.findAll(
+      // //include: [
+      // {
+      //   association: 'agendas'
+      // }
+      //]
+    )
 
     return user
 }
@@ -12,11 +18,11 @@ usersServices.getUser = async (id) => {
     where: {
       id
     },
-    include: [
-      {
-        association: 'agendas'
-      }
-    ]
+    // include: [
+    //   {
+    //     association: 'agendas'
+    //   }
+    // ]
   })
   return user
 }

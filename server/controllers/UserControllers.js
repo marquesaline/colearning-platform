@@ -124,11 +124,22 @@ const controller = {
   },
   //arrumar
   show: async (req, res) => {
-    const user = await get.byId(get.users, req.params.id)
+    const { id } = req.params
+    const user = await getUser(id)
     res.render("admin/usuario", {
       title: `Usuário`,
       user
     });
   },
+  showUserAgendas: async (req, res) => {
+    const { id } = req.params
+    const user = await getUser(id)
+    const agendas = await getUserAgendas(id)
+    res.render("admin/usuario-agendas", {
+      title: `Agendas - ${ user.nome }`,
+      user,
+      agendas
+    })
+  }
 };
 module.exports = controller;

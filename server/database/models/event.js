@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     telefoneAluno: DataTypes.STRING,
     description: DataTypes.STRING,
     createdAt: DataTypes.STRING,
-    modifiedAt: DataTypes.STRING
+    updatedAt: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Event',

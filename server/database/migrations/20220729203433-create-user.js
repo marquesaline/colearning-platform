@@ -26,16 +26,8 @@ module.exports = {
       createdAt: {
         type: Sequelize.STRING
       },
-      modifieadAt: {
+      updateadAt: {
         type: Sequelize.STRING
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
       }
     });
   },

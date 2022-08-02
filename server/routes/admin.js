@@ -7,6 +7,7 @@ router.get("/", controllerAdmin.index); /*elton   peguei o index do controllerUs
 
 // admin dos usuários
 router.get("/usuarios", controllerUsers.users);
+router.get("/usuarios/:id/agendas", controllerUsers.showUserAgendas)
 router.get("/sucesso", controllerUsers.sucess);
 
 router.get("/usuarios/add", controllerUsers.add);

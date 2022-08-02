@@ -49,12 +49,13 @@
           </div>
           <div class="info-data">
             <p class="info-legend">Data de modificação</p>
-            <p><%= user.modifiedAt %></p>
+            <p><%= user.updatedAt %></p>
           </div>
 
         </div>
       </div>
       <div class="btn-options">
+        <a class="um-user btn-default" href="/admin/usuarios/<%= user.id %>/agendas">Agendas</a> |
         <a class="um-user btn-default" href="/admin/usuarios/<%= user.id %>/editar">Editar</a> |
         <a class="um-user btn-delete" href="/admin/usuarios/<%= user.id %>/excluir">Excluir</a>
       </div>
