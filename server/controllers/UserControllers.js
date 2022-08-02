@@ -1,7 +1,7 @@
 
 const get = require("../utils/get")
 const set = require("../utils/set")
-const { getAllUsers, getUser, getUserAgendas } = require('../services/users')
+const { getAllUsers, getUser, getUserAgendas, getUserEvents } = require('../services/users')
 
 
 const createSlug = async(name) => {
@@ -139,6 +139,16 @@ const controller = {
       title: `Agendas - ${ user.nome }`,
       user,
       agendas
+    })
+  },
+  showUserEvents: async (req, res) => {
+    const { id } = req.params
+    const user = await getUser(id)
+    const events = await getUserEvents(id)
+    res.render("admin/usuario-agendamentos", {
+      title: `Agendamentos - ${ user.nome }`,
+      user,
+      events
     })
   }
 };

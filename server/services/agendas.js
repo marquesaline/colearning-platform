@@ -39,7 +39,6 @@ agendasServices.getAgendaAgendas = async (id) => {
       ]
     })
     const { agendas } = agenda
-    console.log(agenda)
     return agendas || null
   }
   

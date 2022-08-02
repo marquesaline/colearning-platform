@@ -41,5 +41,21 @@ usersServices.getUserAgendas = async (id) => {
     const { agendas } = user
     return agendas || null
   }
+
+  usersServices.getUserEvents = async (id) => {
+    const user = await User.findOne({
+      where: {
+        id
+      },
+      include: [
+        {
+          association: 'events'
+        }
+      ]
+    })
+    const { events } = user
+    return events || null
+  }
+  
   
   module.exports = usersServices
