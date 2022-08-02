@@ -24,10 +24,10 @@ module.exports = {
         type: Sequelize.BOOLEAN
       },
       createdAt: {
-        type: Sequelize.STRING
+        type: Sequelize.DATE
       },
       updateadAt: {
-        type: Sequelize.STRING
+        type: Sequelize.DATE
       }
     });
   },

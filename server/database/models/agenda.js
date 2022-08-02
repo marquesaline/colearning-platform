@@ -26,8 +26,8 @@ module.exports = (sequelize, DataTypes) => {
     duration: DataTypes.STRING,
     start: DataTypes.STRING,
     end: DataTypes.STRING,
-    createdAt: DataTypes.STRING,
-    updatedAt: DataTypes.STRING
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'Agenda',

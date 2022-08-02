@@ -1,12 +1,19 @@
 const controller = {}
 const get = require("../utils/get");
 const set = require("../utils/set");
+const { getAllUsers, getUser, getUserAgendas, getUserEvents } = require('../services/users')
+const { User } = require("../database/models")
+const { getAllAgendas, getAgenda, getEventsAgendas } = require('../services/agendas')
+const { Agenda } = require("../database/models")
+const { getAllEvents, getEvent } = require('../services/events')
+const { Event } = require("../database/models")
+
+const Sequelize = require("sequelize")
 
 controller.index = async (req, res) => {
-    const users = await get.users
-    
-    const agendas = await get.agendas
-    const events = await get.events
+    const users = await getAllUsers()
+    const agendas = await getAllAgendas()
+    const events = await getAllEvents()
     res.render("admin/admin-index", { 
         title: "Dashboard Admin",
         users,
@@ -18,23 +25,20 @@ controller.index = async (req, res) => {
 //Admin agendas
 
 controller.adminAgendas = async (req, res) => {
-    const agendas = await get.agendas
+    const agendas = await getAllAgendas()
     res.render("admin/agendas", {
         title: "Agendas",
         agendas
     })
 }
 controller.adminAddAgenda = async (req, res) => {
-    let users = await get.users
-   
+    let users = await getAllUsers()
     res.render("admin/agenda-adicionar", {
         title: req.path == "/cadastro" ? `Cadastro` : `Adicionar Agenda`,
         users
     })
 }
 controller.createAgenda = async (req, res) => {
-    const agendas = await get.agendas
-    const id = await get.nextById(agendas)
     const {
         userId,
         title,
@@ -50,30 +54,24 @@ controller.createAgenda = async (req, res) => {
     } = req.body;
     console.log(userId)
     
-    const user = await get.byId(get.users, userId)
-    //função pra checar se o usuário existe antes de criar a agenda
-    if(user == undefined) {
-        //tratar esse erro
-        res.redirect("error")
-    } else {
-        const businessHours =  await get.businessHours(daysOfWeek, startTime, endTime)
-        const extendedProps = await get.extendedCreatAgendas(user.id, created_at, modified_at)
     
-        const newAgenda = {
-            id,
-            extendedProps,
-            title,
-            url,
-            duration,
-            start,
-            end,
-            businessHours, 
+    //função pra checar se o usuário existe antes de criar a agenda
+    
+    // const businessHours =  await get.businessHours(daysOfWeek, startTime, endTime)
+    // const extendedProps = await get.extendedCreatAgendas(user.id, created_at, modified_at)
+    
+    const newAgenda = {
+        id,
+        extendedProps,
+        title,
+        url,
+        duration,
+        start,
+        end,
+        businessHours, 
                 
-        };
-        agendas.push(newAgenda)
-        set.agendas(agendas)
-        res.redirect("/sucesso")
-        }
+    };
+    res.redirect("/admin/agendas")
     
 } 
 

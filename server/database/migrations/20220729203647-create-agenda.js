@@ -32,10 +32,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       createdAt: {
-        type: Sequelize.STRING
+        type: Sequelize.DATE
       },
       updatedAt: {
-        type: Sequelize.STRING
+        type: Sequelize.DATE
       }
     });
   },

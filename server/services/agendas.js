@@ -27,19 +27,19 @@ agendasServices.getAgenda = async (id) => {
   return agenda
 }
 
-agendasServices.getAgendaAgendas = async (id) => {
+agendasServices.getEventsAgendas = async (id) => {
     const agenda = await Agenda.findOne({
       where: {
         id
       },
       include: [
         {
-          association: 'agendas'
+          association: 'events'
         }
       ]
     })
-    const { agendas } = agenda
-    return agendas || null
+    const { events } = agenda
+    return events|| null
   }
   
   module.exports = agendasServices
