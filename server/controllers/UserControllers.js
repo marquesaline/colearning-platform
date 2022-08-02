@@ -114,11 +114,11 @@ const controller = {
   },
 
   delete: async (req, res) => {
-    const users = await get.users.filter(
-      (user) => user.id != req.params.id
-    );
-    set.users(users);
-    res.redirect(`/sucesso`);
+    const { id } = req.params
+    await User.destroy({
+      where: { id }
+    })
+    res.redirect(`/admin/usuarios`);
   },
   //arrumar
   show: async (req, res) => {
