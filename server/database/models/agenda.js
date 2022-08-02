@@ -10,12 +10,17 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      Agenda.belongsTo(models.User, {
+        foreignKey: 'userId',
+        as: 'user'
+      })
       Agenda.hasMany(models.Event, {
         as: 'events'
       })
     }
   }
   Agenda.init({
+    userId: DataTypes.INTEGER,
     title: DataTypes.STRING,
     url: DataTypes.STRING,
     duration: DataTypes.STRING,

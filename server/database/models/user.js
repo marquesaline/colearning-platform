@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Agenda, {
         as: 'agendas'
       })
+      User.hasMany(models.Event, {
+        as: 'events'
+      })
       
     } 
   }
@@ -23,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     senha: DataTypes.STRING,
     admin: DataTypes.BOOLEAN,
     createdAt: DataTypes.STRING,
-    modifieadAt: DataTypes.STRING
+    updatedAt: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'User',

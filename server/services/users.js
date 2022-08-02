@@ -1,18 +1,24 @@
 const { User } = require("../database/models")
-const user = require("../database/models/user")
 
-const usersService = {}
+const usersServices = {}
 
-usersService.getAllUsers = async () => {
-    const user = await User.findAll({
-        include: [
-            {
-                association: 'agendas'
-            }
-        ]
-    })
+usersServices.getAllUsers = async () => {
+    const user = await User.findAll()
 
     return user
+}
+usersServices.getUser = async (id) => {
+  const user = await User.findOne({
+    where: {
+      id
+    },
+    include: [
+      {
+        association: 'agendas'
+      }
+    ]
+  })
+  return user
 }
 
 usersServices.getUserAgendas = async (id) => {

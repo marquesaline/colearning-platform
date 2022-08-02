@@ -1,8 +1,7 @@
-const fs = require("fs")
-const path = require("path")
+
 const get = require("../utils/get")
-const helper = require("../utils/helper")
 const set = require("../utils/set")
+const { getAllUsers, getUser, getUserAgendas } = require('../services/users')
 
 
 const createSlug = async(name) => {
@@ -21,7 +20,7 @@ const controller = {
   },
 
   users: async (req, res) => {
-    const users = await get.users;
+    const users = await getAllUsers();
     res.render(`admin/usuarios`, {
       title: "Usuários",
       users,
