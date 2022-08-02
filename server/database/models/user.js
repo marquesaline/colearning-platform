@@ -24,9 +24,10 @@ module.exports = (sequelize, DataTypes) => {
     slug: DataTypes.STRING,
     email: DataTypes.STRING,
     senha: DataTypes.STRING,
+    avatar: DataTypes.BLOB,
     admin: DataTypes.BOOLEAN,
-    createdAt: DataTypes.STRING,
-    updatedAt: DataTypes.STRING
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'User',

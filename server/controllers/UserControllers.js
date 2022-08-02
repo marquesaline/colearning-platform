@@ -2,7 +2,8 @@
 const get = require("../utils/get")
 const set = require("../utils/set")
 const { getAllUsers, getUser, getUserAgendas, getUserEvents } = require('../services/users')
-
+const { User } = require("../database/models")
+const Sequelize = require("sequelize")
 
 const createSlug = async(name) => {
   let slug = await name.toLowerCase().replace(/ /g, '-')
@@ -34,8 +35,6 @@ const controller = {
   },
 
   create: async (req, res) => {
-    const users = await get.users;
-    const id = await get.nextById(get.users);
     const { 
       nome, 
       email, 
@@ -43,26 +42,24 @@ const controller = {
       avatar, 
       admin, 
       created_at,
-      modified_at
+      updated_at
      } = req.body;
-    console.log(nome)
+    
     const slug = await createSlug(nome)
-    const createdAt = await get.datesMoment(created_at)
-    const modifiedAt = await get.datesMoment(modified_at)
-    const newUser = {
-      id,
+   
+    
+
+    await User.create({
       nome,
       senha,
       email,
       slug,
       avatar: avatar || null,
       admin: !!admin,
-      createdAt,
-      modifiedAt
-    };
-    users.push(newUser);
-    set.users(users);
-    res.redirect("/sucesso");
+      createdAt:created_at,
+      updatedAt:updated_at
+    });
+    res.redirect("/admin/usuarios");
   },
 
   edit: async (req, res) => {

@@ -22,13 +22,13 @@ get.slug = async(database, slug) =>
     await database.find((data) => data.slug == slug)
 
 get.datesMoment = async(dateTo) => {
-    let date = moment(dateTo).format("DD-MM-YYYY")
+    let date = moment(dateTo).format("DD-MM-YYYY HH:MM")
     return date
 }
 //funções específicas das agendas e agendamentos
 get.extendedCreatAgendas = async(userId, created_at, modified_at) => {
-    let created = moment(created_at).format("DD-MM-YYYY")
-    let modified = moment(modified_at).format("DD-MM-YYYY")
+    let created = moment(created_at).format("DD-MM-YYYY HH:MM")
+    let modified = moment(modified_at).format("DD-MM-YYYY HH:MM")
     let extendedProps = {
         userId: userId,
         createdAt: created,
