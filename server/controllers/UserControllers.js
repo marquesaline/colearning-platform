@@ -1,13 +1,19 @@
-
 const get = require("../utils/get")
 const set = require("../utils/set")
-const { getAllUsers, getUser, getUserAgendas, getUserEvents } = require('../services/users')
-const { User } = require("../database/models")
+const {
+  getAllUsers,
+  getUser,
+  getUserAgendas,
+  getUserEvents
+} = require('../services/users')
+const {
+  User
+} = require("../database/models")
 const Sequelize = require("sequelize")
 
-const createSlug = async(name) => {
+const createSlug = async (name) => {
   let slug = await name.toLowerCase().replace(/ /g, '-')
-  .replace(/[^\w-]+/g, '');
+    .replace(/[^\w-]+/g, '');
   return slug
 }
 
@@ -35,19 +41,17 @@ const controller = {
   },
 
   create: async (req, res) => {
-    const { 
-      nome, 
-      email, 
-      senha, 
-      avatar, 
-      admin, 
+    const {
+      nome,
+      email,
+      senha,
+      avatar,
+      admin,
       created_at,
       updated_at
-     } = req.body;
-    
+    } = req.body;
+
     const slug = await createSlug(nome)
-   
-    
 
     await User.create({
       nome,
@@ -56,14 +60,15 @@ const controller = {
       slug,
       avatar: avatar || null,
       admin: !!admin,
-      createdAt:created_at,
-      updatedAt:updated_at
+      createdAt: created_at,
+      updatedAt: updated_at
     });
     res.redirect("/admin/usuarios");
   },
 
   edit: async (req, res) => {
-    const user = await get.byId(get.users, req.params.id);
+    const { id } = req.params
+    const user = await getUser(id)
     res.render(`admin/usuario-editar`, {
       title: `Editar Usuário ${req.params.nome}`,
       user,
@@ -71,37 +76,33 @@ const controller = {
   },
 
   update: async (req, res) => {
-    let users = await get.users;
-    users = users.map(async (user) =>   {
-      if (user.id == req.params.id) {
-        const { 
-          nome, 
-          slug, 
-          email, 
-          senha, 
-          admin,
-          created_at,
-          modified_at 
-        } = req.body;
-        
-        return {
-          id: user.id,
-          nome: nome,
-          slug: slug,
-          email: email,
-          senha: senha,
-          avatar: null,
-          admin: !!admin,
-          createdAt: created_at,
-          modifiedAt: await get.datesMoment(modified_at)
-        };
-      } else {
-        return user;
-      }
-    });
-    users = await Promise.all(users)
-    set.users(users);
-    res.redirect(`/sucesso`);
+    const { id } = req.params
+    const {
+      nome,
+      slug,
+      email,
+      senha,
+      avatar,
+      admin,
+      created_at,
+      updated_at
+    } = req.body;
+
+    await User.update(
+    {
+      nome: nome,
+      slug: slug,
+      email: email,
+      senha: senha,
+      avatar: avatar || null,
+      admin: !!admin,
+      createdAt: created_at,
+      updatedAt: updated_at
+    }, 
+    {
+      where: {id}
+    })  
+    res.redirect(`/admin/usuarios`);
   },
 
   exclude: async (req, res) => {
@@ -121,7 +122,9 @@ const controller = {
   },
   //arrumar
   show: async (req, res) => {
-    const { id } = req.params
+    const {
+      id
+    } = req.params
     const user = await getUser(id)
     res.render("admin/usuario", {
       title: `Usuário`,
@@ -129,7 +132,9 @@ const controller = {
     });
   },
   showUserAgendas: async (req, res) => {
-    const { id } = req.params
+    const {
+      id
+    } = req.params
     const user = await getUser(id)
     const agendas = await getUserAgendas(id)
     res.render("admin/usuario-agendas", {
@@ -139,7 +144,9 @@ const controller = {
     })
   },
   showUserEvents: async (req, res) => {
-    const { id } = req.params
+    const {
+      id
+    } = req.params
     const user = await getUser(id)
     const events = await getUserEvents(id)
     res.render("admin/usuario-agendamentos", {
