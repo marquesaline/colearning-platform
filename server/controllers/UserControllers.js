@@ -1,14 +1,7 @@
 const get = require("../utils/get")
 const set = require("../utils/set")
-const {
-  getAllUsers,
-  getUser,
-  getUserAgendas,
-  getUserEvents
-} = require('../services/users')
-const {
-  User
-} = require("../database/models")
+const { getAllUsers, getUser, getUserAgendas, getUserEvents } = require('../services/users')
+const { User } = require("../database/models")
 const Sequelize = require("sequelize")
 
 const createSlug = async (name) => {
