@@ -15,7 +15,7 @@
           </div>
           <div class="info-data">
             <p class="info-legend">Id do usuário</p>
-            <p><%= agenda.extendedProps.userId %></p>
+            <p><%= agenda.userId %></p>
           </div>
           <div class="info-data">
             <p class="info-legend">Nome da agenda</p>
@@ -46,7 +46,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <% for(let business of agenda.businessHours) { %>
+                  <% for(let business of businessHours) { %>
                     <% for(let day of business.daysOfWeek) { %>
                       <tr>
                         <td>
@@ -87,11 +87,11 @@
           </div>
           <div class="info-data">
             <p class="info-legend">Data de criação</p>
-            <p><%= agenda.extendedProps.createdAt %></p>
+            <p><%= agenda.createdAt %></p>
           </div>
           <div class="info-data">
             <p class="info-legend">Data de modificação</p>
-            <p><%= agenda.extendedProps.modifiedAt %></p>
+            <p><%= agenda.updatedAt %></p>
           </div>
         </div>
       </div>

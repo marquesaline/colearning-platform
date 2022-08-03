@@ -3,7 +3,7 @@ const get = require("../utils/get");
 const set = require("../utils/set");
 const { getAllUsers, getUser, getUserAgendas, getUserEvents } = require('../services/users')
 const { User } = require("../database/models")
-const { getAllAgendas, getAgenda, getEventsAgendas } = require('../services/agendas')
+const { getAllAgendas, getAgenda, getEventsAgendas, getBusinessHours } = require('../services/agendas')
 const { Agenda } = require("../database/models")
 const { getAllEvents, getEvent } = require('../services/events')
 const { Event } = require("../database/models")
@@ -76,8 +76,9 @@ controller.createAgenda = async (req, res) => {
 } 
 
 controller.showAgenda = async (req, res) => {
-    const agenda = await get.byId(get.agendas, req.params.id)
-    const businessHours = JSON.stringify(agenda.businessHours)
+    const { id } = req.params
+    const agenda = await getAgenda(id)
+    const businessHours = await getBusinessHours(id)
     
     res.render("admin/agenda", {
         title: "Agenda",

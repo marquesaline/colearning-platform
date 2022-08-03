@@ -14,6 +14,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'userId',
         as: 'user'
       })
+      Agenda.hasMany(models.BusinessHours, {
+        as: 'businessHours'
+      })
       Agenda.hasMany(models.Event, {
         as: 'events'
       })
