@@ -197,8 +197,6 @@ controller.adminAddEvent = async(req, res) => {
     })
 }
 controller.createEvent = async (req, res) => {
-    const events = await get.events
-    const id = await get.nextById(events)
     const {
         userId,
         agendaId,
@@ -209,37 +207,30 @@ controller.createEvent = async (req, res) => {
         telefoneAluno, 
         description,               
         created_at,
-        modified_at
+        updated_at
     } = req.body;    
-    const user = await get.byId(get.users, userId)
-    const agenda = await get.byId(get.agendas, agendaId)
-    //função pra checar se o usuário existe antes de criar a agenda
-    if(user == undefined || agenda == undefined) {
-        //tratar esse erro
-        res.redirect("error")
-    } else {
-        
-        const extendedProps = await get.extendedEvents(
-            user.id, agenda.id, emailAluno, telefoneAluno, 
-            description, created_at, modified_at)
-        const endTime = await get.endTime(start, startTime, agenda.duration)
-        const newEvent = {
-            id,
-            extendedProps,
-            title,
-            start,
-            end: start,
-            startTime,
-            endTime: endTime,
-            allDay: false,
+    const agenda = await getAgenda(agendaId)
+    const endTime = await get.endTime(start, startTime, agenda.duration)
+    await Event.create({
+        userId,
+        agendaId,
+        title,
+        start,
+        end: start,
+        startTime,
+        endTime: endTime,
+        emailAluno,
+        telefoneAluno,
+        description,
+        allDay: false,
+        createdAt: created_at,
+        updatedAt: updated_at
                 
-        };
-        events.push(newEvent)
-        set.events(events)
-        res.redirect("/sucesso")
-        }
+    });
+    res.redirect("/admin/agendamentos")
+}
     
-} 
+
 
 controller.showEvent = async (req, res) => {
     const { id } = req.params
@@ -299,18 +290,20 @@ controller.updateEvent = async (req, res) =>{
 }
 
 controller.excludeEvent = async(req, res) => {
-    const event = await get.byId(get.events, req.params.id)
+    const { id } = req.params
+    const event = await getEvent(id)
     res.render("admin/agendamento-excluir", {
         title:"Excluir agendamento",
         event
     })
 }
 controller.deleteEvent = async (req, res) => {
-    const events = await get.events.filter(
-        (event) => event.id != req.params.id
-    )
-    set.events(events)
-    res.redirect("/sucesso")
+    const { id } = req.params
+    await Event.destroy({
+        where: { id }
+    })
+  
+    res.redirect("/admin/agendamentos")
 }
     
 

@@ -106,7 +106,8 @@ const controller = {
   },
 
   exclude: async (req, res) => {
-    const user = await get.byId(get.users, req.params.id)
+    const { id } = req.params
+    const user = await getUser(id)
     res.render("admin/usuario-excluir", {
       title: `Excluir Usuário ${req.params.id}`,
       user
