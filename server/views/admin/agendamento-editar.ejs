@@ -13,11 +13,11 @@
     >
         <div class="conteiners-form">
             <label class="form-label" for="userId">Id do usuário</label>
-            <input type="number" name="userId" id="userId" value="<%= event.extendedProps.userId %>" required>
+            <input type="number" name="userId" id="userId" value="<%= event.userId %>" required>
         </div>
         <div class="conteiners-form">
             <label class="form-label" for="agendaId">Id da agenda</label>
-            <input type="number" name="agendaId" id="agendaId" value="<%= event.extendedProps.agendaId %>" required>
+            <input type="number" name="agendaId" id="agendaId" value="<%= event.agendaId %>" required>
         </div>
         <div class="conteiners-form">
             <label class="form-label" for="title">Nome do aluno</label>
@@ -25,11 +25,11 @@
         </div>
         <div class="conteiners-form">
             <label class="form-label" for="emailAluno">Email do aluno</label>
-            <input type="email" name="emailAluno" id="emailAluno" value="<%= event.extendedProps.emailAluno %>">
+            <input type="email" name="emailAluno" id="emailAluno" value="<%= event.emailAluno %>">
         </div>
         <div class="conteiners-form">
             <label class="form-label" for="telefoneAluno">Telefone do aluno</label>
-            <input type="tel" name="telefoneAluno" id="telefoneAluno" value="<%= event.extendedProps.telefoneAluno %>">
+            <input type="tel" name="telefoneAluno" id="telefoneAluno" value="<%= event.telefoneAluno %>">
         </div>
         <div class="conteiners-form">
             <label class="form-label" for="start">Data</label>
@@ -41,12 +41,12 @@
         </div>
         <div class="conteiners-form">
             <label class="form-label" for="description">Descrição</label>
-            <textarea name="description" id="description" value="<%= event.extendedProps.description %>"></textarea>
+            <textarea name="description" id="description" value="<%= event.description %>"></textarea>
         </div>
         
         <div>
-            <input type="hidden" name="created_at" value="<%= event.extendedProps.createdAt %>">
-            <input type="hidden" name="modified_at" value="<%= new Date() %>">
+            <input type="hidden" name="created_at" value="<%= event.createdAt %>">
+            <input type="hidden" name="updated_at" value="<%= new Date() %>">
         </div>
     
         <div class="btn-options">

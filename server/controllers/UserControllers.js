@@ -142,9 +142,7 @@ const controller = {
     })
   },
   showUserEvents: async (req, res) => {
-    const {
-      id
-    } = req.params
+    const { id } = req.params
     const user = await getUser(id)
     const events = await getUserEvents(id)
     res.render("admin/usuario-agendamentos", {

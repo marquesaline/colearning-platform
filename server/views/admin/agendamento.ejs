@@ -14,11 +14,11 @@
                 </div>
                 <div class="info-data">
                     <p class="info-legend">Id do usuário</p>
-                    <p><%= event.extendedProps.userId%></p>
+                    <p><%= event.userId%></p>
                 </div>
                 <div class="info-data">
                     <p class="info-legend">Id da agenda</p>
-                    <p><%= event.extendedProps.agendaId%></p>
+                    <p><%= event.agendaId%></p>
                 </div>
                 <div class="info-data">
                     <p class="info-legend">Nome do aluno</p>
@@ -26,11 +26,11 @@
                 </div>
                 <div class="info-data">
                     <p class="info-legend">Email do aluno</p>
-                    <p><%= event.extendedProps.emailAluno %></p>
+                    <p><%= event.emailAluno %></p>
                 </div>
                 <div class="info-data">
                     <p class="info-legend">Telefone do aluno</p>
-                    <p><%= event.extendedProps.telefoneAluno %></p>
+                    <p><%= event.telefoneAluno %></p>
                 </div>
                 <div class="info-data">
                     <p class="info-legend">Data</p>
@@ -46,19 +46,19 @@
                 </div>
                 <div class="info-data">
                     <p class="info-legend">Descrição</p>
-                    <p><%= event.extendedProps.description %></p>
+                    <p><%= event.description %></p>
                 </div>
                 <div class="info-data">
                     <p class="info-legend">Data de criação</p>
-                    <p><%= event.extendedProps.createdAt %></p>
+                    <p><%= event.createdAt %></p>
                 </div>
                 <div class="info-data">
                     <p class="info-legend">Data de modificação</p>
-                    <p><%= event.extendedProps.modifiedAt %></p>
+                    <p><%= event.updatedAt %></p>
                 </div>
             </div>
             <div class="btn-options">
-                <a class="um-user btn-default" href="/admin/agendamentos/<%= event.id %>/editar">Editar</a> 
+                <a class="um-user btn-default" href="/admin/agendamentos/<%= event.id %>/editar">Editar</a> |
                 <a class="um-user btn-delete" href="/admin/agendamentos/<%= event.id %>/excluir">Excluir</a>
             </div>
             

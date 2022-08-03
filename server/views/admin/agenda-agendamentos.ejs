@@ -3,13 +3,12 @@
 
 <div class="app-content">
     <div class="app-content-header">
-      <h1 class="app-content-headerText">Agendamentos</h1>
+      <h1 class="app-content-headerText">Agendamentos de <%= agenda.title %></h1>
       
       <a href="/admin/agendamentos/add" class="a-user btn-default"> Adicionar Agendamento</a>
     </div>
     <div class="app-content-actions">
-      <input class="search-bar" placeholder="Search..." type="text">
-      
+        <input hidden class="search-bar" placeholder="Search..." type="text">
     </div>
     <% if (locals.events) {%>
       <table>

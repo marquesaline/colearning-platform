@@ -81,7 +81,15 @@ get.extendedEditEvents = async(userId, agendaId, email, telefone, description, c
     return extendedProps
 }
 
+get.time = async (timeArray) => {
+    let time = []
+    for(i = 0; i < timeArray.length; i++) {
+        if(timeArray[i] != '') {
+            time.push(timeArray[i])
+        } 
+    }
 
+}
 
 get.businessHours = async (daysOfWeek, startTime, endTime) => {
     let businessHours = []

@@ -28,6 +28,8 @@ router.get("/agendas/add", controllerAdmin.adminAddAgenda)
 router.post("/agendas/add", controllerAdmin.createAgenda)
 
 router.get("/agendas/:id", controllerAdmin.showAgenda)
+router.get("/agendas/:id/agendamentos", controllerAdmin.showAgendaEvents)
+
 
 router.get("/agendas/:id/editar", controllerAdmin.editAgenda)
 router.put("/agendas/:id/editar", controllerAdmin.updateAgenda)
