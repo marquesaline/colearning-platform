@@ -1,14 +1,14 @@
-<%- include('partials/account-header.ejs') %>
+<%- include('../partials/account-header.ejs') %>
 
 <main class="main-flex">
-    <%- include('partials/myAccount-container.ejs') %>
+    <%- include('../partials/myAccount-container.ejs') %>
     <section class="section-main sec-info">
         <h1 class="account-title">Informações da sua conta</h1>
         <div class="container-info">
             <div>
                 <h2>Dados Gerais</h2>
                 <div>
-                    <img id="img-avatar" src="/images/avatar-exemple2.jpg">
+                    <img id="img-avatar" src="/images/avatar-exemple.png" width="130px">
                 </div>
                 <div class="info-data"> 
                     <p>Nome</p>
@@ -27,7 +27,24 @@
                         Editar
                     </a>
                 </div>
-                
+            </div>
+            <div class="container-link">
+                <h2>Dados de Agendamento</h2>
+                <div class="info-data"> 
+                    <p>Link para agenda</p>
+                    <p>
+                        <a href="/agendamento/<%=user.urlAgendamento%>">
+                            <%=user.urlAgendamento%>
+                        </a>
+                    </p>
+                </div>
+                <div>
+                    <p class="container-del-text">
+                        Atenção: o link é criado com base no nome do usuário, 
+                        por isso, ao alterar seu nome o link também será modificado. 
+                    </p>
+                </div>
+            </div>
             <div class="container-delete">
                 <h2>Excluir conta</h2>
                 <div class="container-del-text">

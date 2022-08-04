@@ -1,0 +1,47 @@
+<%- include('../partials/account-header.ejs') %>
+
+
+<main class="main-flex">
+    <%- include('../partials/myAccount-container.ejs') %>
+    <section class="section-main sec-info">
+        <h1 class="account-title">Informações da sua conta</h1>
+        <div class="container-info">
+            <div class="container-edit">
+                <form 
+                action="/conta/<%=user.id%>/minha-conta/editar?_method=put"
+                 method="POST">
+                    <h2>Dados Gerais</h2>
+
+                    <div class="info-edit">
+                        <label for="avatar">Imagen de perfil</label>
+                        <input type="file" name="avatar" id="avatar">
+                    </div>
+
+                    <div class="info-edit"> 
+                        <label for="nome">Nome</label>
+                        <input class="input-account" type="text" name="nome" id="nome" value="<%=user.nome%>" required>
+                    </div>
+
+                    <div class="info-edit"> 
+                        <label for="email">Email</label>
+                        <input class="input-account" type="email" name="email" id="email" value="<%=user.email%>">
+                    </div>
+
+                    <div class="info-edit">
+                        <label for="password">Senha</label>
+                        <input class="input-account" type="password" name="senha" id="senha" value="<%=user.senha%>">
+                    </div>
+                    <div>
+                        <input type="hidden" name="created_at" value="<%= user.createdAt %>">
+                        <input type="hidden" name="updated_at" value="<%= new Date() %>">
+                      </div>
+                    <div class="container-btn">
+                       <button class="button-edit btn-default">Salvar</button>
+                    </div>
+                </form>
+            </div>    
+        </div>
+    </section>
+</main>
+</body>
+</html>

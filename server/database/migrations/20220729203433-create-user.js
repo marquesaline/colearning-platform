@@ -23,6 +23,9 @@ module.exports = {
       admin: {
         type: Sequelize.BOOLEAN
       },
+      urlAgendamento: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         type: Sequelize.DATE
       },

@@ -4,7 +4,6 @@ const get = require("../utils/get")
 const set = require("../utils/set")
 
 
-
 const getEventsByAgendaId = async(id) => 
     await get.events.filter((event) => event.extendedProps.agendaId == id)
 
