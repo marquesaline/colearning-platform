@@ -24,15 +24,12 @@ controller.calendar = async (req, res) => {
     events = JSON.stringify(events)
     const agendas = await getUserAgendas(id)
     const user = await getUser(id)
-    
     res.render('areaLogada/calendario',  {
         title: 'Calendário',
         agendas,
         user,
         events        
     })
-    
-    
 }
 
 controller.addAgenda = async (req, res) => res.render('criar-agenda', {

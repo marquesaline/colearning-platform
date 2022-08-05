@@ -22,6 +22,7 @@ controller.agendas = async (req, res) => {
         agendas,
         userId
     })
+    
 }
 controller.showAgenda = async (req, res) => {
     const { slug } = req.params

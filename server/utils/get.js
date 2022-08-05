@@ -30,8 +30,14 @@ get.datesMoment = async(dateTo) => {
 get.createdEvent = async(events) => {
     const eventos = []
     events.map(evento => {
+        
         eventos.push({
             id: evento.id,
+            title: evento.title,
+            allDay: evento.allDay,
+            start: moment(`${evento.start}T${evento.startTime}`).format(),
+            end: moment(`${evento.end}T${evento.endTime}`).format(),
+            
             extendedProps: {
                 userId: evento.userId,
                 agendaId: evento.agendaId,
@@ -40,15 +46,11 @@ get.createdEvent = async(events) => {
                 createdAt: evento.createdAt,
                 updatedAt: evento.updatedAt
             },
-            title: evento.title,
-            allDay: evento.allDay,
-            start: evento.start,
-            end: evento.end,
-            startTime: evento.startTime,
-            endTime: evento.endTime
+           
             
         })
     })
+    console.log(eventos)
     return eventos
 }
 
