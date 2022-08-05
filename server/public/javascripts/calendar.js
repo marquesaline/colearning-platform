@@ -42,7 +42,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // <!-- Calendário da parte principal -->
 document.addEventListener('DOMContentLoaded', function () {
     var eventsToShow = document.getElementById('events').value
-    console.log(eventsToShow)
+    var eventsArray = JSON.parse(eventsToShow)
+   
     var calendarEl = document.getElementById('calendar-main');
     var calendarMain = new FullCalendar.Calendar(calendarEl, {
       
@@ -81,12 +82,12 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       
       
-      events: {eventsToShow}
+      events: eventsArray
         
       
     });
     calendarMain.render();
-   
+    
     
   
   });

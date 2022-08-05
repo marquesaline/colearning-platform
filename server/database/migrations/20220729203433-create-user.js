@@ -20,6 +20,9 @@ module.exports = {
       senha: {
         type: Sequelize.STRING
       },
+      avatar: {
+        type: Sequelize.BLOB
+      },
       admin: {
         type: Sequelize.BOOLEAN
       },

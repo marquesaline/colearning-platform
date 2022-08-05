@@ -5,7 +5,7 @@
         <div id="contents-side" class="container-calendar">
         <div>
             <div class="container-button">
-            <a href="/conta/<%=user.id%>/criar-agenda" id="agenda-submit">Criar agenda</a>
+            <a href="/conta/<%= user.id%>/criar-agenda" id="agenda-submit">Criar agenda</a>
             </div>
             <div class="container-table-month">
             <div id='calendar'></div>
@@ -17,18 +17,15 @@
             <ul>
                 
                 <% for(let agenda of agendas) { %>
-                    <% if(agenda.extendedProps.userId == user.id) { %>
-                        <li>
+                    <li>
                             <%= agenda.title %>
-                            <a href="/conta/<%=user.id%>/<%=agenda.id%>/editar-agenda">
-                                <img src="/images/icon-edit2.png" height="15px" width="15px">
-                            </a>
-                            <a href="/conta/<%=user.id%>/<%=agenda.id%>/apagar-agenda">
-                                <img src="/images/icon-delete2.png" height="15px" width="15px">
-                            </a>
-                        </li>
-                    
-                    <% } %> 
+                        <a href="/conta/<%=user.id%>/<%=agenda.id%>/editar-agenda">
+                            <img src="/images/icon-edit2.png" height="15px" width="15px">
+                        </a>
+                        <a href="/conta/<%=user.id%>/<%=agenda.id%>/apagar-agenda">
+                            <img src="/images/icon-delete2.png" height="15px" width="15px">
+                        </a>
+                    </li>
                 <% } %> 
             </ul>
             </div>

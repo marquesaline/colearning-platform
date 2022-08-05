@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const controllerAgendas = require('../controllers/AgendaController')
+const controllerEvents = require('../controllers/EventsController')
 
 
-router.get('/:slug', controllerAgendas.agendas)
-router.get('/:slug/:id', controllerAgendas.showAgenda)
+router.get('/:slug', controllerEvents.agendas)
+router.get('/:slug/:id', controllerEvents.showAgenda)
 
-router.post('/:slug/:id', controllerAgendas.createEvent)
+router.post('/:slug/:id', controllerEvents.createEvent)
 
 module.exports = router
