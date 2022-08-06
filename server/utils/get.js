@@ -37,11 +37,11 @@ get.createdEvent = async(events) => {
             allDay: evento.allDay,
             start: moment(`${evento.start}T${evento.startTime}`).format(),
             end: moment(`${evento.end}T${evento.endTime}`).format(),
-            
             extendedProps: {
                 userId: evento.userId,
                 agendaId: evento.agendaId,
                 emailAluno: evento.emailAluno,
+                telefoneAluno: evento.telefoneAluno,
                 description: evento.description,
                 createdAt: evento.createdAt,
                 updatedAt: evento.updatedAt
@@ -50,7 +50,6 @@ get.createdEvent = async(events) => {
             
         })
     })
-    console.log(eventos)
     return eventos
 }
 

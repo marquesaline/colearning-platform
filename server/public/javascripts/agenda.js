@@ -2,12 +2,12 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // variáveis pra guardar os valores e usar no calendário
-    var start = document.getElementById('agenda-start').value
     var end = document.getElementById('agenda-end').value
     var businessHours = document.getElementById('businessHours').value
     console.log(businessHours)
     var events = document.getElementById('events').value
    
+    //modal pra agendar
     var modal = document.getElementById("myModal")
     var span = document.getElementsByClassName("close")[0];
     window.onclick = function(event) {
@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
     span.onclick = function() {
         modal.style.display = "none";
     }
-    // data atual no input de agendamento 
 
     //calendário de exibição pra agendamento
     var calendarEl = document.getElementById('calendar');
@@ -44,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var date = new Date(now)
             return date
         },
-        select: function(start, end, jsEvent, view) {
+        select: function(start) {
             var dateSelect = start.start
             var startInput = document.getElementById('start')
             
@@ -63,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         },
         businessHours: {businessHours},
-        
     
         views: {
             dayGridMonth: { // name of view
@@ -71,13 +69,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 year: 'numeric',
                 month: 'long'
             },
-    
             // other view-specific options here
             }
         }
-    
-    
-    
     });
     calendar.render();
 
