@@ -18,10 +18,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   BusinessHours.init({
-    agendaID: DataTypes.INTEGER,
+    agendaId: DataTypes.INTEGER,
     daysOfWeek: DataTypes.STRING,
     startTime: DataTypes.STRING,
-    endTime: DataTypes.STRING
+    endTime: DataTypes.STRING,
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'BusinessHours',

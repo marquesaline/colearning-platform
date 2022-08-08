@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "root",
-    "password": "minhasenha",
-    "database": "colearning",
-    "host": "127.0.0.1",
+    "username": "VElVgt0Fd7",
+    "password": "PUh4e1Y7VO",
+    "database": "VElVgt0Fd7",
+    "host": "remotemysql.com",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "minhasenha",
-    "database": "colearnin",
-    "host": "127.0.0.1",
+    "username": "VElVgt0Fd7",
+    "password": "PUh4e1Y7VO",
+    "database": "VElVgt0Fd7",
+    "host": "remotemysql.com",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "minhasenha",
-    "database": "colearning",
-    "host": "127.0.0.1",
+    "username": "VElVgt0Fd7",
+    "password": "PUh4e1Y7VO",
+    "database": "VElVgt0Fd7",
+    "host": "remotemysql.com",
     "dialect": "mysql"
   }
 }

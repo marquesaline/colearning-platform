@@ -9,7 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       agendaID: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'agendas',
+          key: 'id'
+        }
       },
       daysOfWeek: {
         type: Sequelize.STRING
