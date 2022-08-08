@@ -27,8 +27,8 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     url: DataTypes.STRING,
     duration: DataTypes.STRING,
-    start: DataTypes.STRING,
-    end: DataTypes.STRING,
+    start: DataTypes.DATE,
+    end: DataTypes.DATE,
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE
   }, {

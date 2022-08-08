@@ -1,17 +1,37 @@
 const controller = {}
-const helper = require('../utils/helper')
-const fs = require("fs");
-const path = require("path");
-const get = require("../utils/get");
+
+const get = require("../utils/get")
 const set = require("../utils/set")
+const { getAllUsers, getUser, getUserAgendas, getUserEvents } = require('../services/users')
+const { User } = require("../database/models")
+const { getAllAgendas, getAgenda, getEventsAgendas, getBusinessHours } = require('../services/agendas')
+const { Agenda } = require("../database/models")
+const { BusinessHours } = require("../database/models")
+const { getAllEvents, getEvent } = require('../services/events')
+const { Event } = require("../database/models")
 
-
+const Sequelize = require("sequelize")
 
 const getEventsByAgendaId = async(id) => 
     await get.events.filter((event) => event.extendedProps.agendaId == id)
 
 
 //Controllers Agenda 
+controller.calendar = async (req, res) => {
+    const { id } = req.params
+    const eventsJson = await getUserEvents(id)
+    let events = await get.createdEvent(eventsJson)
+    events = JSON.stringify(events)
+    const agendas = await getUserAgendas(id)
+    const user = await getUser(id)
+    res.render('areaLogada/calendario',  {
+        title: 'Calendário',
+        agendas,
+        user,
+        events        
+    })
+}
+
 controller.addAgenda = async (req, res) => res.render('criar-agenda', {
     title: 'Criar Agenda',
     agendas: await get.agendas,
@@ -21,7 +41,7 @@ controller.editAgenda = async (req, res) => {
     const agenda = await get.byId(get.agendas, req.params.agendaId)
     const agendas = await get.agendas
     const user = await get.byId(get.users, req.params.userId)
-    res.render('editar-agenda', {
+    res.render('areaLogada/editar-agenda', {
         title: `Editar ${agenda.title}`,
         user,
         agenda, 
@@ -33,7 +53,7 @@ controller.removeAgenda = async (req, res) => {
     const agenda = await get.byId(get.agendas, req.params.agendaId)
     const agendas = await get.agendas
     const user = await get.byId(get.users, req.params.userId)
-    res.render('excluir-agenda', {
+    res.render('areaLogada/excluir-agenda', {
         title: `Excluir ${agenda.title}`,
         user,
         agenda, 
@@ -116,72 +136,5 @@ controller.deleteAgenda = async (req, res) => {
     set.agendas(agendas);
     res.redirect('/sucesso')
 }
-//Controllers de agendamentos
-controller.agendas = async (req, res) => {
-    const user = await get.slug(get.users, req.params.slug)
-    const userId = user.id
-    const agendas = await get.agendas
-    res.render("agendamento/agendas",  {
-        title: `Agendas - ${user.nome}`,
-        user,
-        agendas,
-        userId
-    })
-}
-controller.showAgenda = async (req, res) => {
-    const user = await get.slug(get.users, req.params.slug)
-    const userId = user.id
-    const agenda = await get.byId(get.agendas, req.params.id)
-    const businessHours = JSON.stringify(agenda.businessHours)
-    let events = await getEventsByAgendaId(req.params.id)
-    events = JSON.stringify(events)
-    res.render("agendamento/agenda", {
-        title: `${agenda.title} - ${user.nome}`,
-        agenda,
-        user,
-        userId,
-        businessHours,
-        events
-        
-    })
-}
-//Controllers de manipulação do JSON de Eventos
-controller.createEvent = async (req, res) => {
-    const events = await get.events
-    const id = await get.nextById(events)
-    const user = await get.slug(get.users, req.params.slug)
-    const agenda = await get.byId(get.agendas, req.params.id)
-    
-    const {
-        title,
-        start, 
-        startTime,
-        email,
-        telefone,
-        description
-
-    } = req.body
-    const extendedProps = await get.extendedEvents(user.id, agenda.id, email, telefone, description)
-    const endTime = await get.endTime(start, startTime, agenda.duration)
-    const newEvent = {
-        id,
-        extendedProps,
-        title, 
-        start,
-        end: start,
-        allDay: false, 
-        startTime,
-        endTime
-
-
-    }
-    events.push(newEvent)
-    set.events(events)
-    res.redirect('/sucesso')
-        
-}
-
-
-
 
 module.exports = controller

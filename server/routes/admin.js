@@ -1,25 +1,23 @@
-var express = require("express");
-const controllerUsers = require("../controllers/UserControllers");
+var express = require("express")
 const controllerAdmin = require("../controllers/AdminController")
-var router = express.Router();
+var router = express.Router()
 
-router.get("/", controllerAdmin.index); /*elton   peguei o index do controllerUsers */
+router.get("/", controllerAdmin.index) /*elton   peguei o index do controllerUsers */
 
 // admin dos usuários
-router.get("/usuarios", controllerUsers.users);
-router.get("/usuarios/:id/agendas", controllerUsers.showUserAgendas)
-router.get("/usuarios/:id/agendamentos", controllerUsers.showUserEvents)
-router.get("/sucesso", controllerUsers.sucess);
+router.get("/usuarios", controllerAdmin.users)
+router.get("/usuarios/:id/agendas", controllerAdmin.showUserAgendas)
+router.get("/usuarios/:id/agendamentos", controllerAdmin.showUserEvents)
 
-router.get("/usuarios/add", controllerUsers.add);
-router.post("/usuarios/add", controllerUsers.create);
+router.get("/usuarios/add", controllerAdmin.addUser)
+router.post("/usuarios/add", controllerAdmin.createUser)
 
-router.get("/usuarios/:id/editar", controllerUsers.edit);
-router.put("/usuarios/:id/editar", controllerUsers.update);
+router.get("/usuarios/:id/editar", controllerAdmin.editUser)
+router.put("/usuarios/:id/editar", controllerAdmin.updateUser)
 
-router.get("/usuarios/:id/excluir", controllerUsers.exclude);
-router.delete("/usuarios/:id/excluir", controllerUsers.delete); /*elton   acessando o id da turma do controllerUsers*/
-router.get("/usuarios/:id", controllerUsers.show);
+router.get("/usuarios/:id/excluir", controllerAdmin.excludeUser)
+router.delete("/usuarios/:id/excluir", controllerAdmin.deleteUser) /*elton   acessando o id da turma do controllerAdmin*/
+router.get("/usuarios/:id", controllerAdmin.showUser)
 
 // admin das agendas
 router.get("/agendas", controllerAdmin.adminAgendas)
@@ -51,4 +49,4 @@ router.put("/agendamentos/:id/editar", controllerAdmin.updateEvent)
 router.get("/agendamentos/:id/excluir", controllerAdmin.excludeEvent)
 router.delete("/agendamentos/:id/excluir", controllerAdmin.deleteEvent)
 
-module.exports = router;
+module.exports = router

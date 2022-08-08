@@ -10,7 +10,12 @@ const { getAllEvents, getEvent } = require('../services/events')
 const { Event } = require("../database/models")
 
 const Sequelize = require("sequelize")
-
+const createSlug = async (name) => {
+    let slug = await name.toLowerCase().replace(/ /g, '-')
+      .replace(/[^\w-]+/g, '');
+    return slug
+  }
+  
 controller.index = async (req, res) => {
     const users = await getAllUsers()
     const agendas = await getAllAgendas()
@@ -22,6 +27,137 @@ controller.index = async (req, res) => {
         events
    });
 },
+
+//Admin usuários
+
+controller.users = async (req, res) => {
+    const users = await getAllUsers();
+    res.render(`admin/usuarios`, {
+      title: "Usuários",
+      users,
+    });
+},
+
+controller.addUser = async (req, res) => {
+    res.render(`admin/usuario-adicionar`, {
+      title: req.path == "/cadastro" ? `Cadastro` : `Adicionar Usuário`,
+    });
+},
+
+controller.createUser = async (req, res) => {
+    const {
+      nome,
+      email,
+      senha,
+      avatar,
+      admin,
+      created_at,
+      updated_at
+    } = req.body;
+
+    const slug = await createSlug(nome)
+
+    await User.create({
+      nome,
+      senha,
+      email,
+      slug,
+      avatar: avatar || null,
+      admin: !!admin,
+      createdAt: created_at,
+      updatedAt: updated_at
+    });
+    res.redirect("/admin/usuarios");
+},
+
+controller.editUser = async (req, res) => {
+    const { id } = req.params
+    const user = await getUser(id)
+    res.render(`admin/usuario-editar`, {
+      title: `Editar Usuário ${req.params.nome}`,
+      user,
+    });
+},
+
+controller.updateUser = async (req, res) => {
+    const { id } = req.params
+    const {
+      nome,
+      slug,
+      email,
+      senha,
+      avatar,
+      admin,
+      created_at,
+      updated_at
+    } = req.body;
+
+    await User.update(
+    {
+      nome: nome,
+      slug: slug,
+      email: email,
+      senha: senha,
+      avatar: avatar || null,
+      admin: !!admin,
+      createdAt: created_at,
+      updatedAt: updated_at
+    }, 
+    {
+      where: {id}
+    })  
+    res.redirect(`/admin/usuarios`);
+},
+
+controller.excludeUser = async (req, res) => {
+    const { id } = req.params
+    const user = await getUser(id)
+    res.render("admin/usuario-excluir", {
+      title: `Excluir Usuário ${req.params.id}`,
+      user
+    });
+},
+
+controller.deleteUser = async (req, res) => {
+    const { id } = req.params
+    await User.destroy({
+      where: { id }
+    })
+    res.redirect(`/admin/usuarios`);
+},
+
+controller.showUser = async (req, res) => {
+    const { id } = req.params
+    const user = await getUser(id)
+    res.render("admin/usuario", {
+      title: `Usuário`,
+      user
+    });
+},
+controller.showUserAgendas = async (req, res) => {
+    const {
+      id
+    } = req.params
+    const user = await getUser(id)
+    const agendas = await getUserAgendas(id)
+    res.render("admin/usuario-agendas", {
+      title: `Agendas - ${ user.nome }`,
+      user,
+      agendas
+    })
+},
+controller.showUserEvents = async (req, res) => {
+    const { id } = req.params
+    const user = await getUser(id)
+    const events = await getUserEvents(id)
+    res.render("admin/usuario-agendamentos", {
+      title: `Agendamentos - ${ user.nome }`,
+      user,
+      events
+    })
+}
+
+
 
 //Admin agendas
 
@@ -55,7 +191,7 @@ controller.createAgenda = async (req, res) => {
     } = req.body;
     console.log(userId)
     
-    await Agenda.create({
+    const resposta = await Agenda.create({
         userId,
         title,
         url,
@@ -66,12 +202,16 @@ controller.createAgenda = async (req, res) => {
         updatedAt: updated_at
                 
     })
+    console.log(resposta)
     let start_time = get.time(startTime)
     let end_time = get.time(endTime)
+    console.log(daysOfWeek)
+    console.log(start_time)
+   
     for(i = 0; i <= daysOfWeek.length; i++) {
         await BusinessHours.create(
             {
-                agendaID: id,
+                agendaID: resposta.id,
                 daysOfWeek: daysOfWeek[i],
                 startTime: start_time[i],
                 endTime: end_time[i],

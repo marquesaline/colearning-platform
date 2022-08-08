@@ -4,6 +4,7 @@ const helper = require("./helper")
 const get = {}
 
 const moment = require('moment')
+const { start } = require("repl")
 moment.locale('pt-br')
 
 get.agendas = JSON.parse(helper.read("agenda.json"))
@@ -26,6 +27,33 @@ get.datesMoment = async(dateTo) => {
     return date
 }
 //funções específicas das agendas e agendamentos
+get.createdEvent = async(events) => {
+    const eventos = []
+    events.map(evento => {
+        
+        eventos.push({
+            id: evento.id,
+            title: evento.title,
+            allDay: evento.allDay,
+            start: moment(`${evento.start}T${evento.startTime}`).format(),
+            end: moment(`${evento.end}T${evento.endTime}`).format(),
+            extendedProps: {
+                userId: evento.userId,
+                agendaId: evento.agendaId,
+                emailAluno: evento.emailAluno,
+                telefoneAluno: evento.telefoneAluno,
+                description: evento.description,
+                createdAt: evento.createdAt,
+                updatedAt: evento.updatedAt
+            },
+           
+            
+        })
+    })
+    return eventos
+}
+
+    
 get.extendedCreatAgendas = async(userId, created_at, modified_at) => {
     let created = moment(created_at).format("DD-MM-YYYY HH:MM")
     let modified = moment(modified_at).format("DD-MM-YYYY HH:MM")
@@ -81,13 +109,14 @@ get.extendedEditEvents = async(userId, agendaId, email, telefone, description, c
     return extendedProps
 }
 
-get.time = async (timeArray) => {
+get.time = (timeArray) => {
     let time = []
     for(i = 0; i < timeArray.length; i++) {
         if(timeArray[i] != '') {
             time.push(timeArray[i])
         } 
     }
+    return time
 
 }
 

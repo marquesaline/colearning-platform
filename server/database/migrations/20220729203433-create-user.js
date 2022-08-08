@@ -20,13 +20,19 @@ module.exports = {
       senha: {
         type: Sequelize.STRING
       },
+      avatar: {
+        type: Sequelize.BLOB
+      },
       admin: {
         type: Sequelize.BOOLEAN
+      },
+      urlAgendamento: {
+        type: Sequelize.STRING
       },
       createdAt: {
         type: Sequelize.DATE
       },
-      updateadAt: {
+      updatedAt: {
         type: Sequelize.DATE
       }
     });

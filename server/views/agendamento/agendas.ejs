@@ -9,7 +9,7 @@
                 <div class="div-agendas">
                     <% if(locals.agendas) { %>
                         <% for(let agenda of agendas) { %>
-                            <% if(agenda.extendedProps.userId == user.id) { %>
+                            <% if(agenda.userId == user.id) { %>
                                 <div class="div-cards">
                                     <div class="card-header">
                                         <h2 class="card-title"><%= agenda.title %></h2>

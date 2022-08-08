@@ -1,5 +1,4 @@
 
-
 //<!-- Calendário do container lateral -->
 document.addEventListener('DOMContentLoaded', function () {
   var calendarEl = document.getElementById('calendar');
@@ -42,7 +41,19 @@ document.addEventListener('DOMContentLoaded', function () {
 // <!-- Calendário da parte principal -->
 document.addEventListener('DOMContentLoaded', function () {
     var eventsToShow = document.getElementById('events').value
-    console.log(eventsToShow)
+    var eventsArray = JSON.parse(eventsToShow)
+    
+    var modal = document.getElementById("myModal")
+    var span = document.getElementsByClassName("close")[0];
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
     var calendarEl = document.getElementById('calendar-main');
     var calendarMain = new FullCalendar.Calendar(calendarEl, {
       
@@ -80,14 +91,42 @@ document.addEventListener('DOMContentLoaded', function () {
         next: '>'
       },
       
-      
-      events: {eventsToShow}
+      events: eventsArray,
+
+      eventClick: function(info) {
+        console.log(info)
+        getInfo(info)
+        modal.style.display = "block"
+
         
+      }
       
     });
     calendarMain.render();
-   
-    
-  
   });
 
+
+//funções 
+
+function getInfo(info) {
+  var nameStudant = document.getElementById('name-studant')
+  var emailStudant = document.getElementById('email-studant')
+  var telStudant = document.getElementById('tel-studant')
+  var dateEvent = document.getElementById('date-event')
+  var timeEvent = document.getElementById('time-event')
+  var description = document.getElementById('description')
+
+  var date = info.event.start
+  var hours = date.getHours()
+  var minutes = date.getMinutes()
+  
+
+  return [
+    nameStudant.innerHTML = `Nome do aluno: ${info.event.title}`,
+    emailStudant.innerHTML = `Email do aluno: ${info.event.extendedProps.emailAluno}`,
+    telStudant.innerHTML = `Telefone do aluno: ${info.event.extendedProps.telefoneAluno}`,
+    dateEvent.innerHTML = `Data: ${date.toLocaleDateString('pt-br')}`,
+    timeEvent.innerHTML = `Horário: ${hours}:${minutes}`,
+    description.innerHTML = `Assunto: ${info.event.extendedProps.description}`
+  ]
+}
