@@ -1,0 +1,55 @@
+<%- include('../partials/account-header.ejs') %>
+
+<main class="main-calendar">
+   
+    <%- include('../partials/container-side.ejs') %>
+
+    <section class="section-agenda">
+        <h1 class="agenda-title"><%= agenda.title %> </h1>
+        <div>
+            <input hidden id="agenda-start" value="<%= agenda.start%>">
+            <input hidden id="agenda-end" value="<%= agenda.end%>">
+            <input hidden id="businessHours" value="<%= businessHours %>">
+            <input hidden id="events" value="<%= events %>">
+        </div>
+    
+        <div class="container-events">
+            <div id='calendar-agenda'></div>
+        </div>
+        <div id="myModal" class="modal" style="display: none;">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Agendamento</h2>
+                <div>
+                    <div>
+                        <h3>Informações do agendamento</h3>
+                        <p id="date-event"></p>
+                        <p id="time-event"></p>
+                        <p id="url-event"></p>
+                        <p id="description"></p>
+                    </div>
+                    <div>
+                        <h3>Informações do aluno</h3>
+                        <p id="name-studant"></p>
+                        <p id="email-studant"></p>
+                        <p id="tel-studant"></p>
+                    </div>                
+                </div>
+            </div>
+        </div>          
+    </section>      
+</main>
+<script>
+    $(document).ready(function(){
+        $('#telefone').mask('(00) 00000-0000');
+        
+    });
+</script>
+
+<script type="text/javascript" src="/javascripts/agenda.js"></script>
+
+</main>
+</body>
+</html>

@@ -24,6 +24,7 @@
 
 a {
     text-decoration: none;
+    color: var(--font-color);
 }
 
 
@@ -67,10 +68,14 @@ padrão em todas as telas, menos a de calendário */
     flex-direction: column;
     width: 18%;
     min-width: 305px;
-    height: 1116px;
+    height: 100vh;
     align-items: center;
     justify-items: flex-start;
     
+}
+.container-agendas li {
+    display: flex;
+    justify-content: space-between;
 }
 /* botão mobile pra o container lateral */
 .container-btn-mobile {

@@ -26,9 +26,10 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER,
     title: DataTypes.STRING,
     url: DataTypes.STRING,
-    duration: DataTypes.STRING,
+    duration: DataTypes.TIME,
     start: DataTypes.DATE,
     end: DataTypes.DATE,
+    backgroundColor: DataTypes.STRING,
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE
   }, {

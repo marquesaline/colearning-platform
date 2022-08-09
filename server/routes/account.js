@@ -4,6 +4,7 @@ const controllerUser = require('../controllers/UserControllers')
 const controllerAgenda = require('../controllers/AgendaController')
 
 router.get('/:id', controllerAgenda.calendar)
+router.get('/:id/:agendaId', controllerAgenda.agenda)
 
 router.get('/:id/minha-conta', controllerUser.showAccount)
 router.get('/:id/minha-conta/editar',controllerUser.editAccount)

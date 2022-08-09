@@ -57,28 +57,28 @@
                 </thead>
                 <tbody>
                   <% for(let business of businessHours) { %>
-                    <% for(let day of business.daysOfWeek) { %>
+                   
                       <tr>
                         <td>
-                          <%if (day == 0) { %>
+                          <%if (business.daysOfWeek == 0) { %>
                               Domingo
                           <% } %> 
-                          <%if (day == 1) { %>
+                          <%if (business.daysOfWeek == 1) { %>
                             Segunda-feira
                           <% } %> 
-                          <%if (day == 2) { %>
+                          <%if (business.daysOfWeek == 2) { %>
                             Terça-feira
                           <% } %>
-                          <%if (day == 3) { %>
+                          <%if (business.daysOfWeek == 3) { %>
                             Quarta-feira
                           <% } %>
-                          <%if (day == 4) { %>
+                          <%if (business.daysOfWeek == 4) { %>
                             Quinta-feira
                           <% } %>
-                          <%if (day == 5) { %>
+                          <%if (business.daysOfWeek == 5) { %>
                             Sexta-feira
                           <% } %>
-                          <%if (day == 6) { %>
+                          <%if (business.daysOfWeek == 6) { %>
                             Sábado
                           <% } %>
                         </td>
@@ -88,7 +88,7 @@
                           <%= business.endTime %> 
                         </td>
                       </tr>
-                    <% } %> 
+                    
                     
                   <% } %> 
                 </tbody>

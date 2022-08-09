@@ -8,20 +8,13 @@ const { getAllAgendas, getAgenda, getEventsAgendas, getBusinessHours } = require
 const { Agenda } = require("../database/models")
 const { BusinessHours } = require("../database/models")
 const { getAllEvents, getEvent } = require('../services/events')
-const { Event } = require("../database/models")
-
-const Sequelize = require("sequelize")
-
-const getEventsByAgendaId = async(id) => 
-    await get.events.filter((event) => event.extendedProps.agendaId == id)
 
 
 //Controllers Agenda 
 controller.calendar = async (req, res) => {
     const { id } = req.params
-    const eventsJson = await getUserEvents(id)
-    let events = await get.createdEvent(eventsJson)
-    events = JSON.stringify(events)
+    const events = await get.createdEvent(await getUserEvents(id))
+  
     const agendas = await getUserAgendas(id)
     const user = await getUser(id)
     res.render('areaLogada/calendario',  {
@@ -31,12 +24,31 @@ controller.calendar = async (req, res) => {
         events        
     })
 }
+controller.agenda = async (req, res) => {
+    const { id, agendaId } = req.params
+    const agendas = await getUserAgendas(id)
+    const agenda = await getAgenda(agendaId)
+    const user = await getUser(id)
+    const businessHours = await get.createdBusinessHours(await getBusinessHours(agendaId))
+    const events = await get.createdEvent(await getEventsAgendas(agendaId))    
+    res.render('areaLogada/agenda', {
+        title: `Agenda`,
+        agenda,
+        agendas,
+        user,
+        businessHours,
+        events
+    })
+}
 
-controller.addAgenda = async (req, res) => res.render('criar-agenda', {
+controller.addAgenda = async (req, res) => {
+    const { id } = req.params
+    res.render('criar-agenda', {
     title: 'Criar Agenda',
-    agendas: await get.agendas,
-    user: await get.byId(get.users, req.params.userId)
-}),
+    agendas: await getUserAgendas(id),
+    user: await getUser(id)
+    })
+},
 controller.editAgenda = async (req, res) => {
     const agenda = await get.byId(get.agendas, req.params.agendaId)
     const agendas = await get.agendas

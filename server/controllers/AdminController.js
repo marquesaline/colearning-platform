@@ -202,12 +202,9 @@ controller.createAgenda = async (req, res) => {
         updatedAt: updated_at
                 
     })
-    console.log(resposta)
     let start_time = get.time(startTime)
     let end_time = get.time(endTime)
-    console.log(daysOfWeek)
-    console.log(start_time)
-   
+    
     for(i = 0; i <= daysOfWeek.length; i++) {
         await BusinessHours.create(
             {
@@ -229,8 +226,9 @@ controller.createAgenda = async (req, res) => {
 controller.showAgenda = async (req, res) => {
     const { id } = req.params
     const agenda = await getAgenda(id)
-    const businessHours = await getBusinessHours(id)
-    
+    const business = await getBusinessHours(id)
+    let businessHours = await get.createdBusinessHours(business)
+    businessHours = JSON.parse(businessHours)
     res.render("admin/agenda", {
         title: "Agenda",
         agenda,

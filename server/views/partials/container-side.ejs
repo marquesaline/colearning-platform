@@ -2,33 +2,39 @@
     <button id="btn-menu-mobile"></button>
 </section>
 <section class="container-side" id="container-side">
-    <div id="contents-side">
+    <div id="contents-side" class="container-calendar">
+    <div>
         <div class="container-button">
-            <a class="btn-default btn-side" href="/conta/<%=user.id%>" type="button" title="Acessar calendário">Calendário</a>
+        <a href="/conta/<%= user.id%>/criar-agenda" id="agenda-submit">Criar agenda</a>
         </div>
-        <div class="container-agendas">
-            <p>Minhas Agendas</p>
-            <div class="agendas-list">
-                <ul> 
-                    <ul>
-                        <% for(let agenda of agendas) { %>
-                            <% if(agenda.extendedProps.userId  == user.id) { %>
-                                <li>
-                                    <%= agenda.title %>
-                                    <a href="/conta/<%=user.id%>/<%=agenda.id%>/editar-agenda">
-                                        <img src="/images/icon-edit2.png" height="15px" width="15px">
-                                    </a>
-                                    <a href="/conta/<%=user.id%>/<%=agenda.id%>/apagar-agenda">
-                                        <img src="/images/icon-delete2.png" height="15px" width="15px">
-                                    </a>
-                                </li>
-                            
-                            <% } %> 
-                        
-                        <% } %> 
-                    </ul>
-                </ul>
-            </div>
+        <div class="container-table-month">
+        <div id='calendar'></div>
         </div>
+    </div>
+    <div class="container-agendas">
+        <p>Minhas Agendas</p>
+        <div class="agendas-list">
+        <ul>
+            
+            <% for(let agenda of agendas) { %>
+                <li>
+                    <div>
+                        <a href="/conta/<%=user.id%>/<%=agenda.id%>">
+                            <%=agenda.title%>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="/conta/<%=user.id%>/<%=agenda.id%>/editar-agenda">
+                            <img src="/images/icon-edit2.png" height="15px" width="15px">
+                        </a>
+                        <a href="/conta/<%=user.id%>/<%=agenda.id%>/apagar-agenda">
+                            <img src="/images/icon-delete2.png" height="15px" width="15px">
+                        </a>
+                    </div>
+                </li>
+            <% } %> 
+        </ul>
+        </div>
+    </div>
     </div>
 </section>

@@ -4,7 +4,7 @@ const helper = require("./helper")
 const get = {}
 
 const moment = require('moment')
-const { start } = require("repl")
+
 moment.locale('pt-br')
 
 get.agendas = JSON.parse(helper.read("agenda.json"))
@@ -29,6 +29,7 @@ get.datesMoment = async(dateTo) => {
 //funções específicas das agendas e agendamentos
 get.createdEvent = async(events) => {
     const eventos = []
+    console.log(events)
     events.map(evento => {
         
         eventos.push({
@@ -37,6 +38,8 @@ get.createdEvent = async(events) => {
             allDay: evento.allDay,
             start: moment(`${evento.start}T${evento.startTime}`).format(),
             end: moment(`${evento.end}T${evento.endTime}`).format(),
+            backgroundColor: evento.backgroundColor,
+            url: evento.url,
             extendedProps: {
                 userId: evento.userId,
                 agendaId: evento.agendaId,
@@ -50,9 +53,20 @@ get.createdEvent = async(events) => {
             
         })
     })
-    return eventos
+    return JSON.stringify(eventos)
 }
-
+get.createdBusinessHours = async(horarios) => {
+    const businessHours = []
+    horarios.map(horario => {
+        businessHours.push({
+            daysOfWeek: horario.daysOfWeek,
+            startTime: horario.startTime,
+            endTime: horario.endTime
+        })
+    })
+    
+    return JSON.stringify(businessHours)
+}
     
 get.extendedCreatAgendas = async(userId, created_at, modified_at) => {
     let created = moment(created_at).format("DD-MM-YYYY HH:MM")
@@ -154,6 +168,17 @@ get.endTime = async(start, startTime, duration) => {
     endTime = moment(dateTime).add(time).format("HH:mm")
     
     return endTime
+}
+
+get.createColor =async() => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    
+    return color;
 }
 
 module.exports = get
