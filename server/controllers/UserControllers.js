@@ -2,6 +2,7 @@
 const { getAllUsers, getUser, getUserAgendas, getUserEvents } = require('../services/users')
 const { User } = require("../database/models")
 const { validationResult } = require('express-validator')
+const bcrypt  = require('bcrypt')
 
 const createSlug = async (name) => {
   let slug = await name.toLowerCase().replace(/ /g, '-')
@@ -40,12 +41,12 @@ controller.create = async (req, res) => {
       created_at,
       updated_at
     } = req.body;
-
+    let senhaCripto = bcrypt.hashSync(senha, 3)
     const slug = await createSlug(nome)
     const urlAgendamento = await url(slug)
     await User.create({
       nome,
-      senha,
+      senha: senhaCripto,
       email,
       slug,
       avatar: avatar || null,
