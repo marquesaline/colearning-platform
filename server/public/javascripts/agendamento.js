@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // variáveis pra guardar os valores e usar no calendário
     var end = document.getElementById('agenda-end').value
     var businessHours = document.getElementById('businessHours').value
-    console.log(businessHours)
     var events = document.getElementById('events').value
    
     //modal pra agendar

@@ -6,17 +6,29 @@
             <div class="form-title">
                 <p>Cadastrar uma conta</p>
             </div>
-            <form class="form" action="/cadastro" method="POST" 
-                
-                >
+            <form class="form" method="post" action="/cadastro" >
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" placeholder="Exemplo" required>
+                <input type="text" name="nome" id="nome" 
+                placeholder="José da Silva" 
+                value="<%= locals.oldData ? oldData.name : null %>" required>
+
+                <% if(locals.errors && errors.nome) { %> 
+                    <div><%=errors.nome.msg%></div>
+                <% } %>
 
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="exemplo@exemplo.com" required>
 
+                <% if(locals.errors && errors.email) { %> 
+                    <div><%=errors.email.msg%></div>
+                <% } %>
+
                 <label for="senha">Senha</label>
                 <input type="password" name="senha" id="senha" placeholder="*******" required>
+
+                <% if(locals.errors && errors.senha) { %> 
+                    <div><%=errors.senha.msg%></div>
+                <% } %>
                 
                 <div>
                     <input type="hidden" name="created_at" value="<%= new Date() %>">

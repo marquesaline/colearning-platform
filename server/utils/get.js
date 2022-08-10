@@ -29,7 +29,7 @@ get.datesMoment = async(dateTo) => {
 //funções específicas das agendas e agendamentos
 get.createdEvent = async(events) => {
     const eventos = []
-    console.log(events)
+
     events.map(evento => {
         
         eventos.push({
@@ -81,7 +81,6 @@ get.extendedCreatAgendas = async(userId, created_at, modified_at) => {
 
 get.extendedEditAgendas = async(userId, created_at, modified_at) => {
     
-    console.log(created_at)
     let modified = moment(modified_at).format("DD-MM-YYYY")
     
     let extendedProps = {

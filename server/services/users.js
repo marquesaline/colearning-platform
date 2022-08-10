@@ -27,6 +27,14 @@ usersServices.getUser = async (id) => {
   })
   return user
 }
+usersServices.getUserByEmail = async(email) => {
+  const user = await User.findOne({
+    where: {
+      email
+    }
+  })
+  return user
+}
 usersServices.getUserSlug = async(slug) => {
   const user = await User.findOne({
     where: {

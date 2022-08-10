@@ -189,7 +189,6 @@ controller.createAgenda = async (req, res) => {
         created_at,
         updated_at
     } = req.body;
-    console.log(userId)
     
     const resposta = await Agenda.create({
         userId,

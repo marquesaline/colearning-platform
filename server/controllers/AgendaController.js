@@ -5,9 +5,6 @@ const set = require("../utils/set")
 const { getAllUsers, getUser, getUserAgendas, getUserEvents } = require('../services/users')
 const { User } = require("../database/models")
 const { getAllAgendas, getAgenda, getEventsAgendas, getBusinessHours } = require('../services/agendas')
-const { Agenda } = require("../database/models")
-const { BusinessHours } = require("../database/models")
-const { getAllEvents, getEvent } = require('../services/events')
 
 
 //Controllers Agenda 
@@ -43,10 +40,12 @@ controller.agenda = async (req, res) => {
 
 controller.addAgenda = async (req, res) => {
     const { id } = req.params
-    res.render('criar-agenda', {
-    title: 'Criar Agenda',
-    agendas: await getUserAgendas(id),
-    user: await getUser(id)
+    const agendas = await getUserAgendas(id)
+    const user = await getUser(id)
+    res.render('areaLogada/criar-agenda', {
+        title: 'Criar Agenda',
+        agendas,
+        user
     })
 },
 controller.editAgenda = async (req, res) => {

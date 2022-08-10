@@ -1,9 +1,7 @@
-const get = require("../utils/get")
-const set = require("../utils/set")
+
 const { getAllUsers, getUser, getUserAgendas, getUserEvents } = require('../services/users')
 const { User } = require("../database/models")
-const Sequelize = require("sequelize")
-const { slug } = require("../utils/get")
+const { validationResult } = require('express-validator')
 
 const createSlug = async (name) => {
   let slug = await name.toLowerCase().replace(/ /g, '-')
@@ -21,6 +19,18 @@ const controller = {}
   
   //sendo usado pra o cadastro do usuário
 controller.create = async (req, res) => {
+    //validação dos campos
+    const resultValidations = validationResult(req)
+
+    if(resultValidations.errors.length > 0 ) {
+      
+      return res.render('cadastro', {
+        title: 'Cadastro - CoLearning',
+        errors: resultValidations.mapped(),
+        oldData: req.body
+      })
+    } 
+
     const {
       nome,
       email,
@@ -43,8 +53,8 @@ controller.create = async (req, res) => {
       urlAgendamento,
       createdAt: created_at,
       updatedAt: updated_at
-    });
-    res.redirect("/login");
+    })
+    res.redirect("/login")
   },
 
 controller.editAccount = async (req, res) => {
@@ -66,11 +76,10 @@ controller.updateAccount = async (req, res) => {
       created_at,
       updated_at
     } = req.body;
-    console.log(nome)
+ 
     const user = await getUser(id)
     const slug = await createSlug(nome)
-    const urlAgendamento = await url(slug)
-    console.log(slug)
+   
     await User.update(
     {
       nome,

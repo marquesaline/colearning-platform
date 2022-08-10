@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 const controllerIndex = require('../controllers/IndexController')
 const controllerUser = require('../controllers/UserControllers')
-
+const validator = require('../middlewares/validadeRegister')
 
 router.get('/', controllerIndex.index)
 
 router.get('/contato', controllerIndex.contact)
-router.post('/cadastro', controllerUser.create)
+router.post('/cadastro', validator, controllerUser.create)
 
 router.get('/cadastro', controllerIndex.register)
 
