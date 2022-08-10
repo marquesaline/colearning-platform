@@ -1,5 +1,5 @@
 
-const { getAllUsers, getUser, getUserAgendas, getUserEvents } = require('../services/users')
+const { getAllUsers, getUser, getUserAgendas, getUserEvents, getUserByEmail } = require('../services/users')
 const { User } = require("../database/models")
 const { validationResult } = require('express-validator')
 const bcrypt  = require('bcrypt')
@@ -41,9 +41,26 @@ controller.create = async (req, res) => {
       created_at,
       updated_at
     } = req.body;
+    
+    //conferir se já existe um email
+    let emailExists = await getUserByEmail(email)
+    if(emailExists) {
+      res.render('cadastro', {
+        title: 'Cadastro - CoLearning',
+        errors: {
+          email: {
+            msg: 'Este email já está cadastrado'
+          }
+        },
+        oldData: req.body
+      })
+    } 
+
+    //criptografia da senha
     let senhaCripto = bcrypt.hashSync(senha, 3)
     const slug = await createSlug(nome)
     const urlAgendamento = await url(slug)
+
     await User.create({
       nome,
       senha: senhaCripto,
