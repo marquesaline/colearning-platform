@@ -10,9 +10,9 @@ router.get('/', controllerIndex.index)
 router.get('/contato', controllerIndex.contact)
 router.post('/cadastro', validator, controllerUser.create)
 
-router.get('/cadastro', loggedUser, controllerIndex.register)
+router.get('/cadastro', loggedUser.isLogged, controllerIndex.register)
 
-router.get('/login', loggedUser, controllerIndex.login)
+router.get('/login', loggedUser.isLogged, controllerIndex.login)
 router.post('/login', controllerUser.loginProcess)
 
 router.get('/sobre', controllerIndex.about)
