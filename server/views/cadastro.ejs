@@ -13,21 +13,21 @@
                 value="<%= locals.oldData ? oldData.name : null %>" required>
 
                 <% if(locals.errors && errors.nome) { %> 
-                    <div><%=errors.nome.msg%></div>
+                    <p style="color: red;"><%=errors.nome.msg%></p>
                 <% } %>
 
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="exemplo@exemplo.com" required>
 
                 <% if(locals.errors && errors.email) { %> 
-                    <div><%=errors.email.msg%></div>
+                    <p style="color: red;"><%=errors.email.msg%></p>
                 <% } %>
 
                 <label for="senha">Senha</label>
                 <input type="password" name="senha" id="senha" placeholder="*******" required>
 
                 <% if(locals.errors && errors.senha) { %> 
-                    <div><%=errors.senha.msg%></div>
+                    <p style="color: red;"><%=errors.senha.msg%></p>
                 <% } %>
                 
                 <div>

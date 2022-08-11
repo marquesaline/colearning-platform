@@ -176,30 +176,13 @@ controller.adminAddAgenda = async (req, res) => {
     })
 }
 controller.createAgenda = async (req, res) => {
-    const {
-        userId,
-        title,
-        url,
-        duration,
-        start,
-        end,
-        daysOfWeek,
-        startTime,
-        endTime,
-        created_at,
-        updated_at
-    } = req.body;
+    const { userId, title, url, duration, start,
+        end, daysOfWeek, startTime, endTime,
+        created_at, updated_at } = req.body;
     
-    const resposta = await Agenda.create({
-        userId,
-        title,
-        url,
-        duration,
-        start,
-        end,
-        createdAt: created_at,
-        updatedAt: updated_at
-                
+    const response = await Agenda.create({
+        userId, title, url, duration, start,
+        end, createdAt: created_at, updatedAt: updated_at        
     })
     let start_time = get.time(startTime)
     let end_time = get.time(endTime)
@@ -207,7 +190,7 @@ controller.createAgenda = async (req, res) => {
     for(i = 0; i <= daysOfWeek.length; i++) {
         await BusinessHours.create(
             {
-                agendaID: resposta.id,
+                agendaID: response.id,
                 daysOfWeek: daysOfWeek[i],
                 startTime: start_time[i],
                 endTime: end_time[i],
@@ -216,10 +199,8 @@ controller.createAgenda = async (req, res) => {
             },
             
         )
-    }
-    
+    }  
     res.redirect("/admin/agendas")
-    
 } 
 
 controller.showAgenda = async (req, res) => {
@@ -272,7 +253,7 @@ controller.updateAgenda = async (req, res) =>{
                 startTime,
                 endTime,
                 created_at,
-                modified_at
+                updated_at
             } =req.body
             
             const user = get.byId(get.users, userId)
@@ -280,7 +261,7 @@ controller.updateAgenda = async (req, res) =>{
                 res.redirect("error")
             } else {
                 const businessHours = await get.businessHours(daysOfWeek, startTime, endTime)
-                const extendedProps = await get.extendedEditAgendas(userId, created_at, modified_at)
+                const extendedProps = await get.extendedEditAgendas(userId, created_at, updated_at)
                 return {
                     id: agenda.id,
                     extendedProps,

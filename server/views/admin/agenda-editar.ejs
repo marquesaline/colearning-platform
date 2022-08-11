@@ -8,8 +8,9 @@
   
     <form
       class="form-user"
+      method="post"
       action="/admin/agendas/<%=agenda.id%>/editar?_method=put"
-      method="POST"
+      
     >
     <div class="conteiners-form">
         <label class="form-label" for="userId">Id do usuário</label>
@@ -141,7 +142,6 @@
 
       
       <div class="btn-options">
-        <input type="hidden" name="modifed_at" value="<%= new Date() %>" />
         <button class="button-edit btn-default">Salvar</button>
       </div>
       </form>
