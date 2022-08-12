@@ -6,7 +6,6 @@ const validator = require('../middlewares/validadeRegister')
 const loggedUser = require('../middlewares/loggedUser')
 
 router.get('/', loggedUser.isNotLogged, controllerAgenda.calendar)
-router.get('/:agendaId',  loggedUser.isNotLogged, controllerAgenda.agenda)
 
 router.get('/minha-conta',  loggedUser.isNotLogged, controllerUser.showAccount) //dando erro
 router.get('/minha-conta/editar',  loggedUser.isNotLogged, controllerUser.editAccount)
@@ -21,7 +20,9 @@ router.put('/:agendaId/editar-agenda', controllerAgenda.updateAgenda)
 router.get('/:id/:agendaId/apagar-agenda',  loggedUser.isNotLogged, controllerAgenda.removeAgenda)
 router.delete('/:id/:agendaId/apagar-agenda', controllerAgenda.deleteAgenda)
 
+router.get('/sair',  loggedUser.isNotLogged, controllerUser.logout)
 
-router.get('/logout',  loggedUser.isNotLogged, controllerUser.logout)
+router.get('/:agendaId',  loggedUser.isNotLogged, controllerAgenda.agenda)
+
 
 module.exports = router;

@@ -1,5 +1,5 @@
 
-const { getAllUsers, getUser, getUserAgendas, getUserEvents, getUserByEmail } = require('../services/users')
+const { getUser, getUserAgendas, getUserEvents, getUserByEmail } = require('../services/users')
 const { User } = require("../database/models")
 const { validationResult } = require('express-validator')
 const bcrypt  = require('bcrypt')

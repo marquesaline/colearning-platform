@@ -9,12 +9,21 @@ const { BusinessHours } = require("../database/models")
 const { getAllEvents, getEvent } = require('../services/events')
 const { Event } = require("../database/models")
 
-const Sequelize = require("sequelize")
+
 const createSlug = async (name) => {
-    let slug = await name.toLowerCase().replace(/ /g, '-')
-      .replace(/[^\w-]+/g, '');
+    let slug = await name.toLowerCase()
+        .replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '')
+        .replace(/[àÀáÁâÂãäÄÅåª]+/g, 'a')       
+        .replace(/[èÈéÉêÊëË]+/g, 'e')       	
+        .replace(/[ìÌíÍîÎïÏ]+/g, 'i')       	
+        .replace(/[òÒóÓôÔõÕöÖº]+/g, 'o')       	
+        .replace(/[ùÙúÚûÛüÜ]+/g, 'u')       	
+        .replace(/[ýÝÿŸ]+/g, 'y')       		
+        .replace(/[ñÑ]+/g, 'n')       			
+        .replace(/[çÇ]+/g, 'c')       		
     return slug
-  }
+}
   
 controller.index = async (req, res) => {
     const users = await getAllUsers()
@@ -29,7 +38,6 @@ controller.index = async (req, res) => {
 },
 
 //Admin usuários
-
 controller.users = async (req, res) => {
     const users = await getAllUsers();
     res.render(`admin/usuarios`, {
@@ -45,15 +53,7 @@ controller.addUser = async (req, res) => {
 },
 
 controller.createUser = async (req, res) => {
-    const {
-      nome,
-      email,
-      senha,
-      avatar,
-      admin,
-      created_at,
-      updated_at
-    } = req.body;
+    const { nome, email, senha, avatar, admin, created_at, updated_at } = req.body;
 
     const slug = await createSlug(nome)
 
@@ -81,15 +81,9 @@ controller.editUser = async (req, res) => {
 
 controller.updateUser = async (req, res) => {
     const { id } = req.params
-    const {
-      nome,
-      slug,
-      email,
-      senha,
-      avatar,
-      admin,
-      created_at,
-      updated_at
+    const { 
+        nome, slug, email, senha, avatar, admin, 
+        created_at, updated_at 
     } = req.body;
 
     await User.update(
@@ -113,7 +107,7 @@ controller.excludeUser = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
     res.render("admin/usuario-excluir", {
-      title: `Excluir Usuário ${req.params.id}`,
+      title: `Excluir Usuário ${user.nome}`,
       user
     });
 },
@@ -135,9 +129,7 @@ controller.showUser = async (req, res) => {
     });
 },
 controller.showUserAgendas = async (req, res) => {
-    const {
-      id
-    } = req.params
+    const { id } = req.params
     const user = await getUser(id)
     const agendas = await getUserAgendas(id)
     res.render("admin/usuario-agendas", {
@@ -157,10 +149,7 @@ controller.showUserEvents = async (req, res) => {
     })
 }
 
-
-
 //Admin agendas
-
 controller.adminAgendas = async (req, res) => {
     const agendas = await getAllAgendas()
     res.render("admin/agendas", {
@@ -176,9 +165,11 @@ controller.adminAddAgenda = async (req, res) => {
     })
 }
 controller.createAgenda = async (req, res) => {
-    const { userId, title, url, duration, start,
-        end, daysOfWeek, startTime, endTime,
-        created_at, updated_at } = req.body;
+    const { 
+        userId, title, url, duration, 
+        start, end, daysOfWeek, startTime, 
+        endTime, created_at, updated_at 
+    } = req.body;
     
     const response = await Agenda.create({
         userId, title, url, duration, start,
@@ -206,8 +197,7 @@ controller.createAgenda = async (req, res) => {
 controller.showAgenda = async (req, res) => {
     const { id } = req.params
     const agenda = await getAgenda(id)
-    const business = await getBusinessHours(id)
-    let businessHours = await get.createdBusinessHours(business)
+    let businessHours = await get.createdBusinessHours(await getBusinessHours(id))
     businessHours = JSON.parse(businessHours)
     res.render("admin/agenda", {
         title: "Agenda",
@@ -229,8 +219,9 @@ controller.showAgendaEvents = async (req, res) => {
 }
 
 controller.editAgenda = async (req, res) => {
-    const agenda = await get.byId(get.agendas, req.params.id)
-    const businessHours = JSON.stringify(agenda.businessHours)
+    const { id } = req.params
+    const agenda = await getAgenda(id)
+    const businessHours = await get.createdBusinessHours(await getBusinessHours(id))
 
     res.render("admin/agenda-editar", {
         title: `Editar agenda`,
@@ -239,64 +230,53 @@ controller.editAgenda = async (req, res) => {
     })
 }
 controller.updateAgenda = async (req, res) =>{
-    let agendas = await get.agendas
-    agendas = agendas.map(async (agenda) => {
-        if(agenda.id == req.params.id) {
-            const {
-                userId,
-                title,
-                url,
-                duration, 
-                start,
-                end, 
-                daysOfWeek,
-                startTime,
-                endTime,
-                created_at,
-                updated_at
-            } =req.body
+    const { id } = req.params
+    const {
+        userId, title, url, duration, start,
+        end, daysOfWeek, startTime, endTime, 
+        created_at, updated_at
+    } =req.body
             
-            const user = get.byId(get.users, userId)
-            if(user == undefined) {
-                res.redirect("error")
-            } else {
-                const businessHours = await get.businessHours(daysOfWeek, startTime, endTime)
-                const extendedProps = await get.extendedEditAgendas(userId, created_at, updated_at)
-                return {
-                    id: agenda.id,
-                    extendedProps,
-                    title,
-                    url,
-                    duration, 
-                    start,
-                    end, 
-                    businessHours
-                    
-                }
-            }
-            
-        } else {
-            return agenda
-        }
-    })
-    agendas = await Promise.all(agendas)
-    set.agendas(agendas)
-    res.redirect('/sucesso')
+    await Agenda.update({
+        userId, title, url, duration, start, end, 
+        createdAt: created_at, 
+        updatedAt: updated_at
+    }, { where: { id }})
+
+    let start_time = get.time(startTime)
+    let end_time = get.time(endTime)
+
+    await BusinessHours.destroy({ where: {agendaId: id}})
+    for(i = 0; i < daysOfWeek.length; i++) {
+        
+        await BusinessHours.create(
+            {
+                agendaId: id,
+                daysOfWeek: daysOfWeek[i],
+                startTime: start_time[i],
+                endTime: end_time[i],
+                createdAt: created_at,
+                updatedAt: updated_at
+            }   
+        )
+    }
+    res.redirect(`/admin/agendas/${id}`)
 }
 
 controller.excludeAgenda = async(req, res) => {
-    const agenda = await get.byId(get.agendas, req.params.id)
+    const { id } = req.params
+    const agenda = await getAgenda(id)
     res.render("admin/agenda-excluir", {
         title:"Excluir agenda",
         agenda
     })
 }
 controller.deleteAgenda = async (req, res) => {
-    const agendas = await get.agendas.filter(
-        (agenda) => agenda.id != req.params.id
-    )
-    set.agendas(agendas)
-    res.redirect("/sucesso")
+    const { id } = req.params
+    await Agenda.destroy({
+        where: { id }
+    })
+    res.redirect("/admin/agendas")
 }
 
 //Admin agendamentos
