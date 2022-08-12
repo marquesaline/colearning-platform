@@ -1,5 +1,5 @@
 const controller = {}
-const get = require("../utils/get")
+const create = require("../utils/create")
 const { getAllUsers, getUser, getUserAgendas, getUserEvents } = require('../services/users')
 const { User } = require("../database/models")
 const { getAllAgendas, getAgenda, getEventsAgendas, getBusinessHours } = require('../services/agendas')
@@ -9,21 +9,6 @@ const { getAllEvents, getEvent } = require('../services/events')
 const { Event } = require("../database/models")
 
 
-const createSlug = async (name) => {
-    let slug = await name.toLowerCase()
-        .replace(/ /g, '-')
-        .replace(/[^\w-]+/g, '')
-        .replace(/[àÀáÁâÂãäÄÅåª]+/g, 'a')       
-        .replace(/[èÈéÉêÊëË]+/g, 'e')       	
-        .replace(/[ìÌíÍîÎïÏ]+/g, 'i')       	
-        .replace(/[òÒóÓôÔõÕöÖº]+/g, 'o')       	
-        .replace(/[ùÙúÚûÛüÜ]+/g, 'u')       	
-        .replace(/[ýÝÿŸ]+/g, 'y')       		
-        .replace(/[ñÑ]+/g, 'n')       			
-        .replace(/[çÇ]+/g, 'c')       		
-    return slug
-}
-  
 controller.index = async (req, res) => {
     const users = await getAllUsers()
     const agendas = await getAllAgendas()
@@ -54,7 +39,7 @@ controller.addUser = async (req, res) => {
 controller.createUser = async (req, res) => {
     const { nome, email, senha, avatar, admin, created_at, updated_at } = req.body;
 
-    const slug = await createSlug(nome)
+    const slug = await create.slug(nome)
 
     await User.create({
       nome,
@@ -174,8 +159,8 @@ controller.createAgenda = async (req, res) => {
         userId, title, url, duration, start,
         end, createdAt: created_at, updatedAt: updated_at        
     })
-    let start_time = get.time(startTime)
-    let end_time = get.time(endTime)
+    let start_time = create.time(startTime)
+    let end_time = create.time(endTime)
     
     for(i = 0; i <= daysOfWeek.length; i++) {
         await BusinessHours.create(
@@ -196,7 +181,7 @@ controller.createAgenda = async (req, res) => {
 controller.showAgenda = async (req, res) => {
     const { id } = req.params
     const agenda = await getAgenda(id)
-    let businessHours = await get.createdBusinessHours(await getBusinessHours(id))
+    let businessHours = await create.businessHours(await getBusinessHours(id))
     businessHours = JSON.parse(businessHours)
     res.render("admin/agenda", {
         title: "Agenda",
@@ -220,7 +205,7 @@ controller.showAgendaEvents = async (req, res) => {
 controller.editAgenda = async (req, res) => {
     const { id } = req.params
     const agenda = await getAgenda(id)
-    const businessHours = await get.createdBusinessHours(await getBusinessHours(id))
+    const businessHours = await create.businessHours(await getBusinessHours(id))
 
     res.render("admin/agenda-editar", {
         title: `Editar agenda`,
@@ -242,8 +227,8 @@ controller.updateAgenda = async (req, res) =>{
         updatedAt: updated_at
     }, { where: { id }})
 
-    let start_time = get.time(startTime)
-    let end_time = get.time(endTime)
+    let start_time = create.time(startTime)
+    let end_time = create.time(endTime)
 
     await BusinessHours.destroy({ where: {agendaId: id}})
     for(i = 0; i < daysOfWeek.length; i++) {
@@ -287,7 +272,7 @@ controller.adminEvents = async (req, res) => {
     })
 }
 controller.adminAddEvent = async(req, res) => {
-    const events = await get.events
+    const events = await getAllEvents()
     res.render("admin/agendamento-adicionar", {
         title: "Adicionar agendamento", 
         events
@@ -307,7 +292,7 @@ controller.createEvent = async (req, res) => {
         updated_at
     } = req.body;    
     const agenda = await getAgenda(agendaId)
-    const endTime = await get.endTime(start, startTime, agenda.duration)
+    const endTime = await create.endTime(start, startTime, agenda.duration)
     await Event.create({
         userId,
         agendaId,
@@ -363,7 +348,7 @@ controller.updateEvent = async (req, res) =>{
         updated_at
     } =req.body
     const agenda = await getAgenda(agendaId)
-    const endTime = await get.endTime(start, startTime, agenda.duration)
+    const endTime = await create.endTime(start, startTime, agenda.duration)
     await Event.update({
         userId,
         agendaId,

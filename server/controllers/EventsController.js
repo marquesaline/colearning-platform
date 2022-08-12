@@ -1,13 +1,8 @@
 const controller = {}
 
-const get = require("../utils/get")
-const set = require("../utils/set")
+const create = require("../utils/create")
 const { getUserSlug, getUserAgendas } = require('../services/users')
-const { User } = require("../database/models")
 const { getAgenda, getEventsAgendas, getBusinessHours } = require('../services/agendas')
-const { Agenda } = require("../database/models")
-const { BusinessHours } = require("../database/models")
-const { getAllEvents, getEvent } = require('../services/events')
 const { Event } = require("../database/models")
 
 
@@ -29,8 +24,8 @@ controller.showAgenda = async (req, res) => {
     const { id } = req.params
     const user = await getUserSlug(slug)
     const agenda = await getAgenda(id)
-    const businessHours = await get.createdBusinessHours(await getBusinessHours(id))  
-    const events = await get.createdEvent(await getEventsAgendas(id))   
+    const businessHours = await create.businessHours(await getBusinessHours(id))  
+    const events = await create.event(await getEventsAgendas(id))   
     res.render("agendamento/agenda", {
         title: `${agenda.title} - ${user.nome}`,
         agenda,
@@ -57,7 +52,7 @@ controller.createEvent = async (req, res) => {
     } = req.body
     
     
-    const endTime = await get.endTime(start, startTime, agenda.duration)
+    const endTime = await create.endTime(start, startTime, agenda.duration)
     await Event.create ({
         userId: user.id,
         agendaId: agenda.id,

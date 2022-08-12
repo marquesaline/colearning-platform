@@ -1,5 +1,5 @@
 const controller = {}
-const get = require("../utils/get")
+const create = require("../utils/create")
 const {  getUser, getUserAgendas, getUserEvents } = require('../services/users')
 const { getAgenda, getEventsAgendas, getBusinessHours } = require('../services/agendas')
 const { Agenda } = require("../database/models")
@@ -9,7 +9,7 @@ const { BusinessHours } = require("../database/models")
 //Controllers Agenda 
 controller.calendar = async (req, res) => {
     const userLogged = await req.session.userLogged
-    const events = await get.createdEvent(await getUserEvents(userLogged.id))
+    const events = await create.event(await getUserEvents(userLogged.id))
     const agendas = await getUserAgendas(userLogged.id)
     const user = await getUser(userLogged.id)
     res.render('areaLogada/calendario',  {
@@ -40,7 +40,7 @@ controller.createAgenda = async (req, res) => {
         created_at, updated_at 
     } = req.body;
    
-    const backgroundColor = await get.createColor()
+    const backgroundColor = await create.color()
     const response = await Agenda.create({
         userId, title, url, duration, 
         start, end, backgroundColor,
@@ -48,8 +48,8 @@ controller.createAgenda = async (req, res) => {
         updatedAt: updated_at
     })
 
-    let start_time = get.time(startTime)
-    let end_time = get.time(endTime)
+    let start_time = create.time(startTime)
+    let end_time = create.time(endTime)
 
     for(i = 0; i < daysOfWeek.length; i++) {
         await BusinessHours.create(
@@ -99,8 +99,8 @@ controller.updateAgenda = async (req, res) => {
     },
     { where: { id } })
    
-    let start_time = get.time(startTime)
-    let end_time = get.time(endTime)
+    let start_time = create.time(startTime)
+    let end_time = create.time(endTime)
 
     await BusinessHours.destroy({ where: {agendaId: id}})
 
@@ -149,8 +149,8 @@ controller.agenda = async (req, res) => {
     const agendas = await getUserAgendas(userLogged.id)
     const agenda = await getAgenda(agendaId)
     const user = await getUser(userLogged.id)
-    const businessHours = await get.createdBusinessHours(await getBusinessHours(agendaId))
-    const events = await get.createdEvent(await getEventsAgendas(agendaId))    
+    const businessHours = await create.businessHours(await getBusinessHours(agendaId))
+    const events = await create.event(await getEventsAgendas(agendaId))    
     res.render('areaLogada/agenda', {
         title: `Agenda`,
         agenda,

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var businessHours = document.getElementById('businessHours').value
    
     var events = document.getElementById('events').value
-   
+  
 
     //modal pra agendar
     var modal = document.getElementById("myModal")

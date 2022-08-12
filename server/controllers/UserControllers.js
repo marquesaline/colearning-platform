@@ -1,14 +1,10 @@
 
-const { getUser, getUserAgendas, getUserEvents, getUserByEmail } = require('../services/users')
-const { User } = require("../database/models")
+const { getUser, getUserAgendas, getUserByEmail } = require('../services/users')
+const { User } = require('../database/models')
 const { validationResult } = require('express-validator')
 const bcrypt  = require('bcrypt')
+const create = require('../utils/create')
 
-const createSlug = async (name) => {
-  let slug = await name.toLowerCase().replace(/ /g, '-')
-    .replace(/[^\w-]+/g, '')
-  return slug
-}
 // controller
 const controller = {}
   
@@ -70,7 +66,7 @@ controller.create = async (req, res) => {
     //criptografia da senha
     let senhaCripto = bcrypt.hashSync(senha, 3)
 
-    const slug = await createSlug(nome)
+    const slug = await create.slug(nome)
 
     await User.create({
       nome,
