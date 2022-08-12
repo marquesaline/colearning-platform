@@ -117,7 +117,14 @@
 }
 #calendar-agendamento .fc-col-header-cell {
     background-color: var(--background-button);
+    
+}
+#calendar-agendamento .fc-col-header-cell a {
     color: #FFF;
+}
+#calendar-agendamento .fc-scrollgrid-section-sticky {
+    position: relative;
+    z-index: 0;
 }
 .div-instruction {
     display: flex;
