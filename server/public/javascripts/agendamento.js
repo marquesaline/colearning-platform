@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var businessHours = document.getElementById('businessHours').value
    
     var events = document.getElementById('events').value
-  
+    
 
     //modal pra agendar
     var modal = document.getElementById("myModal")
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         businessHours: JSON.parse(businessHours),
         selectConstraint: "businessHours",
         slotMinTime: '06:00:00',
-
+        events: JSON.parse(events),
         views: {
             dayGridMonth: { // name of view
             titleFormat: {

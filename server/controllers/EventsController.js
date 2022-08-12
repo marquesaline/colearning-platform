@@ -25,7 +25,7 @@ controller.showAgenda = async (req, res) => {
     const user = await getUserSlug(slug)
     const agenda = await getAgenda(id)
     const businessHours = await create.businessHours(await getBusinessHours(id))  
-    const events = await create.event(await getEventsAgendas(id))   
+    const events = await create.eventScretInfo(await getEventsAgendas(id))   
     res.render("agendamento/agenda", {
         title: `${agenda.title} - ${user.nome}`,
         agenda,

@@ -47,6 +47,35 @@ create.event = async(events) => {
     })
     return JSON.stringify(eventos)
 }
+
+create.eventScretInfo= async (events) => {
+    const eventos = []
+
+    events.map(evento => {
+        
+        eventos.push({
+            id: evento.id,
+            title: 'Horário indisponível',
+            allDay: evento.allDay,
+            start: moment(`${evento.start}T${evento.startTime}`).format(),
+            end: moment(`${evento.end}T${evento.endTime}`).format(),
+            backgroundColor: evento.backgroundColor,
+            
+            extendedProps: {
+                userId: evento.userId,
+                agendaId: evento.agendaId,
+                emailAluno: evento.emailAluno,
+                telefoneAluno: evento.telefoneAluno,
+                description: evento.description,
+                createdAt: evento.createdAt,
+                updatedAt: evento.updatedAt
+            },
+           
+            
+        })
+    })
+    return JSON.stringify(eventos)
+}
 create.businessHours = async(horarios) => {
     const businessHours = []
     horarios.map(horario => {
