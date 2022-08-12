@@ -9,11 +9,6 @@ const createSlug = async (name) => {
     .replace(/[^\w-]+/g, '')
   return slug
 }
-const url = async (slug) => {
-  let urlAgendamento = `http://localhost:3000/agendamento/${slug}`
-  return urlAgendamento
-}
-
 // controller
 const controller = {}
   
@@ -76,7 +71,6 @@ controller.create = async (req, res) => {
     let senhaCripto = bcrypt.hashSync(senha, 3)
 
     const slug = await createSlug(nome)
-    const urlAgendamento = await url(slug)
 
     await User.create({
       nome,
@@ -85,7 +79,6 @@ controller.create = async (req, res) => {
       slug,
       avatar: avatar || null,
       admin: !!admin,
-      urlAgendamento,
       createdAt: created_at,
       updatedAt: updated_at
     })
@@ -127,7 +120,6 @@ controller.updateAccount = async (req, res) => {
     { nome, slug, email, senha: senhaCripto,
       avatar: avatar || null,
       admin: user.admin,
-      urlAgendamento,
       createdAt: created_at,
       updatedAt: updated_at
     }, 

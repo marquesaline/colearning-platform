@@ -89,13 +89,14 @@ document.addEventListener('DOMContentLoaded', function () {
             prev: '<',
             next: '>'
         },
-        height: 750,
+        height: 850,
         now: function (date) {
             var now = Date.now()
             var date = new Date(now)
             return date
         },
         businessHours: JSON.parse(business),
+        slotMinTime: '06:00:00',
         events: JSON.parse(events),
         eventClick: function(info) {
             getInfo(info)

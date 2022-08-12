@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
       prev: '<',
       next: '>'
     },
-
+    slotMinTime: '06:00:00',
     views: {
       dayGridMonth: { // name of view
         titleFormat: {

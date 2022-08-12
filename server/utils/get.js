@@ -4,23 +4,7 @@ const helper = require("./helper")
 const get = {}
 
 const moment = require('moment')
-
 moment.locale('pt-br')
-
-get.agendas = JSON.parse(helper.read("agenda.json"))
-get.events = JSON.parse(helper.read("events.json"))
-get.users = JSON.parse(helper.read("users.json"))
-
-get.nextById = async (database) => {
-    const data = await database
-    const newId = parseInt(data[data.length - 1].id) + 1;
-    return newId;
-}
-get.byId = async(database, id) => 
-    await database.find((info) => info.id == id)
-
-get.slug = async(database, slug) => 
-    await database.find((data) => data.slug == slug)
 
 get.datesMoment = async(dateTo) => {
     let date = moment(dateTo).format("DD-MM-YYYY HH:MM")
@@ -68,7 +52,7 @@ get.createdBusinessHours = async(horarios) => {
     return JSON.stringify(businessHours)
 }
     
-get.extendedCreatAgendas = async(userId, created_at, modified_at) => {
+get.creatAgendas = async(agendas) => {
     let created = moment(created_at).format("DD-MM-YYYY HH:MM")
     let modified = moment(modified_at).format("DD-MM-YYYY HH:MM")
     let extendedProps = {
@@ -163,9 +147,12 @@ get.businessHours = async (daysOfWeek, startTime, endTime) => {
 
 get.endTime = async(start, startTime, duration) => {
     dateTime = moment(`${start}T${startTime}`)
-    time = moment(duration, 'hours').format('HH:mm')
+    console.log(dateTime)
+    time = moment.duration(duration)
+    console.log(time)
     endTime = moment(dateTime).add(time).format("HH:mm")
     
+    console.log(endTime)
     return endTime
 }
 

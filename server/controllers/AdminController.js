@@ -1,6 +1,5 @@
 const controller = {}
-const get = require("../utils/get");
-const set = require("../utils/set");
+const get = require("../utils/get")
 const { getAllUsers, getUser, getUserAgendas, getUserEvents } = require('../services/users')
 const { User } = require("../database/models")
 const { getAllAgendas, getAgenda, getEventsAgendas, getBusinessHours } = require('../services/agendas')

@@ -39,9 +39,11 @@ controller.createAgenda = async (req, res) => {
         daysOfWeek, startTime, endTime, 
         created_at, updated_at 
     } = req.body;
-
+   
+    const backgroundColor = await get.createColor()
     const response = await Agenda.create({
-        userId, title, url, duration, start, end, 
+        userId, title, url, duration, 
+        start, end, backgroundColor,
         createdAt: created_at,
         updatedAt: updated_at
     })
@@ -70,9 +72,10 @@ controller.editAgenda = async (req, res) => {
     const { agendaId } = req.params
     const agendas = await getUserAgendas(userLogged.id)
     const agenda = await getAgenda(agendaId)
+    console.log(agenda.createdAt)
     const user = await getUser(userLogged.id)
     res.render('areaLogada/editar-agenda', {
-        title: `Editar ${agenda.title}`,
+        title: `Editar agenda - ${agenda.title}`,
         user,
         agenda, 
         agendas
@@ -81,15 +84,16 @@ controller.editAgenda = async (req, res) => {
 }
 controller.updateAgenda = async (req, res) => {
     const { agendaId } = req.params
-   
     const { 
-        title, url, duration, start, end, daysOfWeek, 
-        startTime, endTime, created_at, updated_at 
-    } = req.body;
-    
-    const id = agendaId
-    const response = await Agenda.update({
         title, url, duration, start, end, 
+        daysOfWeek, startTime, endTime, 
+        backgroundColor, created_at, updated_at 
+    } = req.body;
+    console.log(created_at)
+    const id = agendaId
+    await Agenda.update({
+        title, url, duration, 
+        start, end, backgroundColor,
         createdAt: created_at, 
         updatedAt: updated_at
     },
