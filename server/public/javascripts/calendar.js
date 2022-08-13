@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
       
       locale: 'pt-br',
       
-      height: 'auto',
+      height: 850,
       showNonCurrentDates: false,
      
       views: {

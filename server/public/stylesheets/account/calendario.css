@@ -10,12 +10,12 @@
     display: flex;
     flex-direction: column;
     width: 305px;
-    height: 130%;
+    height: 100vh;
     text-align: left;
     justify-items: flex-start;
 }
 
-#agenda-submit {
+.agenda-submit {
     line-height: 22px;
     font-weight: 700;
     padding: 12px 35px;
@@ -137,9 +137,9 @@
 }
 
 .container-events {
-    width: 100%;
-    margin: 30px auto;
-    padding: 30px;
+    width: 100%32;
+    margin: 0 auto;
+    padding: 0 30px;
     
 }
 
