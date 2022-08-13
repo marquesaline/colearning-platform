@@ -99,9 +99,17 @@ document.addEventListener('DOMContentLoaded', function () {
         slotMinTime: '06:00:00',
         events: JSON.parse(events),
         eventClick: function(info) {
+          if (info.event.url) {
             getInfo(info)
             modal.style.display = "block"
-            
+            info.jsEvent.preventDefault();
+            window.open(info.event.url, "_blank")
+            return false;
+          }
+          else {
+            getInfo(info)
+            modal.style.display = "block"
+          }
         },
         views: {
             dayGridMonth: { // name of view
