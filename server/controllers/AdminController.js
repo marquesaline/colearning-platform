@@ -25,7 +25,7 @@ controller.index = async (req, res) => {
 //Admin usuários
 controller.users = async (req, res) => {
     const users = await getAllUsers();
-    res.render(`admin/usuarios`, {
+    res.render('admin/listagem', {
       title: "Usuários",
       users,
     });
@@ -79,7 +79,7 @@ controller.createUser = async (req, res) => {
       createdAt: created_at,
       updatedAt: updated_at
     });
-    res.redirect("/admin/usuarios");
+    res.redirect("/admin/listagem");
 },
 
 controller.editUser = async (req, res) => {
@@ -125,7 +125,7 @@ controller.updateUser = async (req, res) => {
     {
       where: {id}
     })  
-    res.redirect(`/admin/usuarios`);
+    res.redirect(`/admin/listagem`);
 },
 
 controller.excludeUser = async (req, res) => {
@@ -177,7 +177,7 @@ controller.showUserEvents = async (req, res) => {
 //Admin agendas
 controller.adminAgendas = async (req, res) => {
     const agendas = await getAllAgendas()
-    res.render("admin/agendas", {
+    res.render("admin/usuarios", {
         title: "Agendas",
         agendas
     })
@@ -313,7 +313,7 @@ controller.deleteAgenda = async (req, res) => {
 //Admin agendamentos
 controller.adminEvents = async (req, res) => {
     const events = await getAllEvents()
-    res.render("admin/agendamentos", {
+    res.render("admin/listagem", {
         title: "Agendamentos",
         events
     })
