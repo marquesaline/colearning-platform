@@ -87,9 +87,9 @@ controller.updateAgenda = async (req, res) => {
     const { 
         title, url, duration, start, end, 
         daysOfWeek, startTime, endTime, 
-        backgroundColor, created_at, updated_at 
+        created_at, updated_at 
     } = req.body;
-    console.log(created_at)
+    backgroundColor = agenda.backgroundColor
     const id = agendaId
     await Agenda.update({
         title, url, duration, 
