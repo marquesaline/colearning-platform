@@ -1,43 +1,12 @@
 <%- include('../partials/account-header.ejs') %>
 
 <main class="main-calendar">
-    <section class="container-side" id="container-side">
-        <div id="contents-side" class="container-calendar">
-        <div>
-            <div class="container-button">
-            <a href="/conta/<%= user.id%>/criar-agenda" id="agenda-submit">Criar agenda</a>
-            </div>
-            <div class="container-table-month">
-            <div id='calendar'></div>
-            </div>
-        </div>
-        <div class="container-agendas">
-            <p>Minhas Agendas</p>
-            <div class="agendas-list">
-            <ul>
-                
-                <% for(let agenda of agendas) { %>
-                    <li>
-                            <%= agenda.title %>
-                        <a href="/conta/<%=user.id%>/<%=agenda.id%>/editar-agenda">
-                            <img src="/images/icon-edit2.png" height="15px" width="15px">
-                        </a>
-                        <a href="/conta/<%=user.id%>/<%=agenda.id%>/apagar-agenda">
-                            <img src="/images/icon-delete2.png" height="15px" width="15px">
-                        </a>
-                    </li>
-                <% } %> 
-            </ul>
-            </div>
-        </div>
-        </div>
-    </section>
+   
+    <%- include('../partials/container-side.ejs') %>
 
     <section class="section-agenda">
         <div class="container-events">
-            <div class="agenda-title">
-                <h2></h2>
-            </div>
+           
             <div id='calendar-main'></div>
 
             <div>
@@ -54,6 +23,7 @@
                             <h3>Informações do agendamento</h3>
                             <p id="date-event"></p>
                             <p id="time-event"></p>
+                            <p id="url-event"></p>
                             <p id="description"></p>
                         </div>
                         <div>
@@ -64,15 +34,11 @@
                         </div>                
                     </div>
                 </div>
-            
             </div>     
         </div>
         
     </section>
 
-   
-        
-   
 </main>
 <script type="text/javascript" src="/javascripts/calendar.js"></script>
 

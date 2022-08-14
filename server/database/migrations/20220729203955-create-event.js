@@ -31,15 +31,21 @@ module.exports = {
         type: Sequelize.BOOLEAN
       },
       start: {
-        type: Sequelize.STRING
+        type: Sequelize.DATE
       },
       end: {
-        type: Sequelize.STRING
+        type: Sequelize.DATE
       },
       startTime: {
-        type: Sequelize.STRING
+        type: Sequelize.TIME
       },
       endTime: {
+        type: Sequelize.TIME
+      },
+      backgroundColor: {
+        type: Sequelize.STRING
+      },
+      url: {
         type: Sequelize.STRING
       },
       emailAluno: {

@@ -27,4 +27,5 @@ eventsServices.getEvent = async (id) => {
   return event
 }
 
+
   module.exports = eventsServices

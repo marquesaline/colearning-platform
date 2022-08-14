@@ -43,6 +43,7 @@ agendasServices.getEventsAgendas = async (id) => {
     const { events } = agenda
     return events|| null
   }
+  
   agendasServices.getBusinessHours = async (id) => {
     const agenda = await Agenda.findOne({
       where: {

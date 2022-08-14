@@ -6,12 +6,17 @@
             <div class="form-title">
                 <p>Entre na sua conta</p>
             </div>
-            <form class="form" method="POST" action="" enctype="multipart/form-data">
+            <form class="form" method="post" action="/login">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="exemplo@exemplo.com" required>
 
-                <label for="password">Senha</label>
-                <input type="password" name="password" id="password" placeholder="*******" required>
+
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha" placeholder="*******" required>
+                
+                <% if((locals.errors && errors.senha) || (locals.errors && errors.email) ) { %> 
+                    <p style="color: red;"><%=errors.email.msg%></p>
+                <% } %>
 
                 <div class="form-button">
                     <button type="submit">Entrar</button>

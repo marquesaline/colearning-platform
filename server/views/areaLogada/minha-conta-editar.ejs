@@ -8,8 +8,8 @@
         <div class="container-info">
             <div class="container-edit">
                 <form 
-                action="/conta/<%=user.id%>/minha-conta/editar?_method=put"
-                 method="POST">
+                method="post"
+                action="/conta/minha-conta/editar?_method=put">
                     <h2>Dados Gerais</h2>
 
                     <div class="info-edit">
@@ -22,15 +22,25 @@
                         <input class="input-account" type="text" name="nome" id="nome" value="<%=user.nome%>" required>
                     </div>
 
+                    <% if(locals.errors && errors.nome) { %> 
+                        <p style="color: red;"><%=errors.nome.msg%></p>
+                    <% } %>
+    
                     <div class="info-edit"> 
                         <label for="email">Email</label>
                         <input class="input-account" type="email" name="email" id="email" value="<%=user.email%>">
                     </div>
+                    <% if(locals.errors && errors.email) { %> 
+                        <p style="color: red;"><%=errors.email.msg%></p>
+                    <% } %>
 
                     <div class="info-edit">
                         <label for="password">Senha</label>
-                        <input class="input-account" type="password" name="senha" id="senha" value="<%=user.senha%>">
+                        <input class="input-account" type="password" name="senha" id="senha" >
                     </div>
+                    <% if(locals.errors && errors.senha) { %> 
+                        <p style="color: red;"><%=errors.senha.msg%></p>
+                    <% } %>
                     <div>
                         <input type="hidden" name="created_at" value="<%= user.createdAt %>">
                         <input type="hidden" name="updated_at" value="<%= new Date() %>">
