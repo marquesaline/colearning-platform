@@ -1,0 +1,231 @@
+<%- include('../partials/header-admin.ejs') %>
+
+   
+  <section class="section-main section-admin">
+    
+    <% if(locals.user) { %>
+      <div class="container-list info-user">
+          <div class="div-avatar">
+            <img
+              src="/images/<%= user.avatar ? `avatar/${user.avatar}` : 'avatar-exemple.png' %>"
+              alt="avatar"
+              height="80"
+              width="80"
+              style="border-radius: 50%; width: 80px; height: 60px; "
+            />
+          </div>
+        <div class="div-infos">
+          <h2 class="admin-title">Dados do usuário</h2>
+          <div>
+            <div class="info-data">
+              <p class="info-legend">Id</p>
+              <p><%= user.id %></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Nome</p>
+              <p><%= user.nome %></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Slug</p>
+              <p><%= user.slug%></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Email</p>
+              <p><%= user.email%></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Admin</p>
+              <p>
+                <% if(user.admin == true) { %>
+                  <img src="/images/icon-true.png" width="20px">
+                <% } else { %>
+                  <img src="/images/icon-false.jpg" width="20px">
+                <% } %>
+              </p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Data de criação</p>
+              <p><%= user.createdAt %></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Data de modificação</p>
+              <p><%= user.updatedAt %></p>
+            </div>
+
+          </div>
+        </div>
+        <div class="btn-options">
+          <a class="um-user btn-default" href="/admin/usuarios/<%= user.id %>/agendas">Agendas</a> |
+          <a class="um-user btn-default" href="/admin/usuarios/<%= user.id %>/agendamentos">Agendamentos</a> |
+          <a class="um-user btn-default" href="/admin/usuarios/<%= user.id %>/editar">Editar</a> |
+          <a class="um-user btn-delete" href="/admin/usuarios/<%= user.id %>/excluir">Excluir</a>
+        </div>
+      </div>
+    <% } %>
+    
+    <% if(locals.event) { %>
+      <div class="container-list info-user">
+          
+        <div class="div-infos">
+            <h2 class="admin-title">Dados do agendamento</h2>
+            <div>
+                <div class="info-data">
+                    <p class="info-legend">Id</p>
+                    <p><%= event.id %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Id do usuário</p>
+                    <p><%= event.userId%></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Id da agenda</p>
+                    <p><%= event.agendaId%></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Nome do aluno</p>
+                    <p><%= event.title %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Email do aluno</p>
+                    <p><%= event.emailAluno %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Telefone do aluno</p>
+                    <p><%= event.telefoneAluno %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Data</p>
+                    <p><%= event.start %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Horário de início</p>
+                    <p><%= event.startTime%></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Horário final</p>
+                    <p><%= event.endTime%></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Descrição</p>
+                    <p><%= event.description %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Data de criação</p>
+                    <p><%= event.createdAt %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Data de modificação</p>
+                    <p><%= event.updatedAt %></p>
+                </div>
+            </div>
+            <div class="btn-options">
+                <a class="um-user btn-default" href="/admin/agendamentos/<%= event.id %>/editar">Editar</a> |
+                <a class="um-user btn-delete" href="/admin/agendamentos/<%= event.id %>/excluir">Excluir</a>
+            </div>
+            
+        </div>
+      </div>
+    <% }%>
+    <% if(locals.agenda) { %>
+      <div class="container-list info-user">
+          
+        <div class="div-infos">
+          <h2 class="admin-title">Dados do agenda</h2>
+          <div>
+            <div class="info-data">
+              <p class="info-legend">Id</p>
+              <p><%= agenda.id %></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Id do usuário</p>
+              <p><%= agenda.userId %></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Nome da agenda</p>
+              <p><%= agenda.title %></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">URL das reuniões</p>
+              <p><%= agenda.url %></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Duração das reuniões</p>
+              <p><%= agenda.duration%></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Data de início</p>
+              <p><%= agenda.start%></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Data fim</p>
+              <p><%= agenda.end %></p>
+            </div>           
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Data de criação</p>
+              <p><%= agenda.createdAt %></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Data de modificação</p>
+              <p><%= agenda.updatedAt %></p>
+            </div>
+  
+            <div class="info-data">
+              <table>
+                  <thead>
+                      <tr>
+                          <th>Dias da semana</th>
+                          <th>Horários</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(let business of businessHours) { %>
+                     
+                        <tr>
+                          <td>
+                            <%if (business.daysOfWeek == 0) { %>
+                                Domingo
+                            <% } %> 
+                            <%if (business.daysOfWeek == 1) { %>
+                              Segunda-feira
+                            <% } %> 
+                            <%if (business.daysOfWeek == 2) { %>
+                              Terça-feira
+                            <% } %>
+                            <%if (business.daysOfWeek == 3) { %>
+                              Quarta-feira
+                            <% } %>
+                            <%if (business.daysOfWeek == 4) { %>
+                              Quinta-feira
+                            <% } %>
+                            <%if (business.daysOfWeek == 5) { %>
+                              Sexta-feira
+                            <% } %>
+                            <%if (business.daysOfWeek == 6) { %>
+                              Sábado
+                            <% } %>
+                          </td>
+                          <td>
+                            <%= business.startTime %> 
+                            - 
+                            <%= business.endTime %> 
+                          </td>
+                        </tr>
+                      
+                      
+                    <% } %> 
+                  </tbody>
+              </table>
+          </div>
+        </div>
+        <div class="btn-options">
+          <a class="um-user btn-default" href="/admin/agendas/<%= agenda.id %>/agendamentos">Agendamentos</a> |
+          <a class="um-user btn-default" href="/admin/agendas/<%= agenda.id %>/editar">Editar</a> |
+          <a class="um-user btn-delete" href="/admin/agendas/<%= agenda.id %>/excluir">Excluir</a>
+        </div>
+          
+      </div>
+    <% } %>
+  </section>
+</main>
+

@@ -32,8 +32,8 @@ controller.users = async (req, res) => {
 },
 
 controller.addUser = async (req, res) => {
-    res.render(`admin/usuario-adicionar`, {
-      title: req.path == "/cadastro" ? `Cadastro` : `Adicionar Usuário`,
+    res.render('admin/usuario-adicionar', {
+      title: 'Adicionar usuário',
     });
 },
 
@@ -148,7 +148,7 @@ controller.deleteUser = async (req, res) => {
 controller.showUser = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
-    res.render("admin/usuario", {
+    res.render("admin/mostrar-info", {
       title: `Usuário`,
       user
     });
@@ -157,7 +157,7 @@ controller.showUserAgendas = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
     const agendas = await getUserAgendas(id)
-    res.render("admin/usuario-agendas", {
+    res.render("admin/usuario-infos", {
       title: `Agendas - ${ user.nome }`,
       user,
       agendas
@@ -167,7 +167,7 @@ controller.showUserEvents = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
     const events = await getUserEvents(id)
-    res.render("admin/usuario-agendamentos", {
+    res.render("admin/usuario-infos", {
       title: `Agendamentos - ${ user.nome }`,
       user,
       events
@@ -177,16 +177,16 @@ controller.showUserEvents = async (req, res) => {
 //Admin agendas
 controller.adminAgendas = async (req, res) => {
     const agendas = await getAllAgendas()
-    res.render("admin/usuarios", {
+    res.render("admin/listagem", {
         title: "Agendas",
         agendas
     })
 }
 controller.adminAddAgenda = async (req, res) => {
-    let users = await getAllUsers()
+    let agendas = await getAllAgendas()
     res.render("admin/agenda-adicionar", {
-        title: req.path == "/cadastro" ? `Cadastro` : `Adicionar Agenda`,
-        users
+        title: 'Adicionar agenda',
+        agendas
     })
 }
 controller.createAgenda = async (req, res) => {
@@ -225,7 +225,7 @@ controller.showAgenda = async (req, res) => {
     const agenda = await getAgenda(id)
     let businessHours = await create.businessHours(await getBusinessHours(id))
     businessHours = JSON.parse(businessHours)
-    res.render("admin/agenda", {
+    res.render("admin/mostrar-info", {
         title: "Agenda",
         agenda,
         businessHours
@@ -360,13 +360,10 @@ controller.createEvent = async (req, res) => {
     });
     res.redirect("/admin/agendamentos")
 }
-    
-
-
 controller.showEvent = async (req, res) => {
     const { id } = req.params
     const event = await getEvent(id)
-    res.render("admin/agendamento", {
+    res.render("admin/mostrar-info", {
         title: `Agendamento de ${event.title}`,
         event
 
