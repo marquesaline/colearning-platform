@@ -9,17 +9,17 @@
         
         <a href="/admin/usuarios/add" class="a-user btn-default"> Adicionar Usuário</a>
       </div>
-      <table>
+      <table class="table-list">
         <thead class="list-header">
           <tr>
             <th>Avatar</th>
-            <th>Id</th>
+            <th class="id">Id</th>
             <th>Nome</th>
             <th>Email</th>
             <th>Slug</th>
             <th>Admin</th>
-            <th>Data de criação</th>
-            <th>Data de modificação</th>
+            <th class="dates">Data de criação</th>
+            <th class="dates">Data de modificação</th>
             <th>Opções</th>
           </tr>
         </thead>
@@ -83,7 +83,7 @@
         
         <a href="/admin/agendas/add" class="a-user btn-default"> Adicionar Agenda</a>
       </div>
-      <table>
+      <table class="table-list">
         <thead class="list-header">
           <tr>
             <th>Id</th>
@@ -93,8 +93,8 @@
             <th>Data de início</th>
             <th>Data fim</th>
             <th>Duração</th>
-            <th>Data da criação</th>
-            <th>Data de modificação</th>
+            <th class="dates" >Data da criação</th>
+            <th class="dates">Data de modificação</th>
             <th>Opções</th>
           </tr>
         </thead>
@@ -122,10 +122,10 @@
               <td class="td-email">
                 <%= agenda.duration %>
               </td>
-              <td class="td-email">
+              <td class="td-dates">
                 <%= agenda.createdAt %>
               </td>
-              <td class="td-email">
+              <td class="td-dates">
                 <%= agenda.updatedAt %>
               </td>
               
@@ -152,12 +152,12 @@
         
         <a href="/admin/agendamentos/add" class="a-user btn-default"> Adicionar Agendamento</a>
       </div>
-      <table>
+      <table class="table-list">
         <thead class="list-header">
           <tr>
-            <th>Id</th>
-            <th>Id Usuário</th>
-            <th>Id da agenda</th>
+            <th class="id">Id</th>
+            <th class="id">Id Usuário</th>
+            <th class="id">Id da agenda</th>
             <th>Nome do aluno</th>
             <th>Email do aluno</th>
             <th>Telefone do aluno</th>
@@ -165,8 +165,8 @@
             <th>Horário de início</th>
             <th>Horário final</th>
             <th>Descrição</th>
-            <th>Data da criação</th>
-            <th>Data de modificação</th>
+            <th class="dates">Data da criação</th>
+            <th class="dates">Data de modificação</th>
             <th>Opções</th>
           </tr>
         </thead>
@@ -191,7 +191,7 @@
               <td class="td-email">
                 <%= event.telefoneAluno %>
               </td>
-              <td class="td-start">
+              <td class="td-dates">
                 <%= event.start %>
               </td>
               <td class="td-startTime">
@@ -203,10 +203,10 @@
               <td class="td-description">
                 <%= event.description %>
               </td>
-              <td class="td-created">
+              <td class="td-dates">
                 <%= event.createdAt %>
               </td>
-              <td class="td-modified">
+              <td class="td-dates">
                 <%= event.updatedAt %>
               </td>
               
