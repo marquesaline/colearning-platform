@@ -30,7 +30,7 @@ O projeto utiliza um banco de dados remoto, por isso, ao rodar o projeto ele já
 
 Caso queira alterar os dados, é possível conectar com outro banco de dados alterando as informações no arquivo `config.json`.
 
-**OBS:** Nesse projeto foi utilizada a biblioteca `FullCalendar`. Então, para que os dados sejam mostrados corretamente eles precisam ser armazenados com a nomenclatura esperada pela biblioteca. 
+**OBS:** Nesse projeto foi utilizada a biblioteca [FullCalendar](https://fullcalendar.io/). Então, para que os dados sejam mostrados corretamente eles precisam ser armazenados com a nomenclatura esperada pela biblioteca. 
 
 
 

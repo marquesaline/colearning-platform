@@ -19,8 +19,8 @@ controller.index = async (req, res) => {
         users,
         agendas,
         events
-   });
-},
+   })
+}
 
 //Admin usuários
 controller.users = async (req, res) => {
@@ -79,7 +79,7 @@ controller.createUser = async (req, res) => {
       createdAt: created_at,
       updatedAt: updated_at
     });
-    res.redirect("/admin/listagem");
+    res.redirect("/admin/usuarios");
 },
 
 controller.editUser = async (req, res) => {
@@ -109,14 +109,15 @@ controller.updateUser = async (req, res) => {
     const { 
         nome, slug, email, senha, avatar, admin, 
         created_at, updated_at 
-    } = req.body;
+    } = req.body
 
+    let senhaCripto = bcrypt.hashSync(senha, 3)
     await User.update(
     {
       nome: nome,
       slug: slug,
       email: email,
-      senha: senha,
+      senha: senhaCripto,
       avatar: avatar || null,
       admin: !!admin,
       createdAt: created_at,
@@ -125,7 +126,7 @@ controller.updateUser = async (req, res) => {
     {
       where: {id}
     })  
-    res.redirect(`/admin/listagem`);
+    res.redirect(`/admin/usuarios/${id}`);
 },
 
 controller.excludeUser = async (req, res) => {
@@ -157,7 +158,7 @@ controller.showUserAgendas = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
     const agendas = await getUserAgendas(id)
-    res.render("admin/usuario-infos", {
+    res.render("admin/listagem", {
       title: `Agendas - ${ user.nome }`,
       user,
       agendas
@@ -167,7 +168,7 @@ controller.showUserEvents = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
     const events = await getUserEvents(id)
-    res.render("admin/usuario-infos", {
+    res.render("admin/listagem", {
       title: `Agendamentos - ${ user.nome }`,
       user,
       events
@@ -237,7 +238,7 @@ controller.showAgendaEvents = async (req, res) => {
     const { id } = req.params
     const agenda = await getAgenda(id)
     const events = await getEventsAgendas(id)
-    res.render("admin/agenda-agendamentos", {
+    res.render("admin/listagem", {
         title: `Agendamentos - ${agenda.title}`,
         agenda, 
         events
