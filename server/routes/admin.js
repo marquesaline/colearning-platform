@@ -1,8 +1,9 @@
 var express = require("express")
 const controllerAdmin = require("../controllers/AdminController")
+const controllerUser = require("../controllers/UserControllers")
 var router = express.Router()
-const validator = require('../middlewares/validadeRegister')
-const loggedUser = require('../middlewares/loggedUser')
+const validator = require("../middlewares/validadeRegister")
+const loggedUser = require("../middlewares/loggedUser")
 
 router.get("/", controllerAdmin.index) /*elton   peguei o index do controllerUsers */
 
@@ -50,5 +51,8 @@ router.put("/agendamentos/:id/editar", controllerAdmin.updateEvent)
 
 router.get("/agendamentos/:id/excluir", controllerAdmin.excludeEvent)
 router.delete("/agendamentos/:id/excluir", controllerAdmin.deleteEvent)
+
+router.get('/sair',  loggedUser.isNotLogged, controllerUser.logout)
+
 
 module.exports = router

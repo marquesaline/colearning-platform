@@ -24,7 +24,7 @@ O projeto foi realizado durante o curso de Desenvolvimento Web da Digital House.
 
 Para instalar todas as dependências é necessário escrever o comando`npm install` no terminal dentro da pasta raiz do projeto.
 
-Para rodar o servidor e visualizar o projeto basta colocar o comando `npm run dev` no terminal.
+Para rodar o servidor e visualizar o projeto basta colocar o comando `npm run dev` no  terminal. Depois disso, é só abrir [http://localhost:3000](http://localhost:3000) no seu navegador para visualizar.
 
 O projeto utiliza um banco de dados remoto, por isso, ao rodar o projeto ele já estará vinculado a ele. 
 
