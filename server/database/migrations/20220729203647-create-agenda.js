@@ -23,12 +23,15 @@ module.exports = {
         type: Sequelize.STRING
       },
       duration: {
-        type: Sequelize.STRING
+        type: Sequelize.TIME
       },
       start: {
-        type: Sequelize.STRING
+        type: Sequelize.DATE
       },
       end: {
+        type: Sequelize.DATE
+      },
+      backgroundColor: {
         type: Sequelize.STRING
       },
       createdAt: {

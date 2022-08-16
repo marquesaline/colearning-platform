@@ -1,5 +1,4 @@
 const { User } = require("../database/models")
-const { slug } = require("../utils/get")
 
 const usersServices = {}
 
@@ -19,11 +18,19 @@ usersServices.getUser = async (id) => {
     where: {
       id
     },
-    // include: [
-    //   {
-    //     association: 'agendas'
-    //   }
-    // ]
+    include: [
+      {
+        association: 'agendas'
+      }
+    ]
+  })
+  return user
+}
+usersServices.getUserByEmail = async(email) => {
+  const user = await User.findOne({
+    where: {
+      email
+    }
   })
   return user
 }

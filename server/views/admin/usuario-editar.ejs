@@ -7,9 +7,10 @@
   <section class="container-list ">
   
     <form
-      class="form-user"
+      class="form-user",
+      method="post"
       action="/admin/usuarios/<%=user.id%>/editar?_method=put"
-      method="POST" enctype="multipart/form-data"
+      enctype="multipart/form-data"
     >
       <div>
         <div class="info-edit">
@@ -37,6 +38,10 @@
           placeholder="Digite o nome do usuário"
           required
         />
+        <% if(locals.errors && errors.nome) { %> 
+          <p style="color: red;"><%=errors.nome.msg%></p>
+        <% } %>
+
       </div>
       <div class="info-edit">
         <label for="slug">Slug</label>
@@ -49,6 +54,7 @@
           placeholder="Digite o slug do usuário"
           required
         />
+       
       </div>
       <div class="info-edit">
         <label for="email">Email</label>
@@ -61,6 +67,9 @@
           placeholder="Digite o email"
           required
         />
+        <% if(locals.errors && errors.email) { %> 
+          <p style="color: red;"><%=errors.email.msg%></p>
+        <% } %>
       </div>
       <div class="info-edit">
         <label for="senha">Senha</label>
@@ -73,6 +82,9 @@
           placeholder="Digite a senha"
           required
         />
+        <% if(locals.errors && errors.senha) { %> 
+          <p style="color: red;"><%=errors.senha.msg%></p>
+        <% } %>
       </div>
       <div class="info-edit info-admin">
         <label for="admin">Admin</label>

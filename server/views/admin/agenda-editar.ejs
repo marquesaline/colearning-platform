@@ -8,12 +8,13 @@
   
     <form
       class="form-user"
+      method="post"
       action="/admin/agendas/<%=agenda.id%>/editar?_method=put"
-      method="POST"
+      
     >
     <div class="conteiners-form">
         <label class="form-label" for="userId">Id do usuário</label>
-        <input type="number" name="userId" id="userId" value="<%= agenda.extendedProps.userId %>" required>
+        <input type="number" name="userId" id="userId" value="<%= agenda.userId %>" required>
     </div>
     <div class="conteiners-form">
         <label class="form-label" for="title">Nome da agenda</label>
@@ -134,14 +135,13 @@
             </tr>
         </table>
         <div>
-            <input type="hidden" name="created_at" value="<%= agenda.extendedProps.createdAt %>">
+            <input type="hidden" name="created_at" value="<%= agenda.createdAt %>">
             <input type="hidden" name="modified_at" value="<%= new Date() %>">
         </div>
     </div>
 
       
       <div class="btn-options">
-        <input type="hidden" name="modifed_at" value="<%= new Date() %>" />
         <button class="button-edit btn-default">Salvar</button>
       </div>
       </form>

@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
       prev: '<',
       next: '>'
     },
-
+    slotMinTime: '06:00:00',
     views: {
       dayGridMonth: { // name of view
         titleFormat: {
@@ -58,8 +58,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var calendarMain = new FullCalendar.Calendar(calendarEl, {
       
       locale: 'pt-br',
-      initialView:'dayGridMonth',
-      height: 'auto',
+      
+      height: 750,
       showNonCurrentDates: false,
      
       views: {
@@ -80,24 +80,34 @@ document.addEventListener('DOMContentLoaded', function () {
       
       selectable: true,
       headerToolbar: {
-        left: 'title',
-        center: '',
-        right: 'today prev,next'
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
+        center: 'title',
+        left: 'today prev,next'
       },
       buttonText: {
         today: 'Hoje',
         month: 'Mês',
+        week: 'Semana',
+        list: 'Lista',
+        day: 'Dia',
         prev: '<',
         next: '>'
       },
       
-      events: eventsArray,
+      events: JSON.parse(eventsToShow),
 
       eventClick: function(info) {
-        console.log(info)
-        getInfo(info)
-        modal.style.display = "block"
-
+        if (info.event.url) {
+          getInfo(info)
+          modal.style.display = "block"
+          info.jsEvent.preventDefault();
+          window.open(info.event.url, "_blank")
+          return false;
+        }
+        else {
+          getInfo(info)
+          modal.style.display = "block"
+        }
         
       }
       
@@ -115,6 +125,7 @@ function getInfo(info) {
   var dateEvent = document.getElementById('date-event')
   var timeEvent = document.getElementById('time-event')
   var description = document.getElementById('description')
+  var urlEvent = document.getElementById('url-event')
 
   var date = info.event.start
   var hours = date.getHours()
@@ -124,9 +135,20 @@ function getInfo(info) {
   return [
     nameStudant.innerHTML = `Nome do aluno: ${info.event.title}`,
     emailStudant.innerHTML = `Email do aluno: ${info.event.extendedProps.emailAluno}`,
-    telStudant.innerHTML = `Telefone do aluno: ${info.event.extendedProps.telefoneAluno}`,
+    telStudant.innerHTML = `Telefone do aluno: ${checkInfoNull(info.event.extendedProps.telefoneAluno)}`,
     dateEvent.innerHTML = `Data: ${date.toLocaleDateString('pt-br')}`,
     timeEvent.innerHTML = `Horário: ${hours}:${minutes}`,
-    description.innerHTML = `Assunto: ${info.event.extendedProps.description}`
+    urlEvent.innerHTML = `Link da reunião: ${checkInfoNull(info.event.url)}`,
+    description.innerHTML = `Assunto: ${checkInfoNull(info.event.extendedProps.description)}`
   ]
+}
+
+function checkInfoNull(info) {
+  if(info == null || info == undefined) {
+    return [
+      "dado não informado"
+    ]
+  } else {
+    return info
+  }
 }

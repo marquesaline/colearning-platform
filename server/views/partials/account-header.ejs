@@ -22,7 +22,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script> 
     <script type="text/javascript" src="/javascripts/script.js"></script>
     
     <title><%= title %></title>
@@ -53,13 +53,13 @@
               
             </div>
             <div class="name">
-              <p class="user-name">Exemplo</p>
+              <p class="user-name"><%= user.nome %></p>
               <img src="/images/icon-down.png" alt="" id="img-down"> 
             </div>
             
             <ul class="dropdown-menu" id="dropdown-menu">
               <li>
-                <a href="/conta/<%=user.id%>/minha-conta">Minha conta</a>
+                <a href="/conta/minha-conta">Minha conta</a>
               </li>
               <% if(user.admin == true) { %>
                 <li>
@@ -68,7 +68,7 @@
               <% } %>
              
               <li>
-                <a href="/login">Sair</a>
+                <a href="/conta/sair">Sair</a>
               </li>
             </ul>
             

@@ -1,12 +1,13 @@
 <%- include('../partials/header-admin.ejs') %>
 
 <section class="section-main section-admin">
+  
   <h1 class="admin-title">Formulario de Cadastro</h1>
 
   <div class="container-list">
     <form class="form-user" 
+    method="post"
     action="/admin/usuarios/add" 
-    method="POST"
     enctype="multipart/form-data"
     >
     
@@ -22,15 +23,25 @@
       <div class="info-edit">
         <label for="nome">Nome</label>
         <input class="input-account" type="text" id="nome" name="nome" placeholder="Digite o nome do usuário"
-          required />
+        value="<%= locals.oldData ? oldData.name : null %>"  
+        required />
+        <% if(locals.errors && errors.nome) { %> 
+          <p style="color: red;"><%=errors.nome.msg%></p>
+        <% } %>
       </div>
       <div class="info-edit">
         <label for="email">Email</label>
         <input class="input-account" type="email" id="email" name="email" placeholder="Digite o email" required />
+        <% if(locals.errors && errors.email) { %> 
+          <p style="color: red;"><%=errors.email.msg%></p>
+        <% } %>
       </div>
       <div class="info-edit">
         <label for="senha">Senha</label>
         <input class="input-account" type="password" id="senha" name="senha" placeholder="Digite a senha" required />
+        <% if(locals.errors && errors.senha) { %> 
+          <p style="color: red;"><%=errors.senha.msg%></p>
+        <% } %>
       </div>
       <div class="info-edit info-admin">
         <label for="admin">Admin</label>

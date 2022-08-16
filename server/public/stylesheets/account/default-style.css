@@ -21,9 +21,13 @@
     padding: 0;
     font-family:'Monteserrat', sans-serif; 
 }
+html, body, main {
+    height: 100vh;
+}
 
 a {
     text-decoration: none;
+    color: var(--font-color);
 }
 
 
@@ -67,11 +71,27 @@ padrão em todas as telas, menos a de calendário */
     flex-direction: column;
     width: 18%;
     min-width: 305px;
-    height: 1116px;
+    height: 100vh;
     align-items: center;
     justify-items: flex-start;
     
 }
+.container-agendas li {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-agenda-create {
+    margin: 15px auto;
+    text-align: center;
+    border: 1px solid var(--background-button);
+}
+.container-agenda-create a {
+    color: var(--font-color-logo);
+    padding: 10px;
+    
+}
+
 /* botão mobile pra o container lateral */
 .container-btn-mobile {
     display: none;
@@ -105,7 +125,7 @@ padrão em todas as telas, menos a de calendário */
     font-size: 16px;
     font-weight: 600;
     padding-bottom: 10px;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 .agendas-list li {
     padding-bottom: 5px;
@@ -164,12 +184,14 @@ padrão em todas as telas, menos a de calendário */
 @media screen and (min-width: 1025px) {
     .container-side {
         width: 305px;
+        height: 100vh;
     }
     
 }
 @media screen and (max-width: 1024px) {
     .container-side {
         width: 250px;
+        height: 100vh;
     }
     
 }
