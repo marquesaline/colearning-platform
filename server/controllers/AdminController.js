@@ -49,7 +49,7 @@ controller.createUser = async (req, res) => {
       nome,
       email,
       senha,
-      avatar,
+      //avatar,
       admin,
       created_at,
       updated_at
@@ -57,12 +57,14 @@ controller.createUser = async (req, res) => {
 
     const slug = await createSlug(nome)
 
+    const avatarFileName = req.file.filename;
+
     await User.create({
       nome,
       senha,
       email,
       slug,
-      avatar: avatar || null,
+      avatar: avatarFileName || null,
       admin: !!admin,
       createdAt: created_at,
       updatedAt: updated_at
@@ -86,11 +88,13 @@ controller.updateUser = async (req, res) => {
       slug,
       email,
       senha,
-      avatar,
+      //avatar,
       admin,
       created_at,
       updated_at
     } = req.body;
+
+    const avatarFileName = req.file.filename;
 
     await User.update(
     {
@@ -98,7 +102,7 @@ controller.updateUser = async (req, res) => {
       slug: slug,
       email: email,
       senha: senha,
-      avatar: avatar || null,
+      avatar: avatarFileName || null,
       admin: !!admin,
       createdAt: created_at,
       updatedAt: updated_at

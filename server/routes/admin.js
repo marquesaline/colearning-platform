@@ -1,6 +1,7 @@
 var express = require("express")
 const controllerAdmin = require("../controllers/AdminController")
 var router = express.Router()
+const middlewares = require('../middlewares/AvatarUpload')
 
 router.get("/", controllerAdmin.index) /*elton   peguei o index do controllerUsers */
 
@@ -10,10 +11,10 @@ router.get("/usuarios/:id/agendas", controllerAdmin.showUserAgendas)
 router.get("/usuarios/:id/agendamentos", controllerAdmin.showUserEvents)
 
 router.get("/usuarios/add", controllerAdmin.addUser)
-router.post("/usuarios/add", controllerAdmin.createUser)
+router.post("/usuarios/add", middlewares.upload, controllerAdmin.createUser)
 
 router.get("/usuarios/:id/editar", controllerAdmin.editUser)
-router.put("/usuarios/:id/editar", controllerAdmin.updateUser)
+router.put("/usuarios/:id/editar",middlewares.upload, controllerAdmin.updateUser)
 
 router.get("/usuarios/:id/excluir", controllerAdmin.excludeUser)
 router.delete("/usuarios/:id/excluir", controllerAdmin.deleteUser) /*elton   acessando o id da turma do controllerAdmin*/

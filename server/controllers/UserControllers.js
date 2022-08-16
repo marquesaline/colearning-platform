@@ -25,7 +25,7 @@ controller.create = async (req, res) => {
       nome,
       email,
       senha,
-      avatar,
+      //avatar,
       admin,
       created_at,
       updated_at
@@ -33,12 +33,13 @@ controller.create = async (req, res) => {
 
     const slug = await createSlug(nome)
     const urlAgendamento = await url(slug)
+    const avatarFileName = req.file.filename;
     await User.create({
       nome,
       senha,
       email,
       slug,
-      avatar: avatar || null,
+      avatar: avatarFileName || null,
       admin: !!admin,
       urlAgendamento,
       createdAt: created_at,
@@ -62,11 +63,12 @@ controller.updateAccount = async (req, res) => {
       nome,
       email,
       senha,
-      avatar,
+      //avatar,
       created_at,
       updated_at
     } = req.body;
     console.log(nome)
+    const avatarFileName = req.file.filename;
     const user = await getUser(id)
     const slug = await createSlug(nome)
     const urlAgendamento = await url(slug)
@@ -77,7 +79,7 @@ controller.updateAccount = async (req, res) => {
       slug,
       email,
       senha,
-      avatar: avatar || null,
+      avatar: avatarFileName || null,
       admin: user.admin,
       urlAgendamento,
       createdAt: created_at,
