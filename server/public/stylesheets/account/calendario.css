@@ -1,6 +1,8 @@
 .main-calendar {
     display: flex;
     flex-wrap: wrap;
+    height: 100vh;
+    overflow: auto;
 
 }
 
@@ -128,7 +130,13 @@
 /* calendário principal */
 .section-agenda {
     margin: 15px auto;
-    width: 80%;
+    width: calc(100% - 305px);
+    
+}
+
+.section-agenda h1 {
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 
 .agenda-title {
@@ -149,9 +157,9 @@
 }
 /* calendário do usuário */
 #calendar-main,
-#calendar-agenda {
+#calendar-agenda  {
     width: 100%;
-    margin-top: 80px;
+    margin-top: 90px;
 }
 #calendar-main .fc-scrollgrid,
 #calendar-agenda .fc-scrollgrid {
@@ -257,6 +265,7 @@
 @media screen and (min-width: 1025px) {
     .container-calendar {
         width: 305px;
+        height: 100vh;
     }
 
 }

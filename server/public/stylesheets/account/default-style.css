@@ -184,12 +184,14 @@ padrão em todas as telas, menos a de calendário */
 @media screen and (min-width: 1025px) {
     .container-side {
         width: 305px;
+        height: 100vh;
     }
     
 }
 @media screen and (max-width: 1024px) {
     .container-side {
         width: 250px;
+        height: 100vh;
     }
     
 }

@@ -1,13 +1,14 @@
 const controller = {}
 const create = require("../utils/create")
-const { getAllUsers, getUser, getUserAgendas, getUserEvents } = require('../services/users')
+const { getAllUsers, getUser, getUserAgendas, getUserEvents, getUserByEmail } = require('../services/users')
 const { User } = require("../database/models")
 const { getAllAgendas, getAgenda, getEventsAgendas, getBusinessHours } = require('../services/agendas')
 const { Agenda } = require("../database/models")
 const { BusinessHours } = require("../database/models")
 const { getAllEvents, getEvent } = require('../services/events')
 const { Event } = require("../database/models")
-
+const { validationResult } = require('express-validator')
+const bcrypt  = require('bcrypt')
 
 controller.index = async (req, res) => {
     const users = await getAllUsers()
@@ -18,32 +19,59 @@ controller.index = async (req, res) => {
         users,
         agendas,
         events
-   });
-},
+   })
+}
 
 //Admin usuários
 controller.users = async (req, res) => {
     const users = await getAllUsers();
-    res.render(`admin/usuarios`, {
+    res.render('admin/listagem', {
       title: "Usuários",
       users,
     });
 },
 
 controller.addUser = async (req, res) => {
-    res.render(`admin/usuario-adicionar`, {
-      title: req.path == "/cadastro" ? `Cadastro` : `Adicionar Usuário`,
+    res.render('admin/usuario-adicionar', {
+      title: 'Adicionar usuário',
     });
 },
 
 controller.createUser = async (req, res) => {
+    //validação dos campos
+    const resultValidations = validationResult(req)
+
+    if(resultValidations.errors.length > 0 ) {
+      
+      return res.render('admin/usuario-adicionar', {
+        title: 'Admin - Cadastro de Usuário',
+        errors: resultValidations.mapped(),
+        oldData: req.body
+      })
+    } 
+    
     const { nome, email, senha, avatar, admin, created_at, updated_at } = req.body;
 
-    const slug = await create.slug(nome)
+    //conferir se já existe um email
+    let emailExists = await getUserByEmail(email)
+    if(emailExists) {
+      res.render('admin/usuario-adicionar', {
+        title: 'Admin - Cadastro de Usuário',
+        errors: {
+          email: {
+            msg: 'Este email já está cadastrado'
+          }
+        },
+        oldData: req.body
+      })
+    } 
 
+    const slug = await create.slug(nome)
+    //criptografia da senha
+    let senhaCripto = bcrypt.hashSync(senha, 3)
     await User.create({
       nome,
-      senha,
+      senha: senhaCripto,
       email,
       slug,
       avatar: avatar || null,
@@ -57,25 +85,39 @@ controller.createUser = async (req, res) => {
 controller.editUser = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
-    res.render(`admin/usuario-editar`, {
-      title: `Editar Usuário ${req.params.nome}`,
+    res.render('admin/usuario-editar', {
+      title: 'Editar usuário',
       user,
     });
 },
 
 controller.updateUser = async (req, res) => {
     const { id } = req.params
+    const user = getUser(id)
+    const resultValidations = validationResult(req)
+
+    if(resultValidations.errors.length > 0 ) {
+     
+      return res.render('admin/usuario-editar', {
+        title: 'Editar usuário',
+        errors: resultValidations.mapped(),
+        oldData: req.body,
+        user
+      })
+    } 
+    
     const { 
         nome, slug, email, senha, avatar, admin, 
         created_at, updated_at 
-    } = req.body;
+    } = req.body
 
+    let senhaCripto = bcrypt.hashSync(senha, 3)
     await User.update(
     {
       nome: nome,
       slug: slug,
       email: email,
-      senha: senha,
+      senha: senhaCripto,
       avatar: avatar || null,
       admin: !!admin,
       createdAt: created_at,
@@ -84,7 +126,7 @@ controller.updateUser = async (req, res) => {
     {
       where: {id}
     })  
-    res.redirect(`/admin/usuarios`);
+    res.redirect(`/admin/usuarios/${id}`);
 },
 
 controller.excludeUser = async (req, res) => {
@@ -107,7 +149,7 @@ controller.deleteUser = async (req, res) => {
 controller.showUser = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
-    res.render("admin/usuario", {
+    res.render("admin/mostrar-info", {
       title: `Usuário`,
       user
     });
@@ -116,7 +158,7 @@ controller.showUserAgendas = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
     const agendas = await getUserAgendas(id)
-    res.render("admin/usuario-agendas", {
+    res.render("admin/listagem", {
       title: `Agendas - ${ user.nome }`,
       user,
       agendas
@@ -126,7 +168,7 @@ controller.showUserEvents = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
     const events = await getUserEvents(id)
-    res.render("admin/usuario-agendamentos", {
+    res.render("admin/listagem", {
       title: `Agendamentos - ${ user.nome }`,
       user,
       events
@@ -136,16 +178,16 @@ controller.showUserEvents = async (req, res) => {
 //Admin agendas
 controller.adminAgendas = async (req, res) => {
     const agendas = await getAllAgendas()
-    res.render("admin/agendas", {
+    res.render("admin/listagem", {
         title: "Agendas",
         agendas
     })
 }
 controller.adminAddAgenda = async (req, res) => {
-    let users = await getAllUsers()
+    let agendas = await getAllAgendas()
     res.render("admin/agenda-adicionar", {
-        title: req.path == "/cadastro" ? `Cadastro` : `Adicionar Agenda`,
-        users
+        title: 'Adicionar agenda',
+        agendas
     })
 }
 controller.createAgenda = async (req, res) => {
@@ -154,10 +196,11 @@ controller.createAgenda = async (req, res) => {
         start, end, daysOfWeek, startTime, 
         endTime, created_at, updated_at 
     } = req.body;
-    
+    const backgroundColor = await create.color()
     const response = await Agenda.create({
-        userId, title, url, duration, start,
-        end, createdAt: created_at, updatedAt: updated_at        
+        userId, title, url, duration,
+        start, end, backgroundColor, 
+        createdAt: created_at, updatedAt: updated_at        
     })
     let start_time = create.time(startTime)
     let end_time = create.time(endTime)
@@ -183,7 +226,7 @@ controller.showAgenda = async (req, res) => {
     const agenda = await getAgenda(id)
     let businessHours = await create.businessHours(await getBusinessHours(id))
     businessHours = JSON.parse(businessHours)
-    res.render("admin/agenda", {
+    res.render("admin/mostrar-info", {
         title: "Agenda",
         agenda,
         businessHours
@@ -195,7 +238,7 @@ controller.showAgendaEvents = async (req, res) => {
     const { id } = req.params
     const agenda = await getAgenda(id)
     const events = await getEventsAgendas(id)
-    res.render("admin/agenda-agendamentos", {
+    res.render("admin/listagem", {
         title: `Agendamentos - ${agenda.title}`,
         agenda, 
         events
@@ -205,7 +248,8 @@ controller.showAgendaEvents = async (req, res) => {
 controller.editAgenda = async (req, res) => {
     const { id } = req.params
     const agenda = await getAgenda(id)
-    const businessHours = await create.businessHours(await getBusinessHours(id))
+    const businessHours = 
+        await create.businessHours(await getBusinessHours(id))
 
     res.render("admin/agenda-editar", {
         title: `Editar agenda`,
@@ -215,14 +259,18 @@ controller.editAgenda = async (req, res) => {
 }
 controller.updateAgenda = async (req, res) =>{
     const { id } = req.params
+    const agenda = getAgenda(id)
+
     const {
         userId, title, url, duration, start,
         end, daysOfWeek, startTime, endTime, 
         created_at, updated_at
     } =req.body
-            
+
+    backgroundColor = agenda.backgroundColor
     await Agenda.update({
-        userId, title, url, duration, start, end, 
+        userId, title, url, duration, 
+        start, end, backgroundColor,
         createdAt: created_at, 
         updatedAt: updated_at
     }, { where: { id }})
@@ -266,7 +314,7 @@ controller.deleteAgenda = async (req, res) => {
 //Admin agendamentos
 controller.adminEvents = async (req, res) => {
     const events = await getAllEvents()
-    res.render("admin/agendamentos", {
+    res.render("admin/listagem", {
         title: "Agendamentos",
         events
     })
@@ -301,6 +349,8 @@ controller.createEvent = async (req, res) => {
         end: start,
         startTime,
         endTime: endTime,
+        backgroundColor: agenda.backgroundColor,
+        url: agenda.url,
         emailAluno,
         telefoneAluno,
         description,
@@ -311,13 +361,10 @@ controller.createEvent = async (req, res) => {
     });
     res.redirect("/admin/agendamentos")
 }
-    
-
-
 controller.showEvent = async (req, res) => {
     const { id } = req.params
     const event = await getEvent(id)
-    res.render("admin/agendamento", {
+    res.render("admin/mostrar-info", {
         title: `Agendamento de ${event.title}`,
         event
 
@@ -357,6 +404,8 @@ controller.updateEvent = async (req, res) =>{
         end: start,
         startTime,
         endTime: endTime,
+        backgroundColor: agenda.backgroundColor,
+        url: agenda.url,
         emailAluno,
         telefoneAluno,
         description,

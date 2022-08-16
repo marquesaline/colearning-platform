@@ -1,6 +1,9 @@
 var express = require("express")
 const controllerAdmin = require("../controllers/AdminController")
+const controllerUser = require("../controllers/UserControllers")
 var router = express.Router()
+const validator = require("../middlewares/validadeRegister")
+const loggedUser = require("../middlewares/loggedUser")
 
 router.get("/", controllerAdmin.index) /*elton   peguei o index do controllerUsers */
 
@@ -10,10 +13,10 @@ router.get("/usuarios/:id/agendas", controllerAdmin.showUserAgendas)
 router.get("/usuarios/:id/agendamentos", controllerAdmin.showUserEvents)
 
 router.get("/usuarios/add", controllerAdmin.addUser)
-router.post("/usuarios/add", controllerAdmin.createUser)
+router.post("/usuarios/add", validator, controllerAdmin.createUser)
 
 router.get("/usuarios/:id/editar", controllerAdmin.editUser)
-router.put("/usuarios/:id/editar", controllerAdmin.updateUser)
+router.put("/usuarios/:id/editar", validator, controllerAdmin.updateUser)
 
 router.get("/usuarios/:id/excluir", controllerAdmin.excludeUser)
 router.delete("/usuarios/:id/excluir", controllerAdmin.deleteUser) /*elton   acessando o id da turma do controllerAdmin*/
@@ -48,5 +51,8 @@ router.put("/agendamentos/:id/editar", controllerAdmin.updateEvent)
 
 router.get("/agendamentos/:id/excluir", controllerAdmin.excludeEvent)
 router.delete("/agendamentos/:id/excluir", controllerAdmin.deleteEvent)
+
+router.get('/sair',  loggedUser.isNotLogged, controllerUser.logout)
+
 
 module.exports = router

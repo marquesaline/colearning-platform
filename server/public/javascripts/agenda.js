@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
             prev: '<',
             next: '>'
         },
-        height: 850,
+        height: 750,
         now: function (date) {
             var now = Date.now()
             var date = new Date(now)

@@ -87,9 +87,9 @@ controller.updateAgenda = async (req, res) => {
     const { 
         title, url, duration, start, end, 
         daysOfWeek, startTime, endTime, 
-        backgroundColor, created_at, updated_at 
+        created_at, updated_at 
     } = req.body;
-    console.log(created_at)
+    backgroundColor = agenda.backgroundColor
     const id = agendaId
     await Agenda.update({
         title, url, duration, 
@@ -152,7 +152,7 @@ controller.agenda = async (req, res) => {
     const businessHours = await create.businessHours(await getBusinessHours(agendaId))
     const events = await create.event(await getEventsAgendas(agendaId))    
     res.render('areaLogada/agenda', {
-        title: `Agenda`,
+        title: `Agenda - ${agenda.title}`,
         agenda,
         agendas,
         user,

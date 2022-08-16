@@ -1,17 +1,15 @@
-
+const controller = {}
 const { getUser, getUserAgendas, getUserByEmail } = require('../services/users')
 const { User } = require('../database/models')
 const { validationResult } = require('express-validator')
 const bcrypt  = require('bcrypt')
 const create = require('../utils/create')
 
-// controller
-const controller = {}
-  
+
 //sendo usado pra o cadastro do usuário
 
 controller.loginProcess = async (req, res) => {
-  const { email, senha  } = req.body
+  const { email, senha } = req.body
  
   let user = await getUserByEmail(email)
   if(user) {
@@ -110,7 +108,7 @@ controller.updateAccount = async (req, res) => {
     let senhaCripto = bcrypt.hashSync(senha, 3)
     const id = user.id
     const slug = await createSlug(nome)
-    const urlAgendamento = await url(slug)
+  
    
     await User.update(
     { nome, slug, email, senha: senhaCripto,
