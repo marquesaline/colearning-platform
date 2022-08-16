@@ -152,7 +152,7 @@ controller.agenda = async (req, res) => {
     const businessHours = await create.businessHours(await getBusinessHours(agendaId))
     const events = await create.event(await getEventsAgendas(agendaId))    
     res.render('areaLogada/agenda', {
-        title: `Agenda`,
+        title: `Agenda - ${agenda.title}`,
         agenda,
         agendas,
         user,

@@ -134,6 +134,11 @@
     
 }
 
+.section-agenda h1 {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
 .agenda-title {
     padding: 0px 0;
     text-align: center;
@@ -152,9 +157,9 @@
 }
 /* calendário do usuário */
 #calendar-main,
-#calendar-agenda {
+#calendar-agenda  {
     width: 100%;
-    margin-top: 125px;
+    margin-top: 90px;
 }
 #calendar-main .fc-scrollgrid,
 #calendar-agenda .fc-scrollgrid {
