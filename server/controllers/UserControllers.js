@@ -66,12 +66,15 @@ controller.create = async (req, res) => {
 
     const slug = await create.slug(nome)
 
+    const avatarFileName = req.file.filename;
+
+
     await User.create({
       nome,
       senha: senhaCripto,
       email,
       slug,
-      avatar: avatar || null,
+      avatar: avatarFileName || null,
       admin: !!admin,
       createdAt: created_at,
       updatedAt: updated_at
@@ -108,11 +111,11 @@ controller.updateAccount = async (req, res) => {
     let senhaCripto = bcrypt.hashSync(senha, 3)
     const id = user.id
     const slug = await createSlug(nome)
-  
+    const avatarFileName = req.file.filename;
    
     await User.update(
-    { nome, slug, email, senha: senhaCripto,
-      avatar: avatar || null,
+      { nome, slug, email, senha: senhaCripto,
+        avatar: avatarFileName || null,
       admin: user.admin,
       createdAt: created_at,
       updatedAt: updated_at

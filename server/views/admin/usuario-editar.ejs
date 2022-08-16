@@ -10,11 +10,21 @@
       class="form-user",
       method="post"
       action="/admin/usuarios/<%=user.id%>/editar?_method=put"
+      enctype="multipart/form-data"
     >
       <div>
         <div class="info-edit">
+          <div class="div-avatar">
+            <img
+              src="../../public/images/<%= user.avatar ? `avatar/${user.avatar}` : 'avatar-exemple.png' %>"
+              alt="avatar <%= user.nome%>"
+              height="80"
+              width="80"
+              style="border-radius: 50%; width: 80px; height: 60px; "
+            />
+          </div>
           <label for="user-img">Avatar</label for="user-avatar">
-          <input type="file" name="user-avatar" id="user-avatar">
+            <input type="file" name="user-avatar" id="user-avatar" accept="image/*">
         </div>
       </div>
       <div class="info-edit">

@@ -69,12 +69,14 @@ controller.createUser = async (req, res) => {
     const slug = await create.slug(nome)
     //criptografia da senha
     let senhaCripto = bcrypt.hashSync(senha, 3)
+
+    const avatarFileName = req.file.filename;
     await User.create({
       nome,
       senha: senhaCripto,
       email,
       slug,
-      avatar: avatar || null,
+      avatar: avatarFileName || null,
       admin: !!admin,
       createdAt: created_at,
       updatedAt: updated_at
@@ -112,13 +114,16 @@ controller.updateUser = async (req, res) => {
     } = req.body
 
     let senhaCripto = bcrypt.hashSync(senha, 3)
+
+    const avatarFileName = req.file.filename;
+    
     await User.update(
     {
       nome: nome,
       slug: slug,
       email: email,
       senha: senhaCripto,
-      avatar: avatar || null,
+      avatar: avatarFileName || null,
       admin: !!admin,
       createdAt: created_at,
       updatedAt: updated_at

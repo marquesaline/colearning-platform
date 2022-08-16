@@ -241,13 +241,36 @@ table {
 @media screen and (max-width: 1024px) {
     .list-row {
         width: calc(33.3% - 16px);
+    }  
+   /* .app-container .sidebar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: nowrap;
+        height: 100px;
+        width: 100vw;
+    }
+   
+   .sidebar-list {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+    }*/
+
+    .account-info{
+        list-style-type: none;
+        padding: 0;
+        margin-top: 0;
     }
 }
 
 @media screen and (max-width: 820px) {
     .list-row {
         width: calc(50% - 16px);
+        
     }
+  
 }
 
 @media screen and (max-width: 520px) {

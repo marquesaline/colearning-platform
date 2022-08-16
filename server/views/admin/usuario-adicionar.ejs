@@ -8,12 +8,16 @@
     <form class="form-user" 
     method="post"
     action="/admin/usuarios/add" 
-    
+    enctype="multipart/form-data"
     >
-
+    
+    
       <div class="info-edit">
+        <div class="div-avatar">
+          <img src="../../public/images/avatar-exemple.png" alt="Avatar" height="60" width="60" style="border-radius:50%;width:60px;height:60px;display: block;"/>
+        </div>
         <label for="user-img">Avatar</label for="user-avatar">
-        <input type="file" name="user-avatar" id="user-avatar">
+        <input type="file" name="user-avatar" id="user-avatar" accept="image/*">
       </div>
 
       <div class="info-edit">

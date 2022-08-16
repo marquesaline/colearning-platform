@@ -2,6 +2,7 @@ var express = require("express")
 const controllerAdmin = require("../controllers/AdminController")
 const controllerUser = require("../controllers/UserControllers")
 var router = express.Router()
+const middlewares = require('../middlewares/AvatarUpload')
 const validator = require("../middlewares/validadeRegister")
 const loggedUser = require("../middlewares/loggedUser")
 
@@ -13,10 +14,10 @@ router.get("/usuarios/:id/agendas", controllerAdmin.showUserAgendas)
 router.get("/usuarios/:id/agendamentos", controllerAdmin.showUserEvents)
 
 router.get("/usuarios/add", controllerAdmin.addUser)
-router.post("/usuarios/add", validator, controllerAdmin.createUser)
+router.post("/usuarios/add", validator,middlewares.upload, controllerAdmin.createUser)
 
 router.get("/usuarios/:id/editar", controllerAdmin.editUser)
-router.put("/usuarios/:id/editar", validator, controllerAdmin.updateUser)
+router.put("/usuarios/:id/editar", validator,middlewares.upload, controllerAdmin.updateUser)
 
 router.get("/usuarios/:id/excluir", controllerAdmin.excludeUser)
 router.delete("/usuarios/:id/excluir", controllerAdmin.deleteUser) /*elton   acessando o id da turma do controllerAdmin*/
