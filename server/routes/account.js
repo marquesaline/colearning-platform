@@ -3,8 +3,8 @@ var router = express.Router();
 const controllerUser = require('../controllers/UserControllers')
 const controllerAgenda = require('../controllers/AgendaController')
 const middlewares = require('../middlewares/AvatarUpload')
-const validator = require('../middlewares/validadeRegister')
-const loggedUser = require('../middlewares/loggedUser')
+const validator = require('../middlewares/ValidatorRegister')
+const loggedUser = require('../middlewares/LoggedUser')
 
 router.get('/', loggedUser.isNotLogged, controllerAgenda.calendar)
 
