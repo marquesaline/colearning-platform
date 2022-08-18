@@ -362,7 +362,8 @@ controller.deleteAgenda = async (req, res) => {
 
 //Admin agendamentos
 controller.adminEvents = async (req, res) => {
-    const user = await req.session.userLogged
+    const userLogged = await req.session.userLogged
+    const user = await getUser(userLogged.id)
     const events = await getAllEvents()
     res.render("admin/listagem", {
         title: "Agendamentos",

@@ -53,15 +53,16 @@
                 
               </ul>
               <div class="account-info">
-                <div class="avatar-header">
+                <div class="account-info-picture">
                   <img
+              
                   src="/images/<%= user.avatar ? `avatar/${user.avatar}` : 'avatar-exemple.png' %>"
                   alt="Avatar de <%=user.nome%>"
                   />
               </div>
                 <div class="account-info-name"><%=user.nome%></div>
                 <a class="account-info-more" href="/admin/sair">
-                 Sair
+                 <img src="/images/icon-logout.png" width="20px" height="20px">
                 </a>
               </div>
         </div>
