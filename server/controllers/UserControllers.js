@@ -45,7 +45,7 @@ controller.create = async (req, res) => {
       })
     } 
 
-    const { nome, email, senha, avatar, admin, created_at, updated_at } = req.body;
+    const { nome, email, senha, admin, created_at, updated_at } = req.body;
     
     //conferir se já existe um email
     let emailExists = await getUserByEmail(email)
@@ -63,18 +63,13 @@ controller.create = async (req, res) => {
 
     //criptografia da senha
     let senhaCripto = bcrypt.hashSync(senha, 3)
-
     const slug = await create.slug(nome)
-
-    const avatarFileName = req.file.filename;
-
-
     await User.create({
       nome,
       senha: senhaCripto,
       email,
       slug,
-      avatar: avatarFileName || null,
+      avatar: null,
       admin: !!admin,
       createdAt: created_at,
       updatedAt: updated_at
@@ -95,8 +90,8 @@ controller.updateAccount = async (req, res) => {
     const userLogged = await req.session.userLogged
     const user = await getUser(userLogged.id)
     const resultValidations = validationResult(req)
-
-    if(resultValidations.errors.length > 0 ) {
+ 
+    if(resultValidations.errors.length > 0) {
      
       return res.render('areaLogada/minha-conta-editar', {
         title: 'Editar usuário',
@@ -106,19 +101,19 @@ controller.updateAccount = async (req, res) => {
       })
     } 
     
-    const { nome, email, senha, avatar, created_at, updated_at } = req.body;
+    const { nome, email, senha, created_at, updated_at } = req.body;
     
     let senhaCripto = bcrypt.hashSync(senha, 3)
     const id = user.id
-    const slug = await createSlug(nome)
+    const slug = await create.slug(nome)
     const avatarFileName = req.file.filename;
    
     await User.update(
       { nome, slug, email, senha: senhaCripto,
         avatar: avatarFileName || null,
-      admin: user.admin,
-      createdAt: created_at,
-      updatedAt: updated_at
+        admin: user.admin,
+        createdAt: created_at,
+        updatedAt: updated_at
     }, 
     { where: {id} })  
     res.redirect(`/conta/minha-conta`);

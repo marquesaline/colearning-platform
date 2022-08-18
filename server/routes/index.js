@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 const controllerIndex = require('../controllers/IndexController')
 const controllerUser = require('../controllers/UserControllers')
-const validator = require('../middlewares/validadeRegister')
-const loggedUser = require('../middlewares/loggedUser')
+const validator = require('../middlewares/ValidatorRegister')
+const loggedUser = require('../middlewares/LoggedUser')
 
 router.get('/', controllerIndex.index)
 

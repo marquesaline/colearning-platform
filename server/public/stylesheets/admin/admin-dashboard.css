@@ -5,7 +5,7 @@
 .cards-admin {
     margin: 80px auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     background-color: ();
 }
@@ -29,9 +29,6 @@
     margin-bottom: 10px;
 }
 
-.btn-default{
-    margin: 10px auto;
-}
 @media screen and (max-width: 1024px) {
     .title-dashboard {
         margin-top: 101px;

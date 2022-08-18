@@ -1,12 +1,11 @@
-const path = require('path')
 const { check } = require('express-validator')
 
 module.exports = [
     check('nome')
-        .notEmpty().withMessage('Escreva um nome').bail()
+        .notEmpty().withMessage('Escreva um nome válido').bail()
         .trim(),
     check('email')
-        .notEmpty().withMessage('Escreva um email').bail()
+        .notEmpty().withMessage('Escreva um email ').bail()
         .trim().bail()
         .normalizeEmail().bail()
         .isEmail().withMessage('Digite um email correto'),

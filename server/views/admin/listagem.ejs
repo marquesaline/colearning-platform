@@ -1,6 +1,6 @@
 <%- include('../partials/header-admin.ejs') %>
 
-
+<main class="app-container">
   <div class="app-content">
     
     <% if (locals.users) {%>
@@ -30,9 +30,6 @@
                 <img
                 src="/images/<%= user.avatar ? `avatar/${user.avatar}` : 'avatar-exemple.png' %>"
                 alt="Avatar  <%= user.nome %>"
-                width="60"
-                height="40"
-                style="border-radius: 50%; display: block"
                 />
               </td>
               <td class="td-id">
@@ -231,5 +228,4 @@
 
 </main>
 </body>
-
 </html>

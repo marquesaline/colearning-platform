@@ -18,7 +18,7 @@
     <title><%= title %></title>
 </head>
 <body>
-    <main class="app-container">
+    <aside>
         <div class="sidebar">
               <div class="sidebar-header">
                 <div class="app-icon">
@@ -54,12 +54,17 @@
               </ul>
               <div class="account-info">
                 <div class="account-info-picture">
-                  <img srcset="/images/avatar-exemple.png" width="24" height="24">
-                </div>
-                <div class="account-info-name">User exemplo</div>
+                  <img
+              
+                  src="/images/<%= user.avatar ? `avatar/${user.avatar}` : 'avatar-exemple.png' %>"
+                  alt="Avatar de <%=user.nome%>"
+                  />
+              </div>
+                <div class="account-info-name"><%=user.nome%></div>
                 <a class="account-info-more" href="/admin/sair">
-                 Sair
+                 <img src="/images/icon-logout.png" width="20px" height="20px">
                 </a>
               </div>
         </div>
+    </aside>
       
