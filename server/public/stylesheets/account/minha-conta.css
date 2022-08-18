@@ -62,10 +62,15 @@
     border-bottom: 1px solid #343a40;
 }
 /* Tela de informações pessoais */
-#img-avatar {
-    border-radius: 50%;
-    margin: 20px auto;
+.div-avatar {
+    text-align: center;
 }
+.div-avatar img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 10px auto;
+} 
 .info-data {
     display: flex;
     justify-content: space-between;
@@ -91,7 +96,7 @@
 
 /* Tela de editar Minha conta*/
 .info-edit {
-    padding: 30px 20px 10px 20px;
+    padding: 10px 20px;
     display: block;
     text-align: left;
 }

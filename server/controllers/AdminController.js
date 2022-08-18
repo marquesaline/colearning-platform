@@ -11,11 +11,14 @@ const { validationResult } = require('express-validator')
 const bcrypt  = require('bcrypt')
 
 controller.index = async (req, res) => {
+    const userLogged = await req.session.userLogged
+    const user = await getUser(userLogged.id)
     const users = await getAllUsers()
     const agendas = await getAllAgendas()
     const events = await getAllEvents()
     res.render("admin/admin-index", { 
         title: "Dashboard Admin",
+        user,
         users,
         agendas,
         events
@@ -24,16 +27,22 @@ controller.index = async (req, res) => {
 
 //Admin usuários
 controller.users = async (req, res) => {
+    const userLogged = await req.session.userLogged
+    const user = await getUser(userLogged.id)
     const users = await getAllUsers();
     res.render('admin/listagem', {
       title: "Usuários",
       users,
+      user
     });
 },
 
 controller.addUser = async (req, res) => {
+    const userLogged = await req.session.userLogged
+    const user = await getUser(userLogged.id)
     res.render('admin/usuario-adicionar', {
       title: 'Adicionar usuário',
+      user
     });
 },
 
@@ -72,14 +81,10 @@ controller.createUser = async (req, res) => {
 
     const avatarFileName = req.file.filename;
     await User.create({
-      nome,
-      senha: senhaCripto,
-      email,
-      slug,
-      avatar: avatarFileName || null,
-      admin: !!admin,
-      createdAt: created_at,
-      updatedAt: updated_at
+      nome, senha: senhaCripto,
+      email, slug,
+      avatar: avatarFileName || null, admin: !!admin,
+      createdAt: created_at, updatedAt: updated_at
     });
     res.redirect("/admin/usuarios");
 },
@@ -109,7 +114,7 @@ controller.updateUser = async (req, res) => {
     } 
     
     const { 
-        nome, slug, email, senha, avatar, admin, 
+        nome, slug, email, senha, admin, 
         created_at, updated_at 
     } = req.body
 
@@ -119,18 +124,12 @@ controller.updateUser = async (req, res) => {
     
     await User.update(
     {
-      nome: nome,
-      slug: slug,
-      email: email,
-      senha: senhaCripto,
-      avatar: avatarFileName || null,
-      admin: !!admin,
-      createdAt: created_at,
-      updatedAt: updated_at
+      nome, slug,
+      email, senha: senhaCripto,
+      avatar: avatarFileName || null, admin: !!admin,
+      createdAt: created_at, updatedAt: updated_at
     }, 
-    {
-      where: {id}
-    })  
+    { where: {id}})  
     res.redirect(`/admin/usuarios/${id}`);
 },
 
@@ -182,30 +181,50 @@ controller.showUserEvents = async (req, res) => {
 
 //Admin agendas
 controller.adminAgendas = async (req, res) => {
+    const userLogged = await req.session.userLogged
+    const user = await getUser(userLogged.id)
     const agendas = await getAllAgendas()
     res.render("admin/listagem", {
         title: "Agendas",
-        agendas
+        agendas,
+        user
     })
 }
 controller.adminAddAgenda = async (req, res) => {
+    const userLogged = await req.session.userLogged
+    const user = await getUser(userLogged.id)
     let agendas = await getAllAgendas()
     res.render("admin/agenda-adicionar", {
         title: 'Adicionar agenda',
-        agendas
+        agendas,
+        user
     })
 }
 controller.createAgenda = async (req, res) => {
     const { 
-        userId, title, url, duration, 
-        start, end, daysOfWeek, startTime, 
-        endTime, created_at, updated_at 
+        userId, 
+        title, 
+        url, 
+        duration, 
+        start, 
+        end, 
+        daysOfWeek, 
+        startTime, 
+        endTime, 
+        created_at, 
+        updated_at 
     } = req.body;
     const backgroundColor = await create.color()
     const response = await Agenda.create({
-        userId, title, url, duration,
-        start, end, backgroundColor, 
-        createdAt: created_at, updatedAt: updated_at        
+        userId, 
+        title, 
+        url, 
+        duration,
+        start, 
+        end,
+        backgroundColor, 
+        createdAt: created_at, 
+        updatedAt: updated_at        
     })
     let start_time = create.time(startTime)
     let end_time = create.time(endTime)
@@ -227,6 +246,8 @@ controller.createAgenda = async (req, res) => {
 } 
 
 controller.showAgenda = async (req, res) => {
+    const userLogged = await req.session.userLogged
+    const user = await getUser(userLogged.id)
     const { id } = req.params
     const agenda = await getAgenda(id)
     let businessHours = await create.businessHours(await getBusinessHours(id))
@@ -234,23 +255,29 @@ controller.showAgenda = async (req, res) => {
     res.render("admin/mostrar-info", {
         title: "Agenda",
         agenda,
-        businessHours
+        businessHours,
+        user
 
     })
 }
 
 controller.showAgendaEvents = async (req, res) => {
+    const userLogged = await req.session.userLogged
+    const user = await getUser(userLogged.id)
     const { id } = req.params
     const agenda = await getAgenda(id)
     const events = await getEventsAgendas(id)
     res.render("admin/listagem", {
         title: `Agendamentos - ${agenda.title}`,
         agenda, 
-        events
+        events,
+        user
     })
 }
 
 controller.editAgenda = async (req, res) => {
+    const userLogged = await req.session.userLogged
+    const user = await getUser(userLogged.id) 
     const { id } = req.params
     const agenda = await getAgenda(id)
     const businessHours = 
@@ -259,7 +286,8 @@ controller.editAgenda = async (req, res) => {
     res.render("admin/agenda-editar", {
         title: `Editar agenda`,
         agenda, 
-        businessHours
+        businessHours,
+        user
     })
 }
 controller.updateAgenda = async (req, res) =>{
@@ -267,15 +295,28 @@ controller.updateAgenda = async (req, res) =>{
     const agenda = getAgenda(id)
 
     const {
-        userId, title, url, duration, start,
-        end, daysOfWeek, startTime, endTime, 
-        created_at, updated_at
+        userId, 
+        title, 
+        url, 
+        duration, 
+        start,
+        end, 
+        daysOfWeek, 
+        startTime, 
+        endTime, 
+        created_at, 
+        updated_at
     } =req.body
 
     backgroundColor = agenda.backgroundColor
     await Agenda.update({
-        userId, title, url, duration, 
-        start, end, backgroundColor,
+        userId, 
+        title, 
+        url, 
+        duration, 
+        start, 
+        end, 
+        backgroundColor,
         createdAt: created_at, 
         updatedAt: updated_at
     }, { where: { id }})
@@ -301,11 +342,14 @@ controller.updateAgenda = async (req, res) =>{
 }
 
 controller.excludeAgenda = async(req, res) => {
+    const userLogged = await req.session.userLogged
+    const user = await getUser(userLogged.id)
     const { id } = req.params
     const agenda = await getAgenda(id)
     res.render("admin/agenda-excluir", {
         title:"Excluir agenda",
-        agenda
+        agenda, 
+        user
     })
 }
 controller.deleteAgenda = async (req, res) => {
@@ -318,17 +362,22 @@ controller.deleteAgenda = async (req, res) => {
 
 //Admin agendamentos
 controller.adminEvents = async (req, res) => {
+    const user = await req.session.userLogged
     const events = await getAllEvents()
     res.render("admin/listagem", {
         title: "Agendamentos",
-        events
+        events,
+        user
     })
 }
 controller.adminAddEvent = async(req, res) => {
+    const userLogged = await req.session.userLogged
+    const user = await getUser(userLogged.id)
     const events = await getAllEvents()
     res.render("admin/agendamento-adicionar", {
         title: "Adicionar agendamento", 
-        events
+        events, 
+        user
     })
 }
 controller.createEvent = async (req, res) => {
@@ -367,21 +416,26 @@ controller.createEvent = async (req, res) => {
     res.redirect("/admin/agendamentos")
 }
 controller.showEvent = async (req, res) => {
+    const userLogged = await req.session.userLogged
+    const user = await getUser(userLogged.id)
     const { id } = req.params
     const event = await getEvent(id)
     res.render("admin/mostrar-info", {
         title: `Agendamento de ${event.title}`,
-        event
-
+        event, 
+        user
     })
 }
 controller.editEvent = async (req, res) => {
+    const userLogged = await req.session.userLogged
+    const user = await getUser(userLogged.id)
     const { id } = req.params
     const event = await getEvent(id)
 
     res.render("admin/agendamento-editar", {
         title: `Editar agendamento de ${event.title}`,
-        event
+        event, 
+        user
     })
 }
 
@@ -416,8 +470,6 @@ controller.updateEvent = async (req, res) =>{
         description,
         createdAt: created_at,
         updatedAt: updated_at
-
-                    
     },
     {
         where: {id}
@@ -426,11 +478,14 @@ controller.updateEvent = async (req, res) =>{
 }
 
 controller.excludeEvent = async(req, res) => {
+    const userLogged = await req.session.userLogged
+    const user = await getUser(userLogged.id)
     const { id } = req.params
     const event = await getEvent(id)
     res.render("admin/agendamento-excluir", {
         title:"Excluir agendamento",
-        event
+        event,
+        user
     })
 }
 controller.deleteEvent = async (req, res) => {

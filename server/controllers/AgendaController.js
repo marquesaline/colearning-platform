@@ -12,6 +12,7 @@ controller.calendar = async (req, res) => {
     const events = await create.event(await getUserEvents(userLogged.id))
     const agendas = await getUserAgendas(userLogged.id)
     const user = await getUser(userLogged.id)
+    console.log(user)
     res.render('areaLogada/calendario',  {
         title: 'Calendário',
         agendas,
