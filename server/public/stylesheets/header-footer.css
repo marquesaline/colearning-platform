@@ -56,11 +56,13 @@
 .footer a {
     color: var(--font-color);
     font-weight: 600;
+    cursor: pointer;
     
 }
 .nav-header a:hover, 
 .div-menu-footer a:hover {
     color: var(--background-button);
+    cursor: pointer;
 }
 .nav-header li {
     padding-right: 2rem;

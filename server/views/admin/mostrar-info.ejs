@@ -3,6 +3,7 @@
    
   <section class="section-main section-admin">
     
+    <!-- Tela de usuário -->
     <% if(locals.user) { %>
       <div class="container-list info-user">
           <div class="div-avatar">
@@ -63,69 +64,7 @@
       </div>
     <% } %>
     
-    <% if(locals.event) { %>
-      <div class="container-list info-user">
-          
-        <div class="div-infos">
-            <h2 class="admin-title">Dados do agendamento</h2>
-            <div>
-                <div class="info-data">
-                    <p class="info-legend">Id</p>
-                    <p><%= event.id %></p>
-                </div>
-                <div class="info-data">
-                    <p class="info-legend">Id do usuário</p>
-                    <p><%= event.userId%></p>
-                </div>
-                <div class="info-data">
-                    <p class="info-legend">Id da agenda</p>
-                    <p><%= event.agendaId%></p>
-                </div>
-                <div class="info-data">
-                    <p class="info-legend">Nome do aluno</p>
-                    <p><%= event.title %></p>
-                </div>
-                <div class="info-data">
-                    <p class="info-legend">Email do aluno</p>
-                    <p><%= event.emailAluno %></p>
-                </div>
-                <div class="info-data">
-                    <p class="info-legend">Telefone do aluno</p>
-                    <p><%= event.telefoneAluno %></p>
-                </div>
-                <div class="info-data">
-                    <p class="info-legend">Data</p>
-                    <p><%= event.start %></p>
-                </div>
-                <div class="info-data">
-                    <p class="info-legend">Horário de início</p>
-                    <p><%= event.startTime%></p>
-                </div>
-                <div class="info-data">
-                    <p class="info-legend">Horário final</p>
-                    <p><%= event.endTime%></p>
-                </div>
-                <div class="info-data">
-                    <p class="info-legend">Descrição</p>
-                    <p><%= event.description %></p>
-                </div>
-                <div class="info-data">
-                    <p class="info-legend">Data de criação</p>
-                    <p><%= event.createdAt %></p>
-                </div>
-                <div class="info-data">
-                    <p class="info-legend">Data de modificação</p>
-                    <p><%= event.updatedAt %></p>
-                </div>
-            </div>
-            <div class="btn-options">
-                <a class="um-user btn-default" href="/admin/agendamentos/<%= event.id %>/editar">Editar</a> |
-                <a class="um-user btn-delete" href="/admin/agendamentos/<%= event.id %>/excluir">Excluir</a>
-            </div>
-            
-        </div>
-      </div>
-    <% }%>
+    <!-- Tela de agenda -->
     <% if(locals.agenda) { %>
       <div class="container-list info-user">
           
@@ -227,6 +166,121 @@
           
       </div>
     <% } %>
+
+    <!-- Tela de agendamentos -->
+    <% if(locals.event) { %>
+      <div class="container-list info-user">
+          
+        <div class="div-infos">
+            <h2 class="admin-title">Dados do agendamento</h2>
+            <div>
+                <div class="info-data">
+                    <p class="info-legend">Id</p>
+                    <p><%= event.id %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Id do usuário</p>
+                    <p><%= event.userId%></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Id da agenda</p>
+                    <p><%= event.agendaId%></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Nome do aluno</p>
+                    <p><%= event.title %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Email do aluno</p>
+                    <p><%= event.emailAluno %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Telefone do aluno</p>
+                    <p><%= event.telefoneAluno %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Data</p>
+                    <p><%= event.start %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Horário de início</p>
+                    <p><%= event.startTime%></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Horário final</p>
+                    <p><%= event.endTime%></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Descrição</p>
+                    <p><%= event.description %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Data de criação</p>
+                    <p><%= event.createdAt %></p>
+                </div>
+                <div class="info-data">
+                    <p class="info-legend">Data de modificação</p>
+                    <p><%= event.updatedAt %></p>
+                </div>
+            </div>
+            <div class="btn-options">
+                <a class="um-user btn-default" href="/admin/agendamentos/<%= event.id %>/editar">Editar</a> |
+                <a class="um-user btn-delete" href="/admin/agendamentos/<%= event.id %>/excluir">Excluir</a>
+            </div>
+            
+        </div>
+      </div>
+    <% }%>
+    
+    <!-- Tela de contatos -->
+    <% if(locals.contact) { %>
+      <div class="container-list info-user">
+          
+        <div class="div-infos">
+          <h2 class="admin-title">Dados do contato</h2>
+          <div>
+            <div class="info-data">
+              <p class="info-legend">Id</p>
+              <p><%= contact.id %></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Nome</p>
+              <p><%= contact.nome %></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Email</p>
+              <p><%= contact.email%></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Telefone</p>
+              <p><%= contact.telefone%></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Assunto</p>
+              <p><%= contact.assunto%></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Mensagem</p>
+              <p><%= contact.mensagem%></p>
+            </div>
+           
+            <div class="info-data">
+              <p class="info-legend">Data de criação</p>
+              <p><%= contact.createdAt %></p>
+            </div>
+            <div class="info-data">
+              <p class="info-legend">Data de modificação</p>
+              <p><%= contact.updatedAt %></p>
+            </div>
+
+          </div>
+        </div>
+        <div class="btn-options">
+          <a class="um-user btn-delete" href="/admin/contatos/<%= contact.id %>/excluir">Excluir</a>
+        </div>
+      </div>
+    <% } %>
+    
   </section>
 </main>
 

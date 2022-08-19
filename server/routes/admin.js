@@ -8,7 +8,7 @@ const loggedUser = require("../middlewares/LoggedUser")
 
 router.get("/", loggedUser.isNotLogged, controllerAdmin.index) /*elton   peguei o index do controllerUsers */
 
-// admin dos usuários
+//USUÁRIOS
 router.get("/usuarios", loggedUser.isNotLogged, controllerAdmin.users)
 router.get("/usuarios/:id", controllerAdmin.showUser)
 router.get("/usuarios/:id/agendas", loggedUser.isNotLogged, controllerAdmin.showUserAgendas)
@@ -23,7 +23,7 @@ router.put("/usuarios/:id/editar", avatar.upload, validator, controllerAdmin.upd
 router.get("/usuarios/:id/excluir", loggedUser.isNotLogged, controllerAdmin.excludeUser)
 router.delete("/usuarios/:id/excluir", controllerAdmin.deleteUser) /*elton   acessando o id da turma do controllerAdmin*/
 
-// admin das agendas
+//AGENDAS
 router.get("/agendas", loggedUser.isNotLogged, controllerAdmin.adminAgendas)
 
 router.get("/agendas/add", loggedUser.isNotLogged, controllerAdmin.adminAddAgenda)
@@ -39,7 +39,7 @@ router.put("/agendas/:id/editar", controllerAdmin.updateAgenda)
 router.get("/agendas/:id/excluir", loggedUser.isNotLogged, controllerAdmin.excludeAgenda)
 router.delete("/agendas/:id/excluir", controllerAdmin.deleteAgenda)
 
-//admin dos eventos
+//AGENDAMENTOS
 router.get("/agendamentos", loggedUser.isNotLogged, controllerAdmin.adminEvents)
 
 router.get("/agendamentos/add", loggedUser.isNotLogged, controllerAdmin.adminAddEvent)
@@ -52,6 +52,13 @@ router.put("/agendamentos/:id/editar", controllerAdmin.updateEvent)
 
 router.get("/agendamentos/:id/excluir", loggedUser.isNotLogged, controllerAdmin.excludeEvent)
 router.delete("/agendamentos/:id/excluir", controllerAdmin.deleteEvent)
+
+//CONTATOS
+router.get("/contatos", loggedUser.isNotLogged, controllerAdmin.adminContacts)
+router.get("/contatos/:id", loggedUser.isNotLogged, controllerAdmin.showContact)
+router.get("/contatos/:id/excluir", loggedUser.isNotLogged, controllerAdmin.excludeContact)
+router.delete("/contatos/:id/excluir", controllerAdmin.deleteContact)
+
 
 router.get('/sair',  loggedUser.isNotLogged, controllerUser.logout)
 

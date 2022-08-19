@@ -41,6 +41,18 @@
                   </div>
                </div>
             </a>
+            <a href="/admin/contatos">
+               <div class="card-admin btn-default">
+                  <div>
+                     <h2>Contatos</h2>
+                  </div>
+                  <div>
+                     <% if (locals.contacts) {%>
+                        <p><%=contacts.length%></p>
+                     <% } %>
+                  </div>
+               </div>
+            </a>
             
          </div>
          

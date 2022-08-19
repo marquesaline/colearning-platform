@@ -1,24 +1,4 @@
-@import url(header-footer.css);
-:root {
-    --background-primary: #F5F6FA;
-    --background-button: #FF7A00;
-    --font-color: #000;
-    --font-color-button: #FFF;
-    --font-size-btn: 16px;
-} 
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family:'Monteserrat', sans-serif;
-}
-a {
-    text-decoration: none;
-}
-li {
-    list-style-type: none;
-}
 
 
 .main{
@@ -88,13 +68,14 @@ li {
     font-size: 16px;
 }
 .container-input{
-    width: 100%;
     height: 30px;
-    margin-bottom: 0.5rem;
-    padding: 0 5px;
 }
-textarea {
+textarea, .container-input {
     width: 100%;
+    padding: 0 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    margin-bottom: 15px;
 }
 #submit{
     display: flex;
@@ -117,4 +98,18 @@ textarea {
     background-color: transparent;
     color: var(--background-button);
     border: 1px solid var(--background-button);
+}
+
+.alert-sucess {
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-alert-sucess);
+    border-radius: 10px;
+    width: 30rem;
+    height: 60px;
+}
+.alert-sucess p {
+    color: rgb(36, 74, 36);
 }
