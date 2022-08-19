@@ -93,7 +93,7 @@ controller.createUser = async (req, res) => {
 controller.editUser = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
-    res.render('admin/usuario-editar', {
+    res.render('admin/info-editar', {
       title: 'Editar usuário',
       user,
     });
@@ -115,8 +115,13 @@ controller.updateUser = async (req, res) => {
     } 
     
     const { 
-        nome, slug, email, senha, admin, 
-        created_at, updated_at 
+        nome, 
+        slug, 
+        email, 
+        senha, 
+        admin, 
+        created_at, 
+        updated_at 
     } = req.body
 
     let senhaCripto = bcrypt.hashSync(senha, 3)
@@ -125,10 +130,14 @@ controller.updateUser = async (req, res) => {
     
     await User.update(
     {
-      nome, slug,
-      email, senha: senhaCripto,
-      avatar: avatarFileName || null, admin: !!admin,
-      createdAt: created_at, updatedAt: updated_at
+      nome, 
+      slug,
+      email, 
+      senha: senhaCripto,
+      avatar: avatarFileName || null, 
+      admin: !!admin,
+      createdAt: created_at, 
+      updatedAt: updated_at
     }, 
     { where: {id}})  
     res.redirect(`/admin/usuarios/${id}`);
@@ -284,7 +293,7 @@ controller.editAgenda = async (req, res) => {
     const businessHours = 
         await create.businessHours(await getBusinessHours(id))
 
-    res.render("admin/agenda-editar", {
+    res.render("admin/info-editar", {
         title: `Editar agenda`,
         agenda, 
         businessHours,
@@ -434,7 +443,7 @@ controller.editEvent = async (req, res) => {
     const { id } = req.params
     const event = await getEvent(id)
 
-    res.render("admin/agendamento-editar", {
+    res.render("admin/info-editar", {
         title: `Editar agendamento de ${event.title}`,
         event, 
         userLogin

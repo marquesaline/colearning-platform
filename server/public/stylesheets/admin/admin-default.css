@@ -2,6 +2,7 @@ body,
 html,
 main {
     height: 100vh;
+   
 }
 body {
     display: flex;
@@ -18,6 +19,7 @@ table {
     border-radius: 4px;
     height: 100%;
     display: flex;
+    flex-direction: column;
     width: calc(100% - 250px);
     overflow: auto;
     margin: 0 auto;
@@ -203,8 +205,9 @@ table {
 
 .section-admin {
     margin-top: 60px;
-    overflow:auto;
-    height:100%
+    width: calc(100% - 250px);
+    overflow: auto;
+    height:100vh;
 }
 .btn-options {
     margin-top: 30px;
@@ -217,7 +220,10 @@ table {
 
 
 
-
+.form-edit {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
 
 
 @media screen and (max-width: 1024px) {
