@@ -31,7 +31,7 @@ controller.users = async (req, res) => {
     const userLogged = await req.session.userLogged
     const userLogin = await getUser(userLogged.id)
     const users = await getAllUsers();
-    res.render('admin/listagem', {
+    res.render('admin/lista', {
       title: "Usuários",
       users,
       userLogin
@@ -41,9 +41,11 @@ controller.users = async (req, res) => {
 controller.addUser = async (req, res) => {
     const userLogged = await req.session.userLogged
     const userLogin = await getUser(userLogged.id)
-    res.render('admin/usuario-adicionar', {
+    const users = await getAllUsers()
+    res.render('admin/adicionar', {
       title: "Adicionar usuário",
-      userLogin
+      userLogin, 
+      users
     });
 },
 
@@ -53,7 +55,7 @@ controller.createUser = async (req, res) => {
 
     if(resultValidations.errors.length > 0 ) {
       
-      return res.render('admin/usuario-adicionar', {
+      return res.render('admin/adicionar', {
         title: "Adicionar usuário",
         errors: resultValidations.mapped(),
         oldData: req.body
@@ -65,7 +67,7 @@ controller.createUser = async (req, res) => {
     //conferir se já existe um email
     let emailExists = await getUserByEmail(email)
     if(emailExists) {
-      res.render('admin/usuario-adicionar', {
+      res.render('admin/adicionar', {
         title: "Adicionar usuário",
         errors: {
           email: {
@@ -93,7 +95,7 @@ controller.createUser = async (req, res) => {
 controller.editUser = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
-    res.render('admin/info-editar', {
+    res.render('admin/editar', {
       title: "Editar usuário",
       user,
     });
@@ -146,7 +148,7 @@ controller.updateUser = async (req, res) => {
 controller.excludeUser = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
-    res.render("admin/info-excluir", {
+    res.render("admin/excluir", {
       title: "Excluir Usuário",
       user
     });
@@ -163,8 +165,8 @@ controller.deleteUser = async (req, res) => {
 controller.showUser = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
-    res.render("admin/mostrar-info", {
-      title: `Usuário`,
+    res.render("admin/mostrar", {
+      title: "Usuário",
       user
     });
 },
@@ -172,7 +174,7 @@ controller.showUserAgendas = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
     const agendas = await getUserAgendas(id)
-    res.render("admin/listagem", {
+    res.render("admin/lista", {
       title: `Agendas - ${ user.nome }`,
       user,
       agendas
@@ -182,7 +184,7 @@ controller.showUserEvents = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
     const events = await getUserEvents(id)
-    res.render("admin/listagem", {
+    res.render("admin/lista", {
       title: `Agendamentos - ${ user.nome }`,
       user,
       events
@@ -194,7 +196,7 @@ controller.adminAgendas = async (req, res) => {
     const userLogged = await req.session.userLogged
     const userLogin = await getUser(userLogged.id)
     const agendas = await getAllAgendas()
-    res.render("admin/listagem", {
+    res.render("admin/lista", {
         title: "Agendas",
         agendas,
         userLogin
@@ -203,8 +205,8 @@ controller.adminAgendas = async (req, res) => {
 controller.adminAddAgenda = async (req, res) => {
     const userLogged = await req.session.userLogged
     const userLogin = await getUser(userLogged.id)
-    let agendas = await getAllAgendas()
-    res.render("admin/agenda-adicionar", {
+    const agendas = await getAllAgendas()
+    res.render("admin/adicionar", {
         title: "Adicionar agenda",
         agendas,
         userLogin
@@ -262,7 +264,7 @@ controller.showAgenda = async (req, res) => {
     const agenda = await getAgenda(id)
     let businessHours = await create.businessHours(await getBusinessHours(id))
     businessHours = JSON.parse(businessHours)
-    res.render("admin/mostrar-info", {
+    res.render("admin/mostrar", {
         title: "Agenda",
         agenda,
         businessHours,
@@ -277,7 +279,7 @@ controller.showAgendaEvents = async (req, res) => {
     const { id } = req.params
     const agenda = await getAgenda(id)
     const events = await getEventsAgendas(id)
-    res.render("admin/listagem", {
+    res.render("admin/lista", {
         title: `Agendamentos - ${agenda.title}`,
         agenda, 
         events,
@@ -293,7 +295,7 @@ controller.editAgenda = async (req, res) => {
     const businessHours = 
         await create.businessHours(await getBusinessHours(id))
 
-    res.render("admin/info-editar", {
+    res.render("admin/editar", {
         title: "Editar agenda",
         agenda, 
         businessHours,
@@ -356,7 +358,7 @@ controller.excludeAgenda = async(req, res) => {
     const userLogin = await getUser(userLogged.id)
     const { id } = req.params
     const agenda = await getAgenda(id)
-    res.render("admin/info-excluir", {
+    res.render("admin/excluir", {
         title:"Excluir agenda",
         agenda, 
         userLogin
@@ -375,7 +377,7 @@ controller.adminEvents = async (req, res) => {
     const userLogged = await req.session.userLogged
     const userLogin = await getUser(userLogged.id)
     const events = await getAllEvents()
-    res.render("admin/listagem", {
+    res.render("admin/lista", {
         title: "Agendamentos",
         events,
         userLogin
@@ -385,7 +387,7 @@ controller.adminAddEvent = async(req, res) => {
     const userLogged = await req.session.userLogged
     const userLogin = await getUser(userLogged.id)
     const events = await getAllEvents()
-    res.render("admin/agendamento-adicionar", {
+    res.render("admin/adicionar", {
         title: "Adicionar agendamento", 
         events, 
         userLogin
@@ -431,7 +433,7 @@ controller.showEvent = async (req, res) => {
     const userLogin = await getUser(userLogged.id)
     const { id } = req.params
     const event = await getEvent(id)
-    res.render("admin/mostrar-info", {
+    res.render("admin/mostrar", {
         title: `Agendamento de ${event.title}`,
         event, 
         userLogin
@@ -443,7 +445,7 @@ controller.editEvent = async (req, res) => {
     const { id } = req.params
     const event = await getEvent(id)
 
-    res.render("admin/info-editar", {
+    res.render("admin/editar", {
         title: "Editar agendamento",
         event, 
         userLogin
@@ -493,7 +495,7 @@ controller.excludeEvent = async(req, res) => {
     const userLogin = await getUser(userLogged.id)
     const { id } = req.params
     const event = await getEvent(id)
-    res.render("admin/info-excluir", {
+    res.render("admin/excluir", {
         title:"Excluir agendamento",
         event,
         userLogin
@@ -513,7 +515,7 @@ controller.adminContacts = async (req, res) => {
     const userLogged = await req.session.userLogged
     const userLogin = await getUser(userLogged.id)
     const contacts = await getAllContacts()
-    res.render("admin/listagem", {
+    res.render("admin/lista", {
         title: "Contatos",
         contacts,
         userLogin
@@ -524,7 +526,7 @@ controller.showContact = async (req, res) => {
     const userLogin = await getUser(userLogged.id)
     const { id } = req.params
     const contact = await getContact(id)
-    res.render("admin/mostrar-info", {
+    res.render("admin/mostrar", {
         title: `Contato`,
         contact,
         userLogin
@@ -535,7 +537,7 @@ controller.excludeContact = async(req, res) => {
     const userLogin = await getUser(userLogged.id)
     const { id } = req.params
     const contact = await getContact(id)
-    res.render("admin/info-excluir", {
+    res.render("admin/excluir", {
         title:"Excluir contato",
         contact,
         userLogin

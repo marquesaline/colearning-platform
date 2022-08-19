@@ -6,16 +6,18 @@ const avatar = require('../middlewares/AvatarUpload')
 const validator = require("../middlewares/ValidatorRegister")
 const loggedUser = require("../middlewares/LoggedUser")
 
-router.get("/", loggedUser.isNotLogged, controllerAdmin.index) /*elton   peguei o index do controllerUsers */
+router.get("/", loggedUser.isNotLogged, controllerAdmin.index)
 
 //USUÁRIOS
 router.get("/usuarios", loggedUser.isNotLogged, controllerAdmin.users)
-router.get("/usuarios/:id", controllerAdmin.showUser)
-router.get("/usuarios/:id/agendas", loggedUser.isNotLogged, controllerAdmin.showUserAgendas)
-router.get("/usuarios/:id/agendamentos", loggedUser.isNotLogged, controllerAdmin.showUserEvents)
+
 
 router.get("/usuarios/add", loggedUser.isNotLogged, controllerAdmin.addUser)
 router.post("/usuarios/add", avatar.upload, validator, controllerAdmin.createUser)
+
+router.get("/usuarios/:id", controllerAdmin.showUser)
+router.get("/usuarios/:id/agendas", loggedUser.isNotLogged, controllerAdmin.showUserAgendas)
+router.get("/usuarios/:id/agendamentos", loggedUser.isNotLogged, controllerAdmin.showUserEvents)
 
 router.get("/usuarios/:id/editar", loggedUser.isNotLogged, controllerAdmin.editUser)
 router.put("/usuarios/:id/editar", avatar.upload, validator, controllerAdmin.updateUser)

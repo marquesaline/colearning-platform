@@ -220,7 +220,7 @@ main {
 }
 
 
-.form-edit {
+.form-edit, .form-admin {
     background-color: var(--background-primary);
     border-radius: 10px;
     padding-top:30px;

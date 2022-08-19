@@ -1,0 +1,270 @@
+<%- include('../partials/header-admin.ejs') %>
+
+  <main class="section-main app-container">
+    
+    <!-- Tela de cadastro de usuário -->
+    <% if(locals.users) { %>
+      <h1 class="admin-title">Cadastre o usuário</h1>
+
+      <div class="container-list">
+        <form class="form-admin" action="/admin/usuarios/add" method="post" enctype="multipart/form-data">
+        
+          <div class="info-edit">
+            <label for="user-img">Avatar</label for="user-avatar">
+            <input type="file" name="user-avatar" id="user-avatar">
+          </div>
+
+          <div class="info-edit">
+            <label for="nome">Nome</label>
+            <input class="input-account" type="text" id="nome" name="nome" placeholder="Digite o nome do usuário"
+            value="<%= locals.oldData ? oldData.name : null %>"  
+            required />
+            <% if(locals.errors && errors.nome) { %> 
+              <p style="color: red;"><%=errors.nome.msg%></p>
+            <% } %>
+          </div>
+          <div class="info-edit">
+            <label for="email">Email</label>
+            <input class="input-account" type="email" id="email" name="email" placeholder="Digite o email" required />
+            <% if(locals.errors && errors.email) { %> 
+              <p style="color: red;"><%=errors.email.msg%></p>
+            <% } %>
+          </div>
+          <div class="info-edit">
+            <label for="senha">Senha</label>
+            <input class="input-account" type="password" id="senha" name="senha" placeholder="Digite a senha" required />
+            <% if(locals.errors && errors.senha) { %> 
+              <p style="color: red;"><%=errors.senha.msg%></p>
+            <% } %>
+          </div>
+          <div class="info-edit info-admin">
+            <label for="admin">Admin</label>
+            <input class="input-account" type="checkbox" id="admin" name="admin" />
+          </div>
+          <div>
+            <input type="hidden" name="created_at" value="<%= new Date() %>">
+            <input type="hidden" name="updated_at" value="<%= new Date() %>">
+          </div>
+
+          <div class="btn-options">
+            <button class="button-add btn-default">Adicionar Usuário</button>
+          </div>
+
+        </form>
+      </div>
+    <% } %>
+
+    <!-- Tela de cadastro agenda -->
+    <% if(locals.agendas) { %>
+      <div class="settings-initial">
+        <h1 class="account-title">Crie sua agenda</h1>
+        
+        <div class="form-user">
+            <form method="post" class="form-admin" action="/admin/agendas/add">
+                <div class="conteiners-form">
+                    <label class="form-label" for="userId">Id do usuário</label>
+                    <input type="number" name="userId" class="input-id" id="userId"  required>
+                   
+                </div>
+                <div class="conteiners-form">
+                    <label class="form-label" for="title">Nome da agenda</label>
+                    <input type="text" name="title" id="title" required>
+                </div>
+                <div class="conteiners-form">
+                    <label class="form-label" for="url">URL para reuniões</label>
+                    <input type="url" name="url" id="url" >
+                </div>
+                
+                <div class="conteiners-form">
+                    <label class="form-label" for="duration">Duração das reuniões</label>
+                    <input type="time" name="duration" id="duration" required>
+                </div>
+                <div class="conteiners-form">
+                    <label class="form-label" for="start">Período de agendamento</label>
+                    <div class="conteiner-dates">
+                        <label for="start">De</label>
+                        <input type="date" name="start" id="start" class="input-dates">
+                        <label for="end">até</label>
+                        <input type="date" name="end" id="end" class="input-dates">
+                    </div>
+                </div>
+                <div class="container-availability">
+                    <div>
+                        <label class="form-label">Disponibilidade</label>
+                    </div>
+                    <table class="table-availability">
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="daysOfWeek" id="sunday" value="0" onclick="showInput('sunday', 'td-sunday')">
+                               
+                            </td>
+                            <td class="td-days">
+                                <label for="daysOfWeek">Domingo</label>
+                            </td>
+                            <td class="td-inputs-times" id="td-sunday">
+                                <input type="time" name="startTime" id="" class="input-time">
+                                <input type="time" name="endTime" id="" class="input-time">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="daysOfWeek" id="monday" value="1" onclick="showInput('monday', 'td-monday')">
+                                
+                            </td>
+                            <td class="td-days" >
+                                <label for="daysOfWeek">Segunda</label>
+                            </td>
+                            <td class="td-inputs-times" id="td-monday">
+                                <input type="time" name="startTime" id="" class="input-time">
+                                <input type="time" name="endTime" id="" class="input-time">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="daysOfWeek" id="tuesday" value="2" onclick="showInput('tuesday', 'td-tuesday')">
+                                
+                            </td>
+                            <td class="td-days">
+                                <label for="daysOfWeek">Terça</label>
+                            </td>
+                            <td class="td-inputs-times" id="td-tuesday">
+                                <input type="time" name="startTime" id="" class="input-time">
+                                <input type="time" name="endTime" id="" class="input-time">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="daysOfWeek" id="wednesday" value="3" onclick="showInput('wednesday', 'td-wednesday')">
+                            </td>
+                            <td class="td-days">
+                                <label for="daysOfWeek">Quarta</label>
+                            </td>
+                            <td class="td-inputs-times" id="td-wednesday">
+                                <input type="time" name="startTime" id="" class="input-time">
+                                <input type="time" name="endTime" id="" class="input-time">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="daysOfWeek" id="thusday" value="4" onclick="showInput('thusday', 'td-thusday')">
+                            </td>
+                            <td class="td-days">
+                                <label for="daysOfWeek">Quinta</label>
+                            </td>
+                            <td class="td-inputs-times" id="td-thusday">
+                                <input type="time" name="startTime" id="" class="input-time">
+                                <input type="time" name="endTime" id="" class="input-time">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="daysOfWeek" id="friday" value="5" onclick="showInput('friday', 'td-friday')">
+                            </td>
+                            <td class="td-days">
+                                <label for="daysOfWeek">Sexta</label>
+    
+                            </td>
+                            <td class="td-inputs-times" id="td-friday">
+                                <input type="time" name="startTime" id="" class="input-time">
+                            
+                                <input type="time" name="endTime" id="" class="input-time">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="daysOfWeek" id="saturday" value="6" onclick="showInput('saturday', 'td-saturday')">
+                            </td>
+                            <td class="td-days">
+                                <label for="daysOfWeek">Sábado</label>
+    
+                            </td>
+                            <td class="td-inputs-times" id="td-saturday">
+                                <input type="time" name="startTime" id="" class="input-time">
+                                <input type="time" name="endTime" id="" class="input-time">
+                            </td>
+                        </tr>
+                    </table>
+                    <div>
+                        <input type="hidden" name="created_at" value="<%= new Date() %>">
+                        <input type="hidden" name="updated_at" value="<%= new Date() %>">
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn-default" id="btn-save">Criar agenda</button>
+                </div>
+            </form>
+        </div>
+        </form>
+      </div>
+    <% } %>
+
+    <!-- Tela de cadastro agendamentos -->
+    <% if(locals.events) { %>
+        <div class="settings-initial">
+            <p class="account-title">Crie seu agendamento</p>
+            
+            <div class="form-user">
+                <form class="form-admin" method="post" action="/admin/agendamentos/add">
+                    <div class="conteiners-form">
+                        <label class="form-label" for="userId">Id do usuário</label>
+                        <input type="number" name="userId" id="userId" class="input-id" required>
+                       
+                    </div>
+                    <div class="conteiners-form">
+                        <label class="form-label" for="agendaId">Id da agenda</label>
+                        <input type="number" name="agendaId" id="agendaId" class="input-id" required>
+                       
+                    </div>
+                    
+                    <div class="conteiners-form">
+                        <label class="form-label" for="start">Data do agendamento</label>
+                        <input type="date" name="start" id="start" class="input-dates">
+                    </div>
+                    <div class="conteiners-form">
+                        <label class="form-label" for="startTime">Horário do agendamento</label>
+                        <input type="time" name="startTime" id="startTime" onchange="getTime()" 
+                        min="00:00" max="24:00" 
+                        placeholder="08:00" required>
+                    </div>
+                    <div class="conteiners-form">
+                        <label class="form-label" for="title">Nome do aluno</label>
+                        <input type="text"class="input-account" name="title" id="title" required>
+                    </div> 
+                    <div class="conteiners-form">
+                        <label class="form-label" for="emailAluno">Email</label>
+                        <input type="email" class="input-account" name="emailAluno" id="emailAluno"  placeholder="email@email.com" required>
+                    </div>
+                    <div class="conteiners-form">
+                        <label class="form-label" for="telefoneAluno">Telefone</label>
+                        <input type="tel" class="input-account" name="telefoneAluno"  id="telefoneAluno" placeholder="(99) 99999-9999">
+                    </div>
+                    <div class="conteiners-form">
+                        <label class="form-label" for="description">Descrição</label>
+                        <textarea name="description" id="description"
+                        rows="3" cols="58" placeholder="Descreva o assunto que está com dúvidas">
+                        </textarea>
+                    </div> 
+                    <div>
+                        <input type="hidden" name="created_at" value="<%= new Date() %>">
+                        <input type="hidden" name="updated_at" value="<%= new Date() %>">
+                    </div>
+                    
+                    <div>
+                        <button type="submit" class="btn-default" id="btn-save">Criar agendamento</button>
+                    </div>
+                </form>
+          </div>
+        </div>
+    <% } %>
+  </main>
+
+  <script>
+    $(document).ready(function(){
+        $('#telefoneAluno').mask('(00)00000-0000');
+        
+    })
+</script>
+
+</body>
+
+</html>
