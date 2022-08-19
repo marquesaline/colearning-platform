@@ -1,11 +1,12 @@
 @import url(header-footer.css);
 
 :root {
-    --background-primary: #f5f6fa;
+--background-primary: #f5f6fa;
   --background-button: #ff7a00;
   --font-color: #000;
   --font-color-button: #fff;
   --border-color-light: #c2c9d6;
+  --background-alert-sucess: #d4edda
 } 
 
 * {
@@ -23,6 +24,11 @@ a {
 }
 li {
     list-style-type: none;
+}
+input:focus, input:focus-visible,
+textarea:focus, textarea:focus-visible {
+    border-color: #bb815d;
+    box-shadow: 0 0 0 .2rem rgba(255, 119, 0, 0.462);
 }
 
 
