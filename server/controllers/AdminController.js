@@ -42,7 +42,7 @@ controller.addUser = async (req, res) => {
     const userLogged = await req.session.userLogged
     const userLogin = await getUser(userLogged.id)
     res.render('admin/usuario-adicionar', {
-      title: 'Adicionar usuário',
+      title: "Adicionar usuário",
       userLogin
     });
 },
@@ -54,7 +54,7 @@ controller.createUser = async (req, res) => {
     if(resultValidations.errors.length > 0 ) {
       
       return res.render('admin/usuario-adicionar', {
-        title: 'Admin - Cadastro de Usuário',
+        title: "Adicionar usuário",
         errors: resultValidations.mapped(),
         oldData: req.body
       })
@@ -66,7 +66,7 @@ controller.createUser = async (req, res) => {
     let emailExists = await getUserByEmail(email)
     if(emailExists) {
       res.render('admin/usuario-adicionar', {
-        title: 'Admin - Cadastro de Usuário',
+        title: "Adicionar usuário",
         errors: {
           email: {
             msg: 'Este email já está cadastrado'
@@ -94,7 +94,7 @@ controller.editUser = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
     res.render('admin/info-editar', {
-      title: 'Editar usuário',
+      title: "Editar usuário",
       user,
     });
 },
@@ -107,7 +107,7 @@ controller.updateUser = async (req, res) => {
     if(resultValidations.errors.length > 0 ) {
      
       return res.render('admin/usuario-editar', {
-        title: 'Editar usuário',
+        title: `Editar usuário - ${user.nome}`,
         errors: resultValidations.mapped(),
         oldData: req.body,
         user
@@ -147,7 +147,7 @@ controller.excludeUser = async (req, res) => {
     const { id } = req.params
     const user = await getUser(id)
     res.render("admin/info-excluir", {
-      title: `Excluir Usuário ${user.nome}`,
+      title: "Excluir Usuário",
       user
     });
 },
@@ -205,7 +205,7 @@ controller.adminAddAgenda = async (req, res) => {
     const userLogin = await getUser(userLogged.id)
     let agendas = await getAllAgendas()
     res.render("admin/agenda-adicionar", {
-        title: 'Adicionar agenda',
+        title: "Adicionar agenda",
         agendas,
         userLogin
     })
@@ -294,7 +294,7 @@ controller.editAgenda = async (req, res) => {
         await create.businessHours(await getBusinessHours(id))
 
     res.render("admin/info-editar", {
-        title: `Editar agenda`,
+        title: "Editar agenda",
         agenda, 
         businessHours,
         userLogin
@@ -444,7 +444,7 @@ controller.editEvent = async (req, res) => {
     const event = await getEvent(id)
 
     res.render("admin/info-editar", {
-        title: `Editar agendamento de ${event.title}`,
+        title: "Editar agendamento",
         event, 
         userLogin
     })

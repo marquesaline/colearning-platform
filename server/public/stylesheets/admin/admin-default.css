@@ -11,9 +11,7 @@ main {
     width: calc(100% - 250px);
     overflow: auto;
 }
-table {
-    margin: 50px 5px;
-}
+
 
 .app-container {
     border-radius: 4px;
@@ -100,7 +98,6 @@ table {
     border-radius: 50%;
 }
 
-
 .account-info-name {
     font-size: 14px;
     font-weight: 600;
@@ -153,7 +150,6 @@ table {
     margin: 0;
 }
 
-
 .app-content-actions {
     display: flex;
     justify-content: space-between;
@@ -161,10 +157,9 @@ table {
     padding: 16px 4px;
 }
 
-
-
 .table-list {
     border-collapse: collapse;
+    margin: 50px 5px;
 }
 .table-list tr {
     border-bottom: 1px solid rgb(217, 217, 217);
@@ -217,13 +212,26 @@ table {
     height: 100%;
     
 }
+.admin-title {
+    margin: 50px auto 20px auto;
+    font-weight: 400;
+    font-size: 30px;
 
+}
 
 
 .form-edit {
-    margin-top: 10px;
-    margin-bottom: 20px;
+    background-color: var(--background-primary);
+    border-radius: 10px;
+    padding-top:30px;
+    padding-bottom: 30px;
+    width: 40%;
+    margin: 5px auto 20px auto;
 }
+.input-id {
+    width: 70px;
+}
+
 
 
 @media screen and (max-width: 1024px) {

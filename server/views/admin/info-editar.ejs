@@ -110,27 +110,27 @@
             <button class="button-edit btn-default">Salvar</button>
           </div>
         </div>
-          </form>
+        </form>
       </section>
     <% } %>
 
     <!-- Tela de agenda -->
     <% if(locals.agenda) { %>
-      <h1 class="account-title">Editar agenda</h1>
+      <h1 class="admin-title">Editar agenda</h1>
       <section class="container-list ">
       
         <form class="form-edit" method="post" action="/admin/agendas/<%=agenda.id%>/editar?_method=put">
           <div class="conteiners-form">
               <label class="form-label" for="userId">Id do usuário</label>
-              <input type="number" name="userId" id="userId" value="<%= agenda.userId %>" required>
+              <input type="number" name="userId" id="userId" class="input-id" value="<%= agenda.userId %>" required>
           </div>
           <div class="conteiners-form">
               <label class="form-label" for="title">Nome da agenda</label>
-              <input type="text" name="title" id="title" value="<%= agenda.title %>" required>
+              <input type="text" name="title" id="title" class="input-account" value="<%= agenda.title %>" required>
           </div>
           <div class="conteiners-form">
               <label class="form-label" for="url">URL para reuniões</label>
-              <input type="url" name="url" id="url" >
+              <input type="url" name="url" id="url" class="input-account" value="<%= agenda.url %>">
           </div>
           <div class="conteiners-form">
               <label class="form-label" for="duration">Duração das reuniões</label>
@@ -151,94 +151,92 @@
               </div>
               <table class="table-availability">
                   <tr>
-                      <td>
-                          <input type="checkbox" name="daysOfWeek" id="sunday" value="0" onclick="showInput('sunday', 'td-sunday')">
-                        
-                      </td>
-                      <td class="td-days">
-                          <label for="daysOfWeek">Domingo</label>
-                      </td>
-                      <td class="td-inputs-times" id="td-sunday">
-                          <input type="time" name="startTime" id="" class="input-time" value="">
-                          <input type="time" name="endTime" id="" class="input-time">
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                          <input type="checkbox" name="daysOfWeek" id="monday" value="1" onclick="showInput('monday', 'td-monday')">
-                          
-                      </td>
-                      <td class="td-days" >
-                          <label for="daysOfWeek">Segunda</label>
-                      </td>
-                      <td class="td-inputs-times" id="td-monday">
-                          <input type="time" name="startTime" id="" class="input-time">
-                          <input type="time" name="endTime" id="" class="input-time">
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                          <input type="checkbox" name="daysOfWeek" id="tuesday" value="2" onclick="showInput('tuesday', 'td-tuesday')">
-                          
-                      </td>
-                      <td class="td-days">
-                          <label for="daysOfWeek">Terça</label>
-                      </td>
-                      <td class="td-inputs-times" id="td-tuesday">
-                          <input type="time" name="startTime" id="" class="input-time">
-                          <input type="time" name="endTime" id="" class="input-time">
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                          <input type="checkbox" name="daysOfWeek" id="wednesday" value="3" onclick="showInput('wednesday', 'td-wednesday')">
-                      </td>
-                      <td class="td-days">
-                          <label for="daysOfWeek">Quarta</label>
-                      </td>
-                      <td class="td-inputs-times" id="td-wednesday">
-                          <input type="time" name="startTime" id="" class="input-time">
-                          <input type="time" name="endTime" id="" class="input-time">
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                          <input type="checkbox" name="daysOfWeek" id="thusday" value="4" onclick="showInput('thusday', 'td-thusday')">
-                      </td>
-                      <td class="td-days">
-                          <label for="daysOfWeek">Quinta</label>
-                      </td>
-                      <td class="td-inputs-times" id="td-thusday">
-                          <input type="time" name="startTime" id="" class="input-time">
-                          <input type="time" name="endTime" id="" class="input-time">
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                          <input type="checkbox" name="daysOfWeek" id="friday" value="5" onclick="showInput('friday', 'td-friday')">
-                      </td>
-                      <td class="td-days">
-                          <label for="daysOfWeek">Sexta</label>
-
-                      </td>
-                      <td class="td-inputs-times" id="td-friday">
-                          <input type="time" name="startTime" id="" class="input-time">
+                    <td>
+                        <input type="checkbox" name="daysOfWeek" id="sunday" value="0" onclick="showInput('sunday', 'td-sunday')">
+                    </td>
+                    <td class="td-days">
+                        <label for="daysOfWeek">Domingo</label>
+                    </td>
+                    <td class="td-inputs-times" id="td-sunday">
+                        <input type="time" name="startTime" id="" class="input-time" value="">
+                        <input type="time" name="endTime" id="" class="input-time">
+                    </td>
+                  
+                    <td>
+                      <input type="checkbox" name="daysOfWeek" id="monday" value="1" onclick="showInput('monday', 'td-monday')">
                       
-                          <input type="time" name="endTime" id="" class="input-time">
-                      </td>
+                    </td>
+                    <td class="td-days" >
+                        <label for="daysOfWeek">Segunda</label>
+                    </td>
+                    <td class="td-inputs-times" id="td-monday">
+                        <input type="time" name="startTime" id="" class="input-time">
+                        <input type="time" name="endTime" id="" class="input-time">
+                    </td>
+                  </tr>
+               
+                  <tr>
+                    <td>
+                        <input type="checkbox" name="daysOfWeek" id="tuesday" value="2" onclick="showInput('tuesday', 'td-tuesday')">
+                        
+                    </td>
+                    <td class="td-days">
+                        <label for="daysOfWeek">Terça</label>
+                    </td>
+                    <td class="td-inputs-times" id="td-tuesday">
+                        <input type="time" name="startTime" id="" class="input-time">
+                        <input type="time" name="endTime" id="" class="input-time">
+                    </td>
+                
+                    <td>
+                        <input type="checkbox" name="daysOfWeek" id="wednesday" value="3" onclick="showInput('wednesday', 'td-wednesday')">
+                    </td>
+                    <td class="td-days">
+                        <label for="daysOfWeek">Quarta</label>
+                    </td>
+                    <td class="td-inputs-times" id="td-wednesday">
+                        <input type="time" name="startTime" id="" class="input-time">
+                        <input type="time" name="endTime" id="" class="input-time">
+                    </td>
                   </tr>
                   <tr>
-                      <td>
-                          <input type="checkbox" name="daysOfWeek" id="saturday" value="6" onclick="showInput('saturday', 'td-saturday')">
-                      </td>
-                      <td class="td-days">
-                          <label for="daysOfWeek">Sábado</label>
+                   
+                    <td>
+                      <input type="checkbox" name="daysOfWeek" id="thusday" value="4" onclick="showInput('thusday', 'td-thusday')">
+                    </td>
+                    <td class="td-days">
+                        <label for="daysOfWeek">Quinta</label>
+                    </td>
+                    <td class="td-inputs-times" id="td-thusday">
+                        <input type="time" name="startTime" id="" class="input-time">
+                        <input type="time" name="endTime" id="" class="input-time">
+                    </td>
+                    
+                    <td>
+                        <input type="checkbox" name="daysOfWeek" id="friday" value="5" onclick="showInput('friday', 'td-friday')">
+                    </td>
+                    <td class="td-days">
+                        <label for="daysOfWeek">Sexta</label>
 
-                      </td>
-                      <td class="td-inputs-times" id="td-saturday">
-                          <input type="time" name="startTime" id="" class="input-time">
-                          <input type="time" name="endTime" id="" class="input-time">
-                      </td>
+                    </td>
+                    <td class="td-inputs-times" id="td-friday">
+                        <input type="time" name="startTime" id="" class="input-time">
+                    
+                        <input type="time" name="endTime" id="" class="input-time">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <input type="checkbox" name="daysOfWeek" id="saturday" value="6" onclick="showInput('saturday', 'td-saturday')">
+                    </td>
+                    <td class="td-days">
+                        <label for="daysOfWeek">Sábado</label>
+
+                    </td>
+                    <td class="td-inputs-times" id="td-saturday">
+                        <input type="time" name="startTime" id="" class="input-time">
+                        <input type="time" name="endTime" id="" class="input-time">
+                    </td>
                   </tr>
               </table>
             </div>
@@ -256,28 +254,28 @@
 
     <!-- Tela de agendamentos -->
     <% if(locals.event) { %>
-      <h1 class="account-title">Editar agendamento</h1>
+      <h1 class="admin-title">Editar agendamento</h1>
       <section class="container-list ">
         <form class="form-edit" method="post" action="/admin/agendamentos/<%=event.id%>/editar?_method=put">
             <div class="conteiners-form">
                 <label class="form-label" for="userId">Id do usuário</label>
-                <input type="number" name="userId" id="userId" value="<%= event.userId %>" required>
+                <input type="number" name="userId" id="userId" class="input-id" value="<%= event.userId %>" required>
             </div>
             <div class="conteiners-form">
                 <label class="form-label" for="agendaId">Id da agenda</label>
-                <input type="number" name="agendaId" id="agendaId" value="<%= event.agendaId %>" required>
+                <input type="number" name="agendaId" id="agendaId" class="input-id" value="<%= event.agendaId %>" required>
             </div>
             <div class="conteiners-form">
                 <label class="form-label" for="title">Nome do aluno</label>
-                <input type="text" name="title" id="title" value="<%= event.title %>" required>
+                <input type="text" name="title" id="title" class="input-account" value="<%= event.title %>" required>
             </div>
             <div class="conteiners-form">
                 <label class="form-label" for="emailAluno">Email do aluno</label>
-                <input type="email" name="emailAluno" id="emailAluno" value="<%= event.emailAluno %>">
+                <input type="email" name="emailAluno" id="emailAluno" class="input-account"value="<%= event.emailAluno %>" required>
             </div>
             <div class="conteiners-form">
                 <label class="form-label" for="telefoneAluno">Telefone do aluno</label>
-                <input type="tel" name="telefoneAluno" id="telefoneAluno" value="<%= event.telefoneAluno %>">
+                <input type="tel" name="telefoneAluno" id="telefoneAluno" class="input-account" value="<%= event.telefoneAluno %>">
             </div>
             <div class="conteiners-form">
                 <label class="form-label" for="start">Data</label>
@@ -289,7 +287,7 @@
             </div>
             <div class="conteiners-form">
                 <label class="form-label" for="description">Descrição</label>
-                <textarea name="description" id="description" value="<%= event.description %>"></textarea>
+                <textarea name="description" id="description" cols="30" rows="3" placeholder="<%= event.description %>"></textarea>
             </div>
             
             <div>

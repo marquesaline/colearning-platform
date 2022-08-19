@@ -2,8 +2,7 @@ const controller = {}
 const create = require("../utils/create")
 const {  getUser, getUserAgendas, getUserEvents } = require('../services/users')
 const { getAgenda, getEventsAgendas, getBusinessHours } = require('../services/agendas')
-const { Agenda } = require("../database/models")
-const { BusinessHours } = require("../database/models")
+const { Agenda, BusinessHours } = require("../database/models")
 
 
 //Controllers Agenda 
