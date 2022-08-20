@@ -31,6 +31,9 @@ O projeto foi realizado durante o curso de Desenvolvimento Web da Digital House.
 ### Demonstração da aplicação
 ---
 
+<img alt="calendario" title="#Calendário" src="/server/public/images/demo/calendario.png" />
+
+
 ## Instalação
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 
