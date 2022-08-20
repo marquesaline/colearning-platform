@@ -1,7 +1,15 @@
 # CoLearning
 Sistema de agendamento para aulas individuais
 
-
+Tabela de conteúdos
+=================
+<!--ts-->
+   * [Projeto](#projeto)
+      * [Demonstração da aplicação](#demonstracao-da-aplicacao)
+   * [Instalação](#instalacaoo)
+      * [Rodando o servidor](#rodando-o-servidor)
+      * [Observações](#observacoes)
+<!--te-->
 ## Projeto
 
 O objetivo da plataforma **CoLearning** é permitir o agendamento de aulas individuais de um aluno com o seu professor.
@@ -19,6 +27,8 @@ Já os alunos poderão:
 
 O projeto foi realizado durante o curso de Desenvolvimento Web da Digital House. 
 
+
+### Demonstração da aplicação
 ---
 
 ## Instalação
@@ -29,7 +39,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-####  Rodando o servidor
+##  Rodando o servidor
 
 ```bash
 # Clone este repositório
@@ -48,9 +58,8 @@ $ nodemon run dev
 
 # O servidor inciará na porta:3000 - acesse <http://localhost:3000>
 ```
-Para instalar todas as dependências é necessário escrever o comando`npm install` no terminal dentro da pasta raiz do projeto.
 
-Para rodar o servidor e visualizar o projeto basta colocar o comando `npm run dev` no  terminal. Depois disso, é só abrir [http://localhost:3000](http://localhost:3000) no seu navegador para visualizar.
+## Observações 
 
 O projeto utiliza um banco de dados remoto, por isso, ao rodar o projeto ele já estará vinculado a ele. 
 
