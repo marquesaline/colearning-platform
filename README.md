@@ -5,10 +5,10 @@ Sistema de agendamento para aulas individuais
 =================
 <!--ts-->
    * [Projeto](#projeto)
-      * [Demonstração da aplicação](#demonstracao-da-aplicacao)
-   * [Instalação](#instalacaoo)
+      * [Demonstração da aplicação](#demonstração-da-aplicação)
+   * [Instalação](#instalação)
       * [Rodando o servidor](#rodando-o-servidor)
-      * [Observações](#observacoes)
+      * [Observações](#observações)
 <!--te-->
 ## Projeto
 
