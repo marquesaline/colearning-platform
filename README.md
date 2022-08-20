@@ -1,7 +1,7 @@
 # CoLearning
 Sistema de agendamento para aulas individuais
 
-Tabela de conteúdos
+## Tabela de conteúdos
 =================
 <!--ts-->
    * [Projeto](#projeto)
