@@ -82,13 +82,16 @@ padrão em todas as telas, menos a de calendário */
 }
 
 .container-agenda-create {
-    margin: 15px auto;
+    margin: 10px auto;
     text-align: center;
-    border: 1px solid var(--background-button);
+    display: flex;
+    padding: 10px;
+    align-items: center;
 }
 .container-agenda-create a {
     color: var(--font-color-logo);
-    padding: 10px;
+    width: 100%;
+    cursor: pointer;
     
 }
 
