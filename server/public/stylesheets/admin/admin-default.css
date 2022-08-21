@@ -159,7 +159,13 @@ main {
 
 .table-list {
     border-collapse: collapse;
-    margin: 50px 5px;
+    max-width: 100%;
+    background-color: transparent;
+    border-spacing: 0;
+    font-family: arial;
+    border-bottom: #999999 solid 1px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 .table-list tr {
     border-bottom: 1px solid rgb(217, 217, 217);
@@ -167,16 +173,30 @@ main {
 }
 .table-list th,
 .table-list td {
-    padding-left: 3px;
+   /* padding-left: 3px;*/
+    border-right: #999999 solid 1px;
+    font-size: 12px;
+    padding: 8px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: middle;
 }
+.table-list td:last-child{
+    border-right: 0;
+}
+
 .list-header th {
     text-align: left;
     background-color: var(--background-button);
     opacity: 80%;
     color: #FFF;
     height: 30px;
-    font-weight: 400;
-    
+    font-weight: normal;
+    font-size:15px;
+}
+.table-list tbody > tr:nth-child(odd) > td,
+.table-list tbody > tr:nth-child(odd) > th {
+  background-color: #f8f8f8;
 }
 .list-row tr:hover {
     background-color: rgb(245, 245, 245);
@@ -238,6 +258,9 @@ main {
     .list-row {
         width: calc(33.3% - 16px);
     }  
+     .sidebar {
+        display: none;
+    }
    /* .app-container .sidebar {
         display: flex;
         flex-direction: row;
@@ -261,13 +284,59 @@ main {
     }
 }
 
-@media screen and (max-width: 820px) {
-    .list-row {
+@media screen and (max-width: 900px) {
+    /*.list-row {
         width: calc(50% - 16px);
-        
-    }
+        display: flex;
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }*/
   
 }
+@media screen and (max-width: 767px) {
+   .table-responsive{
+    display: block;
+    position: relative;
+    width: 100%;
+   } 
+   .table-responsive thead,
+  .table-responsive tbody,
+  .table-responsive th,
+  .table-responsive td,
+  .table-responsive tr {
+    display: block;
+  }
+  .table-responsive td,
+  .table-responsive th {
+    height: 35px;
+  }
+
+  .table-responsive thead {
+    float: left;
+  }
+
+  .table-responsive tbody {
+    width: auto;
+    position: relative;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  .table-responsive tbody tr {
+    display: inline-block;
+  }
+
+  
+  .table-list td:last-child {
+     border-right: #999999 solid 1px;
+  }
+
+
+}
+
 
 @media screen and (max-width: 520px) {
     .list-row {
@@ -277,8 +346,3 @@ main {
 }
 
 
-@media screen and (max-width: 1024px) {
-    .sidebar {
-        display: none;
-    }
-}
