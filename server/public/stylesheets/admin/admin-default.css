@@ -166,6 +166,7 @@ main {
     border-bottom: #999999 solid 1px;
     width: 100%;
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 .table-list tr {
     border-bottom: 1px solid rgb(217, 217, 217);
