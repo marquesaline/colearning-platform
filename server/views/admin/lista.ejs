@@ -223,8 +223,63 @@
         </tbody>
       </table>
     <% } %>
+
+
+    <% if (locals.contacts) {%>
+      <div class="app-content-header">
+        <h1 class="app-content-headerText">Contatos</h1>
+      </div>
+      <table class="table-list">
+        <thead class="list-header">
+          <tr>
+            <th class="id">Id</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Assunto</th>
+            <th class="dates">Data de criação</th>
+            <th class="dates">Data de modificação</th>
+            <th>Opções</th>
+          </tr>
+        </thead>
+        <tbody class="list-row">
+          <% for(let contact of contacts) { %>
+            <tr>
+              <td class="td-id">
+                <%= contact.id %>
+              </td>
+              <td class="td-name">
+                <%= contact.nome %>
+              </td>
+              <td class="td-name">
+                <%= contact.email %>
+              </td>
+              <td class="td-email">
+                <%= contact.telefone %>
+              </td>
+              <td class="td-email">
+                <%= contact.assunto %>
+              </td>
+              <td class="td-date">
+                <%= contact.createdAt %>
+              </td>
+              <td class="td-date">
+                <%= contact.updatedAt %>
+              </td>
+              <td class="td-options">
+                <a class="um-user" href="/admin/contatos/<%= contact.id %>">
+                  <img src="/images/icon-view.png" width="20px">
+                </a>
+                <a class="um-user" href="/admin/contatos/<%= contact.id %>/excluir">
+                  <img src="/images/icon-delete-admin.png" width="20px">
+                </a>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    <% } %>
   </div>
-  
 
 </main>
 </body>

@@ -2,6 +2,7 @@ body,
 html,
 main {
     height: 100vh;
+   
 }
 body {
     display: flex;
@@ -10,14 +11,13 @@ main {
     width: calc(100% - 250px);
     overflow: auto;
 }
-table {
-    margin: 50px 5px;
-}
+
 
 .app-container {
     border-radius: 4px;
     height: 100%;
     display: flex;
+    flex-direction: column;
     width: calc(100% - 250px);
     overflow: auto;
     margin: 0 auto;
@@ -98,7 +98,6 @@ table {
     border-radius: 50%;
 }
 
-
 .account-info-name {
     font-size: 14px;
     font-weight: 600;
@@ -151,15 +150,12 @@ table {
     margin: 0;
 }
 
-
 .app-content-actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 16px 4px;
 }
-
-
 
 .table-list {
     border-collapse: collapse;
@@ -224,8 +220,9 @@ table {
 
 .section-admin {
     margin-top: 60px;
-    overflow:auto;
-    height:100%
+    width: calc(100% - 250px);
+    overflow: auto;
+    height:100vh;
 }
 .btn-options {
     margin-top: 30px;
@@ -235,9 +232,25 @@ table {
     height: 100%;
     
 }
+.admin-title {
+    margin: 50px auto 20px auto;
+    font-weight: 400;
+    font-size: 30px;
+
+}
 
 
-
+.form-edit, .form-admin {
+    background-color: var(--background-primary);
+    border-radius: 10px;
+    padding-top:30px;
+    padding-bottom: 30px;
+    width: 40%;
+    margin: 5px auto 20px auto;
+}
+.input-id {
+    width: 70px;
+}
 
 
 

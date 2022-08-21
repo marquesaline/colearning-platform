@@ -8,6 +8,7 @@ const loggedUser = require('../middlewares/LoggedUser')
 router.get('/', controllerIndex.index)
 
 router.get('/contato', controllerIndex.contact)
+router.post('/contato', controllerIndex.createContact)
 router.post('/cadastro', validator, controllerUser.create)
 
 router.get('/cadastro', loggedUser.isLogged, controllerIndex.register)
@@ -18,7 +19,7 @@ router.post('/login', controllerUser.loginProcess)
 router.get('/sobre', controllerIndex.about)
 
 router.get('/sucesso', function(req, res, next) {
-    res.render('sucesso', { title: 'Deu certo' });
+    res.render('sucesso', { title: 'Deu certo' })
 });
 
 

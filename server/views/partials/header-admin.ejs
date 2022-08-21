@@ -50,21 +50,47 @@
                     <span>Agendamentos</span>
                   </a>
                 </li>
+                <li class="sidebar-list-item">
+                  <a href="/admin/contatos">
+                    <img src="/images/icon-contact.jpg" width="17" height="17" >
+                    <span>Contatos</span>
+                  </a>
+                </li>
                 
               </ul>
-              <div class="account-info">
-                <div class="account-info-picture">
-                  <img
               
-                  src="/images/<%= user.avatar ? `avatar/${user.avatar}` : 'avatar-exemple.png' %>"
-                  alt="Avatar de <%=user.nome%>"
-                  />
-              </div>
+              <% if(locals.user) { %>
+                <div class="account-info">
+                  <div class="account-info-picture">
+                    <img
+                
+                    src="/images/<%= user.avatar ? `avatar/${user.avatar}` : 'avatar-exemple.png' %>"
+                    alt="Avatar de <%=user.nome%>"
+                    />
+                </div>
                 <div class="account-info-name"><%=user.nome%></div>
-                <a class="account-info-more" href="/admin/sair">
-                 <img src="/images/icon-logout.png" width="20px" height="20px">
-                </a>
+                  <a class="account-info-more" href="/admin/sair">
+                    <img src="/images/icon-logout.png" width="20px" height="20px">
+                  </a>
               </div>
+              <% } %>
+
+              <% if(locals.userLogin) { %>
+                <div class="account-info">
+                  <div class="account-info-picture">
+                    <img
+                
+                    src="/images/<%= userLogin.avatar ? `avatar/${userLogin.avatar}` : 'avatar-exemple.png' %>"
+                    alt="Avatar de <%=userLogin.nome%>"
+                    />
+                </div>
+                <div class="account-info-name"><%=userLogin.nome%></div>
+                  <a class="account-info-more" href="/admin/sair">
+                    <img src="/images/icon-logout.png" width="20px" height="20px">
+                  </a>
+                </div>
+              <% } %>
+              
         </div>
     </aside>
       

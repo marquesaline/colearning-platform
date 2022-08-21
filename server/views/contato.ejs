@@ -27,24 +27,44 @@
                 </ul>
                 <p class="container-mensagem">ou nos envie uma mensagem</p>
                 <div class="forminput">
-                    <form action="contato.html" method="post" class="form-label-input">
+                    <form action="/contato" method="post" class="form-label-input">
                         <label class="form-label" for="nome">Nome</label>
-                        <input class="container-input" type="text" name="nome"> 
+                        <input class="container-input" type="text" name="nome" placeholder="José da Silva" required> 
 
                         <label class="form-label" for="email">Email</label>
-                        <input class="container-input" type="email" name="email" placeholder="exemplo@exemplo.com">
+                        <input class="container-input" type="email" name="email" placeholder="exemplo@exemplo.com" required>
 
-                        <label class="form-label" for="numero">Telefone</label>
-                        <input class="container-input" type="tel" name="telefone" placeholder="(99)99999-9999">
-
+                        <label class="form-label" for="telefone">Telefone</label>
+                        <input class="container-input" type="tel" name="telefone" id="telefone" placeholder="(99)99999-9999">
+                        
+                        <label class="form-label" for="assunto">Assunto</label>
+                        <input class="container-input" type="text" name="assunto" placeholder="Parceria" required> 
+                        
                         <label class="form-label" for="mensagem">Mensagem</label>
-                        <textarea id="mensagem" name="mensagem" rows="5" cols="41" placeholder="Digite sua mensagem"></textarea>
+                        <textarea id="mensagem" name="mensagem" rows="5" cols="41" placeholder="Digite sua mensagem" required></textarea>
+
+                        <div>
+                            <input type="hidden" name="created_at" value="<%= new Date() %>">
+                            <input type="hidden" name="updated_at" value="<%= new Date() %>">
+                        </div>
                         
                         <button id="submit" type="submit" name="submit">Enviar</button>
-
-                </form>
+                    </form>
+                </div>
+                <% if(locals.message) { %>
+                    <div class="alert-sucess">
+                        <p><%=message%></p>
+                    </div>
+                <% } %>
+                
             </div>
             
         </div>         
     </main>
+    <script>
+        $(document).ready(function(){
+            $('#telefone').mask('(00) 00000-0000');
+            
+        })
+    </script>
     <%- include('partials/footer.ejs') %>
