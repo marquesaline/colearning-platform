@@ -5,6 +5,7 @@ Sistema de agendamento para aulas individuais
 =================
 <!--ts-->
    * [Projeto](#projeto)
+      * [Tecnologias utilizadas](#tecnologias-utilizadas)
       * [Demonstração da aplicação](#demonstração-da-aplicação)
    * [Instalação](#instalação)
       * [Rodando o servidor](#rodando-o-servidor)
@@ -27,7 +28,15 @@ Já os alunos poderão:
 
 O projeto foi realizado durante o curso de Desenvolvimento Web da Digital House. 
 
+### Tecnologias utilizadas:
 
+```bash
+. NodeJs
+. Express
+. EJS
+. Sequelize
+. MySQL
+```
 ### Demonstração da aplicação
 ---
 
@@ -39,6 +48,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 - [Git](https://git-scm.com)
 - [Node.js](https://nodejs.org/en/). 
+- [MySQL](https://www.mysql.com/downloads/)
 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
