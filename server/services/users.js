@@ -19,10 +19,10 @@ usersServices.getUser = async (id) => {
       id
     },
     include: [
-      {
-        association: 'agendas'
-      }
-    ]
+      { association: 'agendas'},
+      { association: 'events' }
+    ],
+    force: true
   })
   return user
 }
@@ -67,7 +67,8 @@ usersServices.getUserAgendas = async (id) => {
         {
           association: 'events'
         }
-      ]
+      ], 
+      force: true
     })
     const { events } = user
     return events || null

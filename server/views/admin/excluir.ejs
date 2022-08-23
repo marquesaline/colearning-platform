@@ -5,11 +5,7 @@
   <% if(locals.user) { %>
     <h1 class="admin-title">Excluir usuário</h1>
     <section class="container-list ">
-      <form
-        class="form-user"
-        method="post"
-        action="/admin/usuarios/<%=user.id%>/excluir?_method=delete"
-      >
+      <form class="form-user" method="post" action="/admin/usuarios/<%=user.id%>/excluir?_method=delete" >
         <div class="info-edit">
           <label for="nome">Nome</label>
           <input

@@ -185,7 +185,8 @@ padrão em todas as telas, menos a de calendário */
     background-color: #FFF;
 }
 
-@media screen and (max-width: 932px) {
+
+
     
     .container-btn-mobile, #btn-menu-mobile {
         display: block;

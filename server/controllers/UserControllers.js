@@ -4,6 +4,7 @@ const { User } = require('../database/models')
 const { validationResult } = require('express-validator')
 const bcrypt  = require('bcrypt')
 const create = require('../utils/create')
+const { get } = require('jquery')
 
 
 //sendo usado pra o cadastro do usuário
@@ -106,7 +107,11 @@ controller.updateAccount = async (req, res) => {
     let senhaCripto = bcrypt.hashSync(senha, 3)
     const id = user.id
     const slug = await create.slug(nome)
-    const avatarFileName = req.file.filename;
+    const avatarFileName = null
+    if(req.file != undefined) {
+      return avatarFileName = req.file.filename;
+  }
+   
    
     await User.update(
       { nome, slug, email, senha: senhaCripto,
@@ -116,25 +121,27 @@ controller.updateAccount = async (req, res) => {
         updatedAt: updated_at
     }, 
     { where: {id} })  
-    res.redirect(`/conta/minha-conta`);
+    res.redirect("/conta/minha-conta");
 },
 
 controller.excludeUser = async (req, res) => {
     const userLogged = await req.session.userLogged
-    const user = await getUser(userLogged.id)
-    res.render("admin/usuario-excluir", {
-      title: `Excluir Usuário ${req.params.id}`,
+    const user = userLogged
+    res.render("areaLogada/minha-conta-excluir", {
+      title: "Excluir conta",
       user
     });
 },
 
 controller.deleteUser = async (req, res) => {
     const userLogged = await req.session.userLogged
-    const id = await getUser(userLogged.id)
+    const id  = userLogged.id
     await User.destroy({
       where: { id }
     })
-    res.redirect(`/login`)
+
+    res.render('login', { title: 'Login - CoLearning' })
+    
 }
   //arrumar - está dando erro
 controller.showAccount = async (req, res) => {

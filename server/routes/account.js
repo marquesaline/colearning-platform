@@ -9,11 +9,14 @@ const loggedUser = require('../middlewares/LoggedUser')
 router.get('/', loggedUser.isNotLogged, controllerAgenda.calendar)
 
 
-router.get('/minha-conta',  loggedUser.isNotLogged, controllerUser.showAccount) //dando erro
+router.get('/minha-conta',  loggedUser.isNotLogged, controllerUser.showAccount) 
 router.get('/minha-conta/editar',  loggedUser.isNotLogged, controllerUser.editAccount)
 router.put('/minha-conta/editar', avatar.upload, validator, controllerUser.updateAccount)
 
-router.get('/criar-agenda', loggedUser.isNotLogged, controllerAgenda.addAgenda) //dando erro
+router.get('/minha-conta/excluir', loggedUser.isNotLogged, controllerUser.excludeUser)
+router.delete('/minha-conta/excluir', controllerUser.deleteUser)
+
+router.get('/criar-agenda', loggedUser.isNotLogged, controllerAgenda.addAgenda) 
 router.post('/criar-agenda', controllerAgenda.createAgenda)
 
 router.get('/:agendaId/editar-agenda',  loggedUser.isNotLogged, controllerAgenda.editAgenda)
