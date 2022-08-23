@@ -69,8 +69,8 @@ padrão em todas as telas, menos a de calendário */
     background-color: var(--background-primary);
     text-align: left;
     flex-direction: column;
-    width: 18%;
-    min-width: 305px;
+    
+   width: 305px;
     height: 100vh;
     align-items: center;
     justify-items: flex-start;
@@ -184,28 +184,16 @@ padrão em todas as telas, menos a de calendário */
 .dropdown {
     background-color: #FFF;
 }
-@media screen and (min-width: 1025px) {
-    .container-side {
-        width: 305px;
-        height: 100vh;
-    }
-    
-}
-@media screen and (max-width: 1024px) {
-    .container-side {
-        width: 250px;
-        height: 100vh;
-    }
-    
-}
+
 @media screen and (max-width: 932px) {
-    .container-side {
-        width:0;
-    }
     
     .container-btn-mobile, #btn-menu-mobile {
         display: block;
     }
+    .container-side {
+        display: none;
+    }
+   
     #contents-side  {
         display: none;
         position:absolute;
@@ -216,9 +204,14 @@ padrão em todas as telas, menos a de calendário */
         height: calc(100vh - 600px);
         z-index: 1000;
     }
+    .container-side.active {
+        display: block;
+    } 
     .container-side.active #contents-side{
         display: block;
     }
+
+    
     
 
 }

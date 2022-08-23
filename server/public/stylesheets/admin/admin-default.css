@@ -22,7 +22,9 @@ main {
     overflow: auto;
     margin: 0 auto;
 }
+/********** SIDEBAR ***********/
 
+/* ALINE FEZ
 .sidebar {
     flex-basis: 250px;
     max-width: 250px;
@@ -33,16 +35,13 @@ main {
     height: 100vh;
    
 }
-
 .sidebar-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 16px;
     margin: 20px 0;
-}
-
-.sidebar-list {
+}.sidebar-list {
     list-style-type: none;
     padding: 0;
 }
@@ -51,7 +50,6 @@ main {
     position: relative;
     margin-bottom: 4px;
 }
-
 .sidebar-list-item a {
     display: flex;
     align-items: center;
@@ -61,13 +59,119 @@ main {
     text-decoration: none;
     font-size: 14px;
     line-height: 24px;
+} ALINE FEZ*/
+
+/* Elton FEZ*/
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+.sidebar{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background-color: #fff;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+.app-icon{
+    text-align: center;
+    display: flex;
+    transition:  all 0.5s ease;
+    margin: 10px 0 0 10px;
+}
+.app-icon img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin: 10px;
+}
+.app-icon span{
+    font-weight: bold;
+    padding-left: 10px;
+    font-size: 25px;
+    margin-top: 10px;
+}
+.a {
+    position: relative;
+    color: rgb(85,83,83);
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 10px;
+}
+.fas {
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 16px;
+    font-size: 25px;
+    text-align: center;
+    padding-left: 25px;
+}
+.nav-item{
+    position: relative;
+    top:12px;
+    margin-left: 10px;
+    padding-left: 20px;
+}
+
+.a:hover, .a:active{
+    background-color: #eee;
+}
+.sidebar:hover{
+    width: 280px;
+    transition:  all 0.5s ease;
+}
+.account-info{
+    position: absolute;
+    bottom: 0;
+}
+.account-info-picture{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    transition: all 0.5s ease;
+    margin: 10px 0 0 10px;
+}
+.account-info-picture img {
+    width: 45px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.account-info-name {
+    font-weight: bold;
+    padding: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.account-info-more {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    margin-left: 5px;
+}
+.account-info-more img{
+    margin-bottom: 20px;
 }
 
 .sidebar-list-item svg,
 .sidebar-list-item img {
     margin-right: 8px;
 }
-
+/* ALINE FEZ
 .sidebar-list-item:hover {
     background-color: var(--sidebar-hover-link);
 }
@@ -86,6 +190,7 @@ main {
 }
 
 .account-info {
+    z-index: 2;
     display: flex;
     align-items: center;
     padding: 16px;
@@ -122,7 +227,9 @@ main {
 .app-icon svg {
     width: 24px;
     height: 24px;
-}
+} ALINE FEZ*/
+
+/* ---------FINAL SIDEBAR----------*/
 
 .app-content {
     padding: 16px;
@@ -296,6 +403,39 @@ main {
     }*/
   
 }
+/* SIDEBAR*/
+@media(max-width:860px){.sidebar{
+    height: auto;
+    width: 70px;
+    left:0;
+    margin: 100px 0;
+    }
+    .sidebar-header, #btn, #cancel{
+        display: none;
+    }
+    span {
+        position: absolute;
+        margin-left: 23px;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .sidebar a{
+        height: 60px;
+    }
+
+    .sidebar a i{
+        margin-left: -10px;
+    }
+    a:hover{
+        width: 200px;
+        background: inherit;
+    }
+    .sidebar a:hover span{
+        opacity: 1;
+        visibility: visible;
+    }
+}
+/* FINAL DO SIDEBAR*/
 @media screen and (max-width: 767px) {
    .table-responsive{
     display: block;
