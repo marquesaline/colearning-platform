@@ -145,7 +145,7 @@
 }
 
 .container-events {
-    width: 100%32;
+    width: 100%;
     margin: 0 auto;
     padding: 0 30px;
     
@@ -196,7 +196,8 @@
     background-color: #ffa959;
 }
 
-#calendar-main .fc-scrollgrid-section-sticky {
+#calendar-main .fc-scrollgrid-section-sticky,
+#calendar-main .fc-scrollgrid-section {
     position: relative;
     z-index: 0;
 }
@@ -280,7 +281,33 @@
     #calendar .fc-daygrid-body {
         width: 100%;
     }
+    .section-agenda {
+        margin: 15px 10px;
+        width: 94%;
+    }
+    .container-events {
+        padding: 0;
+    }
+    #calendar-main {
+        margin-top: 60px;
+    }
+    #calendar-main .fc-toolbar.fc-header-toolbar {
+        flex-direction: column-reverse;
+        height: 150px;
+       
+    }
+   #calendar-main .fc-toolbar-ltr > div:nth-child(1) {
+       margin: 0 auto;
+       text-align: center;
+   }
+   .container-events {
+        margin: 0 5px;
+        padding: 0;
+   }
 
+   .modal-content {
+        width: 90%;
+   }
     .container-agendas {
         margin-top: 200px;
     }
@@ -288,4 +315,5 @@
     .agenda {
         width: 100%;
     }
+
 }

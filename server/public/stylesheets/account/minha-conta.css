@@ -114,8 +114,7 @@
     .account-title {
         font-size: 25px;
     }
-    .container-info, .container-signature {
-        margin-left: 10px;
-        margin-right: 10px;
+    .container-info {
+       margin: 18px;
     }
 }
