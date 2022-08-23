@@ -1,4 +1,5 @@
 const controller = {}
+
 const create = require("../utils/create")
 const { User, Agenda, Event, BusinessHours, Contact } = require("../database/models")
 const { getAllUsers, getUser, getUserAgendas, getUserEvents, getUserByEmail } = require('../services/users')
@@ -62,7 +63,7 @@ controller.createUser = async (req, res) => {
       })
     } 
     
-    const { nome, email, senha, avatar, admin, created_at, updated_at } = req.body;
+    const { nome, email, senha, admin, created_at, updated_at } = req.body;
 
     //conferir se já existe um email
     let emailExists = await getUserByEmail(email)
@@ -81,13 +82,21 @@ controller.createUser = async (req, res) => {
     const slug = await create.slug(nome)
     //criptografia da senha
     let senhaCripto = bcrypt.hashSync(senha, 3)
-
-    const avatarFileName = req.file.filename;
+    
+    const avatarFileName = null
+   
+    if(req.file != undefined) {
+        return avatarFileName = req.file.filename;
+    }
     await User.create({
-      nome, senha: senhaCripto,
-      email, slug,
-      avatar: avatarFileName || null, admin: !!admin,
-      createdAt: created_at, updatedAt: updated_at
+      nome, 
+      senha: senhaCripto,
+      email, 
+      slug,
+      avatar: avatarFileName || null, 
+      admin: !!admin,
+      createdAt: created_at, 
+      updatedAt: updated_at
     });
     res.redirect("/admin/usuarios");
 },
@@ -127,8 +136,10 @@ controller.updateUser = async (req, res) => {
     } = req.body
 
     let senhaCripto = bcrypt.hashSync(senha, 3)
-
-    const avatarFileName = req.file.filename;
+    const avatarFileName = null
+    if(req.file != undefined) {
+        return avatarFileName = req.file.filename;
+    }
     
     await User.update(
     {

@@ -200,7 +200,7 @@ padrão em todas as telas, menos a de calendário */
 }
 @media screen and (max-width: 932px) {
     .container-side {
-        width:0;
+        display: none;
     }
     
     .container-btn-mobile, #btn-menu-mobile {

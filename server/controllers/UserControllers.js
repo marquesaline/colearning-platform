@@ -122,7 +122,7 @@ controller.updateAccount = async (req, res) => {
 
 controller.excludeUser = async (req, res) => {
     const userLogged = await req.session.userLogged
-    const user = await getUser(userLogged.id)
+    const user = userLogged
     res.render("areaLogada/minha-conta-excluir", {
       title: "Excluir conta",
       user
@@ -131,13 +131,13 @@ controller.excludeUser = async (req, res) => {
 
 controller.deleteUser = async (req, res) => {
     const userLogged = await req.session.userLogged
-    const user = await getUser(userLogged.id)
-    console.log(user.id)
-    const id  = await user.id
+    const id  = userLogged.id
     await User.destroy({
       where: { id }
     })
-    res.redirect("/login")
+
+    res.render('login', { title: 'Login - CoLearning' })
+    
 }
   //arrumar - está dando erro
 controller.showAccount = async (req, res) => {
