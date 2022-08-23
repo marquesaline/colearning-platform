@@ -1,3 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
 body,
 html,
 main {
@@ -7,20 +15,15 @@ main {
 body {
     display: flex;
 }
-main {
-    width: calc(100% - 250px);
-    overflow: auto;
-}
+
 
 
 .app-container {
     border-radius: 4px;
-    height: 100%;
     display: flex;
     flex-direction: column;
-    width: calc(100% - 250px);
     overflow: auto;
-    margin: 0 auto;
+    margin-left: 100px
 }
 /********** SIDEBAR ***********/
 
@@ -62,14 +65,7 @@ main {
 } ALINE FEZ*/
 
 /* Elton FEZ*/
-* {
-    margin: 0;
-    padding: 0;
-    outline: none;
-    border: none;
-    text-decoration: none;
-    box-sizing: border-box;
-}
+
 .sidebar{
     position: absolute;
     top: 0;
@@ -362,8 +358,6 @@ div#container{
     width: 70px;
 }
 
-
-
 @media screen and (max-width: 1024px) {
     .list-row {
         width: calc(33.3% - 16px);
@@ -371,42 +365,9 @@ div#container{
 
 }
 
-@media screen and (max-width: 900px) {
-    
-  
-}
-/* SIDEBAR*/
-/*@media(max-width:860px){.sidebar{
-    height: 100%;
-    width: 70px;
-    left:0;
-    margin: 100px 0;
-    }
-    
-    .nav-item {
-        position: absolute;
-        margin-left: 23px;
-        opacity: 0;
-        visibility: hidden;
-    }
-    .sidebar .a{
-        height: 60px;
-    }
 
-    .sidebar .a i{
-        margin-left: -10px;
-    }
-    .a:hover{
-        width: 200px;
-        background: inherit;
-    }
-    .sidebar .a:hover .nav-item{
-        opacity: 1;
-        visibility: visible;
-    }
-}*/
 /* FINAL DO SIDEBAR*/
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
    .table-responsive{
     /*
     display: block;
@@ -447,11 +408,6 @@ div#container{
      border-right: #999999 solid 1px;
   }
 
-
-}
-
-
-@media screen and (max-width: 520px) {
     .list-row {
         width: 100%;
         margin: 8px 0;
