@@ -108,9 +108,7 @@ controller.updateAccount = async (req, res) => {
     const id = user.id
     const slug = await create.slug(nome)
     const avatarFileName = null
-    if(req.file != undefined) {
-        return avatarFileName = req.file.filename;
-    }
+   
    
     await User.update(
       { nome, slug, email, senha: senhaCripto,
