@@ -263,7 +263,9 @@ main {
     align-items: center;
     padding: 16px 4px;
 }
-
+div#container{
+    overflow-x: auto;
+}
 .table-list {
     border-collapse: collapse;
     max-width: 100%;
@@ -366,81 +368,50 @@ main {
     .list-row {
         width: calc(33.3% - 16px);
     }  
-     .sidebar {
-        display: none;
-    }
-   /* .app-container .sidebar {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: baseline;
-        flex-wrap: nowrap;
-        height: 100px;
-        width: 100vw;
-    }
-   
-   .sidebar-list {
-        list-style-type: none;
-        padding: 0;
-        display: flex;
-    }*/
 
-    .account-info{
-        list-style-type: none;
-        padding: 0;
-        margin-top: 0;
-    }
 }
 
 @media screen and (max-width: 900px) {
-    /*.list-row {
-        width: calc(50% - 16px);
-        display: flex;
-        flex-direction: column-reverse;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-    }*/
+    
   
 }
 /* SIDEBAR*/
-@media(max-width:860px){.sidebar{
-    height: auto;
+/*@media(max-width:860px){.sidebar{
+    height: 100%;
     width: 70px;
     left:0;
     margin: 100px 0;
     }
-    .sidebar-header, #btn, #cancel{
-        display: none;
-    }
-    span {
+    
+    .nav-item {
         position: absolute;
         margin-left: 23px;
         opacity: 0;
         visibility: hidden;
     }
-    .sidebar a{
+    .sidebar .a{
         height: 60px;
     }
 
-    .sidebar a i{
+    .sidebar .a i{
         margin-left: -10px;
     }
-    a:hover{
+    .a:hover{
         width: 200px;
         background: inherit;
     }
-    .sidebar a:hover span{
+    .sidebar .a:hover .nav-item{
         opacity: 1;
         visibility: visible;
     }
-}
+}*/
 /* FINAL DO SIDEBAR*/
 @media screen and (max-width: 767px) {
    .table-responsive{
+    /*
     display: block;
     position: relative;
-    width: 100%;
+    width: 100vw;
    } 
    .table-responsive thead,
   .table-responsive tbody,
@@ -448,7 +419,9 @@ main {
   .table-responsive td,
   .table-responsive tr {
     display: block;
-  }
+    */
+}
+
   .table-responsive td,
   .table-responsive th {
     height: 35px;
@@ -461,13 +434,12 @@ main {
   .table-responsive tbody {
     width: auto;
     position: relative;
-    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    white-space: nowrap;
+    white-space: wrap;
   }
 
   .table-responsive tbody tr {
-    display: inline-block;
+    /*display: inline-block;*/
   }
 
   
