@@ -1,3 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
 body,
 html,
 main {
@@ -7,22 +15,19 @@ main {
 body {
     display: flex;
 }
-main {
-    width: calc(100% - 250px);
-    overflow: auto;
-}
+
 
 
 .app-container {
     border-radius: 4px;
-    height: 100%;
     display: flex;
     flex-direction: column;
-    width: calc(100% - 250px);
     overflow: auto;
-    margin: 0 auto;
+    margin-left: 100px
 }
+/********** SIDEBAR ***********/
 
+/* ALINE FEZ
 .sidebar {
     flex-basis: 250px;
     max-width: 250px;
@@ -33,16 +38,13 @@ main {
     height: 100vh;
    
 }
-
 .sidebar-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 16px;
     margin: 20px 0;
-}
-
-.sidebar-list {
+}.sidebar-list {
     list-style-type: none;
     padding: 0;
 }
@@ -51,7 +53,6 @@ main {
     position: relative;
     margin-bottom: 4px;
 }
-
 .sidebar-list-item a {
     display: flex;
     align-items: center;
@@ -61,13 +62,112 @@ main {
     text-decoration: none;
     font-size: 14px;
     line-height: 24px;
+} ALINE FEZ*/
+
+/* Elton FEZ*/
+
+.sidebar{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background-color: #fff;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+.app-icon{
+    text-align: center;
+    display: flex;
+    transition:  all 0.5s ease;
+    margin: 10px 0 0 10px;
+}
+.app-icon img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin: 10px;
+}
+.app-icon span{
+    font-weight: bold;
+    padding-left: 10px;
+    font-size: 25px;
+    margin-top: 10px;
+}
+.a {
+    position: relative;
+    color: rgb(85,83,83);
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 10px;
+}
+.fas {
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 16px;
+    font-size: 25px;
+    text-align: center;
+    padding-left: 25px;
+}
+.nav-item{
+    position: relative;
+    top:12px;
+    margin-left: 10px;
+    padding-left: 20px;
+}
+
+.a:hover, .a:active{
+    background-color: #eee;
+}
+.sidebar:hover{
+    width: 280px;
+    transition:  all 0.5s ease;
+}
+.account-info{
+    position: absolute;
+    bottom: 0;
+}
+.account-info-picture{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    transition: all 0.5s ease;
+    margin: 10px 0 0 10px;
+}
+.account-info-picture img {
+    width: 45px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.account-info-name {
+    font-weight: bold;
+    padding: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.account-info-more {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    margin-left: 5px;
+}
+.account-info-more img{
+    margin-bottom: 20px;
 }
 
 .sidebar-list-item svg,
 .sidebar-list-item img {
     margin-right: 8px;
 }
-
+/* ALINE FEZ
 .sidebar-list-item:hover {
     background-color: var(--sidebar-hover-link);
 }
@@ -86,6 +186,7 @@ main {
 }
 
 .account-info {
+    z-index: 2;
     display: flex;
     align-items: center;
     padding: 16px;
@@ -122,7 +223,9 @@ main {
 .app-icon svg {
     width: 24px;
     height: 24px;
-}
+} ALINE FEZ*/
+
+/* ---------FINAL SIDEBAR----------*/
 
 .app-content {
     padding: 16px;
@@ -156,7 +259,9 @@ main {
     align-items: center;
     padding: 16px 4px;
 }
-
+div#container{
+    overflow-x: auto;
+}
 .table-list {
     border-collapse: collapse;
     max-width: 100%;
@@ -253,54 +358,21 @@ main {
     width: 70px;
 }
 
-
-
 @media screen and (max-width: 1024px) {
     .list-row {
         width: calc(33.3% - 16px);
     }  
-     .sidebar {
-        display: none;
-    }
-   /* .app-container .sidebar {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: baseline;
-        flex-wrap: nowrap;
-        height: 100px;
-        width: 100vw;
-    }
-   
-   .sidebar-list {
-        list-style-type: none;
-        padding: 0;
-        display: flex;
-    }*/
 
-    .account-info{
-        list-style-type: none;
-        padding: 0;
-        margin-top: 0;
-    }
 }
 
-@media screen and (max-width: 900px) {
-    /*.list-row {
-        width: calc(50% - 16px);
-        display: flex;
-        flex-direction: column-reverse;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-    }*/
-  
-}
-@media screen and (max-width: 767px) {
+
+/* FINAL DO SIDEBAR*/
+@media screen and (max-width: 768px) {
    .table-responsive{
+    /*
     display: block;
     position: relative;
-    width: 100%;
+    width: 100vw;
    } 
    .table-responsive thead,
   .table-responsive tbody,
@@ -308,7 +380,9 @@ main {
   .table-responsive td,
   .table-responsive tr {
     display: block;
-  }
+    */
+}
+
   .table-responsive td,
   .table-responsive th {
     height: 35px;
@@ -321,13 +395,12 @@ main {
   .table-responsive tbody {
     width: auto;
     position: relative;
-    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    white-space: nowrap;
+    white-space: wrap;
   }
 
   .table-responsive tbody tr {
-    display: inline-block;
+    /*display: inline-block;*/
   }
 
   
@@ -335,11 +408,6 @@ main {
      border-right: #999999 solid 1px;
   }
 
-
-}
-
-
-@media screen and (max-width: 520px) {
     .list-row {
         width: 100%;
         margin: 8px 0;
