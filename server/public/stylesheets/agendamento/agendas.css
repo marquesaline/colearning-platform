@@ -1,3 +1,8 @@
+main {
+    min-height: 100vh;
+    width: 100%;
+}
+
 .agendas {
     padding-top: 20px;
     padding-bottom: 50px;
@@ -65,4 +70,32 @@
 .div-footer a {
     text-decoration: none;
     color: black;
+}
+
+/* responsividade */
+@media screen and (max-width: 480px) {
+    .div-agendas {
+        flex-direction: column;
+        margin: 20px auto;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .div-cards {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .footer {
+        margin-top: 34rem;
+        padding-top: 50px;
+        padding-bottom: 15px;
+    }
+    .div-footer {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .div-footer div {
+        margin-bottom: 25px;
+    }
+    
 }
