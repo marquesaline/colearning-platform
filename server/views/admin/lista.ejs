@@ -9,7 +9,7 @@
         
         <a href="/admin/usuarios/add" class="a-user btn-default"> Adicionar Usuário</a>
       </div>
-      <div id="container">
+      <div class="container-table">
         <table class="table-list table-responsive">
           <thead class="list-header">
             <tr>
@@ -81,67 +81,69 @@
         
         <a href="/admin/agendas/add" class="a-user btn-default"> Adicionar Agenda</a>
       </div>
-      <table class="table-list">
-        <thead class="list-header">
-          <tr>
-            <th>Id</th>
-            <th>Id Usuário</th>
-            <th>Nome da agenda</th>
-            <th>URL da reunião</th>
-            <th>Data de início</th>
-            <th>Data fim</th>
-            <th>Duração</th>
-            <th class="dates" >Data da criação</th>
-            <th class="dates">Data de modificação</th>
-            <th>Opções</th>
-          </tr>
-        </thead>
-        <tbody class="list-row">
-          <% for(let agenda of agendas) { %>
+      <div  class="container-table">
+        <table class="table-list">
+          <thead class="list-header">
             <tr>
-              <td class="td-id">
-                <%= agenda.id %>
-              </td>
-              <td class="td-id">
-                <%= agenda.userId %>
-              </td>
-              <td class="td-name">
-                <%= agenda.title %>
-              </td>
-              <td class="td-name">
-                <%= agenda.url %>
-              </td>
-              <td class="td-name">
-                <%= agenda.start %>
-              </td>
-              <td class="td-email">
-                <%= agenda.end %>
-              </td>
-              <td class="td-email">
-                <%= agenda.duration %>
-              </td>
-              <td class="td-dates">
-                <%= agenda.createdAt %>
-              </td>
-              <td class="td-dates">
-                <%= agenda.updatedAt %>
-              </td>
-              
-              <td class="td-options">
-                <a class="um-user" href="/admin/agendas/<%= agenda.id %>">
-                  <img src="/images/icon-view.png" width="20px">
-                </a>
-                <a class="um-user" href="/admin/agendas/<%= agenda.id %>/editar">
-                  <img src="/images/icon-edit-admin.jpg" width="25px">
-                </a>
-                <a class="um-user" href="/admin/agendas/<%= agenda.id %>/excluir">
-                  <img src="/images/icon-delete-admin.png" width="20px">
-                </a>
-              </td>
+              <th>Id</th>
+              <th>Id Usuário</th>
+              <th>Nome da agenda</th>
+              <th>URL da reunião</th>
+              <th>Data de início</th>
+              <th>Data fim</th>
+              <th>Duração</th>
+              <th class="dates" >Data da criação</th>
+              <th class="dates">Data de modificação</th>
+              <th>Opções</th>
             </tr>
-          <% } %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody class="list-row">
+            <% for(let agenda of agendas) { %>
+              <tr>
+                <td class="td-id">
+                  <%= agenda.id %>
+                </td>
+                <td class="td-id">
+                  <%= agenda.userId %>
+                </td>
+                <td class="td-name">
+                  <%= agenda.title %>
+                </td>
+                <td class="td-name">
+                  <%= agenda.url %>
+                </td>
+                <td class="td-name">
+                  <%= agenda.start %>
+                </td>
+                <td class="td-email">
+                  <%= agenda.end %>
+                </td>
+                <td class="td-email">
+                  <%= agenda.duration %>
+                </td>
+                <td class="td-dates">
+                  <%= agenda.createdAt %>
+                </td>
+                <td class="td-dates">
+                  <%= agenda.updatedAt %>
+                </td>
+        
+                <td class="td-options">
+                  <a class="um-user" href="/admin/agendas/<%= agenda.id %>">
+                    <img src="/images/icon-view.png" width="20px">
+                  </a>
+                  <a class="um-user" href="/admin/agendas/<%= agenda.id %>/editar">
+                    <img src="/images/icon-edit-admin.jpg" width="25px">
+                  </a>
+                  <a class="um-user" href="/admin/agendas/<%= agenda.id %>/excluir">
+                    <img src="/images/icon-delete-admin.png" width="20px">
+                  </a>
+                </td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
     <% } %>
 
     <% if (locals.events) {%>
@@ -150,79 +152,81 @@
         
         <a href="/admin/agendamentos/add" class="a-user btn-default"> Adicionar Agendamento</a>
       </div>
-      <table class="table-list">
-        <thead class="list-header">
-          <tr>
-            <th class="id">Id</th>
-            <th class="id">Id Usuário</th>
-            <th class="id">Id da agenda</th>
-            <th>Nome do aluno</th>
-            <th>Email do aluno</th>
-            <th>Telefone do aluno</th>
-            <th>Data</th>
-            <th>Horário de início</th>
-            <th>Horário final</th>
-            <th>Descrição</th>
-            <th class="dates">Data da criação</th>
-            <th class="dates">Data de modificação</th>
-            <th>Opções</th>
-          </tr>
-        </thead>
-        <tbody class="list-row">
-          <% for(let event of events) { %>
+      <div class="container-table">
+        <table class="table-list">
+          <thead class="list-header">
             <tr>
-              <td class="td-id">
-                <%= event.id %>
-              </td>
-              <td class="td-id">
-                <%= event.userId %>
-              </td>
-              <td class="td-id">
-                <%= event.agendaId%>
-              </td>
-              <td class="td-name">
-                <%= event.title %>
-              </td>
-              <td class="td-email">
-                <%= event.emailAluno %>
-              </td>
-              <td class="td-tel">
-                <%= event.telefoneAluno %>
-              </td>
-              <td class="td-dates">
-                <%= event.start %>
-              </td>
-              <td class="td-startTime">
-                <%= event.startTime %>
-              </td>
-              <td class="td-endTime">
-                <%= event.endTime %>
-              </td>
-              <td class="td-description">
-                <%= event.description %>
-              </td>
-              <td class="td-dates">
-                <%= event.createdAt %>
-              </td>
-              <td class="td-dates">
-                <%= event.updatedAt %>
-              </td>
-              
-              <td class="td-options">
-                <a class="um-user" href="/admin/agendamentos/<%= event.id %>">
-                  <img src="/images/icon-view.png" width="20px">
-                </a>
-                <a class="um-user" href="/admin/agendamentos/<%= event.id %>/editar">
-                  <img src="/images/icon-edit-admin.jpg" width="25px">
-                </a>
-                <a class="um-user" href="/admin/agendamentos/<%= event.id %>/excluir">
-                  <img src="/images/icon-delete-admin.png" width="20px">
-                </a>
-              </td>
+              <th class="id">Id</th>
+              <th class="id">Id Usuário</th>
+              <th class="id">Id da agenda</th>
+              <th>Nome do aluno</th>
+              <th>Email do aluno</th>
+              <th>Telefone do aluno</th>
+              <th>Data</th>
+              <th>Horário de início</th>
+              <th>Horário final</th>
+              <th>Descrição</th>
+              <th class="dates">Data da criação</th>
+              <th class="dates">Data de modificação</th>
+              <th>Opções</th>
             </tr>
-          <% } %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody class="list-row">
+            <% for(let event of events) { %>
+              <tr>
+                <td class="td-id">
+                  <%= event.id %>
+                </td>
+                <td class="td-id">
+                  <%= event.userId %>
+                </td>
+                <td class="td-id">
+                  <%= event.agendaId%>
+                </td>
+                <td class="td-name">
+                  <%= event.title %>
+                </td>
+                <td class="td-email">
+                  <%= event.emailAluno %>
+                </td>
+                <td class="td-tel">
+                  <%= event.telefoneAluno %>
+                </td>
+                <td class="td-dates">
+                  <%= event.start %>
+                </td>
+                <td class="td-startTime">
+                  <%= event.startTime %>
+                </td>
+                <td class="td-endTime">
+                  <%= event.endTime %>
+                </td>
+                <td class="td-description">
+                  <%= event.description %>
+                </td>
+                <td class="td-dates">
+                  <%= event.createdAt %>
+                </td>
+                <td class="td-dates">
+                  <%= event.updatedAt %>
+                </td>
+        
+                <td class="td-options">
+                  <a class="um-user" href="/admin/agendamentos/<%= event.id %>">
+                    <img src="/images/icon-view.png" width="20px">
+                  </a>
+                  <a class="um-user" href="/admin/agendamentos/<%= event.id %>/editar">
+                    <img src="/images/icon-edit-admin.jpg" width="25px">
+                  </a>
+                  <a class="um-user" href="/admin/agendamentos/<%= event.id %>/excluir">
+                    <img src="/images/icon-delete-admin.png" width="20px">
+                  </a>
+                </td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
     <% } %>
 
 
@@ -230,55 +234,57 @@
       <div class="app-content-header">
         <h1 class="app-content-headerText">Contatos</h1>
       </div>
-      <table class="table-list">
-        <thead class="list-header">
-          <tr>
-            <th class="id">Id</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Telefone</th>
-            <th>Assunto</th>
-            <th class="dates">Data de criação</th>
-            <th class="dates">Data de modificação</th>
-            <th>Opções</th>
-          </tr>
-        </thead>
-        <tbody class="list-row">
-          <% for(let contact of contacts) { %>
+      <div class="container-table">
+        <table class="table-list">
+          <thead class="list-header">
             <tr>
-              <td class="td-id">
-                <%= contact.id %>
-              </td>
-              <td class="td-name">
-                <%= contact.nome %>
-              </td>
-              <td class="td-name">
-                <%= contact.email %>
-              </td>
-              <td class="td-email">
-                <%= contact.telefone %>
-              </td>
-              <td class="td-email">
-                <%= contact.assunto %>
-              </td>
-              <td class="td-date">
-                <%= contact.createdAt %>
-              </td>
-              <td class="td-date">
-                <%= contact.updatedAt %>
-              </td>
-              <td class="td-options">
-                <a class="um-user" href="/admin/contatos/<%= contact.id %>">
-                  <img src="/images/icon-view.png" width="20px">
-                </a>
-                <a class="um-user" href="/admin/contatos/<%= contact.id %>/excluir">
-                  <img src="/images/icon-delete-admin.png" width="20px">
-                </a>
-              </td>
+              <th class="id">Id</th>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Telefone</th>
+              <th>Assunto</th>
+              <th class="dates">Data de criação</th>
+              <th class="dates">Data de modificação</th>
+              <th>Opções</th>
             </tr>
-          <% } %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody class="list-row">
+            <% for(let contact of contacts) { %>
+              <tr>
+                <td class="td-id">
+                  <%= contact.id %>
+                </td>
+                <td class="td-name">
+                  <%= contact.nome %>
+                </td>
+                <td class="td-name">
+                  <%= contact.email %>
+                </td>
+                <td class="td-email">
+                  <%= contact.telefone %>
+                </td>
+                <td class="td-email">
+                  <%= contact.assunto %>
+                </td>
+                <td class="td-date">
+                  <%= contact.createdAt %>
+                </td>
+                <td class="td-date">
+                  <%= contact.updatedAt %>
+                </td>
+                <td class="td-options">
+                  <a class="um-user" href="/admin/contatos/<%= contact.id %>">
+                    <img src="/images/icon-view.png" width="20px">
+                  </a>
+                  <a class="um-user" href="/admin/contatos/<%= contact.id %>/excluir">
+                    <img src="/images/icon-delete-admin.png" width="20px">
+                  </a>
+                </td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
     <% } %>
   </div>
 
