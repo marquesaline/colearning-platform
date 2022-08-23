@@ -3,11 +3,13 @@
     text-align: left;
     margin-left: 20px;
 }
-.cards-admin {
+
+.cards-admin{
     margin: 80px auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
+    flex-direction: row;
 }
 .card-admin {
     width: 400px;
@@ -35,6 +37,15 @@
     .title-dashboard {
         margin-top: 101px;
     }
+    div.cards-admin{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    div.btn-default{
+        width: 250px;
+
+    }
 }
 @media screen and (max-width: 768px) {
     .btn-default {
@@ -47,6 +58,15 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    div.cards-admin{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    div.btn-default{
+        width: 250px;
+
     }
     
 }
