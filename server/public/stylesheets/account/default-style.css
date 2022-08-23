@@ -213,6 +213,17 @@ padrão em todas as telas, menos a de calendário */
     }
 
     
+    @media screen and (max-width: 768px) {
+        .btn-default{
+            line-height: 22px;
+            padding: 8px 15px;
+            background-color: var(--background-button);
+            border-radius: 5px;
+            color: var(--font-color-button);
+            font-size: var(--font-size-btn);
+        
+        }
     
+    }
 
-}
+
