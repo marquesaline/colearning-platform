@@ -1,0 +1,51 @@
+<%- include('../partials/account-header.ejs') %>
+
+
+<main class="main-flex">
+    <%- include('../partials/myAccount-container.ejs') %>
+    <section class="section-main sec-info">
+        <h1 class="account-title">Informações da sua conta</h1>
+        <div class="container-info">
+            <div class="container-edit">
+                <form action="/conta/minha-conta/excluir?_method=delete" method="post">
+                    <h2>Dados Gerais</h2>
+
+                    <div class="info-edit">
+                        <div class="div-avatar">
+                            <img
+                                src="/images/<%= user.avatar ? `avatar/${user.avatar}` : 'avatar-exemple.png' %>"
+                                alt="Avatar de <%=user.nome%>"
+                            />
+                          </div>
+                    </div>
+
+                    <div class="info-edit"> 
+                        <label for="nome">Nome</label>
+                        <input class="input-account" type="text" name="nome" id="nome" value="<%=user.nome%>" disabled>
+                    </div>
+
+                    <div class="info-edit"> 
+                        <label for="email">Email</label>
+                        <input class="input-account" type="email" name="email" id="email" value="<%=user.email%>" disabled>
+                    </div>
+         
+                    <div>
+                        <input type="hidden" name="created_at" value="<%= user.createdAt %>">
+                        <input type="hidden" name="updated_at" value="<%= new Date() %>">
+                    </div>
+                    <div class="container-del-text">
+                        <p>
+                            Esta ação não poderá ser desfeita e todos os dados relacionados 
+                            ao seu usuário serão excluídos.
+                        </p>
+                    </div>
+                    <div class="container-btn">
+                       <button class="button-edit btn-delete">Excluir</button>
+                    </div>
+                </form>
+            </div>    
+        </div>
+    </section>
+</main>
+</body>
+</html>

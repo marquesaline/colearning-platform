@@ -4,6 +4,7 @@ const { User } = require('../database/models')
 const { validationResult } = require('express-validator')
 const bcrypt  = require('bcrypt')
 const create = require('../utils/create')
+const { get } = require('jquery')
 
 
 //sendo usado pra o cadastro do usuário
@@ -116,25 +117,27 @@ controller.updateAccount = async (req, res) => {
         updatedAt: updated_at
     }, 
     { where: {id} })  
-    res.redirect(`/conta/minha-conta`);
+    res.redirect("/conta/minha-conta");
 },
 
 controller.excludeUser = async (req, res) => {
     const userLogged = await req.session.userLogged
     const user = await getUser(userLogged.id)
-    res.render("admin/usuario-excluir", {
-      title: `Excluir Usuário ${req.params.id}`,
+    res.render("areaLogada/minha-conta-excluir", {
+      title: "Excluir conta",
       user
     });
 },
 
 controller.deleteUser = async (req, res) => {
     const userLogged = await req.session.userLogged
-    const id = await getUser(userLogged.id)
+    const user = await getUser(userLogged.id)
+    console.log(user.id)
+    const id  = await user.id
     await User.destroy({
       where: { id }
     })
-    res.redirect(`/login`)
+    res.redirect("/login")
 }
   //arrumar - está dando erro
 controller.showAccount = async (req, res) => {
