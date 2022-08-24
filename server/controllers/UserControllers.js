@@ -4,7 +4,6 @@ const { User } = require('../database/models')
 const { validationResult } = require('express-validator')
 const bcrypt  = require('bcrypt')
 const create = require('../utils/create')
-const { get } = require('jquery')
 
 
 //sendo usado pra o cadastro do usuário
@@ -81,9 +80,12 @@ controller.create = async (req, res) => {
 controller.editAccount = async (req, res) => {
     const userLogged = await req.session.userLogged
     const user = await getUser(userLogged.id)
+    const agendas = await getUserAgendas(userLogged.id)
+    
     res.render(`areaLogada/minha-conta-editar`, {
       title: `Editar Usuário ${user.nome}`,
       user,
+      agendas
     });
 },
 
@@ -93,28 +95,32 @@ controller.updateAccount = async (req, res) => {
     const resultValidations = validationResult(req)
  
     if(resultValidations.errors.length > 0) {
-     
+      const agendas = await getUserAgendas(userLogged.id)
       return res.render('areaLogada/minha-conta-editar', {
         title: 'Editar usuário',
         errors: resultValidations.mapped(),
         oldData: req.body,
-        user
+        user, 
+        agendas
       })
     } 
     
-    const { nome, email, senha, created_at, updated_at } = req.body;
+    const { nome, email, senha, avatar, created_at, updated_at } = req.body
+    let avatarFileName = avatar
+   
+    if(req.file != undefined) {
+        avatarFileName = req.file.filename;
+    }
     
     let senhaCripto = bcrypt.hashSync(senha, 3)
     const id = user.id
     const slug = await create.slug(nome)
-    const avatarFileName = null
-    if(req.file != undefined) {
-      return avatarFileName = req.file.filename;
-  }
-   
-   
+  
     await User.update(
-      { nome, slug, email, senha: senhaCripto,
+      { nome, 
+        slug, 
+        email, 
+        senha: senhaCripto,
         avatar: avatarFileName || null,
         admin: user.admin,
         createdAt: created_at,
@@ -127,9 +133,11 @@ controller.updateAccount = async (req, res) => {
 controller.excludeUser = async (req, res) => {
     const userLogged = await req.session.userLogged
     const user = userLogged
+    const agendas = await getUserAgendas(userLogged.id)
     res.render("areaLogada/minha-conta-excluir", {
       title: "Excluir conta",
-      user
+      user,
+      agendas
     });
 },
 
@@ -145,9 +153,7 @@ controller.deleteUser = async (req, res) => {
 }
   //arrumar - está dando erro
 controller.showAccount = async (req, res) => {
-  console.log("entrou")
   const userLogged = await req.session.userLogged    
-
   const user = await getUser(userLogged.id)
   const agendas = await getUserAgendas(userLogged.id)
   res.render("areaLogada/minha-conta", {

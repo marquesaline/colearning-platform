@@ -2,7 +2,7 @@
 
 
 <main class="main-flex">
-    <%- include('../partials/myAccount-container.ejs') %>
+    <%- include('../partials/container-side.ejs') %>
     <section class="section-main sec-info">
         <h1 class="account-title">Informações da sua conta</h1>
         <div class="container-info">
@@ -44,7 +44,7 @@
 
                     <div class="info-edit">
                         <label for="password">Senha</label>
-                        <input class="input-account" type="password" name="senha" id="senha" >
+                        <input class="input-account" type="password" name="senha" id="senha" required >
                     </div>
                     <% if(locals.errors && errors.senha) { %> 
                         <p style="color: red;"><%=errors.senha.msg%></p>

@@ -21,7 +21,7 @@
     padding: 0;
     font-family:'Monteserrat', sans-serif; 
 }
-html, body, main {
+html, body {
     height: 100vh;
 }
 
@@ -93,6 +93,9 @@ padrão em todas as telas, menos a de calendário */
     width: 100%;
     cursor: pointer;
     
+}
+#contents-side {
+    display: none;
 }
 
 /* botão mobile pra o container lateral */
@@ -185,9 +188,22 @@ padrão em todas as telas, menos a de calendário */
     background-color: #FFF;
 }
 
-
-
+  
+@media screen and (max-width: 768px) {
+    .btn-default{
+        line-height: 22px;
+        padding: 8px 15px;
+        background-color: var(--background-button);
+        border-radius: 5px;
+        color: var(--font-color-button);
+        font-size: var(--font-size-btn);
     
+    }
+
+}
+
+
+@media  screen and (max-width: 480px) {
     .container-btn-mobile, #btn-menu-mobile {
         display: block;
     }
@@ -202,28 +218,17 @@ padrão em todas as telas, menos a de calendário */
         left: 0;
         right: 0;
         background-color: var(--background-primary);
-        height: calc(100vh - 600px);
+        height: 100vh;
         z-index: 1000;
     }
-    .container-side.active {
-        display: block;
-    } 
-    .container-side.active #contents-side{
+   
+    #aside.active #contents-side{
         display: block;
     }
+    
+}
+    
 
-    
-    @media screen and (max-width: 768px) {
-        .btn-default{
-            line-height: 22px;
-            padding: 8px 15px;
-            background-color: var(--background-button);
-            border-radius: 5px;
-            color: var(--font-color-button);
-            font-size: var(--font-size-btn);
-        
-        }
-    
-    }
+  
 
 

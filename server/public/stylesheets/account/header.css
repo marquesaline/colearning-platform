@@ -11,9 +11,6 @@
     border: solid 1px var(--border-color-light);
 }
 
-.div-logo-month {
-    display: flex;
-}
 .div-logo {
     padding-right: 5rem;
 }
@@ -98,27 +95,7 @@
 /* #btn-user:active ul {
     display: block;
 } */
-@media screen and (min-width: 1025px) {
-    
-    .div-logo {
-        padding-right: 80px;
-    }
-   
-    .month-year {
-        text-align: center;
-    }
-    .div-user {
-        justify-self: flex-end;
-    }
-}
 
-@media screen and (max-width: 1024px) {
-    .header{
-        padding: 20px;
-        justify-content: space-between;
-        align-items: center;
-    }
-}
 @media screen and (max-width:932px) {
     .header{
         padding: 20px 10px;

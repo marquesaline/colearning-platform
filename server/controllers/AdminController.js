@@ -63,7 +63,12 @@ controller.createUser = async (req, res) => {
       })
     } 
     
-    const { nome, email, senha, admin, created_at, updated_at } = req.body;
+    const { nome, email, senha, admin, avatar, created_at, updated_at } = req.body
+    let avatarFileName = avatar
+   
+    if(req.file != undefined) {
+        avatarFileName = req.file.filename;
+    }
 
     //conferir se já existe um email
     let emailExists = await getUserByEmail(email)
@@ -83,11 +88,7 @@ controller.createUser = async (req, res) => {
     //criptografia da senha
     let senhaCripto = bcrypt.hashSync(senha, 3)
     
-    const avatarFileName = null
-   
-    if(req.file != undefined) {
-        return avatarFileName = req.file.filename;
-    }
+    
     await User.create({
       nome, 
       senha: senhaCripto,
@@ -130,16 +131,19 @@ controller.updateUser = async (req, res) => {
         slug, 
         email, 
         senha, 
+        avatar,
         admin, 
         created_at, 
         updated_at 
     } = req.body
+    let avatarFileName = avatar
+   
+    if(req.file != undefined) {
+        avatarFileName = req.file.filename;
+    }
+    console.log(avatarFileName)
 
     let senhaCripto = bcrypt.hashSync(senha, 3)
-    const avatarFileName = null
-    if(req.file != undefined) {
-        return avatarFileName = req.file.filename;
-    }
     
     await User.update(
     {
@@ -224,7 +228,7 @@ controller.adminAddAgenda = async (req, res) => {
     })
 }
 controller.createAgenda = async (req, res) => {
-    const { 
+    const  { 
         userId, 
         title, 
         url, 
@@ -236,7 +240,13 @@ controller.createAgenda = async (req, res) => {
         endTime, 
         created_at, 
         updated_at 
-    } = req.body;
+    } = await req.body;
+    console.log(daysOfWeek.length)
+    console.log(startTime)
+    console.log(endTime)
+    let start_time =  create.time(startTime)
+    console.log(start_time)
+    let end_time = create.time(endTime)
     const backgroundColor = await create.color()
     const response = await Agenda.create({
         userId, 
@@ -249,14 +259,15 @@ controller.createAgenda = async (req, res) => {
         createdAt: created_at, 
         updatedAt: updated_at        
     })
-    let start_time = create.time(startTime)
-    let end_time = create.time(endTime)
-    
-    for(i = 0; i <= daysOfWeek.length; i++) {
+    let days_of_week = daysOfWeek
+    console.log(days_of_week)
+    console.log(days_of_week.length)
+ 
+    for(i = 0; i <= days_of_week.length; i++) {
         await BusinessHours.create(
             {
-                agendaID: response.id,
-                daysOfWeek: daysOfWeek[i],
+                agendaId: response.id,
+                daysOfWeek: days_of_week[i],
                 startTime: start_time[i],
                 endTime: end_time[i],
                 createdAt: created_at,
@@ -315,7 +326,7 @@ controller.editAgenda = async (req, res) => {
 }
 controller.updateAgenda = async (req, res) =>{
     const { id } = req.params
-    const agenda = getAgenda(id)
+    const agenda = await getAgenda(id)
 
     const {
         userId, 
