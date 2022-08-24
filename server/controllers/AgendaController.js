@@ -47,11 +47,12 @@ controller.createAgenda = async (req, res) => {
         createdAt: created_at,
         updatedAt: updated_at
     })
-
+    
     let start_time = create.time(startTime)
+
     let end_time = create.time(endTime)
 
-    for(i = 0; i < daysOfWeek.length; i++) {
+    for(i = 0; i <= daysOfWeek.length; i++) {
         await BusinessHours.create(
             {
                 agendaId: response.id,
