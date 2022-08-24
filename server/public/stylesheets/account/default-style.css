@@ -94,6 +94,9 @@ padrão em todas as telas, menos a de calendário */
     cursor: pointer;
     
 }
+#contents-side {
+    display: none;
+}
 
 /* botão mobile pra o container lateral */
 .container-btn-mobile {
