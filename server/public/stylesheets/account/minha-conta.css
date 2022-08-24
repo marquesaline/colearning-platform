@@ -117,4 +117,11 @@
     .container-info {
        margin: 18px;
     }
+    .info-data {
+        display: flex;
+        padding: 12px 10px;
+        border-bottom: 1px solid var(--border-color-light);
+        flex-direction: column;
+        align-items: center;
+    }
 }

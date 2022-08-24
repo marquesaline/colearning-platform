@@ -16,18 +16,19 @@ body {
     display: flex;
 }
 
-
-
 .app-container {
     border-radius: 4px;
     height: 100%;
     display: flex;
-    flex-direction: column;
     width: 100%;
     overflow: auto;
     margin: 0 auto;
-    margin-left: 100px
+    margin-left: 100px;
+    flex-direction: column;
+
 }
+
+
 /********** SIDEBAR ***********/
 .sidebar{
     position: absolute;
@@ -142,8 +143,8 @@ body {
 .app-content-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 4px;
+    flex-direction: column;
+    padding: 5px 4px;
 }
 
 .app-content-headerText {
@@ -225,9 +226,10 @@ div.container-table{
 
 .section-admin {
     margin-top: 60px;
-    width: calc(100% - 250px);
+    width: 100%;
     overflow: auto;
     height:100vh;
+    margin-left: 100px;
 }
 .btn-options {
     margin-top: 30px;
@@ -250,31 +252,36 @@ div.container-table{
     border-radius: 10px;
     padding-top:30px;
     padding-bottom: 30px;
-    width: 40%;
+    width: 50%;
     margin: 5px auto 20px auto;
 }
 .input-id {
     width: 70px;
+}
+#description{
+    width:99%;
 }
 
 @media screen and (max-width: 1024px) {
     .list-row {
         width: calc(33.3% - 16px);
     }  
+   
 
 }
 
 @media screen and (max-width: 768px) {
+
+    .form-edit, .form-admin {
+        width: 60%;
+    }
 
   .table-responsive td,
   .table-responsive th {
     height: 35px;
   }
 
-  .table-responsive thead {
-    float: left;
-  }
-
+ 
   .table-responsive tbody {
     width: auto;
     position: relative;
@@ -293,5 +300,10 @@ div.container-table{
         margin: 8px 0;
     }
 }
+@media screen and (max-width: 425px) {
 
-
+    .form-edit, .form-admin {
+        width: 90%;
+        margin: 5px auto 20px auto;
+    }
+}
