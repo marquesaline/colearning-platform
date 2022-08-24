@@ -80,9 +80,12 @@ controller.create = async (req, res) => {
 controller.editAccount = async (req, res) => {
     const userLogged = await req.session.userLogged
     const user = await getUser(userLogged.id)
+    const agendas = await getUserAgendas(userLogged.id)
+    
     res.render(`areaLogada/minha-conta-editar`, {
       title: `Editar Usuário ${user.nome}`,
       user,
+      agendas
     });
 },
 
@@ -92,12 +95,13 @@ controller.updateAccount = async (req, res) => {
     const resultValidations = validationResult(req)
  
     if(resultValidations.errors.length > 0) {
-     
+      const agendas = await getUserAgendas(userLogged.id)
       return res.render('areaLogada/minha-conta-editar', {
         title: 'Editar usuário',
         errors: resultValidations.mapped(),
         oldData: req.body,
-        user
+        user, 
+        agendas
       })
     } 
     
@@ -129,9 +133,11 @@ controller.updateAccount = async (req, res) => {
 controller.excludeUser = async (req, res) => {
     const userLogged = await req.session.userLogged
     const user = userLogged
+    const agendas = await getUserAgendas(userLogged.id)
     res.render("areaLogada/minha-conta-excluir", {
       title: "Excluir conta",
-      user
+      user,
+      agendas
     });
 },
 
@@ -147,9 +153,7 @@ controller.deleteUser = async (req, res) => {
 }
   //arrumar - está dando erro
 controller.showAccount = async (req, res) => {
-  console.log("entrou")
   const userLogged = await req.session.userLogged    
-
   const user = await getUser(userLogged.id)
   const agendas = await getUserAgendas(userLogged.id)
   res.render("areaLogada/minha-conta", {

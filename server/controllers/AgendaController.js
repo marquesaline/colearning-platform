@@ -85,6 +85,7 @@ controller.editAgenda = async (req, res) => {
 }
 controller.updateAgenda = async (req, res) => {
     const { agendaId } = req.params
+    const agenda = await getAgenda(agendaId)
     const { 
         title, url, duration, start, end, 
         daysOfWeek, startTime, endTime, 

@@ -44,7 +44,7 @@
 
                     <div class="info-edit">
                         <label for="password">Senha</label>
-                        <input class="input-account" type="password" name="senha" id="senha" >
+                        <input class="input-account" type="password" name="senha" id="senha" required >
                     </div>
                     <% if(locals.errors && errors.senha) { %> 
                         <p style="color: red;"><%=errors.senha.msg%></p>

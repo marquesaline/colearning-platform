@@ -326,7 +326,7 @@ controller.editAgenda = async (req, res) => {
 }
 controller.updateAgenda = async (req, res) =>{
     const { id } = req.params
-    const agenda = getAgenda(id)
+    const agenda = await getAgenda(id)
 
     const {
         userId, 
