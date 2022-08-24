@@ -63,7 +63,12 @@ controller.createUser = async (req, res) => {
       })
     } 
     
-    const { nome, email, senha, admin, created_at, updated_at } = req.body;
+    const { nome, email, senha, admin, avatar, created_at, updated_at } = req.body
+    let avatarFileName = avatar
+   
+    if(req.file != undefined) {
+        avatarFileName = req.file.filename;
+    }
 
     //conferir se já existe um email
     let emailExists = await getUserByEmail(email)
@@ -83,11 +88,7 @@ controller.createUser = async (req, res) => {
     //criptografia da senha
     let senhaCripto = bcrypt.hashSync(senha, 3)
     
-    const avatarFileName = null
-   
-    if(req.file != undefined) {
-        return avatarFileName = req.file.filename;
-    }
+    
     await User.create({
       nome, 
       senha: senhaCripto,
@@ -130,16 +131,18 @@ controller.updateUser = async (req, res) => {
         slug, 
         email, 
         senha, 
+        avatar,
         admin, 
         created_at, 
         updated_at 
     } = req.body
+    let avatarFileName = avatar
+   
+    if(req.file != undefined) {
+        avatarFileName = req.file.filename;
+    }
 
     let senhaCripto = bcrypt.hashSync(senha, 3)
-    const avatarFileName = null
-    if(req.file != undefined) {
-        return avatarFileName = req.file.filename;
-    }
     
     await User.update(
     {

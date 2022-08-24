@@ -102,19 +102,22 @@ controller.updateAccount = async (req, res) => {
       })
     } 
     
-    const { nome, email, senha, created_at, updated_at } = req.body;
+    const { nome, email, senha, avatar, created_at, updated_at } = req.body
+    let avatarFileName = avatar
+   
+    if(req.file != undefined) {
+        avatarFileName = req.file.filename;
+    }
     
     let senhaCripto = bcrypt.hashSync(senha, 3)
     const id = user.id
     const slug = await create.slug(nome)
-    const avatarFileName = null
-    if(req.file != undefined) {
-      return avatarFileName = req.file.filename;
-  }
-   
-   
+  
     await User.update(
-      { nome, slug, email, senha: senhaCripto,
+      { nome, 
+        slug, 
+        email, 
+        senha: senhaCripto,
         avatar: avatarFileName || null,
         admin: user.admin,
         createdAt: created_at,
