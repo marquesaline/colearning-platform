@@ -99,16 +99,6 @@
                 <p class="info-legend">Data fim</p>
                 <p><%= agenda.end %></p>
               </div>           
-              </div>
-              <div class="info-data">
-                <p class="info-legend">Data de criação</p>
-                <p><%= agenda.createdAt %></p>
-              </div>
-              <div class="info-data">
-                <p class="info-legend">Data de modificação</p>
-                <p><%= agenda.updatedAt %></p>
-              </div>
-    
               <div class="info-data">
                 <p class="info-legend">Disponibilidade</p>
                 <table>
@@ -156,7 +146,17 @@
                       <% } %> 
                     </tbody>
                 </table>
-            </div>
+              </div>
+              <div class="info-data">
+                <p class="info-legend">Data de criação</p>
+                <p><%= agenda.createdAt %></p>
+              </div>
+              <div class="info-data">
+                <p class="info-legend">Data de modificação</p>
+                <p><%= agenda.updatedAt %></p>
+              </div>
+    
+              
           </div>
           <div class="btn-options">
             <a class="um-user btn-default" href="/admin/agendas/<%= agenda.id %>/agendamentos">Agendamentos</a> |
