@@ -278,18 +278,27 @@
 }
 
 @media screen and (max-width: 480px) {
+    .main-calendar {
+        margin-bottom: 50px;
+    }
     #calendar .fc-daygrid-body {
         width: 100%;
     }
     .section-agenda {
         margin: 15px 10px;
         width: 94%;
+        height: 100vh;
     }
     .container-events {
         padding: 0;
+        
     }
-    #calendar-main {
+    #calendar-main,
+    #calendar-agenda {
         margin-top: 60px;
+        margin-bottom: 50px;
+        height: 100vh;
+       
     }
     #calendar-main .fc-toolbar.fc-header-toolbar,
     #calendar-agenda .fc-toolbar.fc-header-toolbar {

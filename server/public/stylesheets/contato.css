@@ -113,3 +113,43 @@ textarea, .container-input {
 .alert-sucess p {
     color: rgb(36, 74, 36);
 }
+
+@media  screen and (max-width: 480px) {
+    .principal {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .titulo-p {
+        margin: 50px 5px 20px 5px;
+        font-size: 28px;
+    }
+    .img-container {
+        width: 100%;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .img-container img {
+        width: 100%;
+    }
+
+    .container-list-mensagem {
+        text-align: center;
+        width: 100%;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 10px;
+    }
+
+    .container-mensagem {
+        width: 100%;
+        margin: 10px 20px;
+    }
+
+    .forminput, .form-label-input {
+        width: 100%;
+    }
+    .form-label, .container-input {
+        width: 100%;
+    }
+
+}

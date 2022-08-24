@@ -215,7 +215,7 @@ padrão em todas as telas, menos a de calendário */
         left: 0;
         right: 0;
         background-color: var(--background-primary);
-        height: calc(100vh - 300px);
+        height: 100vh;
         z-index: 1000;
     }
    
