@@ -148,7 +148,7 @@
         top: 80px;
         right: 0;
         background-color: var(--background-primary);
-        height: calc(100vh - 650px);
+        height: 100vh;
         z-index: 1000;
     }
     #nav-header.active #ul-menu {

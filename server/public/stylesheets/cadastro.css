@@ -98,3 +98,10 @@ main {
 .registered a {
     color: var(--background-button);
 }
+
+@media screen and (max-width: 768px) {
+    .container-access {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}

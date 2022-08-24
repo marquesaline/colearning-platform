@@ -1,15 +1,59 @@
 <section id="container-mobile">
     <button id="btn-menu-mobile"></button>
 </section>
-<aside class="container-side" >
+<aside id="aside" >
+    <div class="container-side" id="container-side">
+        <div class="container-calendar">
+            <div>
+                <div class="container-button">
+                <a href="/conta" class="agenda-submit">Calendário</a>
+                </div>
+                <div class="container-table-month">
+                <div id='calendar'></div>
+                </div>
+            </div>
+            <div class="container-agendas">
+                <p>Minhas Agendas</p>
+                
+                <div class="agendas-list">
+                    <ul>
+                        
+                        <% for(let agenda of agendas) { %>
+                            <li>
+                                <div>
+                                    <a href="/conta/<%=agenda.id%>">
+                                        <%=agenda.title%>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="/conta/<%=agenda.id%>/editar-agenda">
+                                        <img src="/images/icon-edit2.png" height="15px" width="15px">
+                                    </a>
+                                    <a href="/conta/<%=agenda.id%>/apagar-agenda">
+                                        <img src="/images/icon-delete2.png" height="15px" width="15px">
+                                    </a>
+                                </div>
+                            </li>
+                        <% } %> 
+                        <li class="container-agenda-create">
+                            <a href="/conta/criar-agenda">
+                                <img src="/images/icon-add.png" height="15px" width="15px">
+                                Criar agenda
+                            </a>
+                        </li>  
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
     <div id="contents-side" class="container-calendar">
         <div>
             <div class="container-button">
-            <a href="/conta" class="agenda-submit">Calendário</a>
+                <a href="/conta" class="agenda-submit">Calendário</a>
             </div>
-            <div class="container-table-month">
-            <div id='calendar'></div>
-            </div>
+          
         </div>
         <div class="container-agendas">
             <p>Minhas Agendas</p>
@@ -45,4 +89,6 @@
             
         </div>
     </div>
+
+    
 </aside>

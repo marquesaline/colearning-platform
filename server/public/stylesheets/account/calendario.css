@@ -291,12 +291,14 @@
     #calendar-main {
         margin-top: 60px;
     }
-    #calendar-main .fc-toolbar.fc-header-toolbar {
+    #calendar-main .fc-toolbar.fc-header-toolbar,
+    #calendar-agenda .fc-toolbar.fc-header-toolbar {
         flex-direction: column-reverse;
         height: 150px;
        
     }
-   #calendar-main .fc-toolbar-ltr > div:nth-child(1) {
+   #calendar-main .fc-toolbar-ltr > div:nth-child(1),
+   #calendar-agenda .fc-toolbar-ltr > div:nth-child(1) {
        margin: 0 auto;
        text-align: center;
    }
@@ -309,7 +311,7 @@
         width: 90%;
    }
     .container-agendas {
-        margin-top: 200px;
+        margin-top: 20px;
     }
 
     .agenda {
