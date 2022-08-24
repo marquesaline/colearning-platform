@@ -4,7 +4,6 @@ const { User } = require('../database/models')
 const { validationResult } = require('express-validator')
 const bcrypt  = require('bcrypt')
 const create = require('../utils/create')
-const { get } = require('jquery')
 
 
 //sendo usado pra o cadastro do usuário
