@@ -5,7 +5,7 @@
   <% if(locals.user) { %>
     <h1 class="admin-title">Excluir usuário</h1>
     <section class="container-list ">
-      <form class="form-user" method="post" action="/admin/usuarios/<%=user.id%>/excluir?_method=delete" >
+      <form class="form-edit" method="post" action="/admin/usuarios/<%=user.id%>/excluir?_method=delete" >
         <div class="info-edit">
           <label for="nome">Nome</label>
           <input
@@ -51,7 +51,7 @@
     <h1 class="admin-title">Excluir agenda</h1>
     <section class="container-list ">
       <form
-        class="form-user"
+        class="form-edit"
         method="post"
         action="/admin/agendas/<%=agenda.id%>/excluir?_method=delete"
       >  
@@ -125,7 +125,7 @@
     <section class="container-list ">
     
       <form
-        class="form-user"
+        class="form-edit"
         method="post"
         action="/admin/agendamentos/<%=event.id%>/excluir?_method=delete"
        
@@ -181,7 +181,7 @@
     <h1 class="admin-title">Excluir usuário</h1>
     <section class="container-list ">
       <form
-        class="form-user"
+        class="form-edit"
         method="post"
         action="/admin/contatos/<%=contact.id%>/excluir?_method=delete"
       
